@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node api/index.js",
     "dev": "nodemon api/index.js",
-    "postinstall": "prisma generate --schema=prisma/schema.prisma && prisma generate --schema=prisma/neon.prisma",
+    "postinstall": "prisma generate --schema=prisma/schema.prisma && prisma generate --schema=prisma/neon.prisma && prisma generate --schema=prisma/local.prisma",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,9 +15,12 @@
   "type": "commonjs",
   "dependencies": {
     "@prisma/client": "^5.22.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "iconv-lite": "^0.7.2",
+    "jsonwebtoken": "^9.0.3",
     "prisma": "^5.22.0",
     "xlsx": "^0.18.5"
   },

@@ -125,25 +125,13 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.DriverScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  affiliation: 'affiliation',
+  affiliationId: 'affiliationId',
+  carNo: 'carNo',
   tonnage: 'tonnage',
+  phone: 'phone',
   regDate: 'regDate',
   address: 'address',
   memo: 'memo',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.FeeMasterScalarFieldEnum = {
-  id: 'id',
-  affiliation: 'affiliation',
-  tonnage: 'tonnage',
-  year: 'year',
-  region: 'region',
-  fee: 'fee',
-  memo: 'memo',
-  isActive: 'isActive',
-  readonly: 'readonly',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -158,18 +146,62 @@ exports.Prisma.SettlementHistoryScalarFieldEnum = {
   totalWeight: 'totalWeight',
   fee: 'fee',
   memo: 'memo',
+  status: 'status',
   isPbox: 'isPbox',
   isReturn: 'isReturn',
   so: 'so',
   nap: 'nap',
   ton: 'ton',
+  contractId: 'contractId',
+  appliedTonnage: 'appliedTonnage',
   createdAt: 'createdAt'
 };
 
 exports.Prisma.AffiliationScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  bizNo: 'bizNo',
+  ceo: 'ceo',
+  address: 'address',
+  manager: 'manager',
+  contact: 'contact',
+  email: 'email',
+  memo: 'memo',
   createdAt: 'createdAt'
+};
+
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  loginId: 'loginId',
+  password: 'password',
+  name: 'name',
+  role: 'role',
+  affiliationId: 'affiliationId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.YongchaContractScalarFieldEnum = {
+  id: 'id',
+  year: 'year',
+  affiliationId: 'affiliationId',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  memo: 'memo'
+};
+
+exports.Prisma.YongchaRateDetailScalarFieldEnum = {
+  id: 'id',
+  contractId: 'contractId',
+  tonnage: 'tonnage',
+  region: 'region',
+  price: 'price',
+  memo: 'memo',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -190,9 +222,11 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   Driver: 'Driver',
-  FeeMaster: 'FeeMaster',
   SettlementHistory: 'SettlementHistory',
-  Affiliation: 'Affiliation'
+  Affiliation: 'Affiliation',
+  User: 'User',
+  YongchaContract: 'YongchaContract',
+  YongchaRateDetail: 'YongchaRateDetail'
 };
 
 /**

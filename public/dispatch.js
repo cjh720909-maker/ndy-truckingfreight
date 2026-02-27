@@ -103,6 +103,13 @@ function renderDispatchData(json, tbody, cards) {
         return;
     }
 
+    // 0. Calculate Total Amount (Settled + Expected)
+    let totalAmount = 0;
+    data.forEach(row => {
+        const autoPrice = calculateExpectedPrice(row.destDetail, row.tonnage);
+        totalAmount += (row.isSettled ? row.settledAmount : (autoPrice.price || 0));
+    });
+
     // 1. Cards (Ultra Slim Chips)
     cards.innerHTML = `
         <div class="bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200 flex items-center gap-2">
@@ -113,7 +120,7 @@ function renderDispatchData(json, tbody, cards) {
         <div class="bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200 flex items-center gap-2">
             <div class="w-1.5 h-1.5 rounded-full bg-cyan-500"></div>
             <span class="text-[11px] font-bold text-slate-400 uppercase">배차</span>
-            <span class="text-sm font-bold text-slate-800">${formatNumber(summary.totalDispatchNames)}</span>
+            <span class="text-sm font-bold text-slate-800">${formatNumber(data.length)}</span>
         </div>
         <div class="bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200 flex items-center gap-2">
             <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
@@ -130,61 +137,53 @@ function renderDispatchData(json, tbody, cards) {
             <span class="text-[11px] font-bold text-slate-400 uppercase">총중량</span>
             <span class="text-sm font-bold text-slate-800">${formatNumber(summary.totalWeight)}<span class="text-[10px] ml-0.5 font-normal">kg</span></span>
         </div>
+        <div class="bg-white px-3 py-1.5 rounded-full shadow-sm border border-rose-200 bg-rose-50/30 flex items-center gap-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-rose-500"></div>
+            <span class="text-[11px] font-bold text-rose-500 uppercase">총금액</span>
+            <span class="text-sm font-black text-rose-700">${formatNumber(totalAmount)}<span class="text-[10px] ml-0.5 font-normal">원</span></span>
+        </div>
     `;
 
     // 2. Table Body (Must match header widths)
     tbody.innerHTML = data.map((row, i) => {
         const autoPrice = calculateExpectedPrice(row.destDetail, row.tonnage);
+        const isSettled = row.isSettled;
+        const statusText = isSettled ? '<span class="px-1.5 py-0.5 bg-green-100 text-green-700 rounded-full font-bold text-[9px]">정산완료</span>' : '<span class="px-1.5 py-0.5 bg-slate-100 text-slate-500 rounded-full font-bold text-[9px]">미정산</span>';
+
+        // 정산된 금액이 있으면 그것을 우선 표시, 없으면 자동 산출 금액 표시
+        const displayPrice = isSettled ? row.settledAmount : autoPrice.price;
 
         return `
-        <tr class="hover:bg-slate-50 border-b border-slate-50 last:border-0 flex px-6 items-center">
-            <td class="py-0.5 text-center text-slate-400 w-[40px] shrink-0 text-[10px]">${i + 1}</td>
+        <tr class="hover:bg-slate-50 border-b border-slate-50 last:border-0 flex px-2 items-center h-6 ${isSettled ? 'bg-green-50/10' : ''}">
+            <td class="text-center text-slate-400 w-[40px] shrink-0 text-[10px]">${i + 1}</td>
             <td class="py-0.5 text-slate-600 w-[90px] shrink-0 text-[10px] font-medium">${row.date || '-'}</td>
-            <td class="py-0.5 font-bold text-slate-800 w-[100px] shrink-0 truncate text-[11px]">${row.driverName || '-'}</td>
-            <td class="py-0.5 w-[90px] shrink-0 px-1">
-                <input type="text" class="w-full px-1.5 py-0.5 border border-slate-200 rounded text-[10px] focus:outline-none focus:border-indigo-500" value="${row.driverDiv || ''}" placeholder="소속">
-            </td>
-            <td class="py-0.5 text-right w-[60px] shrink-0 text-[10px]">${formatNumber(row.destCount)}</td>
+            <td class="py-0.5 font-bold text-slate-800 w-[110px] shrink-0 truncate text-[11px]">${row.driverName || '-'}</td>
+            <td class="py-0.5 w-[100px] shrink-0 px-1 text-[10px] text-slate-600 truncate">${row.driverDiv || '-'}</td>
+            <td class="py-0.5 w-[70px] shrink-0 text-center">${statusText}</td>
+            <td class="py-0.5 text-right w-[60px] shrink-0 text-[10px] font-medium">${formatNumber(row.destCount)}</td>
             <td class="py-0.5 text-right w-[80px] shrink-0 text-indigo-700 font-bold text-[11px]">${formatNumber(row.totalWeight)}</td>
-            <td class="py-0.5 w-[180px] shrink-0 px-4">
-                <textarea class="w-full px-1.5 py-0.5 border border-slate-200 rounded text-[10px] focus:outline-none focus:border-indigo-500 leading-tight" rows="1" placeholder="상세">${row.destDetail || ''}</textarea>
-            </td>
-            <td class="py-0.5 w-[50px] shrink-0 text-center">
-                <input type="checkbox" class="w-3.5 h-3.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
-            </td>
-            <td class="py-0.5 w-[70px] shrink-0 text-center">
-                <input type="checkbox" class="w-3.5 h-3.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
-            </td>
-            <td class="py-0.5 w-[90px] shrink-0 px-1">
-                <input type="number" class="w-full px-1.5 py-0.5 text-right border ${autoPrice.price > 0 ? 'border-indigo-300 bg-indigo-50' : 'border-slate-200'} rounded text-[11px] font-bold text-indigo-700 focus:outline-none focus:border-indigo-500" value="${autoPrice.price || ''}">
-            </td>
-            <td class="py-0.5 w-[90px] shrink-0 px-1">
-                <input type="number" class="w-full px-1.5 py-0.5 text-right border border-slate-200 rounded text-[11px] focus:outline-none focus:border-indigo-500">
-            </td>
-            <td class="py-0.5 flex-grow px-2">
-                <input type="text" class="w-full px-1.5 py-0.5 border border-slate-200 rounded text-[10px] focus:outline-none focus:border-indigo-500" id="memo-${i}" placeholder="비고">
-            </td>
-            <td class="py-0.5 w-[50px] shrink-0 flex items-center justify-center">
-                <button onclick="sendToSettlement(${i}, ${JSON.stringify(row).replace(/"/g, '&quot;')})" class="bg-indigo-600 text-white px-2 py-0.5 rounded text-[9px] font-bold hover:bg-indigo-700 transition-colors">전송</button>
-            </td>
+            <td class="py-0.5 w-[200px] shrink-0 px-4 text-[10px] text-slate-500 truncate" title="${row.destDetail || ''}">${row.destDetail || '-'}</td>
+            <td class="py-0.5 w-[100px] shrink-0 px-2 text-right text-[11px] font-bold ${isSettled ? 'text-green-600' : 'text-indigo-600'}">${formatNumber(displayPrice)}</td>
+            <td class="py-0.5 flex-grow px-2 text-[10px] text-slate-400 truncate">${row.memo || ''}</td>
         </tr>
         `;
     }).join('');
 }
 
 async function sendToSettlement(i, row) {
+    const tr = document.querySelector(`#dispatch-tableBody tr:nth-child(${i + 1})`);
     const data = {
         date: row.date,
         name: row.driverName,
-        so: document.querySelector(`#dispatch-tableBody tr:nth-child(${i + 1}) td:nth-child(4) input`).value,
-        nap: row.destCount + '곳', // 납품처 수
+        so: tr.querySelector('td:nth-child(4) input').value,
+        nap: row.destCount + '곳',
         ton: row.totalWeight,
-        yo: document.querySelector(`#dispatch-tableBody tr:nth-child(${i + 1}) td:nth-child(7) textarea`).value,
-        kum: parseInt(document.querySelector(`#dispatch-tableBody tr:nth-child(${i + 1}) td:nth-child(10) input`).value) || 0,
-        un: parseInt(document.querySelector(`#dispatch-tableBody tr:nth-child(${i + 1}) td:nth-child(11) input`).value) || 0,
-        memo: document.querySelector(`#memo-${i}`).value,
-        isPbox: document.querySelector(`#dispatch-tableBody tr:nth-child(${i + 1}) td:nth-child(8) input`).checked,
-        isReturn: document.querySelector(`#dispatch-tableBody tr:nth-child(${i + 1}) td:nth-child(9) input`).checked
+        yo: tr.querySelector('td:nth-child(8) textarea').value, // 납품처 상세
+        kum: parseInt(tr.querySelector('td:nth-child(9) input').value) || 0, // 정산금액
+        un: parseInt(tr.querySelector('td:nth-child(10) input').value) || 0, // 청구금액
+        memo: tr.querySelector(`#memo-${i}`).value,
+        isPbox: false,
+        isReturn: false
     };
 
     try {

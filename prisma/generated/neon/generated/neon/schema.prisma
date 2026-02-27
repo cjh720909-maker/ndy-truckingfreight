@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/neon"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("NEON_URL")
+}
+
+model Driver {
+  id          Int      @id @default(autoincrement())
+  name        String
+  affiliation String?
+  tonnage     String?
+  regDate     String?
+  address     String?
+  memo        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model FeeMaster {
+  id          Int      @id @default(autoincrement())
+  affiliation String
+  tonnage     String
+  year        Int
+  region      String
+  fee         Int
+  memo        String?
+  isActive    Boolean  @default(true)
+  readonly    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SettlementHistory {
+  id          Int      @id @default(autoincrement())
+  date        String
+  driverName  String
+  affiliation String?
+  tonnage     String?
+  destCount   Int
+  totalWeight Int
+  fee         Int
+  memo        String?
+  isPbox      Boolean  @default(false)
+  isReturn    Boolean  @default(false)
+  so          String?
+  nap         String?
+  ton         Int?
+  createdAt   DateTime @default(now())
+}
+
+model Affiliation {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  createdAt DateTime @default(now())
+}

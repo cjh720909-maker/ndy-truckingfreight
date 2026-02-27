@@ -19,11 +19,6 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type Driver = $Result.DefaultSelection<Prisma.$DriverPayload>
 /**
- * Model FeeMaster
- * 
- */
-export type FeeMaster = $Result.DefaultSelection<Prisma.$FeeMasterPayload>
-/**
  * Model SettlementHistory
  * 
  */
@@ -33,6 +28,21 @@ export type SettlementHistory = $Result.DefaultSelection<Prisma.$SettlementHisto
  * 
  */
 export type Affiliation = $Result.DefaultSelection<Prisma.$AffiliationPayload>
+/**
+ * Model User
+ * 
+ */
+export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model YongchaContract
+ * 
+ */
+export type YongchaContract = $Result.DefaultSelection<Prisma.$YongchaContractPayload>
+/**
+ * Model YongchaRateDetail
+ * 
+ */
+export type YongchaRateDetail = $Result.DefaultSelection<Prisma.$YongchaRateDetailPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -168,16 +178,6 @@ export class PrismaClient<
   get driver(): Prisma.DriverDelegate<ExtArgs>;
 
   /**
-   * `prisma.feeMaster`: Exposes CRUD operations for the **FeeMaster** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more FeeMasters
-    * const feeMasters = await prisma.feeMaster.findMany()
-    * ```
-    */
-  get feeMaster(): Prisma.FeeMasterDelegate<ExtArgs>;
-
-  /**
    * `prisma.settlementHistory`: Exposes CRUD operations for the **SettlementHistory** model.
     * Example usage:
     * ```ts
@@ -196,6 +196,36 @@ export class PrismaClient<
     * ```
     */
   get affiliation(): Prisma.AffiliationDelegate<ExtArgs>;
+
+  /**
+   * `prisma.user`: Exposes CRUD operations for the **User** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
+    * ```
+    */
+  get user(): Prisma.UserDelegate<ExtArgs>;
+
+  /**
+   * `prisma.yongchaContract`: Exposes CRUD operations for the **YongchaContract** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more YongchaContracts
+    * const yongchaContracts = await prisma.yongchaContract.findMany()
+    * ```
+    */
+  get yongchaContract(): Prisma.YongchaContractDelegate<ExtArgs>;
+
+  /**
+   * `prisma.yongchaRateDetail`: Exposes CRUD operations for the **YongchaRateDetail** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more YongchaRateDetails
+    * const yongchaRateDetails = await prisma.yongchaRateDetail.findMany()
+    * ```
+    */
+  get yongchaRateDetail(): Prisma.YongchaRateDetailDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -638,9 +668,11 @@ export namespace Prisma {
 
   export const ModelName: {
     Driver: 'Driver',
-    FeeMaster: 'FeeMaster',
     SettlementHistory: 'SettlementHistory',
-    Affiliation: 'Affiliation'
+    Affiliation: 'Affiliation',
+    User: 'User',
+    YongchaContract: 'YongchaContract',
+    YongchaRateDetail: 'YongchaRateDetail'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -656,7 +688,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "driver" | "feeMaster" | "settlementHistory" | "affiliation"
+      modelProps: "driver" | "settlementHistory" | "affiliation" | "user" | "yongchaContract" | "yongchaRateDetail"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -727,76 +759,6 @@ export namespace Prisma {
           count: {
             args: Prisma.DriverCountArgs<ExtArgs>
             result: $Utils.Optional<DriverCountAggregateOutputType> | number
-          }
-        }
-      }
-      FeeMaster: {
-        payload: Prisma.$FeeMasterPayload<ExtArgs>
-        fields: Prisma.FeeMasterFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.FeeMasterFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.FeeMasterFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload>
-          }
-          findFirst: {
-            args: Prisma.FeeMasterFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.FeeMasterFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload>
-          }
-          findMany: {
-            args: Prisma.FeeMasterFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload>[]
-          }
-          create: {
-            args: Prisma.FeeMasterCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload>
-          }
-          createMany: {
-            args: Prisma.FeeMasterCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.FeeMasterCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload>[]
-          }
-          delete: {
-            args: Prisma.FeeMasterDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload>
-          }
-          update: {
-            args: Prisma.FeeMasterUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload>
-          }
-          deleteMany: {
-            args: Prisma.FeeMasterDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.FeeMasterUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.FeeMasterUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeeMasterPayload>
-          }
-          aggregate: {
-            args: Prisma.FeeMasterAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateFeeMaster>
-          }
-          groupBy: {
-            args: Prisma.FeeMasterGroupByArgs<ExtArgs>
-            result: $Utils.Optional<FeeMasterGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.FeeMasterCountArgs<ExtArgs>
-            result: $Utils.Optional<FeeMasterCountAggregateOutputType> | number
           }
         }
       }
@@ -937,6 +899,216 @@ export namespace Prisma {
           count: {
             args: Prisma.AffiliationCountArgs<ExtArgs>
             result: $Utils.Optional<AffiliationCountAggregateOutputType> | number
+          }
+        }
+      }
+      User: {
+        payload: Prisma.$UserPayload<ExtArgs>
+        fields: Prisma.UserFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findFirst: {
+            args: Prisma.UserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findMany: {
+            args: Prisma.UserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          create: {
+            args: Prisma.UserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          createMany: {
+            args: Prisma.UserCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          delete: {
+            args: Prisma.UserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          update: {
+            args: Prisma.UserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          aggregate: {
+            args: Prisma.UserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUser>
+          }
+          groupBy: {
+            args: Prisma.UserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserCountArgs<ExtArgs>
+            result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
+      YongchaContract: {
+        payload: Prisma.$YongchaContractPayload<ExtArgs>
+        fields: Prisma.YongchaContractFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.YongchaContractFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.YongchaContractFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload>
+          }
+          findFirst: {
+            args: Prisma.YongchaContractFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.YongchaContractFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload>
+          }
+          findMany: {
+            args: Prisma.YongchaContractFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload>[]
+          }
+          create: {
+            args: Prisma.YongchaContractCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload>
+          }
+          createMany: {
+            args: Prisma.YongchaContractCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.YongchaContractCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload>[]
+          }
+          delete: {
+            args: Prisma.YongchaContractDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload>
+          }
+          update: {
+            args: Prisma.YongchaContractUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload>
+          }
+          deleteMany: {
+            args: Prisma.YongchaContractDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.YongchaContractUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.YongchaContractUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaContractPayload>
+          }
+          aggregate: {
+            args: Prisma.YongchaContractAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateYongchaContract>
+          }
+          groupBy: {
+            args: Prisma.YongchaContractGroupByArgs<ExtArgs>
+            result: $Utils.Optional<YongchaContractGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.YongchaContractCountArgs<ExtArgs>
+            result: $Utils.Optional<YongchaContractCountAggregateOutputType> | number
+          }
+        }
+      }
+      YongchaRateDetail: {
+        payload: Prisma.$YongchaRateDetailPayload<ExtArgs>
+        fields: Prisma.YongchaRateDetailFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.YongchaRateDetailFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.YongchaRateDetailFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload>
+          }
+          findFirst: {
+            args: Prisma.YongchaRateDetailFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.YongchaRateDetailFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload>
+          }
+          findMany: {
+            args: Prisma.YongchaRateDetailFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload>[]
+          }
+          create: {
+            args: Prisma.YongchaRateDetailCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload>
+          }
+          createMany: {
+            args: Prisma.YongchaRateDetailCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.YongchaRateDetailCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload>[]
+          }
+          delete: {
+            args: Prisma.YongchaRateDetailDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload>
+          }
+          update: {
+            args: Prisma.YongchaRateDetailUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload>
+          }
+          deleteMany: {
+            args: Prisma.YongchaRateDetailDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.YongchaRateDetailUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.YongchaRateDetailUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YongchaRateDetailPayload>
+          }
+          aggregate: {
+            args: Prisma.YongchaRateDetailAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateYongchaRateDetail>
+          }
+          groupBy: {
+            args: Prisma.YongchaRateDetailGroupByArgs<ExtArgs>
+            result: $Utils.Optional<YongchaRateDetailGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.YongchaRateDetailCountArgs<ExtArgs>
+            result: $Utils.Optional<YongchaRateDetailCountAggregateOutputType> | number
           }
         }
       }
@@ -1096,6 +1268,94 @@ export namespace Prisma {
    */
 
 
+  /**
+   * Count Type AffiliationCountOutputType
+   */
+
+  export type AffiliationCountOutputType = {
+    Driver: number
+    YongchaContract: number
+    User: number
+  }
+
+  export type AffiliationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Driver?: boolean | AffiliationCountOutputTypeCountDriverArgs
+    YongchaContract?: boolean | AffiliationCountOutputTypeCountYongchaContractArgs
+    User?: boolean | AffiliationCountOutputTypeCountUserArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AffiliationCountOutputType without action
+   */
+  export type AffiliationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AffiliationCountOutputType
+     */
+    select?: AffiliationCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AffiliationCountOutputType without action
+   */
+  export type AffiliationCountOutputTypeCountDriverArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DriverWhereInput
+  }
+
+  /**
+   * AffiliationCountOutputType without action
+   */
+  export type AffiliationCountOutputTypeCountYongchaContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YongchaContractWhereInput
+  }
+
+  /**
+   * AffiliationCountOutputType without action
+   */
+  export type AffiliationCountOutputTypeCountUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+  }
+
+
+  /**
+   * Count Type YongchaContractCountOutputType
+   */
+
+  export type YongchaContractCountOutputType = {
+    SettlementHistory: number
+    YongchaRateDetail: number
+  }
+
+  export type YongchaContractCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    SettlementHistory?: boolean | YongchaContractCountOutputTypeCountSettlementHistoryArgs
+    YongchaRateDetail?: boolean | YongchaContractCountOutputTypeCountYongchaRateDetailArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * YongchaContractCountOutputType without action
+   */
+  export type YongchaContractCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContractCountOutputType
+     */
+    select?: YongchaContractCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * YongchaContractCountOutputType without action
+   */
+  export type YongchaContractCountOutputTypeCountSettlementHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SettlementHistoryWhereInput
+  }
+
+  /**
+   * YongchaContractCountOutputType without action
+   */
+  export type YongchaContractCountOutputTypeCountYongchaRateDetailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YongchaRateDetailWhereInput
+  }
+
 
   /**
    * Models
@@ -1115,18 +1375,22 @@ export namespace Prisma {
 
   export type DriverAvgAggregateOutputType = {
     id: number | null
+    affiliationId: number | null
   }
 
   export type DriverSumAggregateOutputType = {
     id: number | null
+    affiliationId: number | null
   }
 
   export type DriverMinAggregateOutputType = {
     id: number | null
     name: string | null
-    affiliation: string | null
+    affiliationId: number | null
+    carNo: string | null
     tonnage: string | null
-    regDate: string | null
+    phone: string | null
+    regDate: Date | null
     address: string | null
     memo: string | null
     createdAt: Date | null
@@ -1136,9 +1400,11 @@ export namespace Prisma {
   export type DriverMaxAggregateOutputType = {
     id: number | null
     name: string | null
-    affiliation: string | null
+    affiliationId: number | null
+    carNo: string | null
     tonnage: string | null
-    regDate: string | null
+    phone: string | null
+    regDate: Date | null
     address: string | null
     memo: string | null
     createdAt: Date | null
@@ -1148,8 +1414,10 @@ export namespace Prisma {
   export type DriverCountAggregateOutputType = {
     id: number
     name: number
-    affiliation: number
+    affiliationId: number
+    carNo: number
     tonnage: number
+    phone: number
     regDate: number
     address: number
     memo: number
@@ -1161,17 +1429,21 @@ export namespace Prisma {
 
   export type DriverAvgAggregateInputType = {
     id?: true
+    affiliationId?: true
   }
 
   export type DriverSumAggregateInputType = {
     id?: true
+    affiliationId?: true
   }
 
   export type DriverMinAggregateInputType = {
     id?: true
     name?: true
-    affiliation?: true
+    affiliationId?: true
+    carNo?: true
     tonnage?: true
+    phone?: true
     regDate?: true
     address?: true
     memo?: true
@@ -1182,8 +1454,10 @@ export namespace Prisma {
   export type DriverMaxAggregateInputType = {
     id?: true
     name?: true
-    affiliation?: true
+    affiliationId?: true
+    carNo?: true
     tonnage?: true
+    phone?: true
     regDate?: true
     address?: true
     memo?: true
@@ -1194,8 +1468,10 @@ export namespace Prisma {
   export type DriverCountAggregateInputType = {
     id?: true
     name?: true
-    affiliation?: true
+    affiliationId?: true
+    carNo?: true
     tonnage?: true
+    phone?: true
     regDate?: true
     address?: true
     memo?: true
@@ -1293,9 +1569,11 @@ export namespace Prisma {
   export type DriverGroupByOutputType = {
     id: number
     name: string
-    affiliation: string | null
+    affiliationId: number | null
+    carNo: string | null
     tonnage: string | null
-    regDate: string | null
+    phone: string | null
+    regDate: Date | null
     address: string | null
     memo: string | null
     createdAt: Date
@@ -1324,32 +1602,40 @@ export namespace Prisma {
   export type DriverSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    affiliation?: boolean
+    affiliationId?: boolean
+    carNo?: boolean
     tonnage?: boolean
+    phone?: boolean
     regDate?: boolean
     address?: boolean
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    Affiliation?: boolean | Driver$AffiliationArgs<ExtArgs>
   }, ExtArgs["result"]["driver"]>
 
   export type DriverSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    affiliation?: boolean
+    affiliationId?: boolean
+    carNo?: boolean
     tonnage?: boolean
+    phone?: boolean
     regDate?: boolean
     address?: boolean
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    Affiliation?: boolean | Driver$AffiliationArgs<ExtArgs>
   }, ExtArgs["result"]["driver"]>
 
   export type DriverSelectScalar = {
     id?: boolean
     name?: boolean
-    affiliation?: boolean
+    affiliationId?: boolean
+    carNo?: boolean
     tonnage?: boolean
+    phone?: boolean
     regDate?: boolean
     address?: boolean
     memo?: boolean
@@ -1357,16 +1643,26 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
+  export type DriverInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Affiliation?: boolean | Driver$AffiliationArgs<ExtArgs>
+  }
+  export type DriverIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Affiliation?: boolean | Driver$AffiliationArgs<ExtArgs>
+  }
 
   export type $DriverPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Driver"
-    objects: {}
+    objects: {
+      Affiliation: Prisma.$AffiliationPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
-      affiliation: string | null
+      affiliationId: number | null
+      carNo: string | null
       tonnage: string | null
-      regDate: string | null
+      phone: string | null
+      regDate: Date | null
       address: string | null
       memo: string | null
       createdAt: Date
@@ -1735,6 +2031,7 @@ export namespace Prisma {
    */
   export interface Prisma__DriverClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    Affiliation<T extends Driver$AffiliationArgs<ExtArgs> = {}>(args?: Subset<T, Driver$AffiliationArgs<ExtArgs>>): Prisma__AffiliationClient<$Result.GetResult<Prisma.$AffiliationPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1766,9 +2063,11 @@ export namespace Prisma {
   interface DriverFieldRefs {
     readonly id: FieldRef<"Driver", 'Int'>
     readonly name: FieldRef<"Driver", 'String'>
-    readonly affiliation: FieldRef<"Driver", 'String'>
+    readonly affiliationId: FieldRef<"Driver", 'Int'>
+    readonly carNo: FieldRef<"Driver", 'String'>
     readonly tonnage: FieldRef<"Driver", 'String'>
-    readonly regDate: FieldRef<"Driver", 'String'>
+    readonly phone: FieldRef<"Driver", 'String'>
+    readonly regDate: FieldRef<"Driver", 'DateTime'>
     readonly address: FieldRef<"Driver", 'String'>
     readonly memo: FieldRef<"Driver", 'String'>
     readonly createdAt: FieldRef<"Driver", 'DateTime'>
@@ -1786,6 +2085,10 @@ export namespace Prisma {
      */
     select?: DriverSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
+    /**
      * Filter, which Driver to fetch.
      */
     where: DriverWhereUniqueInput
@@ -1800,6 +2103,10 @@ export namespace Prisma {
      */
     select?: DriverSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
+    /**
      * Filter, which Driver to fetch.
      */
     where: DriverWhereUniqueInput
@@ -1813,6 +2120,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the Driver
      */
     select?: DriverSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
     /**
      * Filter, which Driver to fetch.
      */
@@ -1858,6 +2169,10 @@ export namespace Prisma {
      */
     select?: DriverSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
+    /**
      * Filter, which Driver to fetch.
      */
     where?: DriverWhereInput
@@ -1902,6 +2217,10 @@ export namespace Prisma {
      */
     select?: DriverSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
+    /**
      * Filter, which Drivers to fetch.
      */
     where?: DriverWhereInput
@@ -1941,6 +2260,10 @@ export namespace Prisma {
      */
     select?: DriverSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
+    /**
      * The data needed to create a Driver.
      */
     data: XOR<DriverCreateInput, DriverUncheckedCreateInput>
@@ -1970,6 +2293,10 @@ export namespace Prisma {
      */
     data: DriverCreateManyInput | DriverCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -1980,6 +2307,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the Driver
      */
     select?: DriverSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
     /**
      * The data needed to update a Driver.
      */
@@ -2013,6 +2344,10 @@ export namespace Prisma {
      */
     select?: DriverSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
+    /**
      * The filter to search for the Driver to update in case it exists.
      */
     where: DriverWhereUniqueInput
@@ -2035,6 +2370,10 @@ export namespace Prisma {
      */
     select?: DriverSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
+    /**
      * Filter which Driver to delete.
      */
     where: DriverWhereUniqueInput
@@ -2051,6 +2390,21 @@ export namespace Prisma {
   }
 
   /**
+   * Driver.Affiliation
+   */
+  export type Driver$AffiliationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Affiliation
+     */
+    select?: AffiliationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
+    where?: AffiliationWhereInput
+  }
+
+  /**
    * Driver without action
    */
   export type DriverDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2058,998 +2412,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the Driver
      */
     select?: DriverSelect<ExtArgs> | null
-  }
-
-
-  /**
-   * Model FeeMaster
-   */
-
-  export type AggregateFeeMaster = {
-    _count: FeeMasterCountAggregateOutputType | null
-    _avg: FeeMasterAvgAggregateOutputType | null
-    _sum: FeeMasterSumAggregateOutputType | null
-    _min: FeeMasterMinAggregateOutputType | null
-    _max: FeeMasterMaxAggregateOutputType | null
-  }
-
-  export type FeeMasterAvgAggregateOutputType = {
-    id: number | null
-    year: number | null
-    fee: number | null
-  }
-
-  export type FeeMasterSumAggregateOutputType = {
-    id: number | null
-    year: number | null
-    fee: number | null
-  }
-
-  export type FeeMasterMinAggregateOutputType = {
-    id: number | null
-    affiliation: string | null
-    tonnage: string | null
-    year: number | null
-    region: string | null
-    fee: number | null
-    memo: string | null
-    isActive: boolean | null
-    readonly: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type FeeMasterMaxAggregateOutputType = {
-    id: number | null
-    affiliation: string | null
-    tonnage: string | null
-    year: number | null
-    region: string | null
-    fee: number | null
-    memo: string | null
-    isActive: boolean | null
-    readonly: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type FeeMasterCountAggregateOutputType = {
-    id: number
-    affiliation: number
-    tonnage: number
-    year: number
-    region: number
-    fee: number
-    memo: number
-    isActive: number
-    readonly: number
-    createdAt: number
-    updatedAt: number
-    _all: number
-  }
-
-
-  export type FeeMasterAvgAggregateInputType = {
-    id?: true
-    year?: true
-    fee?: true
-  }
-
-  export type FeeMasterSumAggregateInputType = {
-    id?: true
-    year?: true
-    fee?: true
-  }
-
-  export type FeeMasterMinAggregateInputType = {
-    id?: true
-    affiliation?: true
-    tonnage?: true
-    year?: true
-    region?: true
-    fee?: true
-    memo?: true
-    isActive?: true
-    readonly?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type FeeMasterMaxAggregateInputType = {
-    id?: true
-    affiliation?: true
-    tonnage?: true
-    year?: true
-    region?: true
-    fee?: true
-    memo?: true
-    isActive?: true
-    readonly?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type FeeMasterCountAggregateInputType = {
-    id?: true
-    affiliation?: true
-    tonnage?: true
-    year?: true
-    region?: true
-    fee?: true
-    memo?: true
-    isActive?: true
-    readonly?: true
-    createdAt?: true
-    updatedAt?: true
-    _all?: true
-  }
-
-  export type FeeMasterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which FeeMaster to aggregate.
+     * Choose, which related nodes to fetch as well
      */
-    where?: FeeMasterWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of FeeMasters to fetch.
-     */
-    orderBy?: FeeMasterOrderByWithRelationInput | FeeMasterOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: FeeMasterWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` FeeMasters from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` FeeMasters.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned FeeMasters
-    **/
-    _count?: true | FeeMasterCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: FeeMasterAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: FeeMasterSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: FeeMasterMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: FeeMasterMaxAggregateInputType
-  }
-
-  export type GetFeeMasterAggregateType<T extends FeeMasterAggregateArgs> = {
-        [P in keyof T & keyof AggregateFeeMaster]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateFeeMaster[P]>
-      : GetScalarType<T[P], AggregateFeeMaster[P]>
-  }
-
-
-
-
-  export type FeeMasterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FeeMasterWhereInput
-    orderBy?: FeeMasterOrderByWithAggregationInput | FeeMasterOrderByWithAggregationInput[]
-    by: FeeMasterScalarFieldEnum[] | FeeMasterScalarFieldEnum
-    having?: FeeMasterScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: FeeMasterCountAggregateInputType | true
-    _avg?: FeeMasterAvgAggregateInputType
-    _sum?: FeeMasterSumAggregateInputType
-    _min?: FeeMasterMinAggregateInputType
-    _max?: FeeMasterMaxAggregateInputType
-  }
-
-  export type FeeMasterGroupByOutputType = {
-    id: number
-    affiliation: string
-    tonnage: string
-    year: number
-    region: string
-    fee: number
-    memo: string | null
-    isActive: boolean
-    readonly: boolean
-    createdAt: Date
-    updatedAt: Date
-    _count: FeeMasterCountAggregateOutputType | null
-    _avg: FeeMasterAvgAggregateOutputType | null
-    _sum: FeeMasterSumAggregateOutputType | null
-    _min: FeeMasterMinAggregateOutputType | null
-    _max: FeeMasterMaxAggregateOutputType | null
-  }
-
-  type GetFeeMasterGroupByPayload<T extends FeeMasterGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<FeeMasterGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof FeeMasterGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], FeeMasterGroupByOutputType[P]>
-            : GetScalarType<T[P], FeeMasterGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type FeeMasterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    affiliation?: boolean
-    tonnage?: boolean
-    year?: boolean
-    region?: boolean
-    fee?: boolean
-    memo?: boolean
-    isActive?: boolean
-    readonly?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["feeMaster"]>
-
-  export type FeeMasterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    affiliation?: boolean
-    tonnage?: boolean
-    year?: boolean
-    region?: boolean
-    fee?: boolean
-    memo?: boolean
-    isActive?: boolean
-    readonly?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["feeMaster"]>
-
-  export type FeeMasterSelectScalar = {
-    id?: boolean
-    affiliation?: boolean
-    tonnage?: boolean
-    year?: boolean
-    region?: boolean
-    fee?: boolean
-    memo?: boolean
-    isActive?: boolean
-    readonly?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }
-
-
-  export type $FeeMasterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "FeeMaster"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      affiliation: string
-      tonnage: string
-      year: number
-      region: string
-      fee: number
-      memo: string | null
-      isActive: boolean
-      readonly: boolean
-      createdAt: Date
-      updatedAt: Date
-    }, ExtArgs["result"]["feeMaster"]>
-    composites: {}
-  }
-
-  type FeeMasterGetPayload<S extends boolean | null | undefined | FeeMasterDefaultArgs> = $Result.GetResult<Prisma.$FeeMasterPayload, S>
-
-  type FeeMasterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<FeeMasterFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: FeeMasterCountAggregateInputType | true
-    }
-
-  export interface FeeMasterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FeeMaster'], meta: { name: 'FeeMaster' } }
-    /**
-     * Find zero or one FeeMaster that matches the filter.
-     * @param {FeeMasterFindUniqueArgs} args - Arguments to find a FeeMaster
-     * @example
-     * // Get one FeeMaster
-     * const feeMaster = await prisma.feeMaster.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends FeeMasterFindUniqueArgs>(args: SelectSubset<T, FeeMasterFindUniqueArgs<ExtArgs>>): Prisma__FeeMasterClient<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
-
-    /**
-     * Find one FeeMaster that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {FeeMasterFindUniqueOrThrowArgs} args - Arguments to find a FeeMaster
-     * @example
-     * // Get one FeeMaster
-     * const feeMaster = await prisma.feeMaster.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends FeeMasterFindUniqueOrThrowArgs>(args: SelectSubset<T, FeeMasterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FeeMasterClient<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
-
-    /**
-     * Find the first FeeMaster that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeeMasterFindFirstArgs} args - Arguments to find a FeeMaster
-     * @example
-     * // Get one FeeMaster
-     * const feeMaster = await prisma.feeMaster.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends FeeMasterFindFirstArgs>(args?: SelectSubset<T, FeeMasterFindFirstArgs<ExtArgs>>): Prisma__FeeMasterClient<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
-
-    /**
-     * Find the first FeeMaster that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeeMasterFindFirstOrThrowArgs} args - Arguments to find a FeeMaster
-     * @example
-     * // Get one FeeMaster
-     * const feeMaster = await prisma.feeMaster.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends FeeMasterFindFirstOrThrowArgs>(args?: SelectSubset<T, FeeMasterFindFirstOrThrowArgs<ExtArgs>>): Prisma__FeeMasterClient<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
-
-    /**
-     * Find zero or more FeeMasters that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeeMasterFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all FeeMasters
-     * const feeMasters = await prisma.feeMaster.findMany()
-     * 
-     * // Get first 10 FeeMasters
-     * const feeMasters = await prisma.feeMaster.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const feeMasterWithIdOnly = await prisma.feeMaster.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends FeeMasterFindManyArgs>(args?: SelectSubset<T, FeeMasterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "findMany">>
-
-    /**
-     * Create a FeeMaster.
-     * @param {FeeMasterCreateArgs} args - Arguments to create a FeeMaster.
-     * @example
-     * // Create one FeeMaster
-     * const FeeMaster = await prisma.feeMaster.create({
-     *   data: {
-     *     // ... data to create a FeeMaster
-     *   }
-     * })
-     * 
-     */
-    create<T extends FeeMasterCreateArgs>(args: SelectSubset<T, FeeMasterCreateArgs<ExtArgs>>): Prisma__FeeMasterClient<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "create">, never, ExtArgs>
-
-    /**
-     * Create many FeeMasters.
-     * @param {FeeMasterCreateManyArgs} args - Arguments to create many FeeMasters.
-     * @example
-     * // Create many FeeMasters
-     * const feeMaster = await prisma.feeMaster.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends FeeMasterCreateManyArgs>(args?: SelectSubset<T, FeeMasterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many FeeMasters and returns the data saved in the database.
-     * @param {FeeMasterCreateManyAndReturnArgs} args - Arguments to create many FeeMasters.
-     * @example
-     * // Create many FeeMasters
-     * const feeMaster = await prisma.feeMaster.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many FeeMasters and only return the `id`
-     * const feeMasterWithIdOnly = await prisma.feeMaster.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends FeeMasterCreateManyAndReturnArgs>(args?: SelectSubset<T, FeeMasterCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "createManyAndReturn">>
-
-    /**
-     * Delete a FeeMaster.
-     * @param {FeeMasterDeleteArgs} args - Arguments to delete one FeeMaster.
-     * @example
-     * // Delete one FeeMaster
-     * const FeeMaster = await prisma.feeMaster.delete({
-     *   where: {
-     *     // ... filter to delete one FeeMaster
-     *   }
-     * })
-     * 
-     */
-    delete<T extends FeeMasterDeleteArgs>(args: SelectSubset<T, FeeMasterDeleteArgs<ExtArgs>>): Prisma__FeeMasterClient<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "delete">, never, ExtArgs>
-
-    /**
-     * Update one FeeMaster.
-     * @param {FeeMasterUpdateArgs} args - Arguments to update one FeeMaster.
-     * @example
-     * // Update one FeeMaster
-     * const feeMaster = await prisma.feeMaster.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends FeeMasterUpdateArgs>(args: SelectSubset<T, FeeMasterUpdateArgs<ExtArgs>>): Prisma__FeeMasterClient<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "update">, never, ExtArgs>
-
-    /**
-     * Delete zero or more FeeMasters.
-     * @param {FeeMasterDeleteManyArgs} args - Arguments to filter FeeMasters to delete.
-     * @example
-     * // Delete a few FeeMasters
-     * const { count } = await prisma.feeMaster.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends FeeMasterDeleteManyArgs>(args?: SelectSubset<T, FeeMasterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more FeeMasters.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeeMasterUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many FeeMasters
-     * const feeMaster = await prisma.feeMaster.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends FeeMasterUpdateManyArgs>(args: SelectSubset<T, FeeMasterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one FeeMaster.
-     * @param {FeeMasterUpsertArgs} args - Arguments to update or create a FeeMaster.
-     * @example
-     * // Update or create a FeeMaster
-     * const feeMaster = await prisma.feeMaster.upsert({
-     *   create: {
-     *     // ... data to create a FeeMaster
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the FeeMaster we want to update
-     *   }
-     * })
-     */
-    upsert<T extends FeeMasterUpsertArgs>(args: SelectSubset<T, FeeMasterUpsertArgs<ExtArgs>>): Prisma__FeeMasterClient<$Result.GetResult<Prisma.$FeeMasterPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
-
-
-    /**
-     * Count the number of FeeMasters.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeeMasterCountArgs} args - Arguments to filter FeeMasters to count.
-     * @example
-     * // Count the number of FeeMasters
-     * const count = await prisma.feeMaster.count({
-     *   where: {
-     *     // ... the filter for the FeeMasters we want to count
-     *   }
-     * })
-    **/
-    count<T extends FeeMasterCountArgs>(
-      args?: Subset<T, FeeMasterCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], FeeMasterCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a FeeMaster.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeeMasterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends FeeMasterAggregateArgs>(args: Subset<T, FeeMasterAggregateArgs>): Prisma.PrismaPromise<GetFeeMasterAggregateType<T>>
-
-    /**
-     * Group by FeeMaster.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeeMasterGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends FeeMasterGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: FeeMasterGroupByArgs['orderBy'] }
-        : { orderBy?: FeeMasterGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, FeeMasterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFeeMasterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the FeeMaster model
-   */
-  readonly fields: FeeMasterFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for FeeMaster.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__FeeMasterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the FeeMaster model
-   */ 
-  interface FeeMasterFieldRefs {
-    readonly id: FieldRef<"FeeMaster", 'Int'>
-    readonly affiliation: FieldRef<"FeeMaster", 'String'>
-    readonly tonnage: FieldRef<"FeeMaster", 'String'>
-    readonly year: FieldRef<"FeeMaster", 'Int'>
-    readonly region: FieldRef<"FeeMaster", 'String'>
-    readonly fee: FieldRef<"FeeMaster", 'Int'>
-    readonly memo: FieldRef<"FeeMaster", 'String'>
-    readonly isActive: FieldRef<"FeeMaster", 'Boolean'>
-    readonly readonly: FieldRef<"FeeMaster", 'Boolean'>
-    readonly createdAt: FieldRef<"FeeMaster", 'DateTime'>
-    readonly updatedAt: FieldRef<"FeeMaster", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * FeeMaster findUnique
-   */
-  export type FeeMasterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
-    /**
-     * Filter, which FeeMaster to fetch.
-     */
-    where: FeeMasterWhereUniqueInput
-  }
-
-  /**
-   * FeeMaster findUniqueOrThrow
-   */
-  export type FeeMasterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
-    /**
-     * Filter, which FeeMaster to fetch.
-     */
-    where: FeeMasterWhereUniqueInput
-  }
-
-  /**
-   * FeeMaster findFirst
-   */
-  export type FeeMasterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
-    /**
-     * Filter, which FeeMaster to fetch.
-     */
-    where?: FeeMasterWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of FeeMasters to fetch.
-     */
-    orderBy?: FeeMasterOrderByWithRelationInput | FeeMasterOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for FeeMasters.
-     */
-    cursor?: FeeMasterWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` FeeMasters from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` FeeMasters.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of FeeMasters.
-     */
-    distinct?: FeeMasterScalarFieldEnum | FeeMasterScalarFieldEnum[]
-  }
-
-  /**
-   * FeeMaster findFirstOrThrow
-   */
-  export type FeeMasterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
-    /**
-     * Filter, which FeeMaster to fetch.
-     */
-    where?: FeeMasterWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of FeeMasters to fetch.
-     */
-    orderBy?: FeeMasterOrderByWithRelationInput | FeeMasterOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for FeeMasters.
-     */
-    cursor?: FeeMasterWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` FeeMasters from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` FeeMasters.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of FeeMasters.
-     */
-    distinct?: FeeMasterScalarFieldEnum | FeeMasterScalarFieldEnum[]
-  }
-
-  /**
-   * FeeMaster findMany
-   */
-  export type FeeMasterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
-    /**
-     * Filter, which FeeMasters to fetch.
-     */
-    where?: FeeMasterWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of FeeMasters to fetch.
-     */
-    orderBy?: FeeMasterOrderByWithRelationInput | FeeMasterOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing FeeMasters.
-     */
-    cursor?: FeeMasterWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` FeeMasters from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` FeeMasters.
-     */
-    skip?: number
-    distinct?: FeeMasterScalarFieldEnum | FeeMasterScalarFieldEnum[]
-  }
-
-  /**
-   * FeeMaster create
-   */
-  export type FeeMasterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
-    /**
-     * The data needed to create a FeeMaster.
-     */
-    data: XOR<FeeMasterCreateInput, FeeMasterUncheckedCreateInput>
-  }
-
-  /**
-   * FeeMaster createMany
-   */
-  export type FeeMasterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many FeeMasters.
-     */
-    data: FeeMasterCreateManyInput | FeeMasterCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * FeeMaster createManyAndReturn
-   */
-  export type FeeMasterCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many FeeMasters.
-     */
-    data: FeeMasterCreateManyInput | FeeMasterCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * FeeMaster update
-   */
-  export type FeeMasterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
-    /**
-     * The data needed to update a FeeMaster.
-     */
-    data: XOR<FeeMasterUpdateInput, FeeMasterUncheckedUpdateInput>
-    /**
-     * Choose, which FeeMaster to update.
-     */
-    where: FeeMasterWhereUniqueInput
-  }
-
-  /**
-   * FeeMaster updateMany
-   */
-  export type FeeMasterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update FeeMasters.
-     */
-    data: XOR<FeeMasterUpdateManyMutationInput, FeeMasterUncheckedUpdateManyInput>
-    /**
-     * Filter which FeeMasters to update
-     */
-    where?: FeeMasterWhereInput
-  }
-
-  /**
-   * FeeMaster upsert
-   */
-  export type FeeMasterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
-    /**
-     * The filter to search for the FeeMaster to update in case it exists.
-     */
-    where: FeeMasterWhereUniqueInput
-    /**
-     * In case the FeeMaster found by the `where` argument doesn't exist, create a new FeeMaster with this data.
-     */
-    create: XOR<FeeMasterCreateInput, FeeMasterUncheckedCreateInput>
-    /**
-     * In case the FeeMaster was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<FeeMasterUpdateInput, FeeMasterUncheckedUpdateInput>
-  }
-
-  /**
-   * FeeMaster delete
-   */
-  export type FeeMasterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
-    /**
-     * Filter which FeeMaster to delete.
-     */
-    where: FeeMasterWhereUniqueInput
-  }
-
-  /**
-   * FeeMaster deleteMany
-   */
-  export type FeeMasterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which FeeMasters to delete
-     */
-    where?: FeeMasterWhereInput
-  }
-
-  /**
-   * FeeMaster without action
-   */
-  export type FeeMasterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FeeMaster
-     */
-    select?: FeeMasterSelect<ExtArgs> | null
+    include?: DriverInclude<ExtArgs> | null
   }
 
 
@@ -3071,6 +2437,7 @@ export namespace Prisma {
     totalWeight: number | null
     fee: number | null
     ton: number | null
+    contractId: number | null
   }
 
   export type SettlementHistorySumAggregateOutputType = {
@@ -3079,11 +2446,12 @@ export namespace Prisma {
     totalWeight: number | null
     fee: number | null
     ton: number | null
+    contractId: number | null
   }
 
   export type SettlementHistoryMinAggregateOutputType = {
     id: number | null
-    date: string | null
+    date: Date | null
     driverName: string | null
     affiliation: string | null
     tonnage: string | null
@@ -3091,17 +2459,20 @@ export namespace Prisma {
     totalWeight: number | null
     fee: number | null
     memo: string | null
+    status: string | null
     isPbox: boolean | null
     isReturn: boolean | null
     so: string | null
     nap: string | null
     ton: number | null
+    contractId: number | null
+    appliedTonnage: string | null
     createdAt: Date | null
   }
 
   export type SettlementHistoryMaxAggregateOutputType = {
     id: number | null
-    date: string | null
+    date: Date | null
     driverName: string | null
     affiliation: string | null
     tonnage: string | null
@@ -3109,11 +2480,14 @@ export namespace Prisma {
     totalWeight: number | null
     fee: number | null
     memo: string | null
+    status: string | null
     isPbox: boolean | null
     isReturn: boolean | null
     so: string | null
     nap: string | null
     ton: number | null
+    contractId: number | null
+    appliedTonnage: string | null
     createdAt: Date | null
   }
 
@@ -3127,11 +2501,14 @@ export namespace Prisma {
     totalWeight: number
     fee: number
     memo: number
+    status: number
     isPbox: number
     isReturn: number
     so: number
     nap: number
     ton: number
+    contractId: number
+    appliedTonnage: number
     createdAt: number
     _all: number
   }
@@ -3143,6 +2520,7 @@ export namespace Prisma {
     totalWeight?: true
     fee?: true
     ton?: true
+    contractId?: true
   }
 
   export type SettlementHistorySumAggregateInputType = {
@@ -3151,6 +2529,7 @@ export namespace Prisma {
     totalWeight?: true
     fee?: true
     ton?: true
+    contractId?: true
   }
 
   export type SettlementHistoryMinAggregateInputType = {
@@ -3163,11 +2542,14 @@ export namespace Prisma {
     totalWeight?: true
     fee?: true
     memo?: true
+    status?: true
     isPbox?: true
     isReturn?: true
     so?: true
     nap?: true
     ton?: true
+    contractId?: true
+    appliedTonnage?: true
     createdAt?: true
   }
 
@@ -3181,11 +2563,14 @@ export namespace Prisma {
     totalWeight?: true
     fee?: true
     memo?: true
+    status?: true
     isPbox?: true
     isReturn?: true
     so?: true
     nap?: true
     ton?: true
+    contractId?: true
+    appliedTonnage?: true
     createdAt?: true
   }
 
@@ -3199,11 +2584,14 @@ export namespace Prisma {
     totalWeight?: true
     fee?: true
     memo?: true
+    status?: true
     isPbox?: true
     isReturn?: true
     so?: true
     nap?: true
     ton?: true
+    contractId?: true
+    appliedTonnage?: true
     createdAt?: true
     _all?: true
   }
@@ -3296,7 +2684,7 @@ export namespace Prisma {
 
   export type SettlementHistoryGroupByOutputType = {
     id: number
-    date: string
+    date: Date
     driverName: string
     affiliation: string | null
     tonnage: string | null
@@ -3304,11 +2692,14 @@ export namespace Prisma {
     totalWeight: number
     fee: number
     memo: string | null
+    status: string
     isPbox: boolean
     isReturn: boolean
     so: string | null
     nap: string | null
     ton: number | null
+    contractId: number | null
+    appliedTonnage: string | null
     createdAt: Date
     _count: SettlementHistoryCountAggregateOutputType | null
     _avg: SettlementHistoryAvgAggregateOutputType | null
@@ -3341,12 +2732,16 @@ export namespace Prisma {
     totalWeight?: boolean
     fee?: boolean
     memo?: boolean
+    status?: boolean
     isPbox?: boolean
     isReturn?: boolean
     so?: boolean
     nap?: boolean
     ton?: boolean
+    contractId?: boolean
+    appliedTonnage?: boolean
     createdAt?: boolean
+    YongchaContract?: boolean | SettlementHistory$YongchaContractArgs<ExtArgs>
   }, ExtArgs["result"]["settlementHistory"]>
 
   export type SettlementHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3359,12 +2754,16 @@ export namespace Prisma {
     totalWeight?: boolean
     fee?: boolean
     memo?: boolean
+    status?: boolean
     isPbox?: boolean
     isReturn?: boolean
     so?: boolean
     nap?: boolean
     ton?: boolean
+    contractId?: boolean
+    appliedTonnage?: boolean
     createdAt?: boolean
+    YongchaContract?: boolean | SettlementHistory$YongchaContractArgs<ExtArgs>
   }, ExtArgs["result"]["settlementHistory"]>
 
   export type SettlementHistorySelectScalar = {
@@ -3377,21 +2776,32 @@ export namespace Prisma {
     totalWeight?: boolean
     fee?: boolean
     memo?: boolean
+    status?: boolean
     isPbox?: boolean
     isReturn?: boolean
     so?: boolean
     nap?: boolean
     ton?: boolean
+    contractId?: boolean
+    appliedTonnage?: boolean
     createdAt?: boolean
   }
 
+  export type SettlementHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    YongchaContract?: boolean | SettlementHistory$YongchaContractArgs<ExtArgs>
+  }
+  export type SettlementHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    YongchaContract?: boolean | SettlementHistory$YongchaContractArgs<ExtArgs>
+  }
 
   export type $SettlementHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "SettlementHistory"
-    objects: {}
+    objects: {
+      YongchaContract: Prisma.$YongchaContractPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      date: string
+      date: Date
       driverName: string
       affiliation: string | null
       tonnage: string | null
@@ -3399,11 +2809,14 @@ export namespace Prisma {
       totalWeight: number
       fee: number
       memo: string | null
+      status: string
       isPbox: boolean
       isReturn: boolean
       so: string | null
       nap: string | null
       ton: number | null
+      contractId: number | null
+      appliedTonnage: string | null
       createdAt: Date
     }, ExtArgs["result"]["settlementHistory"]>
     composites: {}
@@ -3769,6 +3182,7 @@ export namespace Prisma {
    */
   export interface Prisma__SettlementHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    YongchaContract<T extends SettlementHistory$YongchaContractArgs<ExtArgs> = {}>(args?: Subset<T, SettlementHistory$YongchaContractArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3799,7 +3213,7 @@ export namespace Prisma {
    */ 
   interface SettlementHistoryFieldRefs {
     readonly id: FieldRef<"SettlementHistory", 'Int'>
-    readonly date: FieldRef<"SettlementHistory", 'String'>
+    readonly date: FieldRef<"SettlementHistory", 'DateTime'>
     readonly driverName: FieldRef<"SettlementHistory", 'String'>
     readonly affiliation: FieldRef<"SettlementHistory", 'String'>
     readonly tonnage: FieldRef<"SettlementHistory", 'String'>
@@ -3807,11 +3221,14 @@ export namespace Prisma {
     readonly totalWeight: FieldRef<"SettlementHistory", 'Int'>
     readonly fee: FieldRef<"SettlementHistory", 'Int'>
     readonly memo: FieldRef<"SettlementHistory", 'String'>
+    readonly status: FieldRef<"SettlementHistory", 'String'>
     readonly isPbox: FieldRef<"SettlementHistory", 'Boolean'>
     readonly isReturn: FieldRef<"SettlementHistory", 'Boolean'>
     readonly so: FieldRef<"SettlementHistory", 'String'>
     readonly nap: FieldRef<"SettlementHistory", 'String'>
     readonly ton: FieldRef<"SettlementHistory", 'Int'>
+    readonly contractId: FieldRef<"SettlementHistory", 'Int'>
+    readonly appliedTonnage: FieldRef<"SettlementHistory", 'String'>
     readonly createdAt: FieldRef<"SettlementHistory", 'DateTime'>
   }
     
@@ -3825,6 +3242,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the SettlementHistory
      */
     select?: SettlementHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
     /**
      * Filter, which SettlementHistory to fetch.
      */
@@ -3840,6 +3261,10 @@ export namespace Prisma {
      */
     select?: SettlementHistorySelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
+    /**
      * Filter, which SettlementHistory to fetch.
      */
     where: SettlementHistoryWhereUniqueInput
@@ -3853,6 +3278,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the SettlementHistory
      */
     select?: SettlementHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
     /**
      * Filter, which SettlementHistory to fetch.
      */
@@ -3898,6 +3327,10 @@ export namespace Prisma {
      */
     select?: SettlementHistorySelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
+    /**
      * Filter, which SettlementHistory to fetch.
      */
     where?: SettlementHistoryWhereInput
@@ -3942,6 +3375,10 @@ export namespace Prisma {
      */
     select?: SettlementHistorySelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
+    /**
      * Filter, which SettlementHistories to fetch.
      */
     where?: SettlementHistoryWhereInput
@@ -3981,6 +3418,10 @@ export namespace Prisma {
      */
     select?: SettlementHistorySelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
+    /**
      * The data needed to create a SettlementHistory.
      */
     data: XOR<SettlementHistoryCreateInput, SettlementHistoryUncheckedCreateInput>
@@ -4010,6 +3451,10 @@ export namespace Prisma {
      */
     data: SettlementHistoryCreateManyInput | SettlementHistoryCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -4020,6 +3465,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the SettlementHistory
      */
     select?: SettlementHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
     /**
      * The data needed to update a SettlementHistory.
      */
@@ -4053,6 +3502,10 @@ export namespace Prisma {
      */
     select?: SettlementHistorySelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
+    /**
      * The filter to search for the SettlementHistory to update in case it exists.
      */
     where: SettlementHistoryWhereUniqueInput
@@ -4075,6 +3528,10 @@ export namespace Prisma {
      */
     select?: SettlementHistorySelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
+    /**
      * Filter which SettlementHistory to delete.
      */
     where: SettlementHistoryWhereUniqueInput
@@ -4091,6 +3548,21 @@ export namespace Prisma {
   }
 
   /**
+   * SettlementHistory.YongchaContract
+   */
+  export type SettlementHistory$YongchaContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    where?: YongchaContractWhereInput
+  }
+
+  /**
    * SettlementHistory without action
    */
   export type SettlementHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4098,6 +3570,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the SettlementHistory
      */
     select?: SettlementHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
   }
 
 
@@ -4124,18 +3600,39 @@ export namespace Prisma {
   export type AffiliationMinAggregateOutputType = {
     id: number | null
     name: string | null
+    bizNo: string | null
+    ceo: string | null
+    address: string | null
+    manager: string | null
+    contact: string | null
+    email: string | null
+    memo: string | null
     createdAt: Date | null
   }
 
   export type AffiliationMaxAggregateOutputType = {
     id: number | null
     name: string | null
+    bizNo: string | null
+    ceo: string | null
+    address: string | null
+    manager: string | null
+    contact: string | null
+    email: string | null
+    memo: string | null
     createdAt: Date | null
   }
 
   export type AffiliationCountAggregateOutputType = {
     id: number
     name: number
+    bizNo: number
+    ceo: number
+    address: number
+    manager: number
+    contact: number
+    email: number
+    memo: number
     createdAt: number
     _all: number
   }
@@ -4152,18 +3649,39 @@ export namespace Prisma {
   export type AffiliationMinAggregateInputType = {
     id?: true
     name?: true
+    bizNo?: true
+    ceo?: true
+    address?: true
+    manager?: true
+    contact?: true
+    email?: true
+    memo?: true
     createdAt?: true
   }
 
   export type AffiliationMaxAggregateInputType = {
     id?: true
     name?: true
+    bizNo?: true
+    ceo?: true
+    address?: true
+    manager?: true
+    contact?: true
+    email?: true
+    memo?: true
     createdAt?: true
   }
 
   export type AffiliationCountAggregateInputType = {
     id?: true
     name?: true
+    bizNo?: true
+    ceo?: true
+    address?: true
+    manager?: true
+    contact?: true
+    email?: true
+    memo?: true
     createdAt?: true
     _all?: true
   }
@@ -4257,6 +3775,13 @@ export namespace Prisma {
   export type AffiliationGroupByOutputType = {
     id: number
     name: string
+    bizNo: string | null
+    ceo: string | null
+    address: string | null
+    manager: string | null
+    contact: string | null
+    email: string | null
+    memo: string | null
     createdAt: Date
     _count: AffiliationCountAggregateOutputType | null
     _avg: AffiliationAvgAggregateOutputType | null
@@ -4282,28 +3807,71 @@ export namespace Prisma {
   export type AffiliationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    bizNo?: boolean
+    ceo?: boolean
+    address?: boolean
+    manager?: boolean
+    contact?: boolean
+    email?: boolean
+    memo?: boolean
     createdAt?: boolean
+    Driver?: boolean | Affiliation$DriverArgs<ExtArgs>
+    YongchaContract?: boolean | Affiliation$YongchaContractArgs<ExtArgs>
+    User?: boolean | Affiliation$UserArgs<ExtArgs>
+    _count?: boolean | AffiliationCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["affiliation"]>
 
   export type AffiliationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    bizNo?: boolean
+    ceo?: boolean
+    address?: boolean
+    manager?: boolean
+    contact?: boolean
+    email?: boolean
+    memo?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["affiliation"]>
 
   export type AffiliationSelectScalar = {
     id?: boolean
     name?: boolean
+    bizNo?: boolean
+    ceo?: boolean
+    address?: boolean
+    manager?: boolean
+    contact?: boolean
+    email?: boolean
+    memo?: boolean
     createdAt?: boolean
   }
 
+  export type AffiliationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Driver?: boolean | Affiliation$DriverArgs<ExtArgs>
+    YongchaContract?: boolean | Affiliation$YongchaContractArgs<ExtArgs>
+    User?: boolean | Affiliation$UserArgs<ExtArgs>
+    _count?: boolean | AffiliationCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type AffiliationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $AffiliationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Affiliation"
-    objects: {}
+    objects: {
+      Driver: Prisma.$DriverPayload<ExtArgs>[]
+      YongchaContract: Prisma.$YongchaContractPayload<ExtArgs>[]
+      User: Prisma.$UserPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
+      bizNo: string | null
+      ceo: string | null
+      address: string | null
+      manager: string | null
+      contact: string | null
+      email: string | null
+      memo: string | null
       createdAt: Date
     }, ExtArgs["result"]["affiliation"]>
     composites: {}
@@ -4669,6 +4237,9 @@ export namespace Prisma {
    */
   export interface Prisma__AffiliationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    Driver<T extends Affiliation$DriverArgs<ExtArgs> = {}>(args?: Subset<T, Affiliation$DriverArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DriverPayload<ExtArgs>, T, "findMany"> | Null>
+    YongchaContract<T extends Affiliation$YongchaContractArgs<ExtArgs> = {}>(args?: Subset<T, Affiliation$YongchaContractArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findMany"> | Null>
+    User<T extends Affiliation$UserArgs<ExtArgs> = {}>(args?: Subset<T, Affiliation$UserArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4700,6 +4271,13 @@ export namespace Prisma {
   interface AffiliationFieldRefs {
     readonly id: FieldRef<"Affiliation", 'Int'>
     readonly name: FieldRef<"Affiliation", 'String'>
+    readonly bizNo: FieldRef<"Affiliation", 'String'>
+    readonly ceo: FieldRef<"Affiliation", 'String'>
+    readonly address: FieldRef<"Affiliation", 'String'>
+    readonly manager: FieldRef<"Affiliation", 'String'>
+    readonly contact: FieldRef<"Affiliation", 'String'>
+    readonly email: FieldRef<"Affiliation", 'String'>
+    readonly memo: FieldRef<"Affiliation", 'String'>
     readonly createdAt: FieldRef<"Affiliation", 'DateTime'>
   }
     
@@ -4713,6 +4291,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the Affiliation
      */
     select?: AffiliationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
     /**
      * Filter, which Affiliation to fetch.
      */
@@ -4728,6 +4310,10 @@ export namespace Prisma {
      */
     select?: AffiliationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
+    /**
      * Filter, which Affiliation to fetch.
      */
     where: AffiliationWhereUniqueInput
@@ -4741,6 +4327,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the Affiliation
      */
     select?: AffiliationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
     /**
      * Filter, which Affiliation to fetch.
      */
@@ -4786,6 +4376,10 @@ export namespace Prisma {
      */
     select?: AffiliationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
+    /**
      * Filter, which Affiliation to fetch.
      */
     where?: AffiliationWhereInput
@@ -4830,6 +4424,10 @@ export namespace Prisma {
      */
     select?: AffiliationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
+    /**
      * Filter, which Affiliations to fetch.
      */
     where?: AffiliationWhereInput
@@ -4868,6 +4466,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the Affiliation
      */
     select?: AffiliationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
     /**
      * The data needed to create a Affiliation.
      */
@@ -4909,6 +4511,10 @@ export namespace Prisma {
      */
     select?: AffiliationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
+    /**
      * The data needed to update a Affiliation.
      */
     data: XOR<AffiliationUpdateInput, AffiliationUncheckedUpdateInput>
@@ -4941,6 +4547,10 @@ export namespace Prisma {
      */
     select?: AffiliationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
+    /**
      * The filter to search for the Affiliation to update in case it exists.
      */
     where: AffiliationWhereUniqueInput
@@ -4963,6 +4573,10 @@ export namespace Prisma {
      */
     select?: AffiliationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
+    /**
      * Filter which Affiliation to delete.
      */
     where: AffiliationWhereUniqueInput
@@ -4979,6 +4593,66 @@ export namespace Prisma {
   }
 
   /**
+   * Affiliation.Driver
+   */
+  export type Affiliation$DriverArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Driver
+     */
+    select?: DriverSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DriverInclude<ExtArgs> | null
+    where?: DriverWhereInput
+    orderBy?: DriverOrderByWithRelationInput | DriverOrderByWithRelationInput[]
+    cursor?: DriverWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DriverScalarFieldEnum | DriverScalarFieldEnum[]
+  }
+
+  /**
+   * Affiliation.YongchaContract
+   */
+  export type Affiliation$YongchaContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    where?: YongchaContractWhereInput
+    orderBy?: YongchaContractOrderByWithRelationInput | YongchaContractOrderByWithRelationInput[]
+    cursor?: YongchaContractWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: YongchaContractScalarFieldEnum | YongchaContractScalarFieldEnum[]
+  }
+
+  /**
+   * Affiliation.User
+   */
+  export type Affiliation$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    cursor?: UserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
    * Affiliation without action
    */
   export type AffiliationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4986,6 +4660,3116 @@ export namespace Prisma {
      * Select specific fields to fetch from the Affiliation
      */
     select?: AffiliationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model User
+   */
+
+  export type AggregateUser = {
+    _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  export type UserAvgAggregateOutputType = {
+    id: number | null
+    affiliationId: number | null
+  }
+
+  export type UserSumAggregateOutputType = {
+    id: number | null
+    affiliationId: number | null
+  }
+
+  export type UserMinAggregateOutputType = {
+    id: number | null
+    loginId: string | null
+    password: string | null
+    name: string | null
+    role: string | null
+    affiliationId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type UserMaxAggregateOutputType = {
+    id: number | null
+    loginId: string | null
+    password: string | null
+    name: string | null
+    role: string | null
+    affiliationId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type UserCountAggregateOutputType = {
+    id: number
+    loginId: number
+    password: number
+    name: number
+    role: number
+    affiliationId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type UserAvgAggregateInputType = {
+    id?: true
+    affiliationId?: true
+  }
+
+  export type UserSumAggregateInputType = {
+    id?: true
+    affiliationId?: true
+  }
+
+  export type UserMinAggregateInputType = {
+    id?: true
+    loginId?: true
+    password?: true
+    name?: true
+    role?: true
+    affiliationId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserMaxAggregateInputType = {
+    id?: true
+    loginId?: true
+    password?: true
+    name?: true
+    role?: true
+    affiliationId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserCountAggregateInputType = {
+    id?: true
+    loginId?: true
+    password?: true
+    name?: true
+    role?: true
+    affiliationId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which User to aggregate.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Users
+    **/
+    _count?: true | UserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type GetUserAggregateType<T extends UserAggregateArgs> = {
+        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUser[P]>
+      : GetScalarType<T[P], AggregateUser[P]>
+  }
+
+
+
+
+  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
+    by: UserScalarFieldEnum[] | UserScalarFieldEnum
+    having?: UserScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserCountAggregateInputType | true
+    _avg?: UserAvgAggregateInputType
+    _sum?: UserSumAggregateInputType
+    _min?: UserMinAggregateInputType
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type UserGroupByOutputType = {
+    id: number
+    loginId: string
+    password: string
+    name: string
+    role: string
+    affiliationId: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserGroupByOutputType[P]>
+            : GetScalarType<T[P], UserGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    loginId?: boolean
+    password?: boolean
+    name?: boolean
+    role?: boolean
+    affiliationId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    Affiliation?: boolean | User$AffiliationArgs<ExtArgs>
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    loginId?: boolean
+    password?: boolean
+    name?: boolean
+    role?: boolean
+    affiliationId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    Affiliation?: boolean | User$AffiliationArgs<ExtArgs>
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectScalar = {
+    id?: boolean
+    loginId?: boolean
+    password?: boolean
+    name?: boolean
+    role?: boolean
+    affiliationId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Affiliation?: boolean | User$AffiliationArgs<ExtArgs>
+  }
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Affiliation?: boolean | User$AffiliationArgs<ExtArgs>
+  }
+
+  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "User"
+    objects: {
+      Affiliation: Prisma.$AffiliationPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      loginId: string
+      password: string
+      name: string
+      role: string
+      affiliationId: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["user"]>
+    composites: {}
+  }
+
+  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
+
+  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserCountAggregateInputType | true
+    }
+
+  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
+    /**
+     * Find zero or one User that matches the filter.
+     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one User that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first User that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first User that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Users that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Users
+     * const users = await prisma.user.findMany()
+     * 
+     * // Get first 10 Users
+     * const users = await prisma.user.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a User.
+     * @param {UserCreateArgs} args - Arguments to create a User.
+     * @example
+     * // Create one User
+     * const User = await prisma.user.create({
+     *   data: {
+     *     // ... data to create a User
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Users.
+     * @param {UserCreateManyArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Users and returns the data saved in the database.
+     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Users and only return the `id`
+     * const userWithIdOnly = await prisma.user.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a User.
+     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * @example
+     * // Delete one User
+     * const User = await prisma.user.delete({
+     *   where: {
+     *     // ... filter to delete one User
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one User.
+     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * @example
+     * // Update one User
+     * const user = await prisma.user.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Users.
+     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * @example
+     * // Delete a few Users
+     * const { count } = await prisma.user.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Users
+     * const user = await prisma.user.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one User.
+     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * @example
+     * // Update or create a User
+     * const user = await prisma.user.upsert({
+     *   create: {
+     *     // ... data to create a User
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the User we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @example
+     * // Count the number of Users
+     * const count = await prisma.user.count({
+     *   where: {
+     *     // ... the filter for the Users we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserCountArgs>(
+      args?: Subset<T, UserCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+
+    /**
+     * Group by User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserGroupByArgs['orderBy'] }
+        : { orderBy?: UserGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the User model
+   */
+  readonly fields: UserFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for User.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Affiliation<T extends User$AffiliationArgs<ExtArgs> = {}>(args?: Subset<T, User$AffiliationArgs<ExtArgs>>): Prisma__AffiliationClient<$Result.GetResult<Prisma.$AffiliationPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the User model
+   */ 
+  interface UserFieldRefs {
+    readonly id: FieldRef<"User", 'Int'>
+    readonly loginId: FieldRef<"User", 'String'>
+    readonly password: FieldRef<"User", 'String'>
+    readonly name: FieldRef<"User", 'String'>
+    readonly role: FieldRef<"User", 'String'>
+    readonly affiliationId: FieldRef<"User", 'Int'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * User findUnique
+   */
+  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findUniqueOrThrow
+   */
+  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findFirst
+   */
+  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findFirstOrThrow
+   */
+  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findMany
+   */
+  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which Users to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User create
+   */
+  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to create a User.
+     */
+    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+  }
+
+  /**
+   * User createMany
+   */
+  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * User createManyAndReturn
+   */
+  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * User update
+   */
+  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a User.
+     */
+    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    /**
+     * Choose, which User to update.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User updateMany
+   */
+  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Users.
+     */
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    /**
+     * Filter which Users to update
+     */
+    where?: UserWhereInput
+  }
+
+  /**
+   * User upsert
+   */
+  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the User to update in case it exists.
+     */
+    where: UserWhereUniqueInput
+    /**
+     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     */
+    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    /**
+     * In case the User was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+  }
+
+  /**
+   * User delete
+   */
+  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter which User to delete.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User deleteMany
+   */
+  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Users to delete
+     */
+    where?: UserWhereInput
+  }
+
+  /**
+   * User.Affiliation
+   */
+  export type User$AffiliationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Affiliation
+     */
+    select?: AffiliationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AffiliationInclude<ExtArgs> | null
+    where?: AffiliationWhereInput
+  }
+
+  /**
+   * User without action
+   */
+  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model YongchaContract
+   */
+
+  export type AggregateYongchaContract = {
+    _count: YongchaContractCountAggregateOutputType | null
+    _avg: YongchaContractAvgAggregateOutputType | null
+    _sum: YongchaContractSumAggregateOutputType | null
+    _min: YongchaContractMinAggregateOutputType | null
+    _max: YongchaContractMaxAggregateOutputType | null
+  }
+
+  export type YongchaContractAvgAggregateOutputType = {
+    id: number | null
+    year: number | null
+    affiliationId: number | null
+  }
+
+  export type YongchaContractSumAggregateOutputType = {
+    id: number | null
+    year: number | null
+    affiliationId: number | null
+  }
+
+  export type YongchaContractMinAggregateOutputType = {
+    id: number | null
+    year: number | null
+    affiliationId: number | null
+    startDate: Date | null
+    endDate: Date | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    memo: string | null
+  }
+
+  export type YongchaContractMaxAggregateOutputType = {
+    id: number | null
+    year: number | null
+    affiliationId: number | null
+    startDate: Date | null
+    endDate: Date | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    memo: string | null
+  }
+
+  export type YongchaContractCountAggregateOutputType = {
+    id: number
+    year: number
+    affiliationId: number
+    startDate: number
+    endDate: number
+    status: number
+    createdAt: number
+    updatedAt: number
+    memo: number
+    _all: number
+  }
+
+
+  export type YongchaContractAvgAggregateInputType = {
+    id?: true
+    year?: true
+    affiliationId?: true
+  }
+
+  export type YongchaContractSumAggregateInputType = {
+    id?: true
+    year?: true
+    affiliationId?: true
+  }
+
+  export type YongchaContractMinAggregateInputType = {
+    id?: true
+    year?: true
+    affiliationId?: true
+    startDate?: true
+    endDate?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    memo?: true
+  }
+
+  export type YongchaContractMaxAggregateInputType = {
+    id?: true
+    year?: true
+    affiliationId?: true
+    startDate?: true
+    endDate?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    memo?: true
+  }
+
+  export type YongchaContractCountAggregateInputType = {
+    id?: true
+    year?: true
+    affiliationId?: true
+    startDate?: true
+    endDate?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    memo?: true
+    _all?: true
+  }
+
+  export type YongchaContractAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YongchaContract to aggregate.
+     */
+    where?: YongchaContractWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YongchaContracts to fetch.
+     */
+    orderBy?: YongchaContractOrderByWithRelationInput | YongchaContractOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: YongchaContractWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YongchaContracts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YongchaContracts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned YongchaContracts
+    **/
+    _count?: true | YongchaContractCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: YongchaContractAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: YongchaContractSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: YongchaContractMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: YongchaContractMaxAggregateInputType
+  }
+
+  export type GetYongchaContractAggregateType<T extends YongchaContractAggregateArgs> = {
+        [P in keyof T & keyof AggregateYongchaContract]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateYongchaContract[P]>
+      : GetScalarType<T[P], AggregateYongchaContract[P]>
+  }
+
+
+
+
+  export type YongchaContractGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YongchaContractWhereInput
+    orderBy?: YongchaContractOrderByWithAggregationInput | YongchaContractOrderByWithAggregationInput[]
+    by: YongchaContractScalarFieldEnum[] | YongchaContractScalarFieldEnum
+    having?: YongchaContractScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: YongchaContractCountAggregateInputType | true
+    _avg?: YongchaContractAvgAggregateInputType
+    _sum?: YongchaContractSumAggregateInputType
+    _min?: YongchaContractMinAggregateInputType
+    _max?: YongchaContractMaxAggregateInputType
+  }
+
+  export type YongchaContractGroupByOutputType = {
+    id: number
+    year: number
+    affiliationId: number
+    startDate: Date
+    endDate: Date
+    status: string
+    createdAt: Date
+    updatedAt: Date
+    memo: string | null
+    _count: YongchaContractCountAggregateOutputType | null
+    _avg: YongchaContractAvgAggregateOutputType | null
+    _sum: YongchaContractSumAggregateOutputType | null
+    _min: YongchaContractMinAggregateOutputType | null
+    _max: YongchaContractMaxAggregateOutputType | null
+  }
+
+  type GetYongchaContractGroupByPayload<T extends YongchaContractGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<YongchaContractGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof YongchaContractGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], YongchaContractGroupByOutputType[P]>
+            : GetScalarType<T[P], YongchaContractGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type YongchaContractSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    year?: boolean
+    affiliationId?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    memo?: boolean
+    SettlementHistory?: boolean | YongchaContract$SettlementHistoryArgs<ExtArgs>
+    Affiliation?: boolean | AffiliationDefaultArgs<ExtArgs>
+    YongchaRateDetail?: boolean | YongchaContract$YongchaRateDetailArgs<ExtArgs>
+    _count?: boolean | YongchaContractCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["yongchaContract"]>
+
+  export type YongchaContractSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    year?: boolean
+    affiliationId?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    memo?: boolean
+    Affiliation?: boolean | AffiliationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["yongchaContract"]>
+
+  export type YongchaContractSelectScalar = {
+    id?: boolean
+    year?: boolean
+    affiliationId?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    memo?: boolean
+  }
+
+  export type YongchaContractInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    SettlementHistory?: boolean | YongchaContract$SettlementHistoryArgs<ExtArgs>
+    Affiliation?: boolean | AffiliationDefaultArgs<ExtArgs>
+    YongchaRateDetail?: boolean | YongchaContract$YongchaRateDetailArgs<ExtArgs>
+    _count?: boolean | YongchaContractCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type YongchaContractIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Affiliation?: boolean | AffiliationDefaultArgs<ExtArgs>
+  }
+
+  export type $YongchaContractPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "YongchaContract"
+    objects: {
+      SettlementHistory: Prisma.$SettlementHistoryPayload<ExtArgs>[]
+      Affiliation: Prisma.$AffiliationPayload<ExtArgs>
+      YongchaRateDetail: Prisma.$YongchaRateDetailPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      year: number
+      affiliationId: number
+      startDate: Date
+      endDate: Date
+      status: string
+      createdAt: Date
+      updatedAt: Date
+      memo: string | null
+    }, ExtArgs["result"]["yongchaContract"]>
+    composites: {}
+  }
+
+  type YongchaContractGetPayload<S extends boolean | null | undefined | YongchaContractDefaultArgs> = $Result.GetResult<Prisma.$YongchaContractPayload, S>
+
+  type YongchaContractCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<YongchaContractFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: YongchaContractCountAggregateInputType | true
+    }
+
+  export interface YongchaContractDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['YongchaContract'], meta: { name: 'YongchaContract' } }
+    /**
+     * Find zero or one YongchaContract that matches the filter.
+     * @param {YongchaContractFindUniqueArgs} args - Arguments to find a YongchaContract
+     * @example
+     * // Get one YongchaContract
+     * const yongchaContract = await prisma.yongchaContract.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends YongchaContractFindUniqueArgs>(args: SelectSubset<T, YongchaContractFindUniqueArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one YongchaContract that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {YongchaContractFindUniqueOrThrowArgs} args - Arguments to find a YongchaContract
+     * @example
+     * // Get one YongchaContract
+     * const yongchaContract = await prisma.yongchaContract.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends YongchaContractFindUniqueOrThrowArgs>(args: SelectSubset<T, YongchaContractFindUniqueOrThrowArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first YongchaContract that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaContractFindFirstArgs} args - Arguments to find a YongchaContract
+     * @example
+     * // Get one YongchaContract
+     * const yongchaContract = await prisma.yongchaContract.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends YongchaContractFindFirstArgs>(args?: SelectSubset<T, YongchaContractFindFirstArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first YongchaContract that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaContractFindFirstOrThrowArgs} args - Arguments to find a YongchaContract
+     * @example
+     * // Get one YongchaContract
+     * const yongchaContract = await prisma.yongchaContract.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends YongchaContractFindFirstOrThrowArgs>(args?: SelectSubset<T, YongchaContractFindFirstOrThrowArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more YongchaContracts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaContractFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all YongchaContracts
+     * const yongchaContracts = await prisma.yongchaContract.findMany()
+     * 
+     * // Get first 10 YongchaContracts
+     * const yongchaContracts = await prisma.yongchaContract.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const yongchaContractWithIdOnly = await prisma.yongchaContract.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends YongchaContractFindManyArgs>(args?: SelectSubset<T, YongchaContractFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a YongchaContract.
+     * @param {YongchaContractCreateArgs} args - Arguments to create a YongchaContract.
+     * @example
+     * // Create one YongchaContract
+     * const YongchaContract = await prisma.yongchaContract.create({
+     *   data: {
+     *     // ... data to create a YongchaContract
+     *   }
+     * })
+     * 
+     */
+    create<T extends YongchaContractCreateArgs>(args: SelectSubset<T, YongchaContractCreateArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many YongchaContracts.
+     * @param {YongchaContractCreateManyArgs} args - Arguments to create many YongchaContracts.
+     * @example
+     * // Create many YongchaContracts
+     * const yongchaContract = await prisma.yongchaContract.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends YongchaContractCreateManyArgs>(args?: SelectSubset<T, YongchaContractCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many YongchaContracts and returns the data saved in the database.
+     * @param {YongchaContractCreateManyAndReturnArgs} args - Arguments to create many YongchaContracts.
+     * @example
+     * // Create many YongchaContracts
+     * const yongchaContract = await prisma.yongchaContract.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many YongchaContracts and only return the `id`
+     * const yongchaContractWithIdOnly = await prisma.yongchaContract.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends YongchaContractCreateManyAndReturnArgs>(args?: SelectSubset<T, YongchaContractCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a YongchaContract.
+     * @param {YongchaContractDeleteArgs} args - Arguments to delete one YongchaContract.
+     * @example
+     * // Delete one YongchaContract
+     * const YongchaContract = await prisma.yongchaContract.delete({
+     *   where: {
+     *     // ... filter to delete one YongchaContract
+     *   }
+     * })
+     * 
+     */
+    delete<T extends YongchaContractDeleteArgs>(args: SelectSubset<T, YongchaContractDeleteArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one YongchaContract.
+     * @param {YongchaContractUpdateArgs} args - Arguments to update one YongchaContract.
+     * @example
+     * // Update one YongchaContract
+     * const yongchaContract = await prisma.yongchaContract.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends YongchaContractUpdateArgs>(args: SelectSubset<T, YongchaContractUpdateArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more YongchaContracts.
+     * @param {YongchaContractDeleteManyArgs} args - Arguments to filter YongchaContracts to delete.
+     * @example
+     * // Delete a few YongchaContracts
+     * const { count } = await prisma.yongchaContract.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends YongchaContractDeleteManyArgs>(args?: SelectSubset<T, YongchaContractDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more YongchaContracts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaContractUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many YongchaContracts
+     * const yongchaContract = await prisma.yongchaContract.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends YongchaContractUpdateManyArgs>(args: SelectSubset<T, YongchaContractUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one YongchaContract.
+     * @param {YongchaContractUpsertArgs} args - Arguments to update or create a YongchaContract.
+     * @example
+     * // Update or create a YongchaContract
+     * const yongchaContract = await prisma.yongchaContract.upsert({
+     *   create: {
+     *     // ... data to create a YongchaContract
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the YongchaContract we want to update
+     *   }
+     * })
+     */
+    upsert<T extends YongchaContractUpsertArgs>(args: SelectSubset<T, YongchaContractUpsertArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of YongchaContracts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaContractCountArgs} args - Arguments to filter YongchaContracts to count.
+     * @example
+     * // Count the number of YongchaContracts
+     * const count = await prisma.yongchaContract.count({
+     *   where: {
+     *     // ... the filter for the YongchaContracts we want to count
+     *   }
+     * })
+    **/
+    count<T extends YongchaContractCountArgs>(
+      args?: Subset<T, YongchaContractCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], YongchaContractCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a YongchaContract.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaContractAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends YongchaContractAggregateArgs>(args: Subset<T, YongchaContractAggregateArgs>): Prisma.PrismaPromise<GetYongchaContractAggregateType<T>>
+
+    /**
+     * Group by YongchaContract.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaContractGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends YongchaContractGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: YongchaContractGroupByArgs['orderBy'] }
+        : { orderBy?: YongchaContractGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, YongchaContractGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetYongchaContractGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the YongchaContract model
+   */
+  readonly fields: YongchaContractFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for YongchaContract.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__YongchaContractClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    SettlementHistory<T extends YongchaContract$SettlementHistoryArgs<ExtArgs> = {}>(args?: Subset<T, YongchaContract$SettlementHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SettlementHistoryPayload<ExtArgs>, T, "findMany"> | Null>
+    Affiliation<T extends AffiliationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AffiliationDefaultArgs<ExtArgs>>): Prisma__AffiliationClient<$Result.GetResult<Prisma.$AffiliationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    YongchaRateDetail<T extends YongchaContract$YongchaRateDetailArgs<ExtArgs> = {}>(args?: Subset<T, YongchaContract$YongchaRateDetailArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the YongchaContract model
+   */ 
+  interface YongchaContractFieldRefs {
+    readonly id: FieldRef<"YongchaContract", 'Int'>
+    readonly year: FieldRef<"YongchaContract", 'Int'>
+    readonly affiliationId: FieldRef<"YongchaContract", 'Int'>
+    readonly startDate: FieldRef<"YongchaContract", 'DateTime'>
+    readonly endDate: FieldRef<"YongchaContract", 'DateTime'>
+    readonly status: FieldRef<"YongchaContract", 'String'>
+    readonly createdAt: FieldRef<"YongchaContract", 'DateTime'>
+    readonly updatedAt: FieldRef<"YongchaContract", 'DateTime'>
+    readonly memo: FieldRef<"YongchaContract", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * YongchaContract findUnique
+   */
+  export type YongchaContractFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaContract to fetch.
+     */
+    where: YongchaContractWhereUniqueInput
+  }
+
+  /**
+   * YongchaContract findUniqueOrThrow
+   */
+  export type YongchaContractFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaContract to fetch.
+     */
+    where: YongchaContractWhereUniqueInput
+  }
+
+  /**
+   * YongchaContract findFirst
+   */
+  export type YongchaContractFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaContract to fetch.
+     */
+    where?: YongchaContractWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YongchaContracts to fetch.
+     */
+    orderBy?: YongchaContractOrderByWithRelationInput | YongchaContractOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YongchaContracts.
+     */
+    cursor?: YongchaContractWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YongchaContracts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YongchaContracts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YongchaContracts.
+     */
+    distinct?: YongchaContractScalarFieldEnum | YongchaContractScalarFieldEnum[]
+  }
+
+  /**
+   * YongchaContract findFirstOrThrow
+   */
+  export type YongchaContractFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaContract to fetch.
+     */
+    where?: YongchaContractWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YongchaContracts to fetch.
+     */
+    orderBy?: YongchaContractOrderByWithRelationInput | YongchaContractOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YongchaContracts.
+     */
+    cursor?: YongchaContractWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YongchaContracts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YongchaContracts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YongchaContracts.
+     */
+    distinct?: YongchaContractScalarFieldEnum | YongchaContractScalarFieldEnum[]
+  }
+
+  /**
+   * YongchaContract findMany
+   */
+  export type YongchaContractFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaContracts to fetch.
+     */
+    where?: YongchaContractWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YongchaContracts to fetch.
+     */
+    orderBy?: YongchaContractOrderByWithRelationInput | YongchaContractOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing YongchaContracts.
+     */
+    cursor?: YongchaContractWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YongchaContracts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YongchaContracts.
+     */
+    skip?: number
+    distinct?: YongchaContractScalarFieldEnum | YongchaContractScalarFieldEnum[]
+  }
+
+  /**
+   * YongchaContract create
+   */
+  export type YongchaContractCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    /**
+     * The data needed to create a YongchaContract.
+     */
+    data: XOR<YongchaContractCreateInput, YongchaContractUncheckedCreateInput>
+  }
+
+  /**
+   * YongchaContract createMany
+   */
+  export type YongchaContractCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many YongchaContracts.
+     */
+    data: YongchaContractCreateManyInput | YongchaContractCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YongchaContract createManyAndReturn
+   */
+  export type YongchaContractCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many YongchaContracts.
+     */
+    data: YongchaContractCreateManyInput | YongchaContractCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * YongchaContract update
+   */
+  export type YongchaContractUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    /**
+     * The data needed to update a YongchaContract.
+     */
+    data: XOR<YongchaContractUpdateInput, YongchaContractUncheckedUpdateInput>
+    /**
+     * Choose, which YongchaContract to update.
+     */
+    where: YongchaContractWhereUniqueInput
+  }
+
+  /**
+   * YongchaContract updateMany
+   */
+  export type YongchaContractUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update YongchaContracts.
+     */
+    data: XOR<YongchaContractUpdateManyMutationInput, YongchaContractUncheckedUpdateManyInput>
+    /**
+     * Filter which YongchaContracts to update
+     */
+    where?: YongchaContractWhereInput
+  }
+
+  /**
+   * YongchaContract upsert
+   */
+  export type YongchaContractUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    /**
+     * The filter to search for the YongchaContract to update in case it exists.
+     */
+    where: YongchaContractWhereUniqueInput
+    /**
+     * In case the YongchaContract found by the `where` argument doesn't exist, create a new YongchaContract with this data.
+     */
+    create: XOR<YongchaContractCreateInput, YongchaContractUncheckedCreateInput>
+    /**
+     * In case the YongchaContract was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<YongchaContractUpdateInput, YongchaContractUncheckedUpdateInput>
+  }
+
+  /**
+   * YongchaContract delete
+   */
+  export type YongchaContractDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    /**
+     * Filter which YongchaContract to delete.
+     */
+    where: YongchaContractWhereUniqueInput
+  }
+
+  /**
+   * YongchaContract deleteMany
+   */
+  export type YongchaContractDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YongchaContracts to delete
+     */
+    where?: YongchaContractWhereInput
+  }
+
+  /**
+   * YongchaContract.SettlementHistory
+   */
+  export type YongchaContract$SettlementHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SettlementHistory
+     */
+    select?: SettlementHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SettlementHistoryInclude<ExtArgs> | null
+    where?: SettlementHistoryWhereInput
+    orderBy?: SettlementHistoryOrderByWithRelationInput | SettlementHistoryOrderByWithRelationInput[]
+    cursor?: SettlementHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SettlementHistoryScalarFieldEnum | SettlementHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * YongchaContract.YongchaRateDetail
+   */
+  export type YongchaContract$YongchaRateDetailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    where?: YongchaRateDetailWhereInput
+    orderBy?: YongchaRateDetailOrderByWithRelationInput | YongchaRateDetailOrderByWithRelationInput[]
+    cursor?: YongchaRateDetailWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: YongchaRateDetailScalarFieldEnum | YongchaRateDetailScalarFieldEnum[]
+  }
+
+  /**
+   * YongchaContract without action
+   */
+  export type YongchaContractDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model YongchaRateDetail
+   */
+
+  export type AggregateYongchaRateDetail = {
+    _count: YongchaRateDetailCountAggregateOutputType | null
+    _avg: YongchaRateDetailAvgAggregateOutputType | null
+    _sum: YongchaRateDetailSumAggregateOutputType | null
+    _min: YongchaRateDetailMinAggregateOutputType | null
+    _max: YongchaRateDetailMaxAggregateOutputType | null
+  }
+
+  export type YongchaRateDetailAvgAggregateOutputType = {
+    id: number | null
+    contractId: number | null
+    price: number | null
+  }
+
+  export type YongchaRateDetailSumAggregateOutputType = {
+    id: number | null
+    contractId: number | null
+    price: number | null
+  }
+
+  export type YongchaRateDetailMinAggregateOutputType = {
+    id: number | null
+    contractId: number | null
+    tonnage: string | null
+    region: string | null
+    price: number | null
+    memo: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type YongchaRateDetailMaxAggregateOutputType = {
+    id: number | null
+    contractId: number | null
+    tonnage: string | null
+    region: string | null
+    price: number | null
+    memo: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type YongchaRateDetailCountAggregateOutputType = {
+    id: number
+    contractId: number
+    tonnage: number
+    region: number
+    price: number
+    memo: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type YongchaRateDetailAvgAggregateInputType = {
+    id?: true
+    contractId?: true
+    price?: true
+  }
+
+  export type YongchaRateDetailSumAggregateInputType = {
+    id?: true
+    contractId?: true
+    price?: true
+  }
+
+  export type YongchaRateDetailMinAggregateInputType = {
+    id?: true
+    contractId?: true
+    tonnage?: true
+    region?: true
+    price?: true
+    memo?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type YongchaRateDetailMaxAggregateInputType = {
+    id?: true
+    contractId?: true
+    tonnage?: true
+    region?: true
+    price?: true
+    memo?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type YongchaRateDetailCountAggregateInputType = {
+    id?: true
+    contractId?: true
+    tonnage?: true
+    region?: true
+    price?: true
+    memo?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type YongchaRateDetailAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YongchaRateDetail to aggregate.
+     */
+    where?: YongchaRateDetailWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YongchaRateDetails to fetch.
+     */
+    orderBy?: YongchaRateDetailOrderByWithRelationInput | YongchaRateDetailOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: YongchaRateDetailWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YongchaRateDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YongchaRateDetails.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned YongchaRateDetails
+    **/
+    _count?: true | YongchaRateDetailCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: YongchaRateDetailAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: YongchaRateDetailSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: YongchaRateDetailMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: YongchaRateDetailMaxAggregateInputType
+  }
+
+  export type GetYongchaRateDetailAggregateType<T extends YongchaRateDetailAggregateArgs> = {
+        [P in keyof T & keyof AggregateYongchaRateDetail]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateYongchaRateDetail[P]>
+      : GetScalarType<T[P], AggregateYongchaRateDetail[P]>
+  }
+
+
+
+
+  export type YongchaRateDetailGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YongchaRateDetailWhereInput
+    orderBy?: YongchaRateDetailOrderByWithAggregationInput | YongchaRateDetailOrderByWithAggregationInput[]
+    by: YongchaRateDetailScalarFieldEnum[] | YongchaRateDetailScalarFieldEnum
+    having?: YongchaRateDetailScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: YongchaRateDetailCountAggregateInputType | true
+    _avg?: YongchaRateDetailAvgAggregateInputType
+    _sum?: YongchaRateDetailSumAggregateInputType
+    _min?: YongchaRateDetailMinAggregateInputType
+    _max?: YongchaRateDetailMaxAggregateInputType
+  }
+
+  export type YongchaRateDetailGroupByOutputType = {
+    id: number
+    contractId: number
+    tonnage: string | null
+    region: string
+    price: number
+    memo: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: YongchaRateDetailCountAggregateOutputType | null
+    _avg: YongchaRateDetailAvgAggregateOutputType | null
+    _sum: YongchaRateDetailSumAggregateOutputType | null
+    _min: YongchaRateDetailMinAggregateOutputType | null
+    _max: YongchaRateDetailMaxAggregateOutputType | null
+  }
+
+  type GetYongchaRateDetailGroupByPayload<T extends YongchaRateDetailGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<YongchaRateDetailGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof YongchaRateDetailGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], YongchaRateDetailGroupByOutputType[P]>
+            : GetScalarType<T[P], YongchaRateDetailGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type YongchaRateDetailSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    contractId?: boolean
+    tonnage?: boolean
+    region?: boolean
+    price?: boolean
+    memo?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    YongchaContract?: boolean | YongchaContractDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["yongchaRateDetail"]>
+
+  export type YongchaRateDetailSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    contractId?: boolean
+    tonnage?: boolean
+    region?: boolean
+    price?: boolean
+    memo?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    YongchaContract?: boolean | YongchaContractDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["yongchaRateDetail"]>
+
+  export type YongchaRateDetailSelectScalar = {
+    id?: boolean
+    contractId?: boolean
+    tonnage?: boolean
+    region?: boolean
+    price?: boolean
+    memo?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type YongchaRateDetailInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    YongchaContract?: boolean | YongchaContractDefaultArgs<ExtArgs>
+  }
+  export type YongchaRateDetailIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    YongchaContract?: boolean | YongchaContractDefaultArgs<ExtArgs>
+  }
+
+  export type $YongchaRateDetailPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "YongchaRateDetail"
+    objects: {
+      YongchaContract: Prisma.$YongchaContractPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      contractId: number
+      tonnage: string | null
+      region: string
+      price: number
+      memo: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["yongchaRateDetail"]>
+    composites: {}
+  }
+
+  type YongchaRateDetailGetPayload<S extends boolean | null | undefined | YongchaRateDetailDefaultArgs> = $Result.GetResult<Prisma.$YongchaRateDetailPayload, S>
+
+  type YongchaRateDetailCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<YongchaRateDetailFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: YongchaRateDetailCountAggregateInputType | true
+    }
+
+  export interface YongchaRateDetailDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['YongchaRateDetail'], meta: { name: 'YongchaRateDetail' } }
+    /**
+     * Find zero or one YongchaRateDetail that matches the filter.
+     * @param {YongchaRateDetailFindUniqueArgs} args - Arguments to find a YongchaRateDetail
+     * @example
+     * // Get one YongchaRateDetail
+     * const yongchaRateDetail = await prisma.yongchaRateDetail.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends YongchaRateDetailFindUniqueArgs>(args: SelectSubset<T, YongchaRateDetailFindUniqueArgs<ExtArgs>>): Prisma__YongchaRateDetailClient<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one YongchaRateDetail that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {YongchaRateDetailFindUniqueOrThrowArgs} args - Arguments to find a YongchaRateDetail
+     * @example
+     * // Get one YongchaRateDetail
+     * const yongchaRateDetail = await prisma.yongchaRateDetail.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends YongchaRateDetailFindUniqueOrThrowArgs>(args: SelectSubset<T, YongchaRateDetailFindUniqueOrThrowArgs<ExtArgs>>): Prisma__YongchaRateDetailClient<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first YongchaRateDetail that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaRateDetailFindFirstArgs} args - Arguments to find a YongchaRateDetail
+     * @example
+     * // Get one YongchaRateDetail
+     * const yongchaRateDetail = await prisma.yongchaRateDetail.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends YongchaRateDetailFindFirstArgs>(args?: SelectSubset<T, YongchaRateDetailFindFirstArgs<ExtArgs>>): Prisma__YongchaRateDetailClient<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first YongchaRateDetail that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaRateDetailFindFirstOrThrowArgs} args - Arguments to find a YongchaRateDetail
+     * @example
+     * // Get one YongchaRateDetail
+     * const yongchaRateDetail = await prisma.yongchaRateDetail.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends YongchaRateDetailFindFirstOrThrowArgs>(args?: SelectSubset<T, YongchaRateDetailFindFirstOrThrowArgs<ExtArgs>>): Prisma__YongchaRateDetailClient<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more YongchaRateDetails that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaRateDetailFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all YongchaRateDetails
+     * const yongchaRateDetails = await prisma.yongchaRateDetail.findMany()
+     * 
+     * // Get first 10 YongchaRateDetails
+     * const yongchaRateDetails = await prisma.yongchaRateDetail.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const yongchaRateDetailWithIdOnly = await prisma.yongchaRateDetail.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends YongchaRateDetailFindManyArgs>(args?: SelectSubset<T, YongchaRateDetailFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a YongchaRateDetail.
+     * @param {YongchaRateDetailCreateArgs} args - Arguments to create a YongchaRateDetail.
+     * @example
+     * // Create one YongchaRateDetail
+     * const YongchaRateDetail = await prisma.yongchaRateDetail.create({
+     *   data: {
+     *     // ... data to create a YongchaRateDetail
+     *   }
+     * })
+     * 
+     */
+    create<T extends YongchaRateDetailCreateArgs>(args: SelectSubset<T, YongchaRateDetailCreateArgs<ExtArgs>>): Prisma__YongchaRateDetailClient<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many YongchaRateDetails.
+     * @param {YongchaRateDetailCreateManyArgs} args - Arguments to create many YongchaRateDetails.
+     * @example
+     * // Create many YongchaRateDetails
+     * const yongchaRateDetail = await prisma.yongchaRateDetail.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends YongchaRateDetailCreateManyArgs>(args?: SelectSubset<T, YongchaRateDetailCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many YongchaRateDetails and returns the data saved in the database.
+     * @param {YongchaRateDetailCreateManyAndReturnArgs} args - Arguments to create many YongchaRateDetails.
+     * @example
+     * // Create many YongchaRateDetails
+     * const yongchaRateDetail = await prisma.yongchaRateDetail.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many YongchaRateDetails and only return the `id`
+     * const yongchaRateDetailWithIdOnly = await prisma.yongchaRateDetail.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends YongchaRateDetailCreateManyAndReturnArgs>(args?: SelectSubset<T, YongchaRateDetailCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a YongchaRateDetail.
+     * @param {YongchaRateDetailDeleteArgs} args - Arguments to delete one YongchaRateDetail.
+     * @example
+     * // Delete one YongchaRateDetail
+     * const YongchaRateDetail = await prisma.yongchaRateDetail.delete({
+     *   where: {
+     *     // ... filter to delete one YongchaRateDetail
+     *   }
+     * })
+     * 
+     */
+    delete<T extends YongchaRateDetailDeleteArgs>(args: SelectSubset<T, YongchaRateDetailDeleteArgs<ExtArgs>>): Prisma__YongchaRateDetailClient<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one YongchaRateDetail.
+     * @param {YongchaRateDetailUpdateArgs} args - Arguments to update one YongchaRateDetail.
+     * @example
+     * // Update one YongchaRateDetail
+     * const yongchaRateDetail = await prisma.yongchaRateDetail.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends YongchaRateDetailUpdateArgs>(args: SelectSubset<T, YongchaRateDetailUpdateArgs<ExtArgs>>): Prisma__YongchaRateDetailClient<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more YongchaRateDetails.
+     * @param {YongchaRateDetailDeleteManyArgs} args - Arguments to filter YongchaRateDetails to delete.
+     * @example
+     * // Delete a few YongchaRateDetails
+     * const { count } = await prisma.yongchaRateDetail.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends YongchaRateDetailDeleteManyArgs>(args?: SelectSubset<T, YongchaRateDetailDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more YongchaRateDetails.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaRateDetailUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many YongchaRateDetails
+     * const yongchaRateDetail = await prisma.yongchaRateDetail.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends YongchaRateDetailUpdateManyArgs>(args: SelectSubset<T, YongchaRateDetailUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one YongchaRateDetail.
+     * @param {YongchaRateDetailUpsertArgs} args - Arguments to update or create a YongchaRateDetail.
+     * @example
+     * // Update or create a YongchaRateDetail
+     * const yongchaRateDetail = await prisma.yongchaRateDetail.upsert({
+     *   create: {
+     *     // ... data to create a YongchaRateDetail
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the YongchaRateDetail we want to update
+     *   }
+     * })
+     */
+    upsert<T extends YongchaRateDetailUpsertArgs>(args: SelectSubset<T, YongchaRateDetailUpsertArgs<ExtArgs>>): Prisma__YongchaRateDetailClient<$Result.GetResult<Prisma.$YongchaRateDetailPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of YongchaRateDetails.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaRateDetailCountArgs} args - Arguments to filter YongchaRateDetails to count.
+     * @example
+     * // Count the number of YongchaRateDetails
+     * const count = await prisma.yongchaRateDetail.count({
+     *   where: {
+     *     // ... the filter for the YongchaRateDetails we want to count
+     *   }
+     * })
+    **/
+    count<T extends YongchaRateDetailCountArgs>(
+      args?: Subset<T, YongchaRateDetailCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], YongchaRateDetailCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a YongchaRateDetail.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaRateDetailAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends YongchaRateDetailAggregateArgs>(args: Subset<T, YongchaRateDetailAggregateArgs>): Prisma.PrismaPromise<GetYongchaRateDetailAggregateType<T>>
+
+    /**
+     * Group by YongchaRateDetail.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YongchaRateDetailGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends YongchaRateDetailGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: YongchaRateDetailGroupByArgs['orderBy'] }
+        : { orderBy?: YongchaRateDetailGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, YongchaRateDetailGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetYongchaRateDetailGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the YongchaRateDetail model
+   */
+  readonly fields: YongchaRateDetailFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for YongchaRateDetail.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__YongchaRateDetailClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    YongchaContract<T extends YongchaContractDefaultArgs<ExtArgs> = {}>(args?: Subset<T, YongchaContractDefaultArgs<ExtArgs>>): Prisma__YongchaContractClient<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the YongchaRateDetail model
+   */ 
+  interface YongchaRateDetailFieldRefs {
+    readonly id: FieldRef<"YongchaRateDetail", 'Int'>
+    readonly contractId: FieldRef<"YongchaRateDetail", 'Int'>
+    readonly tonnage: FieldRef<"YongchaRateDetail", 'String'>
+    readonly region: FieldRef<"YongchaRateDetail", 'String'>
+    readonly price: FieldRef<"YongchaRateDetail", 'Int'>
+    readonly memo: FieldRef<"YongchaRateDetail", 'String'>
+    readonly createdAt: FieldRef<"YongchaRateDetail", 'DateTime'>
+    readonly updatedAt: FieldRef<"YongchaRateDetail", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * YongchaRateDetail findUnique
+   */
+  export type YongchaRateDetailFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaRateDetail to fetch.
+     */
+    where: YongchaRateDetailWhereUniqueInput
+  }
+
+  /**
+   * YongchaRateDetail findUniqueOrThrow
+   */
+  export type YongchaRateDetailFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaRateDetail to fetch.
+     */
+    where: YongchaRateDetailWhereUniqueInput
+  }
+
+  /**
+   * YongchaRateDetail findFirst
+   */
+  export type YongchaRateDetailFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaRateDetail to fetch.
+     */
+    where?: YongchaRateDetailWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YongchaRateDetails to fetch.
+     */
+    orderBy?: YongchaRateDetailOrderByWithRelationInput | YongchaRateDetailOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YongchaRateDetails.
+     */
+    cursor?: YongchaRateDetailWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YongchaRateDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YongchaRateDetails.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YongchaRateDetails.
+     */
+    distinct?: YongchaRateDetailScalarFieldEnum | YongchaRateDetailScalarFieldEnum[]
+  }
+
+  /**
+   * YongchaRateDetail findFirstOrThrow
+   */
+  export type YongchaRateDetailFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaRateDetail to fetch.
+     */
+    where?: YongchaRateDetailWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YongchaRateDetails to fetch.
+     */
+    orderBy?: YongchaRateDetailOrderByWithRelationInput | YongchaRateDetailOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YongchaRateDetails.
+     */
+    cursor?: YongchaRateDetailWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YongchaRateDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YongchaRateDetails.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YongchaRateDetails.
+     */
+    distinct?: YongchaRateDetailScalarFieldEnum | YongchaRateDetailScalarFieldEnum[]
+  }
+
+  /**
+   * YongchaRateDetail findMany
+   */
+  export type YongchaRateDetailFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which YongchaRateDetails to fetch.
+     */
+    where?: YongchaRateDetailWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YongchaRateDetails to fetch.
+     */
+    orderBy?: YongchaRateDetailOrderByWithRelationInput | YongchaRateDetailOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing YongchaRateDetails.
+     */
+    cursor?: YongchaRateDetailWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YongchaRateDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YongchaRateDetails.
+     */
+    skip?: number
+    distinct?: YongchaRateDetailScalarFieldEnum | YongchaRateDetailScalarFieldEnum[]
+  }
+
+  /**
+   * YongchaRateDetail create
+   */
+  export type YongchaRateDetailCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    /**
+     * The data needed to create a YongchaRateDetail.
+     */
+    data: XOR<YongchaRateDetailCreateInput, YongchaRateDetailUncheckedCreateInput>
+  }
+
+  /**
+   * YongchaRateDetail createMany
+   */
+  export type YongchaRateDetailCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many YongchaRateDetails.
+     */
+    data: YongchaRateDetailCreateManyInput | YongchaRateDetailCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YongchaRateDetail createManyAndReturn
+   */
+  export type YongchaRateDetailCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many YongchaRateDetails.
+     */
+    data: YongchaRateDetailCreateManyInput | YongchaRateDetailCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * YongchaRateDetail update
+   */
+  export type YongchaRateDetailUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    /**
+     * The data needed to update a YongchaRateDetail.
+     */
+    data: XOR<YongchaRateDetailUpdateInput, YongchaRateDetailUncheckedUpdateInput>
+    /**
+     * Choose, which YongchaRateDetail to update.
+     */
+    where: YongchaRateDetailWhereUniqueInput
+  }
+
+  /**
+   * YongchaRateDetail updateMany
+   */
+  export type YongchaRateDetailUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update YongchaRateDetails.
+     */
+    data: XOR<YongchaRateDetailUpdateManyMutationInput, YongchaRateDetailUncheckedUpdateManyInput>
+    /**
+     * Filter which YongchaRateDetails to update
+     */
+    where?: YongchaRateDetailWhereInput
+  }
+
+  /**
+   * YongchaRateDetail upsert
+   */
+  export type YongchaRateDetailUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    /**
+     * The filter to search for the YongchaRateDetail to update in case it exists.
+     */
+    where: YongchaRateDetailWhereUniqueInput
+    /**
+     * In case the YongchaRateDetail found by the `where` argument doesn't exist, create a new YongchaRateDetail with this data.
+     */
+    create: XOR<YongchaRateDetailCreateInput, YongchaRateDetailUncheckedCreateInput>
+    /**
+     * In case the YongchaRateDetail was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<YongchaRateDetailUpdateInput, YongchaRateDetailUncheckedUpdateInput>
+  }
+
+  /**
+   * YongchaRateDetail delete
+   */
+  export type YongchaRateDetailDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
+    /**
+     * Filter which YongchaRateDetail to delete.
+     */
+    where: YongchaRateDetailWhereUniqueInput
+  }
+
+  /**
+   * YongchaRateDetail deleteMany
+   */
+  export type YongchaRateDetailDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YongchaRateDetails to delete
+     */
+    where?: YongchaRateDetailWhereInput
+  }
+
+  /**
+   * YongchaRateDetail without action
+   */
+  export type YongchaRateDetailDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaRateDetail
+     */
+    select?: YongchaRateDetailSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaRateDetailInclude<ExtArgs> | null
   }
 
 
@@ -5006,8 +7790,10 @@ export namespace Prisma {
   export const DriverScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    affiliation: 'affiliation',
+    affiliationId: 'affiliationId',
+    carNo: 'carNo',
     tonnage: 'tonnage',
+    phone: 'phone',
     regDate: 'regDate',
     address: 'address',
     memo: 'memo',
@@ -5016,23 +7802,6 @@ export namespace Prisma {
   };
 
   export type DriverScalarFieldEnum = (typeof DriverScalarFieldEnum)[keyof typeof DriverScalarFieldEnum]
-
-
-  export const FeeMasterScalarFieldEnum: {
-    id: 'id',
-    affiliation: 'affiliation',
-    tonnage: 'tonnage',
-    year: 'year',
-    region: 'region',
-    fee: 'fee',
-    memo: 'memo',
-    isActive: 'isActive',
-    readonly: 'readonly',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type FeeMasterScalarFieldEnum = (typeof FeeMasterScalarFieldEnum)[keyof typeof FeeMasterScalarFieldEnum]
 
 
   export const SettlementHistoryScalarFieldEnum: {
@@ -5045,11 +7814,14 @@ export namespace Prisma {
     totalWeight: 'totalWeight',
     fee: 'fee',
     memo: 'memo',
+    status: 'status',
     isPbox: 'isPbox',
     isReturn: 'isReturn',
     so: 'so',
     nap: 'nap',
     ton: 'ton',
+    contractId: 'contractId',
+    appliedTonnage: 'appliedTonnage',
     createdAt: 'createdAt'
   };
 
@@ -5059,10 +7831,60 @@ export namespace Prisma {
   export const AffiliationScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    bizNo: 'bizNo',
+    ceo: 'ceo',
+    address: 'address',
+    manager: 'manager',
+    contact: 'contact',
+    email: 'email',
+    memo: 'memo',
     createdAt: 'createdAt'
   };
 
   export type AffiliationScalarFieldEnum = (typeof AffiliationScalarFieldEnum)[keyof typeof AffiliationScalarFieldEnum]
+
+
+  export const UserScalarFieldEnum: {
+    id: 'id',
+    loginId: 'loginId',
+    password: 'password',
+    name: 'name',
+    role: 'role',
+    affiliationId: 'affiliationId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const YongchaContractScalarFieldEnum: {
+    id: 'id',
+    year: 'year',
+    affiliationId: 'affiliationId',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    memo: 'memo'
+  };
+
+  export type YongchaContractScalarFieldEnum = (typeof YongchaContractScalarFieldEnum)[keyof typeof YongchaContractScalarFieldEnum]
+
+
+  export const YongchaRateDetailScalarFieldEnum: {
+    id: 'id',
+    contractId: 'contractId',
+    tonnage: 'tonnage',
+    region: 'region',
+    price: 'price',
+    memo: 'memo',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type YongchaRateDetailScalarFieldEnum = (typeof YongchaRateDetailScalarFieldEnum)[keyof typeof YongchaRateDetailScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5166,25 +7988,31 @@ export namespace Prisma {
     NOT?: DriverWhereInput | DriverWhereInput[]
     id?: IntFilter<"Driver"> | number
     name?: StringFilter<"Driver"> | string
-    affiliation?: StringNullableFilter<"Driver"> | string | null
+    affiliationId?: IntNullableFilter<"Driver"> | number | null
+    carNo?: StringNullableFilter<"Driver"> | string | null
     tonnage?: StringNullableFilter<"Driver"> | string | null
-    regDate?: StringNullableFilter<"Driver"> | string | null
+    phone?: StringNullableFilter<"Driver"> | string | null
+    regDate?: DateTimeNullableFilter<"Driver"> | Date | string | null
     address?: StringNullableFilter<"Driver"> | string | null
     memo?: StringNullableFilter<"Driver"> | string | null
     createdAt?: DateTimeFilter<"Driver"> | Date | string
     updatedAt?: DateTimeFilter<"Driver"> | Date | string
+    Affiliation?: XOR<AffiliationNullableRelationFilter, AffiliationWhereInput> | null
   }
 
   export type DriverOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    affiliation?: SortOrderInput | SortOrder
+    affiliationId?: SortOrderInput | SortOrder
+    carNo?: SortOrderInput | SortOrder
     tonnage?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
     regDate?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
     memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    Affiliation?: AffiliationOrderByWithRelationInput
   }
 
   export type DriverWhereUniqueInput = Prisma.AtLeast<{
@@ -5193,20 +8021,25 @@ export namespace Prisma {
     OR?: DriverWhereInput[]
     NOT?: DriverWhereInput | DriverWhereInput[]
     name?: StringFilter<"Driver"> | string
-    affiliation?: StringNullableFilter<"Driver"> | string | null
+    affiliationId?: IntNullableFilter<"Driver"> | number | null
+    carNo?: StringNullableFilter<"Driver"> | string | null
     tonnage?: StringNullableFilter<"Driver"> | string | null
-    regDate?: StringNullableFilter<"Driver"> | string | null
+    phone?: StringNullableFilter<"Driver"> | string | null
+    regDate?: DateTimeNullableFilter<"Driver"> | Date | string | null
     address?: StringNullableFilter<"Driver"> | string | null
     memo?: StringNullableFilter<"Driver"> | string | null
     createdAt?: DateTimeFilter<"Driver"> | Date | string
     updatedAt?: DateTimeFilter<"Driver"> | Date | string
+    Affiliation?: XOR<AffiliationNullableRelationFilter, AffiliationWhereInput> | null
   }, "id">
 
   export type DriverOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    affiliation?: SortOrderInput | SortOrder
+    affiliationId?: SortOrderInput | SortOrder
+    carNo?: SortOrderInput | SortOrder
     tonnage?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
     regDate?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
     memo?: SortOrderInput | SortOrder
@@ -5225,97 +8058,15 @@ export namespace Prisma {
     NOT?: DriverScalarWhereWithAggregatesInput | DriverScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Driver"> | number
     name?: StringWithAggregatesFilter<"Driver"> | string
-    affiliation?: StringNullableWithAggregatesFilter<"Driver"> | string | null
+    affiliationId?: IntNullableWithAggregatesFilter<"Driver"> | number | null
+    carNo?: StringNullableWithAggregatesFilter<"Driver"> | string | null
     tonnage?: StringNullableWithAggregatesFilter<"Driver"> | string | null
-    regDate?: StringNullableWithAggregatesFilter<"Driver"> | string | null
+    phone?: StringNullableWithAggregatesFilter<"Driver"> | string | null
+    regDate?: DateTimeNullableWithAggregatesFilter<"Driver"> | Date | string | null
     address?: StringNullableWithAggregatesFilter<"Driver"> | string | null
     memo?: StringNullableWithAggregatesFilter<"Driver"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Driver"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Driver"> | Date | string
-  }
-
-  export type FeeMasterWhereInput = {
-    AND?: FeeMasterWhereInput | FeeMasterWhereInput[]
-    OR?: FeeMasterWhereInput[]
-    NOT?: FeeMasterWhereInput | FeeMasterWhereInput[]
-    id?: IntFilter<"FeeMaster"> | number
-    affiliation?: StringFilter<"FeeMaster"> | string
-    tonnage?: StringFilter<"FeeMaster"> | string
-    year?: IntFilter<"FeeMaster"> | number
-    region?: StringFilter<"FeeMaster"> | string
-    fee?: IntFilter<"FeeMaster"> | number
-    memo?: StringNullableFilter<"FeeMaster"> | string | null
-    isActive?: BoolFilter<"FeeMaster"> | boolean
-    readonly?: BoolFilter<"FeeMaster"> | boolean
-    createdAt?: DateTimeFilter<"FeeMaster"> | Date | string
-    updatedAt?: DateTimeFilter<"FeeMaster"> | Date | string
-  }
-
-  export type FeeMasterOrderByWithRelationInput = {
-    id?: SortOrder
-    affiliation?: SortOrder
-    tonnage?: SortOrder
-    year?: SortOrder
-    region?: SortOrder
-    fee?: SortOrder
-    memo?: SortOrderInput | SortOrder
-    isActive?: SortOrder
-    readonly?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type FeeMasterWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: FeeMasterWhereInput | FeeMasterWhereInput[]
-    OR?: FeeMasterWhereInput[]
-    NOT?: FeeMasterWhereInput | FeeMasterWhereInput[]
-    affiliation?: StringFilter<"FeeMaster"> | string
-    tonnage?: StringFilter<"FeeMaster"> | string
-    year?: IntFilter<"FeeMaster"> | number
-    region?: StringFilter<"FeeMaster"> | string
-    fee?: IntFilter<"FeeMaster"> | number
-    memo?: StringNullableFilter<"FeeMaster"> | string | null
-    isActive?: BoolFilter<"FeeMaster"> | boolean
-    readonly?: BoolFilter<"FeeMaster"> | boolean
-    createdAt?: DateTimeFilter<"FeeMaster"> | Date | string
-    updatedAt?: DateTimeFilter<"FeeMaster"> | Date | string
-  }, "id">
-
-  export type FeeMasterOrderByWithAggregationInput = {
-    id?: SortOrder
-    affiliation?: SortOrder
-    tonnage?: SortOrder
-    year?: SortOrder
-    region?: SortOrder
-    fee?: SortOrder
-    memo?: SortOrderInput | SortOrder
-    isActive?: SortOrder
-    readonly?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: FeeMasterCountOrderByAggregateInput
-    _avg?: FeeMasterAvgOrderByAggregateInput
-    _max?: FeeMasterMaxOrderByAggregateInput
-    _min?: FeeMasterMinOrderByAggregateInput
-    _sum?: FeeMasterSumOrderByAggregateInput
-  }
-
-  export type FeeMasterScalarWhereWithAggregatesInput = {
-    AND?: FeeMasterScalarWhereWithAggregatesInput | FeeMasterScalarWhereWithAggregatesInput[]
-    OR?: FeeMasterScalarWhereWithAggregatesInput[]
-    NOT?: FeeMasterScalarWhereWithAggregatesInput | FeeMasterScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"FeeMaster"> | number
-    affiliation?: StringWithAggregatesFilter<"FeeMaster"> | string
-    tonnage?: StringWithAggregatesFilter<"FeeMaster"> | string
-    year?: IntWithAggregatesFilter<"FeeMaster"> | number
-    region?: StringWithAggregatesFilter<"FeeMaster"> | string
-    fee?: IntWithAggregatesFilter<"FeeMaster"> | number
-    memo?: StringNullableWithAggregatesFilter<"FeeMaster"> | string | null
-    isActive?: BoolWithAggregatesFilter<"FeeMaster"> | boolean
-    readonly?: BoolWithAggregatesFilter<"FeeMaster"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"FeeMaster"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"FeeMaster"> | Date | string
   }
 
   export type SettlementHistoryWhereInput = {
@@ -5323,7 +8074,7 @@ export namespace Prisma {
     OR?: SettlementHistoryWhereInput[]
     NOT?: SettlementHistoryWhereInput | SettlementHistoryWhereInput[]
     id?: IntFilter<"SettlementHistory"> | number
-    date?: StringFilter<"SettlementHistory"> | string
+    date?: DateTimeFilter<"SettlementHistory"> | Date | string
     driverName?: StringFilter<"SettlementHistory"> | string
     affiliation?: StringNullableFilter<"SettlementHistory"> | string | null
     tonnage?: StringNullableFilter<"SettlementHistory"> | string | null
@@ -5331,12 +8082,16 @@ export namespace Prisma {
     totalWeight?: IntFilter<"SettlementHistory"> | number
     fee?: IntFilter<"SettlementHistory"> | number
     memo?: StringNullableFilter<"SettlementHistory"> | string | null
+    status?: StringFilter<"SettlementHistory"> | string
     isPbox?: BoolFilter<"SettlementHistory"> | boolean
     isReturn?: BoolFilter<"SettlementHistory"> | boolean
     so?: StringNullableFilter<"SettlementHistory"> | string | null
     nap?: StringNullableFilter<"SettlementHistory"> | string | null
     ton?: IntNullableFilter<"SettlementHistory"> | number | null
+    contractId?: IntNullableFilter<"SettlementHistory"> | number | null
+    appliedTonnage?: StringNullableFilter<"SettlementHistory"> | string | null
     createdAt?: DateTimeFilter<"SettlementHistory"> | Date | string
+    YongchaContract?: XOR<YongchaContractNullableRelationFilter, YongchaContractWhereInput> | null
   }
 
   export type SettlementHistoryOrderByWithRelationInput = {
@@ -5349,12 +8104,16 @@ export namespace Prisma {
     totalWeight?: SortOrder
     fee?: SortOrder
     memo?: SortOrderInput | SortOrder
+    status?: SortOrder
     isPbox?: SortOrder
     isReturn?: SortOrder
     so?: SortOrderInput | SortOrder
     nap?: SortOrderInput | SortOrder
     ton?: SortOrderInput | SortOrder
+    contractId?: SortOrderInput | SortOrder
+    appliedTonnage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    YongchaContract?: YongchaContractOrderByWithRelationInput
   }
 
   export type SettlementHistoryWhereUniqueInput = Prisma.AtLeast<{
@@ -5362,7 +8121,7 @@ export namespace Prisma {
     AND?: SettlementHistoryWhereInput | SettlementHistoryWhereInput[]
     OR?: SettlementHistoryWhereInput[]
     NOT?: SettlementHistoryWhereInput | SettlementHistoryWhereInput[]
-    date?: StringFilter<"SettlementHistory"> | string
+    date?: DateTimeFilter<"SettlementHistory"> | Date | string
     driverName?: StringFilter<"SettlementHistory"> | string
     affiliation?: StringNullableFilter<"SettlementHistory"> | string | null
     tonnage?: StringNullableFilter<"SettlementHistory"> | string | null
@@ -5370,12 +8129,16 @@ export namespace Prisma {
     totalWeight?: IntFilter<"SettlementHistory"> | number
     fee?: IntFilter<"SettlementHistory"> | number
     memo?: StringNullableFilter<"SettlementHistory"> | string | null
+    status?: StringFilter<"SettlementHistory"> | string
     isPbox?: BoolFilter<"SettlementHistory"> | boolean
     isReturn?: BoolFilter<"SettlementHistory"> | boolean
     so?: StringNullableFilter<"SettlementHistory"> | string | null
     nap?: StringNullableFilter<"SettlementHistory"> | string | null
     ton?: IntNullableFilter<"SettlementHistory"> | number | null
+    contractId?: IntNullableFilter<"SettlementHistory"> | number | null
+    appliedTonnage?: StringNullableFilter<"SettlementHistory"> | string | null
     createdAt?: DateTimeFilter<"SettlementHistory"> | Date | string
+    YongchaContract?: XOR<YongchaContractNullableRelationFilter, YongchaContractWhereInput> | null
   }, "id">
 
   export type SettlementHistoryOrderByWithAggregationInput = {
@@ -5388,11 +8151,14 @@ export namespace Prisma {
     totalWeight?: SortOrder
     fee?: SortOrder
     memo?: SortOrderInput | SortOrder
+    status?: SortOrder
     isPbox?: SortOrder
     isReturn?: SortOrder
     so?: SortOrderInput | SortOrder
     nap?: SortOrderInput | SortOrder
     ton?: SortOrderInput | SortOrder
+    contractId?: SortOrderInput | SortOrder
+    appliedTonnage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: SettlementHistoryCountOrderByAggregateInput
     _avg?: SettlementHistoryAvgOrderByAggregateInput
@@ -5406,7 +8172,7 @@ export namespace Prisma {
     OR?: SettlementHistoryScalarWhereWithAggregatesInput[]
     NOT?: SettlementHistoryScalarWhereWithAggregatesInput | SettlementHistoryScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"SettlementHistory"> | number
-    date?: StringWithAggregatesFilter<"SettlementHistory"> | string
+    date?: DateTimeWithAggregatesFilter<"SettlementHistory"> | Date | string
     driverName?: StringWithAggregatesFilter<"SettlementHistory"> | string
     affiliation?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
     tonnage?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
@@ -5414,11 +8180,14 @@ export namespace Prisma {
     totalWeight?: IntWithAggregatesFilter<"SettlementHistory"> | number
     fee?: IntWithAggregatesFilter<"SettlementHistory"> | number
     memo?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
+    status?: StringWithAggregatesFilter<"SettlementHistory"> | string
     isPbox?: BoolWithAggregatesFilter<"SettlementHistory"> | boolean
     isReturn?: BoolWithAggregatesFilter<"SettlementHistory"> | boolean
     so?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
     nap?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
     ton?: IntNullableWithAggregatesFilter<"SettlementHistory"> | number | null
+    contractId?: IntNullableWithAggregatesFilter<"SettlementHistory"> | number | null
+    appliedTonnage?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"SettlementHistory"> | Date | string
   }
 
@@ -5428,13 +8197,33 @@ export namespace Prisma {
     NOT?: AffiliationWhereInput | AffiliationWhereInput[]
     id?: IntFilter<"Affiliation"> | number
     name?: StringFilter<"Affiliation"> | string
+    bizNo?: StringNullableFilter<"Affiliation"> | string | null
+    ceo?: StringNullableFilter<"Affiliation"> | string | null
+    address?: StringNullableFilter<"Affiliation"> | string | null
+    manager?: StringNullableFilter<"Affiliation"> | string | null
+    contact?: StringNullableFilter<"Affiliation"> | string | null
+    email?: StringNullableFilter<"Affiliation"> | string | null
+    memo?: StringNullableFilter<"Affiliation"> | string | null
     createdAt?: DateTimeFilter<"Affiliation"> | Date | string
+    Driver?: DriverListRelationFilter
+    YongchaContract?: YongchaContractListRelationFilter
+    User?: UserListRelationFilter
   }
 
   export type AffiliationOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    bizNo?: SortOrderInput | SortOrder
+    ceo?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    manager?: SortOrderInput | SortOrder
+    contact?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    Driver?: DriverOrderByRelationAggregateInput
+    YongchaContract?: YongchaContractOrderByRelationAggregateInput
+    User?: UserOrderByRelationAggregateInput
   }
 
   export type AffiliationWhereUniqueInput = Prisma.AtLeast<{
@@ -5443,12 +8232,29 @@ export namespace Prisma {
     AND?: AffiliationWhereInput | AffiliationWhereInput[]
     OR?: AffiliationWhereInput[]
     NOT?: AffiliationWhereInput | AffiliationWhereInput[]
+    bizNo?: StringNullableFilter<"Affiliation"> | string | null
+    ceo?: StringNullableFilter<"Affiliation"> | string | null
+    address?: StringNullableFilter<"Affiliation"> | string | null
+    manager?: StringNullableFilter<"Affiliation"> | string | null
+    contact?: StringNullableFilter<"Affiliation"> | string | null
+    email?: StringNullableFilter<"Affiliation"> | string | null
+    memo?: StringNullableFilter<"Affiliation"> | string | null
     createdAt?: DateTimeFilter<"Affiliation"> | Date | string
+    Driver?: DriverListRelationFilter
+    YongchaContract?: YongchaContractListRelationFilter
+    User?: UserListRelationFilter
   }, "id" | "name">
 
   export type AffiliationOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    bizNo?: SortOrderInput | SortOrder
+    ceo?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    manager?: SortOrderInput | SortOrder
+    contact?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: AffiliationCountOrderByAggregateInput
     _avg?: AffiliationAvgOrderByAggregateInput
@@ -5463,26 +8269,264 @@ export namespace Prisma {
     NOT?: AffiliationScalarWhereWithAggregatesInput | AffiliationScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Affiliation"> | number
     name?: StringWithAggregatesFilter<"Affiliation"> | string
+    bizNo?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
+    ceo?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
+    address?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
+    manager?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
+    contact?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
+    email?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
+    memo?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Affiliation"> | Date | string
+  }
+
+  export type UserWhereInput = {
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    id?: IntFilter<"User"> | number
+    loginId?: StringFilter<"User"> | string
+    password?: StringFilter<"User"> | string
+    name?: StringFilter<"User"> | string
+    role?: StringFilter<"User"> | string
+    affiliationId?: IntNullableFilter<"User"> | number | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    Affiliation?: XOR<AffiliationNullableRelationFilter, AffiliationWhereInput> | null
+  }
+
+  export type UserOrderByWithRelationInput = {
+    id?: SortOrder
+    loginId?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    role?: SortOrder
+    affiliationId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    Affiliation?: AffiliationOrderByWithRelationInput
+  }
+
+  export type UserWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    loginId?: string
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    password?: StringFilter<"User"> | string
+    name?: StringFilter<"User"> | string
+    role?: StringFilter<"User"> | string
+    affiliationId?: IntNullableFilter<"User"> | number | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    Affiliation?: XOR<AffiliationNullableRelationFilter, AffiliationWhereInput> | null
+  }, "id" | "loginId">
+
+  export type UserOrderByWithAggregationInput = {
+    id?: SortOrder
+    loginId?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    role?: SortOrder
+    affiliationId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: UserCountOrderByAggregateInput
+    _avg?: UserAvgOrderByAggregateInput
+    _max?: UserMaxOrderByAggregateInput
+    _min?: UserMinOrderByAggregateInput
+    _sum?: UserSumOrderByAggregateInput
+  }
+
+  export type UserScalarWhereWithAggregatesInput = {
+    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    OR?: UserScalarWhereWithAggregatesInput[]
+    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"User"> | number
+    loginId?: StringWithAggregatesFilter<"User"> | string
+    password?: StringWithAggregatesFilter<"User"> | string
+    name?: StringWithAggregatesFilter<"User"> | string
+    role?: StringWithAggregatesFilter<"User"> | string
+    affiliationId?: IntNullableWithAggregatesFilter<"User"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+  }
+
+  export type YongchaContractWhereInput = {
+    AND?: YongchaContractWhereInput | YongchaContractWhereInput[]
+    OR?: YongchaContractWhereInput[]
+    NOT?: YongchaContractWhereInput | YongchaContractWhereInput[]
+    id?: IntFilter<"YongchaContract"> | number
+    year?: IntFilter<"YongchaContract"> | number
+    affiliationId?: IntFilter<"YongchaContract"> | number
+    startDate?: DateTimeFilter<"YongchaContract"> | Date | string
+    endDate?: DateTimeFilter<"YongchaContract"> | Date | string
+    status?: StringFilter<"YongchaContract"> | string
+    createdAt?: DateTimeFilter<"YongchaContract"> | Date | string
+    updatedAt?: DateTimeFilter<"YongchaContract"> | Date | string
+    memo?: StringNullableFilter<"YongchaContract"> | string | null
+    SettlementHistory?: SettlementHistoryListRelationFilter
+    Affiliation?: XOR<AffiliationRelationFilter, AffiliationWhereInput>
+    YongchaRateDetail?: YongchaRateDetailListRelationFilter
+  }
+
+  export type YongchaContractOrderByWithRelationInput = {
+    id?: SortOrder
+    year?: SortOrder
+    affiliationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    memo?: SortOrderInput | SortOrder
+    SettlementHistory?: SettlementHistoryOrderByRelationAggregateInput
+    Affiliation?: AffiliationOrderByWithRelationInput
+    YongchaRateDetail?: YongchaRateDetailOrderByRelationAggregateInput
+  }
+
+  export type YongchaContractWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: YongchaContractWhereInput | YongchaContractWhereInput[]
+    OR?: YongchaContractWhereInput[]
+    NOT?: YongchaContractWhereInput | YongchaContractWhereInput[]
+    year?: IntFilter<"YongchaContract"> | number
+    affiliationId?: IntFilter<"YongchaContract"> | number
+    startDate?: DateTimeFilter<"YongchaContract"> | Date | string
+    endDate?: DateTimeFilter<"YongchaContract"> | Date | string
+    status?: StringFilter<"YongchaContract"> | string
+    createdAt?: DateTimeFilter<"YongchaContract"> | Date | string
+    updatedAt?: DateTimeFilter<"YongchaContract"> | Date | string
+    memo?: StringNullableFilter<"YongchaContract"> | string | null
+    SettlementHistory?: SettlementHistoryListRelationFilter
+    Affiliation?: XOR<AffiliationRelationFilter, AffiliationWhereInput>
+    YongchaRateDetail?: YongchaRateDetailListRelationFilter
+  }, "id">
+
+  export type YongchaContractOrderByWithAggregationInput = {
+    id?: SortOrder
+    year?: SortOrder
+    affiliationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    memo?: SortOrderInput | SortOrder
+    _count?: YongchaContractCountOrderByAggregateInput
+    _avg?: YongchaContractAvgOrderByAggregateInput
+    _max?: YongchaContractMaxOrderByAggregateInput
+    _min?: YongchaContractMinOrderByAggregateInput
+    _sum?: YongchaContractSumOrderByAggregateInput
+  }
+
+  export type YongchaContractScalarWhereWithAggregatesInput = {
+    AND?: YongchaContractScalarWhereWithAggregatesInput | YongchaContractScalarWhereWithAggregatesInput[]
+    OR?: YongchaContractScalarWhereWithAggregatesInput[]
+    NOT?: YongchaContractScalarWhereWithAggregatesInput | YongchaContractScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"YongchaContract"> | number
+    year?: IntWithAggregatesFilter<"YongchaContract"> | number
+    affiliationId?: IntWithAggregatesFilter<"YongchaContract"> | number
+    startDate?: DateTimeWithAggregatesFilter<"YongchaContract"> | Date | string
+    endDate?: DateTimeWithAggregatesFilter<"YongchaContract"> | Date | string
+    status?: StringWithAggregatesFilter<"YongchaContract"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"YongchaContract"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"YongchaContract"> | Date | string
+    memo?: StringNullableWithAggregatesFilter<"YongchaContract"> | string | null
+  }
+
+  export type YongchaRateDetailWhereInput = {
+    AND?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
+    OR?: YongchaRateDetailWhereInput[]
+    NOT?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
+    id?: IntFilter<"YongchaRateDetail"> | number
+    contractId?: IntFilter<"YongchaRateDetail"> | number
+    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
+    region?: StringFilter<"YongchaRateDetail"> | string
+    price?: IntFilter<"YongchaRateDetail"> | number
+    memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
+    createdAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
+    updatedAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
+    YongchaContract?: XOR<YongchaContractRelationFilter, YongchaContractWhereInput>
+  }
+
+  export type YongchaRateDetailOrderByWithRelationInput = {
+    id?: SortOrder
+    contractId?: SortOrder
+    tonnage?: SortOrderInput | SortOrder
+    region?: SortOrder
+    price?: SortOrder
+    memo?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    YongchaContract?: YongchaContractOrderByWithRelationInput
+  }
+
+  export type YongchaRateDetailWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
+    OR?: YongchaRateDetailWhereInput[]
+    NOT?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
+    contractId?: IntFilter<"YongchaRateDetail"> | number
+    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
+    region?: StringFilter<"YongchaRateDetail"> | string
+    price?: IntFilter<"YongchaRateDetail"> | number
+    memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
+    createdAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
+    updatedAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
+    YongchaContract?: XOR<YongchaContractRelationFilter, YongchaContractWhereInput>
+  }, "id">
+
+  export type YongchaRateDetailOrderByWithAggregationInput = {
+    id?: SortOrder
+    contractId?: SortOrder
+    tonnage?: SortOrderInput | SortOrder
+    region?: SortOrder
+    price?: SortOrder
+    memo?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: YongchaRateDetailCountOrderByAggregateInput
+    _avg?: YongchaRateDetailAvgOrderByAggregateInput
+    _max?: YongchaRateDetailMaxOrderByAggregateInput
+    _min?: YongchaRateDetailMinOrderByAggregateInput
+    _sum?: YongchaRateDetailSumOrderByAggregateInput
+  }
+
+  export type YongchaRateDetailScalarWhereWithAggregatesInput = {
+    AND?: YongchaRateDetailScalarWhereWithAggregatesInput | YongchaRateDetailScalarWhereWithAggregatesInput[]
+    OR?: YongchaRateDetailScalarWhereWithAggregatesInput[]
+    NOT?: YongchaRateDetailScalarWhereWithAggregatesInput | YongchaRateDetailScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
+    contractId?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
+    tonnage?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
+    region?: StringWithAggregatesFilter<"YongchaRateDetail"> | string
+    price?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
+    memo?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"YongchaRateDetail"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"YongchaRateDetail"> | Date | string
   }
 
   export type DriverCreateInput = {
     name: string
-    affiliation?: string | null
+    carNo?: string | null
     tonnage?: string | null
-    regDate?: string | null
+    phone?: string | null
+    regDate?: Date | string | null
     address?: string | null
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    Affiliation?: AffiliationCreateNestedOneWithoutDriverInput
   }
 
   export type DriverUncheckedCreateInput = {
     id?: number
     name: string
-    affiliation?: string | null
+    affiliationId?: number | null
+    carNo?: string | null
     tonnage?: string | null
-    regDate?: string | null
+    phone?: string | null
+    regDate?: Date | string | null
     address?: string | null
     memo?: string | null
     createdAt?: Date | string
@@ -5491,21 +8535,25 @@ export namespace Prisma {
 
   export type DriverUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    carNo?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
-    regDate?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    regDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Affiliation?: AffiliationUpdateOneWithoutDriverNestedInput
   }
 
   export type DriverUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliationId?: NullableIntFieldUpdateOperationsInput | number | null
+    carNo?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
-    regDate?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    regDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5515,9 +8563,11 @@ export namespace Prisma {
   export type DriverCreateManyInput = {
     id?: number
     name: string
-    affiliation?: string | null
+    affiliationId?: number | null
+    carNo?: string | null
     tonnage?: string | null
-    regDate?: string | null
+    phone?: string | null
+    regDate?: Date | string | null
     address?: string | null
     memo?: string | null
     createdAt?: Date | string
@@ -5526,9 +8576,10 @@ export namespace Prisma {
 
   export type DriverUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
-    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    carNo?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
-    regDate?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    regDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5538,112 +8589,19 @@ export namespace Prisma {
   export type DriverUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliationId?: NullableIntFieldUpdateOperationsInput | number | null
+    carNo?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
-    regDate?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    regDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FeeMasterCreateInput = {
-    affiliation: string
-    tonnage: string
-    year: number
-    region: string
-    fee: number
-    memo?: string | null
-    isActive?: boolean
-    readonly?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type FeeMasterUncheckedCreateInput = {
-    id?: number
-    affiliation: string
-    tonnage: string
-    year: number
-    region: string
-    fee: number
-    memo?: string | null
-    isActive?: boolean
-    readonly?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type FeeMasterUpdateInput = {
-    affiliation?: StringFieldUpdateOperationsInput | string
-    tonnage?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
-    region?: StringFieldUpdateOperationsInput | string
-    fee?: IntFieldUpdateOperationsInput | number
-    memo?: NullableStringFieldUpdateOperationsInput | string | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    readonly?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type FeeMasterUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    affiliation?: StringFieldUpdateOperationsInput | string
-    tonnage?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
-    region?: StringFieldUpdateOperationsInput | string
-    fee?: IntFieldUpdateOperationsInput | number
-    memo?: NullableStringFieldUpdateOperationsInput | string | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    readonly?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type FeeMasterCreateManyInput = {
-    id?: number
-    affiliation: string
-    tonnage: string
-    year: number
-    region: string
-    fee: number
-    memo?: string | null
-    isActive?: boolean
-    readonly?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type FeeMasterUpdateManyMutationInput = {
-    affiliation?: StringFieldUpdateOperationsInput | string
-    tonnage?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
-    region?: StringFieldUpdateOperationsInput | string
-    fee?: IntFieldUpdateOperationsInput | number
-    memo?: NullableStringFieldUpdateOperationsInput | string | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    readonly?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type FeeMasterUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    affiliation?: StringFieldUpdateOperationsInput | string
-    tonnage?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
-    region?: StringFieldUpdateOperationsInput | string
-    fee?: IntFieldUpdateOperationsInput | number
-    memo?: NullableStringFieldUpdateOperationsInput | string | null
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    readonly?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type SettlementHistoryCreateInput = {
-    date: string
+    date: Date | string
     driverName: string
     affiliation?: string | null
     tonnage?: string | null
@@ -5651,17 +8609,20 @@ export namespace Prisma {
     totalWeight: number
     fee: number
     memo?: string | null
+    status?: string
     isPbox?: boolean
     isReturn?: boolean
     so?: string | null
     nap?: string | null
     ton?: number | null
+    appliedTonnage?: string | null
     createdAt?: Date | string
+    YongchaContract?: YongchaContractCreateNestedOneWithoutSettlementHistoryInput
   }
 
   export type SettlementHistoryUncheckedCreateInput = {
     id?: number
-    date: string
+    date: Date | string
     driverName: string
     affiliation?: string | null
     tonnage?: string | null
@@ -5669,16 +8630,19 @@ export namespace Prisma {
     totalWeight: number
     fee: number
     memo?: string | null
+    status?: string
     isPbox?: boolean
     isReturn?: boolean
     so?: string | null
     nap?: string | null
     ton?: number | null
+    contractId?: number | null
+    appliedTonnage?: string | null
     createdAt?: Date | string
   }
 
   export type SettlementHistoryUpdateInput = {
-    date?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5686,17 +8650,20 @@ export namespace Prisma {
     totalWeight?: IntFieldUpdateOperationsInput | number
     fee?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     isPbox?: BoolFieldUpdateOperationsInput | boolean
     isReturn?: BoolFieldUpdateOperationsInput | boolean
     so?: NullableStringFieldUpdateOperationsInput | string | null
     nap?: NullableStringFieldUpdateOperationsInput | string | null
     ton?: NullableIntFieldUpdateOperationsInput | number | null
+    appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    YongchaContract?: YongchaContractUpdateOneWithoutSettlementHistoryNestedInput
   }
 
   export type SettlementHistoryUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    date?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5704,17 +8671,20 @@ export namespace Prisma {
     totalWeight?: IntFieldUpdateOperationsInput | number
     fee?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     isPbox?: BoolFieldUpdateOperationsInput | boolean
     isReturn?: BoolFieldUpdateOperationsInput | boolean
     so?: NullableStringFieldUpdateOperationsInput | string | null
     nap?: NullableStringFieldUpdateOperationsInput | string | null
     ton?: NullableIntFieldUpdateOperationsInput | number | null
+    contractId?: NullableIntFieldUpdateOperationsInput | number | null
+    appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SettlementHistoryCreateManyInput = {
     id?: number
-    date: string
+    date: Date | string
     driverName: string
     affiliation?: string | null
     tonnage?: string | null
@@ -5722,16 +8692,19 @@ export namespace Prisma {
     totalWeight: number
     fee: number
     memo?: string | null
+    status?: string
     isPbox?: boolean
     isReturn?: boolean
     so?: string | null
     nap?: string | null
     ton?: number | null
+    contractId?: number | null
+    appliedTonnage?: string | null
     createdAt?: Date | string
   }
 
   export type SettlementHistoryUpdateManyMutationInput = {
-    date?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5739,17 +8712,19 @@ export namespace Prisma {
     totalWeight?: IntFieldUpdateOperationsInput | number
     fee?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     isPbox?: BoolFieldUpdateOperationsInput | boolean
     isReturn?: BoolFieldUpdateOperationsInput | boolean
     so?: NullableStringFieldUpdateOperationsInput | string | null
     nap?: NullableStringFieldUpdateOperationsInput | string | null
     ton?: NullableIntFieldUpdateOperationsInput | number | null
+    appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SettlementHistoryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    date?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5757,51 +8732,349 @@ export namespace Prisma {
     totalWeight?: IntFieldUpdateOperationsInput | number
     fee?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     isPbox?: BoolFieldUpdateOperationsInput | boolean
     isReturn?: BoolFieldUpdateOperationsInput | boolean
     so?: NullableStringFieldUpdateOperationsInput | string | null
     nap?: NullableStringFieldUpdateOperationsInput | string | null
     ton?: NullableIntFieldUpdateOperationsInput | number | null
+    contractId?: NullableIntFieldUpdateOperationsInput | number | null
+    appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AffiliationCreateInput = {
     name: string
+    bizNo?: string | null
+    ceo?: string | null
+    address?: string | null
+    manager?: string | null
+    contact?: string | null
+    email?: string | null
+    memo?: string | null
     createdAt?: Date | string
+    Driver?: DriverCreateNestedManyWithoutAffiliationInput
+    YongchaContract?: YongchaContractCreateNestedManyWithoutAffiliationInput
+    User?: UserCreateNestedManyWithoutAffiliationInput
   }
 
   export type AffiliationUncheckedCreateInput = {
     id?: number
     name: string
+    bizNo?: string | null
+    ceo?: string | null
+    address?: string | null
+    manager?: string | null
+    contact?: string | null
+    email?: string | null
+    memo?: string | null
     createdAt?: Date | string
+    Driver?: DriverUncheckedCreateNestedManyWithoutAffiliationInput
+    YongchaContract?: YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput
+    User?: UserUncheckedCreateNestedManyWithoutAffiliationInput
   }
 
   export type AffiliationUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Driver?: DriverUpdateManyWithoutAffiliationNestedInput
+    YongchaContract?: YongchaContractUpdateManyWithoutAffiliationNestedInput
+    User?: UserUpdateManyWithoutAffiliationNestedInput
   }
 
   export type AffiliationUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Driver?: DriverUncheckedUpdateManyWithoutAffiliationNestedInput
+    YongchaContract?: YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput
+    User?: UserUncheckedUpdateManyWithoutAffiliationNestedInput
   }
 
   export type AffiliationCreateManyInput = {
     id?: number
     name: string
+    bizNo?: string | null
+    ceo?: string | null
+    address?: string | null
+    manager?: string | null
+    contact?: string | null
+    email?: string | null
+    memo?: string | null
     createdAt?: Date | string
   }
 
   export type AffiliationUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AffiliationUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserCreateInput = {
+    loginId: string
+    password: string
+    name: string
+    role?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Affiliation?: AffiliationCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateInput = {
+    id?: number
+    loginId: string
+    password: string
+    name: string
+    role?: string
+    affiliationId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserUpdateInput = {
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Affiliation?: AffiliationUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    affiliationId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserCreateManyInput = {
+    id?: number
+    loginId: string
+    password: string
+    name: string
+    role?: string
+    affiliationId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserUpdateManyMutationInput = {
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    affiliationId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YongchaContractCreateInput = {
+    year: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+    SettlementHistory?: SettlementHistoryCreateNestedManyWithoutYongchaContractInput
+    Affiliation: AffiliationCreateNestedOneWithoutYongchaContractInput
+    YongchaRateDetail?: YongchaRateDetailCreateNestedManyWithoutYongchaContractInput
+  }
+
+  export type YongchaContractUncheckedCreateInput = {
+    id?: number
+    year: number
+    affiliationId: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+    SettlementHistory?: SettlementHistoryUncheckedCreateNestedManyWithoutYongchaContractInput
+    YongchaRateDetail?: YongchaRateDetailUncheckedCreateNestedManyWithoutYongchaContractInput
+  }
+
+  export type YongchaContractUpdateInput = {
+    year?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    SettlementHistory?: SettlementHistoryUpdateManyWithoutYongchaContractNestedInput
+    Affiliation?: AffiliationUpdateOneRequiredWithoutYongchaContractNestedInput
+    YongchaRateDetail?: YongchaRateDetailUpdateManyWithoutYongchaContractNestedInput
+  }
+
+  export type YongchaContractUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    affiliationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    SettlementHistory?: SettlementHistoryUncheckedUpdateManyWithoutYongchaContractNestedInput
+    YongchaRateDetail?: YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractNestedInput
+  }
+
+  export type YongchaContractCreateManyInput = {
+    id?: number
+    year: number
+    affiliationId: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+  }
+
+  export type YongchaContractUpdateManyMutationInput = {
+    year?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type YongchaContractUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    affiliationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type YongchaRateDetailCreateInput = {
+    tonnage?: string | null
+    region: string
+    price: number
+    memo?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    YongchaContract: YongchaContractCreateNestedOneWithoutYongchaRateDetailInput
+  }
+
+  export type YongchaRateDetailUncheckedCreateInput = {
+    id?: number
+    contractId: number
+    tonnage?: string | null
+    region: string
+    price: number
+    memo?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type YongchaRateDetailUpdateInput = {
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    YongchaContract?: YongchaContractUpdateOneRequiredWithoutYongchaRateDetailNestedInput
+  }
+
+  export type YongchaRateDetailUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    contractId?: IntFieldUpdateOperationsInput | number
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YongchaRateDetailCreateManyInput = {
+    id?: number
+    contractId: number
+    tonnage?: string | null
+    region: string
+    price: number
+    memo?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type YongchaRateDetailUpdateManyMutationInput = {
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YongchaRateDetailUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    contractId?: IntFieldUpdateOperationsInput | number
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5830,6 +9103,17 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -5845,6 +9129,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -5856,6 +9151,11 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type AffiliationNullableRelationFilter = {
+    is?: AffiliationWhereInput | null
+    isNot?: AffiliationWhereInput | null
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -5864,8 +9164,10 @@ export namespace Prisma {
   export type DriverCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    affiliation?: SortOrder
+    affiliationId?: SortOrder
+    carNo?: SortOrder
     tonnage?: SortOrder
+    phone?: SortOrder
     regDate?: SortOrder
     address?: SortOrder
     memo?: SortOrder
@@ -5875,13 +9177,16 @@ export namespace Prisma {
 
   export type DriverAvgOrderByAggregateInput = {
     id?: SortOrder
+    affiliationId?: SortOrder
   }
 
   export type DriverMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    affiliation?: SortOrder
+    affiliationId?: SortOrder
+    carNo?: SortOrder
     tonnage?: SortOrder
+    phone?: SortOrder
     regDate?: SortOrder
     address?: SortOrder
     memo?: SortOrder
@@ -5892,8 +9197,10 @@ export namespace Prisma {
   export type DriverMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    affiliation?: SortOrder
+    affiliationId?: SortOrder
+    carNo?: SortOrder
     tonnage?: SortOrder
+    phone?: SortOrder
     regDate?: SortOrder
     address?: SortOrder
     memo?: SortOrder
@@ -5903,6 +9210,7 @@ export namespace Prisma {
 
   export type DriverSumOrderByAggregateInput = {
     id?: SortOrder
+    affiliationId?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -5939,6 +9247,22 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -5955,6 +9279,20 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -5976,77 +9314,9 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type FeeMasterCountOrderByAggregateInput = {
-    id?: SortOrder
-    affiliation?: SortOrder
-    tonnage?: SortOrder
-    year?: SortOrder
-    region?: SortOrder
-    fee?: SortOrder
-    memo?: SortOrder
-    isActive?: SortOrder
-    readonly?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type FeeMasterAvgOrderByAggregateInput = {
-    id?: SortOrder
-    year?: SortOrder
-    fee?: SortOrder
-  }
-
-  export type FeeMasterMaxOrderByAggregateInput = {
-    id?: SortOrder
-    affiliation?: SortOrder
-    tonnage?: SortOrder
-    year?: SortOrder
-    region?: SortOrder
-    fee?: SortOrder
-    memo?: SortOrder
-    isActive?: SortOrder
-    readonly?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type FeeMasterMinOrderByAggregateInput = {
-    id?: SortOrder
-    affiliation?: SortOrder
-    tonnage?: SortOrder
-    year?: SortOrder
-    region?: SortOrder
-    fee?: SortOrder
-    memo?: SortOrder
-    isActive?: SortOrder
-    readonly?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type FeeMasterSumOrderByAggregateInput = {
-    id?: SortOrder
-    year?: SortOrder
-    fee?: SortOrder
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  export type YongchaContractNullableRelationFilter = {
+    is?: YongchaContractWhereInput | null
+    isNot?: YongchaContractWhereInput | null
   }
 
   export type SettlementHistoryCountOrderByAggregateInput = {
@@ -6059,11 +9329,14 @@ export namespace Prisma {
     totalWeight?: SortOrder
     fee?: SortOrder
     memo?: SortOrder
+    status?: SortOrder
     isPbox?: SortOrder
     isReturn?: SortOrder
     so?: SortOrder
     nap?: SortOrder
     ton?: SortOrder
+    contractId?: SortOrder
+    appliedTonnage?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -6073,6 +9346,7 @@ export namespace Prisma {
     totalWeight?: SortOrder
     fee?: SortOrder
     ton?: SortOrder
+    contractId?: SortOrder
   }
 
   export type SettlementHistoryMaxOrderByAggregateInput = {
@@ -6085,11 +9359,14 @@ export namespace Prisma {
     totalWeight?: SortOrder
     fee?: SortOrder
     memo?: SortOrder
+    status?: SortOrder
     isPbox?: SortOrder
     isReturn?: SortOrder
     so?: SortOrder
     nap?: SortOrder
     ton?: SortOrder
+    contractId?: SortOrder
+    appliedTonnage?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -6103,11 +9380,14 @@ export namespace Prisma {
     totalWeight?: SortOrder
     fee?: SortOrder
     memo?: SortOrder
+    status?: SortOrder
     isPbox?: SortOrder
     isReturn?: SortOrder
     so?: SortOrder
     nap?: SortOrder
     ton?: SortOrder
+    contractId?: SortOrder
+    appliedTonnage?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -6117,27 +9397,57 @@ export namespace Prisma {
     totalWeight?: SortOrder
     fee?: SortOrder
     ton?: SortOrder
+    contractId?: SortOrder
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type DriverListRelationFilter = {
+    every?: DriverWhereInput
+    some?: DriverWhereInput
+    none?: DriverWhereInput
+  }
+
+  export type YongchaContractListRelationFilter = {
+    every?: YongchaContractWhereInput
+    some?: YongchaContractWhereInput
+    none?: YongchaContractWhereInput
+  }
+
+  export type UserListRelationFilter = {
+    every?: UserWhereInput
+    some?: UserWhereInput
+    none?: UserWhereInput
+  }
+
+  export type DriverOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type YongchaContractOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type AffiliationCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    bizNo?: SortOrder
+    ceo?: SortOrder
+    address?: SortOrder
+    manager?: SortOrder
+    contact?: SortOrder
+    email?: SortOrder
+    memo?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -6148,17 +9458,203 @@ export namespace Prisma {
   export type AffiliationMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    bizNo?: SortOrder
+    ceo?: SortOrder
+    address?: SortOrder
+    manager?: SortOrder
+    contact?: SortOrder
+    email?: SortOrder
+    memo?: SortOrder
     createdAt?: SortOrder
   }
 
   export type AffiliationMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    bizNo?: SortOrder
+    ceo?: SortOrder
+    address?: SortOrder
+    manager?: SortOrder
+    contact?: SortOrder
+    email?: SortOrder
+    memo?: SortOrder
     createdAt?: SortOrder
   }
 
   export type AffiliationSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type UserCountOrderByAggregateInput = {
+    id?: SortOrder
+    loginId?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    role?: SortOrder
+    affiliationId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserAvgOrderByAggregateInput = {
+    id?: SortOrder
+    affiliationId?: SortOrder
+  }
+
+  export type UserMaxOrderByAggregateInput = {
+    id?: SortOrder
+    loginId?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    role?: SortOrder
+    affiliationId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserMinOrderByAggregateInput = {
+    id?: SortOrder
+    loginId?: SortOrder
+    password?: SortOrder
+    name?: SortOrder
+    role?: SortOrder
+    affiliationId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserSumOrderByAggregateInput = {
+    id?: SortOrder
+    affiliationId?: SortOrder
+  }
+
+  export type SettlementHistoryListRelationFilter = {
+    every?: SettlementHistoryWhereInput
+    some?: SettlementHistoryWhereInput
+    none?: SettlementHistoryWhereInput
+  }
+
+  export type AffiliationRelationFilter = {
+    is?: AffiliationWhereInput
+    isNot?: AffiliationWhereInput
+  }
+
+  export type YongchaRateDetailListRelationFilter = {
+    every?: YongchaRateDetailWhereInput
+    some?: YongchaRateDetailWhereInput
+    none?: YongchaRateDetailWhereInput
+  }
+
+  export type SettlementHistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type YongchaRateDetailOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type YongchaContractCountOrderByAggregateInput = {
+    id?: SortOrder
+    year?: SortOrder
+    affiliationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    memo?: SortOrder
+  }
+
+  export type YongchaContractAvgOrderByAggregateInput = {
+    id?: SortOrder
+    year?: SortOrder
+    affiliationId?: SortOrder
+  }
+
+  export type YongchaContractMaxOrderByAggregateInput = {
+    id?: SortOrder
+    year?: SortOrder
+    affiliationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    memo?: SortOrder
+  }
+
+  export type YongchaContractMinOrderByAggregateInput = {
+    id?: SortOrder
+    year?: SortOrder
+    affiliationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    memo?: SortOrder
+  }
+
+  export type YongchaContractSumOrderByAggregateInput = {
+    id?: SortOrder
+    year?: SortOrder
+    affiliationId?: SortOrder
+  }
+
+  export type YongchaContractRelationFilter = {
+    is?: YongchaContractWhereInput
+    isNot?: YongchaContractWhereInput
+  }
+
+  export type YongchaRateDetailCountOrderByAggregateInput = {
+    id?: SortOrder
+    contractId?: SortOrder
+    tonnage?: SortOrder
+    region?: SortOrder
+    price?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type YongchaRateDetailAvgOrderByAggregateInput = {
+    id?: SortOrder
+    contractId?: SortOrder
+    price?: SortOrder
+  }
+
+  export type YongchaRateDetailMaxOrderByAggregateInput = {
+    id?: SortOrder
+    contractId?: SortOrder
+    tonnage?: SortOrder
+    region?: SortOrder
+    price?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type YongchaRateDetailMinOrderByAggregateInput = {
+    id?: SortOrder
+    contractId?: SortOrder
+    tonnage?: SortOrder
+    region?: SortOrder
+    price?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type YongchaRateDetailSumOrderByAggregateInput = {
+    id?: SortOrder
+    contractId?: SortOrder
+    price?: SortOrder
+  }
+
+  export type AffiliationCreateNestedOneWithoutDriverInput = {
+    create?: XOR<AffiliationCreateWithoutDriverInput, AffiliationUncheckedCreateWithoutDriverInput>
+    connectOrCreate?: AffiliationCreateOrConnectWithoutDriverInput
+    connect?: AffiliationWhereUniqueInput
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -6169,8 +9665,22 @@ export namespace Prisma {
     set?: string | null
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type AffiliationUpdateOneWithoutDriverNestedInput = {
+    create?: XOR<AffiliationCreateWithoutDriverInput, AffiliationUncheckedCreateWithoutDriverInput>
+    connectOrCreate?: AffiliationCreateOrConnectWithoutDriverInput
+    upsert?: AffiliationUpsertWithoutDriverInput
+    disconnect?: AffiliationWhereInput | boolean
+    delete?: AffiliationWhereInput | boolean
+    connect?: AffiliationWhereUniqueInput
+    update?: XOR<XOR<AffiliationUpdateToOneWithWhereWithoutDriverInput, AffiliationUpdateWithoutDriverInput>, AffiliationUncheckedUpdateWithoutDriverInput>
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -6181,16 +9691,286 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type YongchaContractCreateNestedOneWithoutSettlementHistoryInput = {
+    create?: XOR<YongchaContractCreateWithoutSettlementHistoryInput, YongchaContractUncheckedCreateWithoutSettlementHistoryInput>
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutSettlementHistoryInput
+    connect?: YongchaContractWhereUniqueInput
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type YongchaContractUpdateOneWithoutSettlementHistoryNestedInput = {
+    create?: XOR<YongchaContractCreateWithoutSettlementHistoryInput, YongchaContractUncheckedCreateWithoutSettlementHistoryInput>
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutSettlementHistoryInput
+    upsert?: YongchaContractUpsertWithoutSettlementHistoryInput
+    disconnect?: YongchaContractWhereInput | boolean
+    delete?: YongchaContractWhereInput | boolean
+    connect?: YongchaContractWhereUniqueInput
+    update?: XOR<XOR<YongchaContractUpdateToOneWithWhereWithoutSettlementHistoryInput, YongchaContractUpdateWithoutSettlementHistoryInput>, YongchaContractUncheckedUpdateWithoutSettlementHistoryInput>
+  }
+
+  export type DriverCreateNestedManyWithoutAffiliationInput = {
+    create?: XOR<DriverCreateWithoutAffiliationInput, DriverUncheckedCreateWithoutAffiliationInput> | DriverCreateWithoutAffiliationInput[] | DriverUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: DriverCreateOrConnectWithoutAffiliationInput | DriverCreateOrConnectWithoutAffiliationInput[]
+    createMany?: DriverCreateManyAffiliationInputEnvelope
+    connect?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+  }
+
+  export type YongchaContractCreateNestedManyWithoutAffiliationInput = {
+    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
+    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
+    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedManyWithoutAffiliationInput = {
+    create?: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput> | UserCreateWithoutAffiliationInput[] | UserUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutAffiliationInput | UserCreateOrConnectWithoutAffiliationInput[]
+    createMany?: UserCreateManyAffiliationInputEnvelope
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type DriverUncheckedCreateNestedManyWithoutAffiliationInput = {
+    create?: XOR<DriverCreateWithoutAffiliationInput, DriverUncheckedCreateWithoutAffiliationInput> | DriverCreateWithoutAffiliationInput[] | DriverUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: DriverCreateOrConnectWithoutAffiliationInput | DriverCreateOrConnectWithoutAffiliationInput[]
+    createMany?: DriverCreateManyAffiliationInputEnvelope
+    connect?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+  }
+
+  export type YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput = {
+    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
+    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
+    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+  }
+
+  export type UserUncheckedCreateNestedManyWithoutAffiliationInput = {
+    create?: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput> | UserCreateWithoutAffiliationInput[] | UserUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutAffiliationInput | UserCreateOrConnectWithoutAffiliationInput[]
+    createMany?: UserCreateManyAffiliationInputEnvelope
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type DriverUpdateManyWithoutAffiliationNestedInput = {
+    create?: XOR<DriverCreateWithoutAffiliationInput, DriverUncheckedCreateWithoutAffiliationInput> | DriverCreateWithoutAffiliationInput[] | DriverUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: DriverCreateOrConnectWithoutAffiliationInput | DriverCreateOrConnectWithoutAffiliationInput[]
+    upsert?: DriverUpsertWithWhereUniqueWithoutAffiliationInput | DriverUpsertWithWhereUniqueWithoutAffiliationInput[]
+    createMany?: DriverCreateManyAffiliationInputEnvelope
+    set?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+    disconnect?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+    delete?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+    connect?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+    update?: DriverUpdateWithWhereUniqueWithoutAffiliationInput | DriverUpdateWithWhereUniqueWithoutAffiliationInput[]
+    updateMany?: DriverUpdateManyWithWhereWithoutAffiliationInput | DriverUpdateManyWithWhereWithoutAffiliationInput[]
+    deleteMany?: DriverScalarWhereInput | DriverScalarWhereInput[]
+  }
+
+  export type YongchaContractUpdateManyWithoutAffiliationNestedInput = {
+    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
+    upsert?: YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput | YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput[]
+    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
+    set?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    disconnect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    delete?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    update?: YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput | YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput[]
+    updateMany?: YongchaContractUpdateManyWithWhereWithoutAffiliationInput | YongchaContractUpdateManyWithWhereWithoutAffiliationInput[]
+    deleteMany?: YongchaContractScalarWhereInput | YongchaContractScalarWhereInput[]
+  }
+
+  export type UserUpdateManyWithoutAffiliationNestedInput = {
+    create?: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput> | UserCreateWithoutAffiliationInput[] | UserUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutAffiliationInput | UserCreateOrConnectWithoutAffiliationInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutAffiliationInput | UserUpsertWithWhereUniqueWithoutAffiliationInput[]
+    createMany?: UserCreateManyAffiliationInputEnvelope
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutAffiliationInput | UserUpdateWithWhereUniqueWithoutAffiliationInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutAffiliationInput | UserUpdateManyWithWhereWithoutAffiliationInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type DriverUncheckedUpdateManyWithoutAffiliationNestedInput = {
+    create?: XOR<DriverCreateWithoutAffiliationInput, DriverUncheckedCreateWithoutAffiliationInput> | DriverCreateWithoutAffiliationInput[] | DriverUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: DriverCreateOrConnectWithoutAffiliationInput | DriverCreateOrConnectWithoutAffiliationInput[]
+    upsert?: DriverUpsertWithWhereUniqueWithoutAffiliationInput | DriverUpsertWithWhereUniqueWithoutAffiliationInput[]
+    createMany?: DriverCreateManyAffiliationInputEnvelope
+    set?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+    disconnect?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+    delete?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+    connect?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
+    update?: DriverUpdateWithWhereUniqueWithoutAffiliationInput | DriverUpdateWithWhereUniqueWithoutAffiliationInput[]
+    updateMany?: DriverUpdateManyWithWhereWithoutAffiliationInput | DriverUpdateManyWithWhereWithoutAffiliationInput[]
+    deleteMany?: DriverScalarWhereInput | DriverScalarWhereInput[]
+  }
+
+  export type YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput = {
+    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
+    upsert?: YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput | YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput[]
+    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
+    set?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    disconnect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    delete?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    update?: YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput | YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput[]
+    updateMany?: YongchaContractUpdateManyWithWhereWithoutAffiliationInput | YongchaContractUpdateManyWithWhereWithoutAffiliationInput[]
+    deleteMany?: YongchaContractScalarWhereInput | YongchaContractScalarWhereInput[]
+  }
+
+  export type UserUncheckedUpdateManyWithoutAffiliationNestedInput = {
+    create?: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput> | UserCreateWithoutAffiliationInput[] | UserUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutAffiliationInput | UserCreateOrConnectWithoutAffiliationInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutAffiliationInput | UserUpsertWithWhereUniqueWithoutAffiliationInput[]
+    createMany?: UserCreateManyAffiliationInputEnvelope
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutAffiliationInput | UserUpdateWithWhereUniqueWithoutAffiliationInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutAffiliationInput | UserUpdateManyWithWhereWithoutAffiliationInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type AffiliationCreateNestedOneWithoutUserInput = {
+    create?: XOR<AffiliationCreateWithoutUserInput, AffiliationUncheckedCreateWithoutUserInput>
+    connectOrCreate?: AffiliationCreateOrConnectWithoutUserInput
+    connect?: AffiliationWhereUniqueInput
+  }
+
+  export type AffiliationUpdateOneWithoutUserNestedInput = {
+    create?: XOR<AffiliationCreateWithoutUserInput, AffiliationUncheckedCreateWithoutUserInput>
+    connectOrCreate?: AffiliationCreateOrConnectWithoutUserInput
+    upsert?: AffiliationUpsertWithoutUserInput
+    disconnect?: AffiliationWhereInput | boolean
+    delete?: AffiliationWhereInput | boolean
+    connect?: AffiliationWhereUniqueInput
+    update?: XOR<XOR<AffiliationUpdateToOneWithWhereWithoutUserInput, AffiliationUpdateWithoutUserInput>, AffiliationUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SettlementHistoryCreateNestedManyWithoutYongchaContractInput = {
+    create?: XOR<SettlementHistoryCreateWithoutYongchaContractInput, SettlementHistoryUncheckedCreateWithoutYongchaContractInput> | SettlementHistoryCreateWithoutYongchaContractInput[] | SettlementHistoryUncheckedCreateWithoutYongchaContractInput[]
+    connectOrCreate?: SettlementHistoryCreateOrConnectWithoutYongchaContractInput | SettlementHistoryCreateOrConnectWithoutYongchaContractInput[]
+    createMany?: SettlementHistoryCreateManyYongchaContractInputEnvelope
+    connect?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+  }
+
+  export type AffiliationCreateNestedOneWithoutYongchaContractInput = {
+    create?: XOR<AffiliationCreateWithoutYongchaContractInput, AffiliationUncheckedCreateWithoutYongchaContractInput>
+    connectOrCreate?: AffiliationCreateOrConnectWithoutYongchaContractInput
+    connect?: AffiliationWhereUniqueInput
+  }
+
+  export type YongchaRateDetailCreateNestedManyWithoutYongchaContractInput = {
+    create?: XOR<YongchaRateDetailCreateWithoutYongchaContractInput, YongchaRateDetailUncheckedCreateWithoutYongchaContractInput> | YongchaRateDetailCreateWithoutYongchaContractInput[] | YongchaRateDetailUncheckedCreateWithoutYongchaContractInput[]
+    connectOrCreate?: YongchaRateDetailCreateOrConnectWithoutYongchaContractInput | YongchaRateDetailCreateOrConnectWithoutYongchaContractInput[]
+    createMany?: YongchaRateDetailCreateManyYongchaContractInputEnvelope
+    connect?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+  }
+
+  export type SettlementHistoryUncheckedCreateNestedManyWithoutYongchaContractInput = {
+    create?: XOR<SettlementHistoryCreateWithoutYongchaContractInput, SettlementHistoryUncheckedCreateWithoutYongchaContractInput> | SettlementHistoryCreateWithoutYongchaContractInput[] | SettlementHistoryUncheckedCreateWithoutYongchaContractInput[]
+    connectOrCreate?: SettlementHistoryCreateOrConnectWithoutYongchaContractInput | SettlementHistoryCreateOrConnectWithoutYongchaContractInput[]
+    createMany?: SettlementHistoryCreateManyYongchaContractInputEnvelope
+    connect?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+  }
+
+  export type YongchaRateDetailUncheckedCreateNestedManyWithoutYongchaContractInput = {
+    create?: XOR<YongchaRateDetailCreateWithoutYongchaContractInput, YongchaRateDetailUncheckedCreateWithoutYongchaContractInput> | YongchaRateDetailCreateWithoutYongchaContractInput[] | YongchaRateDetailUncheckedCreateWithoutYongchaContractInput[]
+    connectOrCreate?: YongchaRateDetailCreateOrConnectWithoutYongchaContractInput | YongchaRateDetailCreateOrConnectWithoutYongchaContractInput[]
+    createMany?: YongchaRateDetailCreateManyYongchaContractInputEnvelope
+    connect?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+  }
+
+  export type SettlementHistoryUpdateManyWithoutYongchaContractNestedInput = {
+    create?: XOR<SettlementHistoryCreateWithoutYongchaContractInput, SettlementHistoryUncheckedCreateWithoutYongchaContractInput> | SettlementHistoryCreateWithoutYongchaContractInput[] | SettlementHistoryUncheckedCreateWithoutYongchaContractInput[]
+    connectOrCreate?: SettlementHistoryCreateOrConnectWithoutYongchaContractInput | SettlementHistoryCreateOrConnectWithoutYongchaContractInput[]
+    upsert?: SettlementHistoryUpsertWithWhereUniqueWithoutYongchaContractInput | SettlementHistoryUpsertWithWhereUniqueWithoutYongchaContractInput[]
+    createMany?: SettlementHistoryCreateManyYongchaContractInputEnvelope
+    set?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+    disconnect?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+    delete?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+    connect?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+    update?: SettlementHistoryUpdateWithWhereUniqueWithoutYongchaContractInput | SettlementHistoryUpdateWithWhereUniqueWithoutYongchaContractInput[]
+    updateMany?: SettlementHistoryUpdateManyWithWhereWithoutYongchaContractInput | SettlementHistoryUpdateManyWithWhereWithoutYongchaContractInput[]
+    deleteMany?: SettlementHistoryScalarWhereInput | SettlementHistoryScalarWhereInput[]
+  }
+
+  export type AffiliationUpdateOneRequiredWithoutYongchaContractNestedInput = {
+    create?: XOR<AffiliationCreateWithoutYongchaContractInput, AffiliationUncheckedCreateWithoutYongchaContractInput>
+    connectOrCreate?: AffiliationCreateOrConnectWithoutYongchaContractInput
+    upsert?: AffiliationUpsertWithoutYongchaContractInput
+    connect?: AffiliationWhereUniqueInput
+    update?: XOR<XOR<AffiliationUpdateToOneWithWhereWithoutYongchaContractInput, AffiliationUpdateWithoutYongchaContractInput>, AffiliationUncheckedUpdateWithoutYongchaContractInput>
+  }
+
+  export type YongchaRateDetailUpdateManyWithoutYongchaContractNestedInput = {
+    create?: XOR<YongchaRateDetailCreateWithoutYongchaContractInput, YongchaRateDetailUncheckedCreateWithoutYongchaContractInput> | YongchaRateDetailCreateWithoutYongchaContractInput[] | YongchaRateDetailUncheckedCreateWithoutYongchaContractInput[]
+    connectOrCreate?: YongchaRateDetailCreateOrConnectWithoutYongchaContractInput | YongchaRateDetailCreateOrConnectWithoutYongchaContractInput[]
+    upsert?: YongchaRateDetailUpsertWithWhereUniqueWithoutYongchaContractInput | YongchaRateDetailUpsertWithWhereUniqueWithoutYongchaContractInput[]
+    createMany?: YongchaRateDetailCreateManyYongchaContractInputEnvelope
+    set?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+    disconnect?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+    delete?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+    connect?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+    update?: YongchaRateDetailUpdateWithWhereUniqueWithoutYongchaContractInput | YongchaRateDetailUpdateWithWhereUniqueWithoutYongchaContractInput[]
+    updateMany?: YongchaRateDetailUpdateManyWithWhereWithoutYongchaContractInput | YongchaRateDetailUpdateManyWithWhereWithoutYongchaContractInput[]
+    deleteMany?: YongchaRateDetailScalarWhereInput | YongchaRateDetailScalarWhereInput[]
+  }
+
+  export type SettlementHistoryUncheckedUpdateManyWithoutYongchaContractNestedInput = {
+    create?: XOR<SettlementHistoryCreateWithoutYongchaContractInput, SettlementHistoryUncheckedCreateWithoutYongchaContractInput> | SettlementHistoryCreateWithoutYongchaContractInput[] | SettlementHistoryUncheckedCreateWithoutYongchaContractInput[]
+    connectOrCreate?: SettlementHistoryCreateOrConnectWithoutYongchaContractInput | SettlementHistoryCreateOrConnectWithoutYongchaContractInput[]
+    upsert?: SettlementHistoryUpsertWithWhereUniqueWithoutYongchaContractInput | SettlementHistoryUpsertWithWhereUniqueWithoutYongchaContractInput[]
+    createMany?: SettlementHistoryCreateManyYongchaContractInputEnvelope
+    set?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+    disconnect?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+    delete?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+    connect?: SettlementHistoryWhereUniqueInput | SettlementHistoryWhereUniqueInput[]
+    update?: SettlementHistoryUpdateWithWhereUniqueWithoutYongchaContractInput | SettlementHistoryUpdateWithWhereUniqueWithoutYongchaContractInput[]
+    updateMany?: SettlementHistoryUpdateManyWithWhereWithoutYongchaContractInput | SettlementHistoryUpdateManyWithWhereWithoutYongchaContractInput[]
+    deleteMany?: SettlementHistoryScalarWhereInput | SettlementHistoryScalarWhereInput[]
+  }
+
+  export type YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractNestedInput = {
+    create?: XOR<YongchaRateDetailCreateWithoutYongchaContractInput, YongchaRateDetailUncheckedCreateWithoutYongchaContractInput> | YongchaRateDetailCreateWithoutYongchaContractInput[] | YongchaRateDetailUncheckedCreateWithoutYongchaContractInput[]
+    connectOrCreate?: YongchaRateDetailCreateOrConnectWithoutYongchaContractInput | YongchaRateDetailCreateOrConnectWithoutYongchaContractInput[]
+    upsert?: YongchaRateDetailUpsertWithWhereUniqueWithoutYongchaContractInput | YongchaRateDetailUpsertWithWhereUniqueWithoutYongchaContractInput[]
+    createMany?: YongchaRateDetailCreateManyYongchaContractInputEnvelope
+    set?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+    disconnect?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+    delete?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+    connect?: YongchaRateDetailWhereUniqueInput | YongchaRateDetailWhereUniqueInput[]
+    update?: YongchaRateDetailUpdateWithWhereUniqueWithoutYongchaContractInput | YongchaRateDetailUpdateWithWhereUniqueWithoutYongchaContractInput[]
+    updateMany?: YongchaRateDetailUpdateManyWithWhereWithoutYongchaContractInput | YongchaRateDetailUpdateManyWithWhereWithoutYongchaContractInput[]
+    deleteMany?: YongchaRateDetailScalarWhereInput | YongchaRateDetailScalarWhereInput[]
+  }
+
+  export type YongchaContractCreateNestedOneWithoutYongchaRateDetailInput = {
+    create?: XOR<YongchaContractCreateWithoutYongchaRateDetailInput, YongchaContractUncheckedCreateWithoutYongchaRateDetailInput>
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutYongchaRateDetailInput
+    connect?: YongchaContractWhereUniqueInput
+  }
+
+  export type YongchaContractUpdateOneRequiredWithoutYongchaRateDetailNestedInput = {
+    create?: XOR<YongchaContractCreateWithoutYongchaRateDetailInput, YongchaContractUncheckedCreateWithoutYongchaRateDetailInput>
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutYongchaRateDetailInput
+    upsert?: YongchaContractUpsertWithoutYongchaRateDetailInput
+    connect?: YongchaContractWhereUniqueInput
+    update?: XOR<XOR<YongchaContractUpdateToOneWithWhereWithoutYongchaRateDetailInput, YongchaContractUpdateWithoutYongchaRateDetailInput>, YongchaContractUncheckedUpdateWithoutYongchaRateDetailInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -6218,6 +9998,17 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -6230,6 +10021,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -6287,6 +10089,33 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -6304,15 +10133,18 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -6342,31 +10174,954 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+  export type AffiliationCreateWithoutDriverInput = {
+    name: string
+    bizNo?: string | null
+    ceo?: string | null
+    address?: string | null
+    manager?: string | null
+    contact?: string | null
+    email?: string | null
+    memo?: string | null
+    createdAt?: Date | string
+    YongchaContract?: YongchaContractCreateNestedManyWithoutAffiliationInput
+    User?: UserCreateNestedManyWithoutAffiliationInput
   }
 
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  export type AffiliationUncheckedCreateWithoutDriverInput = {
+    id?: number
+    name: string
+    bizNo?: string | null
+    ceo?: string | null
+    address?: string | null
+    manager?: string | null
+    contact?: string | null
+    email?: string | null
+    memo?: string | null
+    createdAt?: Date | string
+    YongchaContract?: YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput
+    User?: UserUncheckedCreateNestedManyWithoutAffiliationInput
+  }
+
+  export type AffiliationCreateOrConnectWithoutDriverInput = {
+    where: AffiliationWhereUniqueInput
+    create: XOR<AffiliationCreateWithoutDriverInput, AffiliationUncheckedCreateWithoutDriverInput>
+  }
+
+  export type AffiliationUpsertWithoutDriverInput = {
+    update: XOR<AffiliationUpdateWithoutDriverInput, AffiliationUncheckedUpdateWithoutDriverInput>
+    create: XOR<AffiliationCreateWithoutDriverInput, AffiliationUncheckedCreateWithoutDriverInput>
+    where?: AffiliationWhereInput
+  }
+
+  export type AffiliationUpdateToOneWithWhereWithoutDriverInput = {
+    where?: AffiliationWhereInput
+    data: XOR<AffiliationUpdateWithoutDriverInput, AffiliationUncheckedUpdateWithoutDriverInput>
+  }
+
+  export type AffiliationUpdateWithoutDriverInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    YongchaContract?: YongchaContractUpdateManyWithoutAffiliationNestedInput
+    User?: UserUpdateManyWithoutAffiliationNestedInput
+  }
+
+  export type AffiliationUncheckedUpdateWithoutDriverInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    YongchaContract?: YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput
+    User?: UserUncheckedUpdateManyWithoutAffiliationNestedInput
+  }
+
+  export type YongchaContractCreateWithoutSettlementHistoryInput = {
+    year: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+    Affiliation: AffiliationCreateNestedOneWithoutYongchaContractInput
+    YongchaRateDetail?: YongchaRateDetailCreateNestedManyWithoutYongchaContractInput
+  }
+
+  export type YongchaContractUncheckedCreateWithoutSettlementHistoryInput = {
+    id?: number
+    year: number
+    affiliationId: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+    YongchaRateDetail?: YongchaRateDetailUncheckedCreateNestedManyWithoutYongchaContractInput
+  }
+
+  export type YongchaContractCreateOrConnectWithoutSettlementHistoryInput = {
+    where: YongchaContractWhereUniqueInput
+    create: XOR<YongchaContractCreateWithoutSettlementHistoryInput, YongchaContractUncheckedCreateWithoutSettlementHistoryInput>
+  }
+
+  export type YongchaContractUpsertWithoutSettlementHistoryInput = {
+    update: XOR<YongchaContractUpdateWithoutSettlementHistoryInput, YongchaContractUncheckedUpdateWithoutSettlementHistoryInput>
+    create: XOR<YongchaContractCreateWithoutSettlementHistoryInput, YongchaContractUncheckedCreateWithoutSettlementHistoryInput>
+    where?: YongchaContractWhereInput
+  }
+
+  export type YongchaContractUpdateToOneWithWhereWithoutSettlementHistoryInput = {
+    where?: YongchaContractWhereInput
+    data: XOR<YongchaContractUpdateWithoutSettlementHistoryInput, YongchaContractUncheckedUpdateWithoutSettlementHistoryInput>
+  }
+
+  export type YongchaContractUpdateWithoutSettlementHistoryInput = {
+    year?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    Affiliation?: AffiliationUpdateOneRequiredWithoutYongchaContractNestedInput
+    YongchaRateDetail?: YongchaRateDetailUpdateManyWithoutYongchaContractNestedInput
+  }
+
+  export type YongchaContractUncheckedUpdateWithoutSettlementHistoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    affiliationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    YongchaRateDetail?: YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractNestedInput
+  }
+
+  export type DriverCreateWithoutAffiliationInput = {
+    name: string
+    carNo?: string | null
+    tonnage?: string | null
+    phone?: string | null
+    regDate?: Date | string | null
+    address?: string | null
+    memo?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DriverUncheckedCreateWithoutAffiliationInput = {
+    id?: number
+    name: string
+    carNo?: string | null
+    tonnage?: string | null
+    phone?: string | null
+    regDate?: Date | string | null
+    address?: string | null
+    memo?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DriverCreateOrConnectWithoutAffiliationInput = {
+    where: DriverWhereUniqueInput
+    create: XOR<DriverCreateWithoutAffiliationInput, DriverUncheckedCreateWithoutAffiliationInput>
+  }
+
+  export type DriverCreateManyAffiliationInputEnvelope = {
+    data: DriverCreateManyAffiliationInput | DriverCreateManyAffiliationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type YongchaContractCreateWithoutAffiliationInput = {
+    year: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+    SettlementHistory?: SettlementHistoryCreateNestedManyWithoutYongchaContractInput
+    YongchaRateDetail?: YongchaRateDetailCreateNestedManyWithoutYongchaContractInput
+  }
+
+  export type YongchaContractUncheckedCreateWithoutAffiliationInput = {
+    id?: number
+    year: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+    SettlementHistory?: SettlementHistoryUncheckedCreateNestedManyWithoutYongchaContractInput
+    YongchaRateDetail?: YongchaRateDetailUncheckedCreateNestedManyWithoutYongchaContractInput
+  }
+
+  export type YongchaContractCreateOrConnectWithoutAffiliationInput = {
+    where: YongchaContractWhereUniqueInput
+    create: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput>
+  }
+
+  export type YongchaContractCreateManyAffiliationInputEnvelope = {
+    data: YongchaContractCreateManyAffiliationInput | YongchaContractCreateManyAffiliationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutAffiliationInput = {
+    loginId: string
+    password: string
+    name: string
+    role?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserUncheckedCreateWithoutAffiliationInput = {
+    id?: number
+    loginId: string
+    password: string
+    name: string
+    role?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserCreateOrConnectWithoutAffiliationInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput>
+  }
+
+  export type UserCreateManyAffiliationInputEnvelope = {
+    data: UserCreateManyAffiliationInput | UserCreateManyAffiliationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DriverUpsertWithWhereUniqueWithoutAffiliationInput = {
+    where: DriverWhereUniqueInput
+    update: XOR<DriverUpdateWithoutAffiliationInput, DriverUncheckedUpdateWithoutAffiliationInput>
+    create: XOR<DriverCreateWithoutAffiliationInput, DriverUncheckedCreateWithoutAffiliationInput>
+  }
+
+  export type DriverUpdateWithWhereUniqueWithoutAffiliationInput = {
+    where: DriverWhereUniqueInput
+    data: XOR<DriverUpdateWithoutAffiliationInput, DriverUncheckedUpdateWithoutAffiliationInput>
+  }
+
+  export type DriverUpdateManyWithWhereWithoutAffiliationInput = {
+    where: DriverScalarWhereInput
+    data: XOR<DriverUpdateManyMutationInput, DriverUncheckedUpdateManyWithoutAffiliationInput>
+  }
+
+  export type DriverScalarWhereInput = {
+    AND?: DriverScalarWhereInput | DriverScalarWhereInput[]
+    OR?: DriverScalarWhereInput[]
+    NOT?: DriverScalarWhereInput | DriverScalarWhereInput[]
+    id?: IntFilter<"Driver"> | number
+    name?: StringFilter<"Driver"> | string
+    affiliationId?: IntNullableFilter<"Driver"> | number | null
+    carNo?: StringNullableFilter<"Driver"> | string | null
+    tonnage?: StringNullableFilter<"Driver"> | string | null
+    phone?: StringNullableFilter<"Driver"> | string | null
+    regDate?: DateTimeNullableFilter<"Driver"> | Date | string | null
+    address?: StringNullableFilter<"Driver"> | string | null
+    memo?: StringNullableFilter<"Driver"> | string | null
+    createdAt?: DateTimeFilter<"Driver"> | Date | string
+    updatedAt?: DateTimeFilter<"Driver"> | Date | string
+  }
+
+  export type YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput = {
+    where: YongchaContractWhereUniqueInput
+    update: XOR<YongchaContractUpdateWithoutAffiliationInput, YongchaContractUncheckedUpdateWithoutAffiliationInput>
+    create: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput>
+  }
+
+  export type YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput = {
+    where: YongchaContractWhereUniqueInput
+    data: XOR<YongchaContractUpdateWithoutAffiliationInput, YongchaContractUncheckedUpdateWithoutAffiliationInput>
+  }
+
+  export type YongchaContractUpdateManyWithWhereWithoutAffiliationInput = {
+    where: YongchaContractScalarWhereInput
+    data: XOR<YongchaContractUpdateManyMutationInput, YongchaContractUncheckedUpdateManyWithoutAffiliationInput>
+  }
+
+  export type YongchaContractScalarWhereInput = {
+    AND?: YongchaContractScalarWhereInput | YongchaContractScalarWhereInput[]
+    OR?: YongchaContractScalarWhereInput[]
+    NOT?: YongchaContractScalarWhereInput | YongchaContractScalarWhereInput[]
+    id?: IntFilter<"YongchaContract"> | number
+    year?: IntFilter<"YongchaContract"> | number
+    affiliationId?: IntFilter<"YongchaContract"> | number
+    startDate?: DateTimeFilter<"YongchaContract"> | Date | string
+    endDate?: DateTimeFilter<"YongchaContract"> | Date | string
+    status?: StringFilter<"YongchaContract"> | string
+    createdAt?: DateTimeFilter<"YongchaContract"> | Date | string
+    updatedAt?: DateTimeFilter<"YongchaContract"> | Date | string
+    memo?: StringNullableFilter<"YongchaContract"> | string | null
+  }
+
+  export type UserUpsertWithWhereUniqueWithoutAffiliationInput = {
+    where: UserWhereUniqueInput
+    update: XOR<UserUpdateWithoutAffiliationInput, UserUncheckedUpdateWithoutAffiliationInput>
+    create: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput>
+  }
+
+  export type UserUpdateWithWhereUniqueWithoutAffiliationInput = {
+    where: UserWhereUniqueInput
+    data: XOR<UserUpdateWithoutAffiliationInput, UserUncheckedUpdateWithoutAffiliationInput>
+  }
+
+  export type UserUpdateManyWithWhereWithoutAffiliationInput = {
+    where: UserScalarWhereInput
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutAffiliationInput>
+  }
+
+  export type UserScalarWhereInput = {
+    AND?: UserScalarWhereInput | UserScalarWhereInput[]
+    OR?: UserScalarWhereInput[]
+    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
+    id?: IntFilter<"User"> | number
+    loginId?: StringFilter<"User"> | string
+    password?: StringFilter<"User"> | string
+    name?: StringFilter<"User"> | string
+    role?: StringFilter<"User"> | string
+    affiliationId?: IntNullableFilter<"User"> | number | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+  }
+
+  export type AffiliationCreateWithoutUserInput = {
+    name: string
+    bizNo?: string | null
+    ceo?: string | null
+    address?: string | null
+    manager?: string | null
+    contact?: string | null
+    email?: string | null
+    memo?: string | null
+    createdAt?: Date | string
+    Driver?: DriverCreateNestedManyWithoutAffiliationInput
+    YongchaContract?: YongchaContractCreateNestedManyWithoutAffiliationInput
+  }
+
+  export type AffiliationUncheckedCreateWithoutUserInput = {
+    id?: number
+    name: string
+    bizNo?: string | null
+    ceo?: string | null
+    address?: string | null
+    manager?: string | null
+    contact?: string | null
+    email?: string | null
+    memo?: string | null
+    createdAt?: Date | string
+    Driver?: DriverUncheckedCreateNestedManyWithoutAffiliationInput
+    YongchaContract?: YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput
+  }
+
+  export type AffiliationCreateOrConnectWithoutUserInput = {
+    where: AffiliationWhereUniqueInput
+    create: XOR<AffiliationCreateWithoutUserInput, AffiliationUncheckedCreateWithoutUserInput>
+  }
+
+  export type AffiliationUpsertWithoutUserInput = {
+    update: XOR<AffiliationUpdateWithoutUserInput, AffiliationUncheckedUpdateWithoutUserInput>
+    create: XOR<AffiliationCreateWithoutUserInput, AffiliationUncheckedCreateWithoutUserInput>
+    where?: AffiliationWhereInput
+  }
+
+  export type AffiliationUpdateToOneWithWhereWithoutUserInput = {
+    where?: AffiliationWhereInput
+    data: XOR<AffiliationUpdateWithoutUserInput, AffiliationUncheckedUpdateWithoutUserInput>
+  }
+
+  export type AffiliationUpdateWithoutUserInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Driver?: DriverUpdateManyWithoutAffiliationNestedInput
+    YongchaContract?: YongchaContractUpdateManyWithoutAffiliationNestedInput
+  }
+
+  export type AffiliationUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Driver?: DriverUncheckedUpdateManyWithoutAffiliationNestedInput
+    YongchaContract?: YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput
+  }
+
+  export type SettlementHistoryCreateWithoutYongchaContractInput = {
+    date: Date | string
+    driverName: string
+    affiliation?: string | null
+    tonnage?: string | null
+    destCount: number
+    totalWeight: number
+    fee: number
+    memo?: string | null
+    status?: string
+    isPbox?: boolean
+    isReturn?: boolean
+    so?: string | null
+    nap?: string | null
+    ton?: number | null
+    appliedTonnage?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SettlementHistoryUncheckedCreateWithoutYongchaContractInput = {
+    id?: number
+    date: Date | string
+    driverName: string
+    affiliation?: string | null
+    tonnage?: string | null
+    destCount: number
+    totalWeight: number
+    fee: number
+    memo?: string | null
+    status?: string
+    isPbox?: boolean
+    isReturn?: boolean
+    so?: string | null
+    nap?: string | null
+    ton?: number | null
+    appliedTonnage?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SettlementHistoryCreateOrConnectWithoutYongchaContractInput = {
+    where: SettlementHistoryWhereUniqueInput
+    create: XOR<SettlementHistoryCreateWithoutYongchaContractInput, SettlementHistoryUncheckedCreateWithoutYongchaContractInput>
+  }
+
+  export type SettlementHistoryCreateManyYongchaContractInputEnvelope = {
+    data: SettlementHistoryCreateManyYongchaContractInput | SettlementHistoryCreateManyYongchaContractInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AffiliationCreateWithoutYongchaContractInput = {
+    name: string
+    bizNo?: string | null
+    ceo?: string | null
+    address?: string | null
+    manager?: string | null
+    contact?: string | null
+    email?: string | null
+    memo?: string | null
+    createdAt?: Date | string
+    Driver?: DriverCreateNestedManyWithoutAffiliationInput
+    User?: UserCreateNestedManyWithoutAffiliationInput
+  }
+
+  export type AffiliationUncheckedCreateWithoutYongchaContractInput = {
+    id?: number
+    name: string
+    bizNo?: string | null
+    ceo?: string | null
+    address?: string | null
+    manager?: string | null
+    contact?: string | null
+    email?: string | null
+    memo?: string | null
+    createdAt?: Date | string
+    Driver?: DriverUncheckedCreateNestedManyWithoutAffiliationInput
+    User?: UserUncheckedCreateNestedManyWithoutAffiliationInput
+  }
+
+  export type AffiliationCreateOrConnectWithoutYongchaContractInput = {
+    where: AffiliationWhereUniqueInput
+    create: XOR<AffiliationCreateWithoutYongchaContractInput, AffiliationUncheckedCreateWithoutYongchaContractInput>
+  }
+
+  export type YongchaRateDetailCreateWithoutYongchaContractInput = {
+    tonnage?: string | null
+    region: string
+    price: number
+    memo?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type YongchaRateDetailUncheckedCreateWithoutYongchaContractInput = {
+    id?: number
+    tonnage?: string | null
+    region: string
+    price: number
+    memo?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type YongchaRateDetailCreateOrConnectWithoutYongchaContractInput = {
+    where: YongchaRateDetailWhereUniqueInput
+    create: XOR<YongchaRateDetailCreateWithoutYongchaContractInput, YongchaRateDetailUncheckedCreateWithoutYongchaContractInput>
+  }
+
+  export type YongchaRateDetailCreateManyYongchaContractInputEnvelope = {
+    data: YongchaRateDetailCreateManyYongchaContractInput | YongchaRateDetailCreateManyYongchaContractInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SettlementHistoryUpsertWithWhereUniqueWithoutYongchaContractInput = {
+    where: SettlementHistoryWhereUniqueInput
+    update: XOR<SettlementHistoryUpdateWithoutYongchaContractInput, SettlementHistoryUncheckedUpdateWithoutYongchaContractInput>
+    create: XOR<SettlementHistoryCreateWithoutYongchaContractInput, SettlementHistoryUncheckedCreateWithoutYongchaContractInput>
+  }
+
+  export type SettlementHistoryUpdateWithWhereUniqueWithoutYongchaContractInput = {
+    where: SettlementHistoryWhereUniqueInput
+    data: XOR<SettlementHistoryUpdateWithoutYongchaContractInput, SettlementHistoryUncheckedUpdateWithoutYongchaContractInput>
+  }
+
+  export type SettlementHistoryUpdateManyWithWhereWithoutYongchaContractInput = {
+    where: SettlementHistoryScalarWhereInput
+    data: XOR<SettlementHistoryUpdateManyMutationInput, SettlementHistoryUncheckedUpdateManyWithoutYongchaContractInput>
+  }
+
+  export type SettlementHistoryScalarWhereInput = {
+    AND?: SettlementHistoryScalarWhereInput | SettlementHistoryScalarWhereInput[]
+    OR?: SettlementHistoryScalarWhereInput[]
+    NOT?: SettlementHistoryScalarWhereInput | SettlementHistoryScalarWhereInput[]
+    id?: IntFilter<"SettlementHistory"> | number
+    date?: DateTimeFilter<"SettlementHistory"> | Date | string
+    driverName?: StringFilter<"SettlementHistory"> | string
+    affiliation?: StringNullableFilter<"SettlementHistory"> | string | null
+    tonnage?: StringNullableFilter<"SettlementHistory"> | string | null
+    destCount?: IntFilter<"SettlementHistory"> | number
+    totalWeight?: IntFilter<"SettlementHistory"> | number
+    fee?: IntFilter<"SettlementHistory"> | number
+    memo?: StringNullableFilter<"SettlementHistory"> | string | null
+    status?: StringFilter<"SettlementHistory"> | string
+    isPbox?: BoolFilter<"SettlementHistory"> | boolean
+    isReturn?: BoolFilter<"SettlementHistory"> | boolean
+    so?: StringNullableFilter<"SettlementHistory"> | string | null
+    nap?: StringNullableFilter<"SettlementHistory"> | string | null
+    ton?: IntNullableFilter<"SettlementHistory"> | number | null
+    contractId?: IntNullableFilter<"SettlementHistory"> | number | null
+    appliedTonnage?: StringNullableFilter<"SettlementHistory"> | string | null
+    createdAt?: DateTimeFilter<"SettlementHistory"> | Date | string
+  }
+
+  export type AffiliationUpsertWithoutYongchaContractInput = {
+    update: XOR<AffiliationUpdateWithoutYongchaContractInput, AffiliationUncheckedUpdateWithoutYongchaContractInput>
+    create: XOR<AffiliationCreateWithoutYongchaContractInput, AffiliationUncheckedCreateWithoutYongchaContractInput>
+    where?: AffiliationWhereInput
+  }
+
+  export type AffiliationUpdateToOneWithWhereWithoutYongchaContractInput = {
+    where?: AffiliationWhereInput
+    data: XOR<AffiliationUpdateWithoutYongchaContractInput, AffiliationUncheckedUpdateWithoutYongchaContractInput>
+  }
+
+  export type AffiliationUpdateWithoutYongchaContractInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Driver?: DriverUpdateManyWithoutAffiliationNestedInput
+    User?: UserUpdateManyWithoutAffiliationNestedInput
+  }
+
+  export type AffiliationUncheckedUpdateWithoutYongchaContractInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    bizNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ceo?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: NullableStringFieldUpdateOperationsInput | string | null
+    contact?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Driver?: DriverUncheckedUpdateManyWithoutAffiliationNestedInput
+    User?: UserUncheckedUpdateManyWithoutAffiliationNestedInput
+  }
+
+  export type YongchaRateDetailUpsertWithWhereUniqueWithoutYongchaContractInput = {
+    where: YongchaRateDetailWhereUniqueInput
+    update: XOR<YongchaRateDetailUpdateWithoutYongchaContractInput, YongchaRateDetailUncheckedUpdateWithoutYongchaContractInput>
+    create: XOR<YongchaRateDetailCreateWithoutYongchaContractInput, YongchaRateDetailUncheckedCreateWithoutYongchaContractInput>
+  }
+
+  export type YongchaRateDetailUpdateWithWhereUniqueWithoutYongchaContractInput = {
+    where: YongchaRateDetailWhereUniqueInput
+    data: XOR<YongchaRateDetailUpdateWithoutYongchaContractInput, YongchaRateDetailUncheckedUpdateWithoutYongchaContractInput>
+  }
+
+  export type YongchaRateDetailUpdateManyWithWhereWithoutYongchaContractInput = {
+    where: YongchaRateDetailScalarWhereInput
+    data: XOR<YongchaRateDetailUpdateManyMutationInput, YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractInput>
+  }
+
+  export type YongchaRateDetailScalarWhereInput = {
+    AND?: YongchaRateDetailScalarWhereInput | YongchaRateDetailScalarWhereInput[]
+    OR?: YongchaRateDetailScalarWhereInput[]
+    NOT?: YongchaRateDetailScalarWhereInput | YongchaRateDetailScalarWhereInput[]
+    id?: IntFilter<"YongchaRateDetail"> | number
+    contractId?: IntFilter<"YongchaRateDetail"> | number
+    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
+    region?: StringFilter<"YongchaRateDetail"> | string
+    price?: IntFilter<"YongchaRateDetail"> | number
+    memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
+    createdAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
+    updatedAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
+  }
+
+  export type YongchaContractCreateWithoutYongchaRateDetailInput = {
+    year: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+    SettlementHistory?: SettlementHistoryCreateNestedManyWithoutYongchaContractInput
+    Affiliation: AffiliationCreateNestedOneWithoutYongchaContractInput
+  }
+
+  export type YongchaContractUncheckedCreateWithoutYongchaRateDetailInput = {
+    id?: number
+    year: number
+    affiliationId: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+    SettlementHistory?: SettlementHistoryUncheckedCreateNestedManyWithoutYongchaContractInput
+  }
+
+  export type YongchaContractCreateOrConnectWithoutYongchaRateDetailInput = {
+    where: YongchaContractWhereUniqueInput
+    create: XOR<YongchaContractCreateWithoutYongchaRateDetailInput, YongchaContractUncheckedCreateWithoutYongchaRateDetailInput>
+  }
+
+  export type YongchaContractUpsertWithoutYongchaRateDetailInput = {
+    update: XOR<YongchaContractUpdateWithoutYongchaRateDetailInput, YongchaContractUncheckedUpdateWithoutYongchaRateDetailInput>
+    create: XOR<YongchaContractCreateWithoutYongchaRateDetailInput, YongchaContractUncheckedCreateWithoutYongchaRateDetailInput>
+    where?: YongchaContractWhereInput
+  }
+
+  export type YongchaContractUpdateToOneWithWhereWithoutYongchaRateDetailInput = {
+    where?: YongchaContractWhereInput
+    data: XOR<YongchaContractUpdateWithoutYongchaRateDetailInput, YongchaContractUncheckedUpdateWithoutYongchaRateDetailInput>
+  }
+
+  export type YongchaContractUpdateWithoutYongchaRateDetailInput = {
+    year?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    SettlementHistory?: SettlementHistoryUpdateManyWithoutYongchaContractNestedInput
+    Affiliation?: AffiliationUpdateOneRequiredWithoutYongchaContractNestedInput
+  }
+
+  export type YongchaContractUncheckedUpdateWithoutYongchaRateDetailInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    affiliationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    SettlementHistory?: SettlementHistoryUncheckedUpdateManyWithoutYongchaContractNestedInput
+  }
+
+  export type DriverCreateManyAffiliationInput = {
+    id?: number
+    name: string
+    carNo?: string | null
+    tonnage?: string | null
+    phone?: string | null
+    regDate?: Date | string | null
+    address?: string | null
+    memo?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type YongchaContractCreateManyAffiliationInput = {
+    id?: number
+    year: number
+    startDate: Date | string
+    endDate: Date | string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    memo?: string | null
+  }
+
+  export type UserCreateManyAffiliationInput = {
+    id?: number
+    loginId: string
+    password: string
+    name: string
+    role?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DriverUpdateWithoutAffiliationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    carNo?: NullableStringFieldUpdateOperationsInput | string | null
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    regDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DriverUncheckedUpdateWithoutAffiliationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    carNo?: NullableStringFieldUpdateOperationsInput | string | null
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    regDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DriverUncheckedUpdateManyWithoutAffiliationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    carNo?: NullableStringFieldUpdateOperationsInput | string | null
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    regDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YongchaContractUpdateWithoutAffiliationInput = {
+    year?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    SettlementHistory?: SettlementHistoryUpdateManyWithoutYongchaContractNestedInput
+    YongchaRateDetail?: YongchaRateDetailUpdateManyWithoutYongchaContractNestedInput
+  }
+
+  export type YongchaContractUncheckedUpdateWithoutAffiliationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    SettlementHistory?: SettlementHistoryUncheckedUpdateManyWithoutYongchaContractNestedInput
+    YongchaRateDetail?: YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractNestedInput
+  }
+
+  export type YongchaContractUncheckedUpdateManyWithoutAffiliationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type UserUpdateWithoutAffiliationInput = {
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserUncheckedUpdateWithoutAffiliationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserUncheckedUpdateManyWithoutAffiliationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SettlementHistoryCreateManyYongchaContractInput = {
+    id?: number
+    date: Date | string
+    driverName: string
+    affiliation?: string | null
+    tonnage?: string | null
+    destCount: number
+    totalWeight: number
+    fee: number
+    memo?: string | null
+    status?: string
+    isPbox?: boolean
+    isReturn?: boolean
+    so?: string | null
+    nap?: string | null
+    ton?: number | null
+    appliedTonnage?: string | null
+    createdAt?: Date | string
+  }
+
+  export type YongchaRateDetailCreateManyYongchaContractInput = {
+    id?: number
+    tonnage?: string | null
+    region: string
+    price: number
+    memo?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SettlementHistoryUpdateWithoutYongchaContractInput = {
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    driverName?: StringFieldUpdateOperationsInput | string
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    destCount?: IntFieldUpdateOperationsInput | number
+    totalWeight?: IntFieldUpdateOperationsInput | number
+    fee?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    isPbox?: BoolFieldUpdateOperationsInput | boolean
+    isReturn?: BoolFieldUpdateOperationsInput | boolean
+    so?: NullableStringFieldUpdateOperationsInput | string | null
+    nap?: NullableStringFieldUpdateOperationsInput | string | null
+    ton?: NullableIntFieldUpdateOperationsInput | number | null
+    appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SettlementHistoryUncheckedUpdateWithoutYongchaContractInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    driverName?: StringFieldUpdateOperationsInput | string
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    destCount?: IntFieldUpdateOperationsInput | number
+    totalWeight?: IntFieldUpdateOperationsInput | number
+    fee?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    isPbox?: BoolFieldUpdateOperationsInput | boolean
+    isReturn?: BoolFieldUpdateOperationsInput | boolean
+    so?: NullableStringFieldUpdateOperationsInput | string | null
+    nap?: NullableStringFieldUpdateOperationsInput | string | null
+    ton?: NullableIntFieldUpdateOperationsInput | number | null
+    appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SettlementHistoryUncheckedUpdateManyWithoutYongchaContractInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    driverName?: StringFieldUpdateOperationsInput | string
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    destCount?: IntFieldUpdateOperationsInput | number
+    totalWeight?: IntFieldUpdateOperationsInput | number
+    fee?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    isPbox?: BoolFieldUpdateOperationsInput | boolean
+    isReturn?: BoolFieldUpdateOperationsInput | boolean
+    so?: NullableStringFieldUpdateOperationsInput | string | null
+    nap?: NullableStringFieldUpdateOperationsInput | string | null
+    ton?: NullableIntFieldUpdateOperationsInput | number | null
+    appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YongchaRateDetailUpdateWithoutYongchaContractInput = {
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YongchaRateDetailUncheckedUpdateWithoutYongchaContractInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
@@ -6375,13 +11130,17 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
+     * @deprecated Use AffiliationCountOutputTypeDefaultArgs instead
+     */
+    export type AffiliationCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AffiliationCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use YongchaContractCountOutputTypeDefaultArgs instead
+     */
+    export type YongchaContractCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = YongchaContractCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use DriverDefaultArgs instead
      */
     export type DriverArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DriverDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use FeeMasterDefaultArgs instead
-     */
-    export type FeeMasterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FeeMasterDefaultArgs<ExtArgs>
     /**
      * @deprecated Use SettlementHistoryDefaultArgs instead
      */
@@ -6390,6 +11149,18 @@ export namespace Prisma {
      * @deprecated Use AffiliationDefaultArgs instead
      */
     export type AffiliationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AffiliationDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UserDefaultArgs instead
+     */
+    export type UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use YongchaContractDefaultArgs instead
+     */
+    export type YongchaContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = YongchaContractDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use YongchaRateDetailDefaultArgs instead
+     */
+    export type YongchaRateDetailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = YongchaRateDetailDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

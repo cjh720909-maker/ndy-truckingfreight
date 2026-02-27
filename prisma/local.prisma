@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/local"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Driver {
+  id            Int          @id @default(autoincrement())
+  name          String
+  affiliationId Int?
+  carNo         String?
+  tonnage       String?
+  phone         String?
+  regDate       DateTime?
+  address       String?
+  memo          String?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  Affiliation   Affiliation? @relation(fields: [affiliationId], references: [id])
+
+  @@index([name])
+}
+
+model SettlementHistory {
+  id              Int              @id @default(autoincrement())
+  date            DateTime
+  driverName      String
+  affiliation     String?
+  tonnage         String?
+  destCount       Int
+  totalWeight     Int
+  fee             Int
+  memo            String?
+  status          String           @default("COMPLETED")
+  isPbox          Boolean          @default(false)
+  isReturn        Boolean          @default(false)
+  so              String?
+  nap             String?
+  ton             Int?
+  contractId      Int?
+  createdAt       DateTime         @default(now())
+  appliedTonnage  String?
+  gwon            Int?             @default(0)
+  YongchaContract YongchaContract? @relation(fields: [contractId], references: [id])
+
+  @@index([date, driverName], map: "IDX_SETTLEMENT_DATE_NAME")
+}
+
+model Affiliation {
+  id              Int               @id @default(autoincrement())
+  name            String            @unique
+  bizNo           String?
+  ceo             String?
+  address         String?
+  manager         String?
+  contact         String?
+  email           String?
+  memo            String?
+  createdAt       DateTime          @default(now())
+  Driver          Driver[]
+  YongchaContract YongchaContract[]
+  User            User[]
+}
+
+model User {
+  id            Int          @id @default(autoincrement())
+  loginId       String       @unique
+  password      String
+  name          String
+  role          String       @default("TRANSPORT") // ADMIN, TRANSPORT
+  affiliationId Int?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  Affiliation   Affiliation? @relation(fields: [affiliationId], references: [id])
+
+  @@index([loginId])
+}
+
+model YongchaContract {
+  id                Int                 @id @default(autoincrement())
+  year              Int
+  affiliationId     Int
+  startDate         DateTime
+  endDate           DateTime
+  status            String              @default("ACTIVE")
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  memo              String?
+  SettlementHistory SettlementHistory[]
+  Affiliation       Affiliation         @relation(fields: [affiliationId], references: [id])
+  YongchaRateDetail YongchaRateDetail[]
+
+  @@index([affiliationId, year])
+  @@index([startDate, endDate])
+}
+
+model YongchaRateDetail {
+  id              Int             @id @default(autoincrement())
+  contractId      Int
+  region          String
+  price           Int
+  memo            String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  tonnage         String?
+  YongchaContract YongchaContract @relation(fields: [contractId], references: [id])
+
+  @@index([contractId, region, tonnage])
+}

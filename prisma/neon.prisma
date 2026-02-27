@@ -9,51 +9,104 @@ datasource db {
 }
 
 model Driver {
-  id          Int      @id @default(autoincrement())
-  name        String
-  affiliation String?
-  tonnage     String?
-  regDate     String?
-  address     String?
-  memo        String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
+  id            Int          @id @default(autoincrement())
+  name          String
+  affiliationId Int?
+  carNo         String?
+  tonnage       String?
+  phone         String?
+  regDate       DateTime?
+  address       String?
+  memo          String?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  Affiliation   Affiliation? @relation(fields: [affiliationId], references: [id])
 
-model FeeMaster {
-  id          Int      @id @default(autoincrement())
-  affiliation String
-  tonnage     String
-  year        Int
-  region      String
-  fee         Int
-  memo        String?
-  isActive    Boolean  @default(true)
-  readonly    Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  @@index([name])
 }
 
 model SettlementHistory {
-  id           Int      @id @default(autoincrement())
-  date         String
-  driverName   String
-  affiliation  String?
-  tonnage      String?
-  destCount    Int
-  totalWeight  Int
-  fee          Int
-  memo         String?
-  isPbox       Boolean  @default(false)
-  isReturn     Boolean  @default(false)
-  so           String?
-  nap          String?
-  ton          Int?
-  createdAt    DateTime @default(now())
+  id              Int              @id @default(autoincrement())
+  date            DateTime         @db.Date
+  driverName      String
+  affiliation     String?
+  tonnage         String?
+  destCount       Int
+  totalWeight     Int
+  fee             Int
+  memo            String?
+  status          String           @default("COMPLETED")
+  isPbox          Boolean          @default(false)
+  isReturn        Boolean          @default(false)
+  so              String?
+  nap             String?
+  ton             Int?
+  contractId      Int?
+  appliedTonnage  String?
+  createdAt       DateTime         @default(now())
+  YongchaContract YongchaContract? @relation(fields: [contractId], references: [id])
+
+  @@index([date, driverName], map: "IDX_SETTLEMENT_DATE_NAME")
 }
 
 model Affiliation {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  createdAt DateTime @default(now())
+  id              Int               @id @default(autoincrement())
+  name            String            @unique
+  bizNo           String?
+  ceo             String?
+  address         String?
+  manager         String?
+  contact         String?
+  email           String?
+  memo            String?
+  createdAt       DateTime          @default(now())
+  Driver          Driver[]
+  YongchaContract YongchaContract[]
+  User            User[]
+}
+
+model User {
+  id            Int          @id @default(autoincrement())
+  loginId       String       @unique
+  password      String
+  name          String
+  role          String       @default("TRANSPORT") // ADMIN, TRANSPORT
+  affiliationId Int?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  Affiliation   Affiliation? @relation(fields: [affiliationId], references: [id])
+
+  @@index([loginId])
+}
+
+model YongchaContract {
+  id                Int                 @id @default(autoincrement())
+  year              Int
+  affiliationId     Int
+  startDate         DateTime
+  endDate           DateTime
+  status            String              @default("ACTIVE")
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  memo              String?
+  SettlementHistory SettlementHistory[]
+  Affiliation       Affiliation         @relation(fields: [affiliationId], references: [id])
+  YongchaRateDetail YongchaRateDetail[]
+
+  @@index([affiliationId, year])
+  @@index([startDate, endDate])
+}
+
+model YongchaRateDetail {
+  id              Int             @id @default(autoincrement())
+  contractId      Int
+  tonnage         String?
+  region          String
+  price           Int
+  memo            String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  YongchaContract YongchaContract @relation(fields: [contractId], references: [id], onDelete: Cascade)
+
+  @@index([contractId, region, tonnage])
 }

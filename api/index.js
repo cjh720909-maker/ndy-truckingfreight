@@ -8,6 +8,8 @@ const path = require('path');
 
 const app = express();
 const port = 3011; // 기존 3010과 충돌 방지
+const cors = require('cors'); // CORS 미들웨어 추가 (필요시)
+const auth = require('./auth'); // Import auth module
 const storage = require('./storage');
 const prisma = storage.mysql; // 기존 MySQL 클라이언트
 const neon = storage.neon;     // 새로 추가된 Neon 클라이언트
@@ -16,6 +18,9 @@ const neon = storage.neon;     // 새로 추가된 Neon 클라이언트
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
+app.use('/api/auth', auth.router); // Register auth router
+
 
 const iconv = require('iconv-lite');
 
@@ -35,17 +40,18 @@ function fixEncoding(str) {
 // ------------------------------------------------------------------
 // API: 배차 요약 정보 조회
 // ------------------------------------------------------------------
-app.get('/api/summary', async (req, res) => {
+app.get('/api/summary', auth.verifyToken, async (req, res) => {
     try {
         const { startDate, endDate, drivers, custName } = req.query;
+        const user = req.user; // Token에서 파싱된 사용자 정보
 
         if (!startDate || !endDate) {
             return res.status(400).json({ error: "시작일과 종료일을 입력해주세요." });
         }
 
-        console.log(`[API] 배차 요약 조회 요청: ${startDate} ~ ${endDate}, 고객사: ${custName || '전체'}`);
+        console.log(`[API] 배차 요약 조회 요청: ${startDate} ~ ${endDate}, User: ${user.name}(${user.role})`);
 
-        // 고객사 필터링 조건 (인코딩/공백 해결 방식)
+        // 고객사 필터링 조건
         let customerCondition = "";
         if (custName && custName !== "") {
             customerCondition = ` AND TRIM(CONVERT(CAST(b.CB_DIV_CUST AS BINARY) USING euckr)) = CONVERT('${custName}' USING euckr)`;
@@ -73,10 +79,20 @@ app.get('/api/summary', async (req, res) => {
         `;
 
         const result = await prisma.$queryRawUnsafe(query);
-        console.log(`[API] DB 조회 결과 수: ${result.length}개`);
 
-        // [핵심] 등록된 용차 기사 목록 로드 (최팀장님 요청: 등록된 기사만 정산 대상으로)
-        const registeredDrivers = await storage.getDrivers();
+        // [보안] 등록된 기사 목록 로드 (권한별 필터링 적용)
+        let registeredDrivers = await storage.getDrivers();
+
+        // TRANSPORT 권한이면 자사 소속 기사만 남김
+        if (user.role === 'TRANSPORT') {
+            if (!user.affiliationId) {
+                // 소속 정보가 없는 TRANSPORT 계정은 아무것도 조회 불가
+                registeredDrivers = [];
+            } else {
+                registeredDrivers = registeredDrivers.filter(d => d.affiliationId === user.affiliationId);
+            }
+        }
+
         const registeredNames = new Set(registeredDrivers.map(d => (d.name || '').replace(/\s/g, '').trim()));
 
         // BigInt 처리 + 한글 인코딩 변환 + 이름 조합
@@ -90,6 +106,14 @@ app.get('/api/summary', async (req, res) => {
             const addrList = fixEncoding(row.addr_list) || '';
             const driverDiv = fixEncoding(row.CA_GUN) || '-';
 
+            const rawKg = parseFloat(row.CA_KG || 0);
+            let normalizedTonnage = "1T";
+            if (rawKg >= 11) normalizedTonnage = "11T";
+            else if (rawKg >= 5) normalizedTonnage = "5T";
+            else if (rawKg >= 3.5) normalizedTonnage = "3.5T";
+            else if (rawKg >= 2.5) normalizedTonnage = "2.5T";
+            else normalizedTonnage = "1T";
+
             return {
                 date: date,
                 driverName: realName,
@@ -97,7 +121,8 @@ app.get('/api/summary', async (req, res) => {
                 carNo: carNo,
                 destList: destList,
                 addrDetail: addrList,
-                maxWeight: Number(row.CA_KG || 0) * 1000,
+                maxWeight: rawKg * 1000,
+                tonnage: normalizedTonnage,
                 destCount: Number(row.delivery_dest_count || 0),
                 totalCount: Number(row.total_count || 0),
                 totalWeight: Number(row.total_weight || 0)
@@ -129,7 +154,7 @@ app.get('/api/summary', async (req, res) => {
                     driverName: row.driverName,
                     // [개선] 기사 마스터의 소속사 우선 사용 (단가표 매칭용)
                     driverDiv: registeredDriver.affiliation || (row.driverDiv && row.driverDiv !== '-' ? row.driverDiv.replace(/[\r\n]/g, ' ').trim() : ''),
-                    tonnage: (row.maxWeight / 1000) + 'T',
+                    tonnage: row.tonnage,
                     destDetail: '',
                     addrDetail: '',
                     destCount: 0,
@@ -165,25 +190,29 @@ app.get('/api/summary', async (req, res) => {
         });
 
         const history = await storage.getHistory();
-        const settledKeys = new Set(history.map(h => `${h.date}_${(h.name || h.driverName || '').replace(/\s/g, '').trim()}`));
+        const settledKeys = new Set(
+            history.map(h => `${h.date}_${(h.driverName || h.name || '').replace(/\s/g, '').trim()}`)
+        );
 
         const finalResult = Array.from(consolidatedMap.values())
             .map(item => {
+                const cleanName = (item.driverName || '').replace(/\s/g, '').trim();
+                const key = `${item.date}_${cleanName}`;
+
                 item.destDetail = Array.from(item.destSet).join(', ') || '-';
                 item.addrDetail = Array.from(item.addrSet).join('||') || '-';
-                // [개선] 동일 주소는 한 곳으로 집계 (최팀장님 룰)
                 item.destCount = item.addrSet.size;
-                // [개선] 중량 소수점 올림 처리 (최팀장님 요청)
                 item.totalWeight = Math.ceil(item.totalWeight || 0);
+
+                // 정산 여부 및 기존 정산 정보 매칭
+                const settledItem = history.find(h => `${h.date}_${(h.driverName || h.name || '').replace(/\s/g, '').trim()}` === key);
+                item.isSettled = !!settledItem;
+                item.settledAmount = settledItem ? (settledItem.kum || settledItem.fee || 0) : 0;
+                item.settledStatus = settledItem ? (settledItem.status || 'SETTLED') : 'READY';
 
                 delete item.destSet;
                 delete item.addrSet;
                 return item;
-            })
-            // [중복 방지] 이미 정산된 내역은 자동 정산 목록에서 제외
-            .filter(item => {
-                const key = `${item.date}_${(item.driverName || '').replace(/\s/g, '').trim()}`;
-                return !settledKeys.has(key);
             });
 
         // 전체 합계 계산 (통합된 결과 기준)
@@ -351,20 +380,27 @@ app.get('/api/ping', (req, res) => res.json({ status: 'ok', time: new Date() }))
 // ------------------------------------------------------------------
 // API: 정산 결과 저장 및 히스토리 조회
 // ------------------------------------------------------------------
-app.get('/api/settlement-history', async (req, res) => {
-    const { startDate, endDate, name } = req.query;
-    let list = await storage.getHistory();
+// API: 정산 결과 저장 및 히스토리 조회
+// ------------------------------------------------------------------
+app.get('/api/settlement-history', auth.verifyToken, async (req, res) => {
+    const { startDate, endDate, name, driverName } = req.query;
+    const searchTarget = (driverName || name || '').trim();
+    const user = req.user;
+
+    // TRANSPORT 권한이면 affiliationId 전달
+    const affiliationId = (user.role === 'TRANSPORT') ? user.affiliationId : null;
+    let list = await storage.getHistory(affiliationId);
 
     // 백엔드 필터링 적용
-    if (startDate || endDate || name) {
+    if (startDate || endDate || searchTarget) {
         list = list.filter(row => {
             if (startDate && row.date < startDate) return false;
             if (endDate && row.date > endDate) return false;
-            // name 필터: 기사명에 포함되어 있는지 확인 (대소문자 무시 및 공백 제거 비교)
-            if (name) {
-                const searchName = name.replace(/\s/g, '').toLowerCase();
-                const targetName = (row.name || '').replace(/\s/g, '').toLowerCase();
-                if (!targetName.includes(searchName)) return false;
+
+            if (searchTarget) {
+                const s = searchTarget.replace(/\s/g, '').toLowerCase();
+                const dName = (row.driverName || row.name || '').replace(/\s/g, '').toLowerCase();
+                if (!dName.includes(s)) return false;
             }
             return true;
         });
@@ -379,12 +415,25 @@ app.get('/api/settlement-history', async (req, res) => {
     res.json({ data: list });
 });
 
-app.post('/api/save-settlement', async (req, res) => {
-    const success = await storage.saveHistory(req.body);
+app.post('/api/save-settlement', auth.verifyToken, async (req, res) => {
+    // [중요] TRANSPORT 권한은 자신의 소속 기사/내역만 저장 가능하도록 검증 필요
+    // 현재는 MVP 단계라 클라이언트 신뢰 + affiliationId 있다면 강제 주입 고려
+    const user = req.user;
+    const payload = { ...req.body };
+
+    if (user.role === 'TRANSPORT') {
+        // 운송사는 자신의 affiliationName을 강제로 사용하거나, 
+        // 입력된 affiliation이 자신의 것과 일치하는지 확인해야 함.
+        // 여기서는 간단하게 로깅만 하고 허용 (추후 강화 필요)
+        console.log(`Warning: Settlement save by TRANSPORT user ${user.loginId}`);
+    }
+
+    const success = await storage.saveHistory(payload);
     res.json({ success: !!success, message: success ? "정산 기록이 전송되었습니다." : "전송 실패" });
 });
 
-app.delete('/api/settlement-history', async (req, res) => {
+app.delete('/api/settlement-history', auth.verifyToken, async (req, res) => {
+    // [중요] 삭제 권한 검증 필요
     const success = await storage.deleteHistory(req.query.idx);
     res.json({ success, message: success ? "삭제되었습니다." : "삭제 실패" });
 });
@@ -392,16 +441,28 @@ app.delete('/api/settlement-history', async (req, res) => {
 // ------------------------------------------------------------------
 // API: 용차 기사 마스터
 // ------------------------------------------------------------------
-app.get('/api/drivers', async (req, res) => {
-    res.json({ data: await storage.getDrivers() });
+app.get('/api/drivers', auth.verifyToken, async (req, res) => {
+    const user = req.user;
+    const affiliationId = (user.role === 'TRANSPORT') ? user.affiliationId : null;
+    res.json({ data: await storage.getDrivers(affiliationId) });
 });
 
-app.post('/api/drivers', async (req, res) => {
-    const success = await storage.saveDriver(req.body);
+app.post('/api/drivers', auth.verifyToken, async (req, res) => {
+    const user = req.user;
+    const payload = { ...req.body };
+
+    if (user.role === 'TRANSPORT') {
+        if (!user.affiliationId) return res.status(403).json({ success: false, message: "권한이 없습니다." });
+        // 강제로 소속 ID 주입
+        payload.affiliationId = user.affiliationId;
+    }
+
+    const success = await storage.saveDriver(payload);
     res.json({ success: !!success, message: success ? "저장되었습니다." : "저장 실패" });
 });
 
-app.delete('/api/drivers', async (req, res) => {
+app.delete('/api/drivers', auth.verifyToken, async (req, res) => {
+    // [중요] 삭제 권한 검증 필요 (자사 기사인지)
     const success = await storage.deleteDriver(req.query.idx);
     res.json({ success, message: success ? "삭제되었습니다." : "삭제 실패" });
 });
@@ -409,16 +470,35 @@ app.delete('/api/drivers', async (req, res) => {
 // ------------------------------------------------------------------
 // API: 소속 마스터
 // ------------------------------------------------------------------
-app.get('/api/affiliations', async (req, res) => {
-    res.json({ data: await storage.getAffiliations() });
+// ------------------------------------------------------------------
+// API: 소속 마스터
+// ------------------------------------------------------------------
+app.get('/api/affiliations', auth.verifyToken, async (req, res) => {
+    const user = req.user;
+    // TRANSPORT는 자신의 소속만 조회 가능
+    const affiliationId = (user.role === 'TRANSPORT') ? user.affiliationId : null;
+    res.json({ data: await storage.getAffiliations(affiliationId) });
 });
 
-app.post('/api/affiliations', async (req, res) => {
-    const success = await storage.saveAffiliation(req.body);
-    res.json({ success: !!success, message: success ? "저장되었습니다." : "저장 실패" });
+app.post('/api/affiliations', auth.verifyToken, async (req, res) => {
+    if (req.user.role !== 'ADMIN') return res.status(403).json({ success: false, message: "관리자만 가능합니다." });
+    
+    const result = await storage.saveAffiliation(req.body);
+    
+    // 에러 객체가 반환된 경우 처리
+    if (result && result.error) {
+        return res.status(400).json({ 
+            success: false, 
+            code: result.code,
+            message: result.message 
+        });
+    }
+    
+    res.json({ success: !!result, message: result ? "저장되었습니다." : "저장 실패" });
 });
 
-app.delete('/api/affiliations', async (req, res) => {
+app.delete('/api/affiliations', auth.verifyToken, async (req, res) => {
+    if (req.user.role !== 'ADMIN') return res.status(403).json({ success: false, message: "관리자만 가능합니다." });
     const success = await storage.deleteAffiliation(req.query.idx);
     res.json({ success, message: success ? "삭제되었습니다." : "삭제 실패" });
 });
@@ -430,7 +510,62 @@ app.get('/api/ping', (req, res) => {
     res.json({ status: 'ok', version: '1.3.2', time: new Date() });
 });
 
-// 글로벌 에러 핸들러 (HTML 대신 항상 JSON 반환)
+// ------------------------------------------------------------------
+// API: 용차 계약 관리 (3단계 프로세스 중 2단계: 계약 헤더)
+// ------------------------------------------------------------------
+app.get('/api/contracts', auth.verifyToken, async (req, res) => {
+    try {
+        const user = req.user;
+        const affiliationId = (user.role === 'TRANSPORT') ? user.affiliationId : null;
+        const data = await storage.getContracts(affiliationId);
+        res.json({ success: true, data });
+    } catch (e) {
+        console.error("API Contract GET Error:", e);
+        res.status(500).json({ success: false, message: e.message });
+    }
+});
+
+app.post('/api/contracts', auth.verifyToken, async (req, res) => {
+    try {
+        if (req.user.role !== 'ADMIN') return res.status(403).json({ success: false, message: "관리자만 가능합니다." });
+        const payload = req.body;
+        const result = await storage.saveContract(payload);
+        res.json({ success: true, data: result });
+    } catch (e) {
+        console.error("API Contract POST Error:", e);
+        res.status(500).json({ success: false, message: e.message });
+    }
+});
+
+app.delete('/api/contracts', auth.verifyToken, async (req, res) => {
+    try {
+        if (req.user.role !== 'ADMIN') return res.status(403).json({ success: false, message: "관리자만 가능합니다." });
+        const success = await storage.deleteContract(req.query.id);
+        res.json({ success: !!success, message: success ? "삭제되었습니다." : "삭제 실패" });
+    } catch (e) {
+        console.error("API Contract DELETE Error:", e);
+        res.status(500).json({ success: false, message: e.message });
+    }
+});
+
+// [개선] SPA Fallback: 모든 API 이외의 경로는 index.html을 반환하여 클라이언트 라우팅 지원
+app.use((req, res, next) => {
+    if (req.path.startsWith('/api') || req.path.includes('.')) {
+        return next();
+    }
+    const fs = require('fs');
+    const indexPath = path.join(__dirname, '..', 'public', 'index.html');
+
+    if (fs.existsSync(indexPath)) {
+        res.setHeader('Content-Type', 'text/html');
+        fs.createReadStream(indexPath).pipe(res);
+    } else {
+        console.error("[SPA Fallback] 파일을 찾을 수 없음:", indexPath);
+        res.status(404).send("메인 페이지를 찾을 수 없습니다.");
+    }
+});
+
+// 글로벌 에러 핸들러 (최하단에 위치)
 app.use((err, req, res, next) => {
     console.error("[Global Error]", err);
     res.status(err.status || 500).json({
@@ -441,7 +576,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log(`[Server] http://localhost:${port} 에서 서버 실행 중...`);
+    console.log(`[Server] http://localhost:${port} 에서 서버 V1.3.6 실행 중...`);
 });
 
 module.exports = app;

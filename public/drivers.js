@@ -3,15 +3,24 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 초기 날짜 세팅
+    const dateInput = document.getElementById('driver-regDate');
+    if (dateInput && !dateInput.value) {
+        dateInput.value = new Date().toISOString().split('T')[0];
+    }
+
     // URL 기반 자동 로드
     if (window.location.pathname === '/drivers') {
         fetchDriverMaster();
     }
 });
 
+
 let driverEditIdx = null;
 
 async function fetchDriverMaster() {
+    await fetchAffiliationListForDrivers(); // 소속 업체 목록 먼저 로드
+
     const tbody = document.getElementById('drivers-tableBody');
     if (tbody) {
         tbody.innerHTML = '<tr><td colspan="8" class="p-8 text-center text-slate-400 animate-pulse">기사 정보를 불러오고 있습니다...</td></tr>';
@@ -49,13 +58,13 @@ function renderDrivers(data) {
     }
 
     tbody.innerHTML = data.map((row, i) => `
-        <tr class="hover:bg-slate-50 border-b border-slate-50 last:border-0 flex px-6 items-center text-[10px]">
+        <tr class="hover:bg-slate-50 border-b border-slate-50 last:border-0 transition-colors">
             <td class="py-0.5 text-center text-slate-400 w-[40px] shrink-0">${i + 1}</td>
-            <td class="py-0.5 w-[100px] shrink-0 font-bold text-slate-800">${row.name || '-'}</td>
-            <td class="py-0.5 w-[100px] shrink-0 text-indigo-600 font-medium">${row.affiliation || '-'}</td>
+            <td class="py-0.5 w-[100px] shrink-0 font-bold text-slate-800 text-center">${row.name || '-'}</td>
+            <td class="py-0.5 w-[100px] shrink-0 text-indigo-600 font-medium text-center">${row.affiliation || '-'}</td>
             <td class="py-0.5 w-[80px] shrink-0 text-slate-500 text-center">${row.tonnage || '-'}</td>
-            <td class="py-0.5 w-[100px] shrink-0 text-slate-500 text-center">${row.regDate || '-'}</td>
-            <td class="py-0.5 w-[180px] shrink-0 text-slate-600 truncate">${row.address || '-'}</td>
+            <td class="py-0.5 w-[100px] shrink-0 text-slate-500 text-center">${(row.regDate || '').split('T')[0]}</td>
+            <td class="py-0.5 w-[180px] shrink-0 text-slate-600 truncate px-2" title="${row.address || ''}">${row.address || '-'}</td>
             <td class="py-0.5 flex-grow px-4 truncate text-slate-500 italic">${row.memo || ''}</td>
             <td class="py-0.5 w-[80px] shrink-0 flex items-center justify-center gap-2">
                 <button onclick='editDriver(${JSON.stringify(row)})' class="bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white px-1.5 py-0.5 rounded font-bold text-[9px] transition-colors">수정</button>
@@ -63,6 +72,8 @@ function renderDrivers(data) {
             </td>
         </tr>
     `).join('');
+
+    console.log(`[안팀장] 기사 마스터 리스트 렌더링 완료: ${data.length}건`);
 }
 
 // 엔터 키 지원
@@ -77,7 +88,8 @@ document.addEventListener('keydown', (e) => {
 
 async function saveDriverMaster() {
     const name = document.getElementById('driver-name').value.trim();
-    const affiliation = document.getElementById('driver-affiliation').value.trim();
+    const affiliation = document.getElementById('driver-affiliation-dropdown').value.trim();
+
     const tonnage = document.getElementById('driver-tonnage').value;
     const regDate = document.getElementById('driver-regDate').value;
     const address = document.getElementById('driver-address').value.trim();
@@ -91,9 +103,9 @@ async function saveDriverMaster() {
     const payload = {
         idx: driverEditIdx,
         name,
-        affiliation,
+        affiliationId: affiliation, // 프론트의 affiliation 값은 이제 ID
         tonnage,
-        regDate,
+        regDate: regDate || null,
         address,
         memo
     };
@@ -125,14 +137,34 @@ async function saveDriverMaster() {
     }
 }
 
+// [추가] 기사 등록 폼의 소속 업체 목록 로드
+async function fetchAffiliationListForDrivers() {
+    try {
+        const res = await fetch('/api/affiliations');
+        const { data } = await res.json();
+        const select = document.getElementById('driver-affiliation-dropdown');
+        if (!select) return;
+
+        const currentVal = select.value;
+        select.innerHTML = '<option value="">소속 선택</option>' + (data || []).map(aff =>
+            `<option value="${aff.idx}">${aff.name}</option>`
+        ).join('');
+        if (currentVal) select.value = currentVal;
+    } catch (e) {
+        console.error('Affiliations Load Error:', e);
+    }
+}
+
+
 function editDriver(row) {
     driverEditIdx = row.idx;
     document.getElementById('driver-name').value = row.name;
-    document.getElementById('driver-affiliation').value = row.affiliation;
+    document.getElementById('driver-affiliation-dropdown').value = row.affiliationId || '';
     document.getElementById('driver-tonnage').value = row.tonnage;
-    document.getElementById('driver-regDate').value = row.regDate;
-    document.getElementById('driver-address').value = row.address;
-    document.getElementById('driver-memo').value = row.memo;
+    document.getElementById('driver-regDate').value = row.regDate ? row.regDate.split('T')[0] : '';
+    document.getElementById('driver-address').value = row.address || '';
+    document.getElementById('driver-memo').value = row.memo || '';
+
 
     // UI 모드 전환
     document.getElementById('btn-driver-save').innerText = '수정 완료';
@@ -160,11 +192,12 @@ async function deleteDriver(idx) {
 function resetDriverForm() {
     driverEditIdx = null;
     document.getElementById('driver-name').value = '';
-    document.getElementById('driver-affiliation').value = '';
+    document.getElementById('driver-affiliation-dropdown').value = '';
     document.getElementById('driver-tonnage').value = '3.5T';
-    document.getElementById('driver-regDate').value = '';
+    document.getElementById('driver-regDate').value = new Date().toISOString().split('T')[0];
     document.getElementById('driver-address').value = '';
     document.getElementById('driver-memo').value = '';
+
 
     // UI 모드 복원
     document.getElementById('btn-driver-save').innerText = '저장';
