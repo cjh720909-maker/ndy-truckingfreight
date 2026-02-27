@@ -8,6 +8,149 @@ datasource db {
   url      = env("NEON_URL")
 }
 
+model NDY_BillingItem {
+  id               String            @id
+  code             String            @default("")
+  name             String
+  billingRecipient String            @default("")
+  type             String            @default("기본운임")
+  mergeCriteria    String            @default("name")
+  note             String            @default("")
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime
+  NDY_BillingRate  NDY_BillingRate[]
+}
+
+model NDY_BillingRate {
+  id              String          @id
+  itemId          String
+  validFrom       String
+  validTo         String?
+  amount          Int             @default(0)
+  note            String          @default("")
+  createdAt       DateTime        @default(now())
+  NDY_BillingItem NDY_BillingItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+}
+
+model NDY_Config {
+  key       String   @id
+  data      Json
+  updatedAt DateTime
+}
+
+model NDY_DailySummary {
+  id                   String                 @id
+  startDate            String
+  endDate              String
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime
+  NDY_DailySummaryItem NDY_DailySummaryItem[]
+
+  @@unique([startDate, endDate])
+}
+
+model NDY_DailySummaryItem {
+  id               String           @id
+  summaryId        String
+  placeName        String
+  deliveryDays     Int              @default(0)
+  totalAmount      Int              @default(0)
+  deliveryDates    String[]
+  NDY_DailySummary NDY_DailySummary @relation(fields: [summaryId], references: [id], onDelete: Cascade)
+}
+
+model NDY_EmergencyRate {
+  name      String   @id
+  rate      Int      @default(0)
+  chung     String   @default("")
+  updatedAt DateTime
+}
+
+model NDY_EmergencySettlement {
+  id        String   @id
+  startDate String
+  endDate   String
+  name      String
+  chung     String   @default("")
+  count     Int      @default(0)
+  rate      Int      @default(0)
+  total     Int      @default(0)
+  dates     String[]
+  createdAt DateTime @default(now())
+
+  @@unique([startDate, endDate, name])
+}
+
+model NDY_FixedSettlement {
+  id               String   @id
+  name             String
+  billingRecipient String   @default("")
+  amount           Int      @default(0)
+  count            Int      @default(0)
+  rate             Int      @default(0)
+  note             String?
+  createdAt        DateTime @default(now())
+}
+
+model NDY_GSSettlement {
+  id      String   @id
+  date    String
+  code    String
+  name    String?
+  qty     Decimal  @db.Decimal(11, 2)
+  weight  Decimal  @db.Decimal(11, 2)
+  amount  Int      @default(0)
+  remarks String?  @default("")
+  modDate DateTime @default(now())
+
+  @@unique([date, code])
+}
+
+model NDY_GSSummary {
+  id          String   @id
+  startDate   String
+  endDate     String
+  weekday     Int      @default(0)
+  saturday    Int      @default(0)
+  sunday      Int      @default(0)
+  extraTrucks Int      @default(0)
+  totalAmount Int      @default(0)
+  dates       String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+
+  @@unique([startDate, endDate])
+}
+
+model NDY_InquirySettlement {
+  id        String   @id
+  startDate String
+  endDate   String
+  date      String
+  name      String
+  so        String
+  nap       String
+  ton       String
+  kum       Int      @default(0)
+  yo        String
+  chung     String
+  un        Int      @default(0)
+  memo      String
+  createdAt DateTime @default(now())
+
+  @@unique([startDate, endDate, date, name, so, nap, kum])
+}
+
+model NDY_MonthlyClosing {
+  id        String   @id
+  startDate String
+  endDate   String
+  data      Json
+  closedAt  DateTime @default(now())
+
+  @@unique([startDate, endDate])
+}
+
 model Driver {
   id            Int          @id @default(autoincrement())
   name          String
@@ -20,9 +163,11 @@ model Driver {
   memo          String?
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
+  oldId         String?
   Affiliation   Affiliation? @relation(fields: [affiliationId], references: [id])
 
   @@index([name])
+  @@map("NTF_Driver")
 }
 
 model SettlementHistory {
@@ -44,9 +189,11 @@ model SettlementHistory {
   contractId      Int?
   appliedTonnage  String?
   createdAt       DateTime         @default(now())
+  oldId           String?
   YongchaContract YongchaContract? @relation(fields: [contractId], references: [id])
 
   @@index([date, driverName], map: "IDX_SETTLEMENT_DATE_NAME")
+  @@map("NTF_SettlementHistory")
 }
 
 model Affiliation {
@@ -60,9 +207,12 @@ model Affiliation {
   email           String?
   memo            String?
   createdAt       DateTime          @default(now())
+  oldId           String?
   Driver          Driver[]
-  YongchaContract YongchaContract[]
   User            User[]
+  YongchaContract YongchaContract[]
+
+  @@map("NTF_Affiliation")
 }
 
 model User {
@@ -70,13 +220,15 @@ model User {
   loginId       String       @unique
   password      String
   name          String
-  role          String       @default("TRANSPORT") // ADMIN, TRANSPORT
+  role          String       @default("TRANSPORT")
   affiliationId Int?
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
+  oldId         String?
   Affiliation   Affiliation? @relation(fields: [affiliationId], references: [id])
 
   @@index([loginId])
+  @@map("NTF_User")
 }
 
 model YongchaContract {
@@ -89,12 +241,14 @@ model YongchaContract {
   createdAt         DateTime            @default(now())
   updatedAt         DateTime            @updatedAt
   memo              String?
+  oldId             String?
   SettlementHistory SettlementHistory[]
   Affiliation       Affiliation         @relation(fields: [affiliationId], references: [id])
   YongchaRateDetail YongchaRateDetail[]
 
   @@index([affiliationId, year])
   @@index([startDate, endDate])
+  @@map("NTF_YongchaContract")
 }
 
 model YongchaRateDetail {
@@ -106,7 +260,9 @@ model YongchaRateDetail {
   memo            String?
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
+  oldId           String?
   YongchaContract YongchaContract @relation(fields: [contractId], references: [id], onDelete: Cascade)
 
   @@index([contractId, region, tonnage])
+  @@map("NTF_YongchaRateDetail")
 }

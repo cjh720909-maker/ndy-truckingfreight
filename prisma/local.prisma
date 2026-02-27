@@ -10,6 +10,7 @@ datasource db {
 
 model Driver {
   id            Int          @id @default(autoincrement())
+  oldId         String?      // 원본 큰 ID 보관용
   name          String
   affiliationId Int?
   carNo         String?
@@ -23,10 +24,12 @@ model Driver {
   Affiliation   Affiliation? @relation(fields: [affiliationId], references: [id])
 
   @@index([name])
+  @@map("NTF_Driver")
 }
 
 model SettlementHistory {
   id              Int              @id @default(autoincrement())
+  oldId           String?          // 원본 큰 ID 보관용
   date            DateTime
   driverName      String
   affiliation     String?
@@ -48,10 +51,12 @@ model SettlementHistory {
   YongchaContract YongchaContract? @relation(fields: [contractId], references: [id])
 
   @@index([date, driverName], map: "IDX_SETTLEMENT_DATE_NAME")
+  @@map("NTF_SettlementHistory")
 }
 
 model Affiliation {
   id              Int               @id @default(autoincrement())
+  oldId           String?           // 원본 큰 ID 보관용
   name            String            @unique
   bizNo           String?
   ceo             String?
@@ -64,10 +69,13 @@ model Affiliation {
   Driver          Driver[]
   YongchaContract YongchaContract[]
   User            User[]
+
+  @@map("NTF_Affiliation")
 }
 
 model User {
   id            Int          @id @default(autoincrement())
+  oldId         String?
   loginId       String       @unique
   password      String
   name          String
@@ -78,10 +86,12 @@ model User {
   Affiliation   Affiliation? @relation(fields: [affiliationId], references: [id])
 
   @@index([loginId])
+  @@map("NTF_User")
 }
 
 model YongchaContract {
   id                Int                 @id @default(autoincrement())
+  oldId             String?
   year              Int
   affiliationId     Int
   startDate         DateTime
@@ -96,10 +106,12 @@ model YongchaContract {
 
   @@index([affiliationId, year])
   @@index([startDate, endDate])
+  @@map("NTF_YongchaContract")
 }
 
 model YongchaRateDetail {
   id              Int             @id @default(autoincrement())
+  oldId           String?
   contractId      Int
   region          String
   price           Int
@@ -110,4 +122,6 @@ model YongchaRateDetail {
   YongchaContract YongchaContract @relation(fields: [contractId], references: [id])
 
   @@index([contractId, region, tonnage])
+  @@map("NTF_YongchaRateDetail")
 }
+

@@ -5,16 +5,19 @@ const Auth = {
         role: localStorage.getItem('userRole'),
         name: localStorage.getItem('userName')
     }),
-    isAuthenticated: () => !!localStorage.getItem('authToken'),
+    isAuthenticated: () => true, // Always true for no-login mode
     logout: () => {
         localStorage.removeItem('authToken');
         localStorage.removeItem('userRole');
         localStorage.removeItem('userName');
-        window.location.href = '/login.html';
+        location.reload(); // Just refresh instead of login page
     },
     checkAuth: () => {
-        if (!Auth.isAuthenticated()) {
-            window.location.href = '/login.html';
+        // Automatically set admin session if missing
+        if (!localStorage.getItem('authToken')) {
+            localStorage.setItem('authToken', 'auto-login-token');
+            localStorage.setItem('userRole', 'ADMIN');
+            localStorage.setItem('userName', '최팀장');
         }
     },
     // 권한에 따른 메뉴 제어
@@ -44,10 +47,14 @@ const Auth = {
     }
 };
 
-// 페이지 로드 시 인증 체크 (로그인 페이지 제외)
-if (window.location.pathname !== '/login.html') {
+// 페이지 로드 시 인증 체크
+if (window.location.pathname === '/login.html' || window.location.pathname === '/login') {
+    Auth.checkAuth();
+    window.location.href = '/';
+} else {
     Auth.checkAuth();
     document.addEventListener('DOMContentLoaded', Auth.applyRoleBasedUI);
+}
 
     // [Global Fetch Interceptor] 모든 API 요청에 토큰 자동 주입
     const originalFetch = window.fetch;

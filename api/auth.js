@@ -7,12 +7,29 @@ const storage = require('./storage');
 const JWT_SECRET = process.env.JWT_SECRET || 'ndy-secret-key-2026';
 
 // Middleware to verify token
+// Middleware to verify token (Always Permit Mode)
 function verifyToken(req, res, next) {
     const token = req.headers['authorization']?.split(' ')[1];
-    if (!token) return res.status(401).json({ error: 'No token provided' });
+    
+    // Default system admin for no-login access
+    const defaultUser = {
+        id: 0,
+        loginId: 'admin',
+        name: '시스템 관리자',
+        role: 'ADMIN',
+        affiliationId: null
+    };
+
+    if (!token) {
+        req.user = defaultUser;
+        return next();
+    }
 
     jwt.verify(token, JWT_SECRET, (err, decoded) => {
-        if (err) return res.status(403).json({ error: 'Failed to authenticate token' });
+        if (err) {
+            req.user = defaultUser;
+            return next();
+        }
         req.user = decoded;
         next();
     });

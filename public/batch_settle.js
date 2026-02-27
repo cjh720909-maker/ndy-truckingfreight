@@ -114,21 +114,44 @@ function calculateSmartPrice(row, isPbox = false, isReturn = false, gwon = 0, se
     // 1. 기본 단가 찾기
     let basePrice = 0;
     regionsInAddr.forEach(reg => {
-        const matchingFees = localFeeMaster.filter(f => {
-            if (f.status !== 'ACTIVE' || f.tonnage !== selectedTonnage) return false;
+        // (A) 먼저 지역과 톤수가 맞는 모든 단가를 필터링 (톤수가 'ALL'인 경우 포함)
+        const allMatchingFees = localFeeMaster.filter(f => {
+            if (f.status !== 'ACTIVE') return false;
+            
+            // 톤수 조건: 정확히 일치하거나, 단가표가 'ALL'인 경우 허용
+            const isTonnageMatch = (f.tonnage === selectedTonnage || f.tonnage === 'ALL' || !f.tonnage || f.tonnage === '-');
+            if (!isTonnageMatch) return false;
+
             const fRegs = f.region.split(',').map(s => s.trim());
             return fRegs.some(fr => fr === reg || fr.includes(reg) || reg.includes(fr));
         });
-        if (matchingFees.length > 0) {
-            const maxForThisReg = Math.max(...matchingFees.map(f => parseInt(f.price)));
+
+        if (allMatchingFees.length > 0) {
+            const cleanRowDiv = (row.driverDiv || '').replace(/\s/g, '');
+            // (B) 그 중 소속사까지 일치하는 단가가 있는지 확인
+            const specificFees = allMatchingFees.filter(f => (f.affiliation || '').replace(/\s/g, '') === cleanRowDiv);
+            
+            // (C) 소속사 일치 단가가 있으면 그것을 사용, 없으면 전체(지역/톤수 일치) 중에서 사용
+            const targetFees = specificFees.length > 0 ? specificFees : allMatchingFees;
+            
+            const maxForThisReg = Math.max(...targetFees.map(f => parseInt(f.price)));
             if (maxForThisReg > basePrice) basePrice = maxForThisReg;
         }
     });
 
     // 2. 추가 요금 산출
     function getExtraFee(name) {
-        const fee = localFeeMaster.find(f => f.status === 'ACTIVE' && f.region === name && f.tonnage === selectedTonnage) ||
-            localFeeMaster.find(f => f.status === 'ACTIVE' && f.region === name);
+        const cleanRowDiv = (row.driverDiv || '').replace(/\s/g, '');
+        
+        // [수정] 추가 요금도 톤수 'ALL' 허용 및 공백 무시 비교 적용
+        function isMatch(f) {
+            if (f.status !== 'ACTIVE' || f.region !== name) return false;
+            return (f.tonnage === selectedTonnage || f.tonnage === 'ALL' || !f.tonnage || f.tonnage === '-');
+        }
+
+        const fee = localFeeMaster.find(f => isMatch(f) && (f.affiliation || '').replace(/\s/g, '') === cleanRowDiv) ||
+            localFeeMaster.find(f => isMatch(f));
+            
         return parseInt(fee?.price || 0);
     }
 
@@ -136,6 +159,9 @@ function calculateSmartPrice(row, isPbox = false, isReturn = false, gwon = 0, se
     const stopExtraStepSize = getExtraFee('납품처추가') || 10000;
     const pboxFeeValue = getExtraFee('피박스') || 0;
     const returnFeeValue = getExtraFee('회송') || 0;
+    
+    // [추가] 톤수별 가산금 (예: 2.5T, 3.5T 항목 대응)
+    const tonnageFeeValue = (selectedTonnage !== '1T' && selectedTonnage !== '-') ? getExtraFee(selectedTonnage) : 0;
 
     let extraAmount = 0;
     let reasonParts = [];
@@ -160,6 +186,7 @@ function calculateSmartPrice(row, isPbox = false, isReturn = false, gwon = 0, se
         }
 
         // (3) 기타 옵션
+        if (tonnageFeeValue > 0) { extraAmount += tonnageFeeValue; reasonParts.push(`+${selectedTonnage}(${formatNumber(tonnageFeeValue)})`); }
         if (isPbox) { extraAmount += pboxFeeValue; reasonParts.push(`+P박스(${formatNumber(pboxFeeValue)})`); }
         if (isReturn) { extraAmount += returnFeeValue; reasonParts.push(`+회송(${formatNumber(returnFeeValue)})`); }
 
