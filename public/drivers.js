@@ -62,7 +62,6 @@ function renderDrivers(data) {
             <td class="py-0.5 text-center text-slate-400 w-[40px] shrink-0">${i + 1}</td>
             <td class="py-0.5 w-[100px] shrink-0 font-bold text-slate-800 text-center">${row.name || '-'}</td>
             <td class="py-0.5 w-[100px] shrink-0 text-indigo-600 font-medium text-center">${row.affiliation || '-'}</td>
-            <td class="py-0.5 w-[80px] shrink-0 text-slate-500 text-center">${row.tonnage || '-'}</td>
             <td class="py-0.5 w-[100px] shrink-0 text-slate-500 text-center">${(row.regDate || '').split('T')[0]}</td>
             <td class="py-0.5 w-[180px] shrink-0 text-slate-600 truncate px-2" title="${row.address || ''}">${row.address || '-'}</td>
             <td class="py-0.5 flex-grow px-4 truncate text-slate-500 italic">${row.memo || ''}</td>
@@ -167,10 +166,15 @@ function editDriver(row) {
 
 
     // UI 모드 전환
-    document.getElementById('btn-driver-save').innerText = '수정 완료';
-    document.getElementById('btn-driver-save').classList.replace('bg-indigo-600', 'bg-amber-500');
-    document.getElementById('btn-driver-save').classList.replace('hover:bg-indigo-700', 'hover:bg-amber-600');
-    document.getElementById('driver-edit-indicator').classList.remove('hidden');
+    const btnEl = document.getElementById('btn-driver-save');
+    const indicatorEl = document.getElementById('driver-edit-indicator');
+
+    if (btnEl) {
+        btnEl.innerText = '수정 완료';
+        btnEl.classList.replace('bg-indigo-600', 'bg-amber-500');
+        btnEl.classList.replace('hover:bg-indigo-700', 'hover:bg-amber-600');
+    }
+    if (indicatorEl) indicatorEl.classList.remove('hidden');
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -200,8 +204,13 @@ function resetDriverForm() {
 
 
     // UI 모드 복원
-    document.getElementById('btn-driver-save').innerText = '저장';
-    document.getElementById('btn-driver-save').classList.replace('bg-amber-500', 'bg-indigo-600');
-    document.getElementById('btn-driver-save').classList.replace('hover:bg-amber-600', 'hover:bg-indigo-700');
-    document.getElementById('driver-edit-indicator').classList.add('hidden');
+    const btnEl = document.getElementById('btn-driver-save');
+    const indicatorEl = document.getElementById('driver-edit-indicator');
+
+    if (btnEl) {
+        btnEl.innerText = '저장';
+        btnEl.classList.replace('bg-amber-500', 'bg-indigo-600');
+        btnEl.classList.replace('hover:bg-amber-600', 'hover:bg-indigo-700');
+    }
+    if (indicatorEl) indicatorEl.classList.add('hidden');
 }

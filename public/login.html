@@ -1,89 +1,105 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인 - NDY 용차 관리 시스템</title>
+    <title>로그인 - 용차 관리 시스템</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        body {
-            font-family: 'Pretendard', sans-serif;
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .bg-login {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
-
-<body class="bg-slate-50 flex items-center justify-center h-screen">
-
-    <div class="w-full max-w-sm bg-white rounded-xl shadow-lg p-8 border border-slate-100">
+<body class="bg-login flex items-center justify-center min-h-screen p-4">
+    <div class="glass w-full max-w-md rounded-2xl shadow-2xl p-8 transition-all hover:shadow-indigo-500/20">
         <div class="text-center mb-8">
-            <h1 class="text-2xl font-bold text-slate-800">NDY 용차 관리 시스템</h1>
-            <p class="text-sm text-slate-500 mt-2">서비스 이용을 위해 로그인해주세요.</p>
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 text-white rounded-2xl mb-4 shadow-lg rotate-3 group hover:rotate-0 transition-transform">
+                <i class="fas fa-truck-fast text-2xl"></i>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-800 tracking-tight">용차 관리 시스템</h1>
+            <p class="text-gray-500 text-sm mt-1">NDY ERP Integrated Login</p>
         </div>
 
-        <form id="loginForm" class="space-y-4">
+        <form id="login-form" class="space-y-5">
             <div>
-                <label for="loginId" class="block text-sm font-medium text-slate-700 mb-1">아이디</label>
-                <input type="text" id="loginId" name="loginId" required
-                    class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
-                    placeholder="아이디를 입력하세요">
-            </div>
-            <div>
-                <label for="password" class="block text-sm font-medium text-slate-700 mb-1">비밀번호</label>
-                <input type="password" id="password" name="password" required
-                    class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
-                    placeholder="비밀번호를 입력하세요">
+                <label class="block text-xs font-bold text-gray-500 mb-1.5 ml-1 uppercase">ID</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-400">
+                        <i class="fas fa-user text-sm"></i>
+                    </span>
+                    <input type="text" id="loginId" required
+                        class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all text-sm"
+                        placeholder="아이디를 입력하세요">
+                </div>
             </div>
 
-            <div id="errorMessage" class="hidden text-red-500 text-xs text-center font-medium"></div>
+            <div>
+                <label class="block text-xs font-bold text-gray-500 mb-1.5 ml-1 uppercase">Password</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-400">
+                        <i class="fas fa-lock text-sm"></i>
+                    </span>
+                    <input type="password" id="password" required
+                        class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all text-sm"
+                        placeholder="••••••••">
+                </div>
+            </div>
+
+            <div id="error-msg" class="hidden text-red-500 text-xs text-center font-medium animate-pulse">
+                <i class="fas fa-exclamation-circle mr-1"></i>
+                <span>아이디 또는 비밀번호가 올바르지 않습니다.</span>
+            </div>
 
             <button type="submit"
-                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-lg transition-colors shadow-sm">
+                class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm shadow-lg shadow-indigo-200 transition-all active:scale-[0.98]">
                 로그인
             </button>
         </form>
 
-        <div class="mt-6 text-center text-xs text-slate-400">
-            &copy; 2026 NDY Logistics. All rights reserved.
+        <div class="mt-8 pt-6 border-t border-gray-100 text-center">
+            <p class="text-xs text-gray-400">
+                &copy; 2026 NDY Logistics Hub. All rights reserved.
+            </p>
         </div>
     </div>
 
+    <script src="auth_client.js"></script>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const loginId = document.getElementById('loginId').value;
             const password = document.getElementById('password').value;
-            const errorMsg = document.getElementById('errorMessage');
+            const errorMsg = document.getElementById('error-msg');
 
-            try {
-                const res = await fetch('/api/auth/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ loginId, password })
-                });
+            const btn = e.target.querySelector('button');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> 처리 중...';
 
-                const data = await res.json();
-
-                if (res.ok) {
-                    // 로그인 성공: 토큰 저장 및 메인 페이지 이동
-                    localStorage.setItem('authToken', data.token);
-                    localStorage.setItem('userRole', data.user.role);
-                    localStorage.setItem('userName', data.user.name);
-                    window.location.href = '/';
-                } else {
-                    // 로그인 실패
-                    errorMsg.innerText = data.error || '로그인에 실패했습니다.';
-                    errorMsg.classList.remove('hidden');
-                }
-            } catch (err) {
-                console.error(err);
-                errorMsg.innerText = '서버 오류가 발생했습니다.';
+            const result = await Auth.login(loginId, password);
+            if (result.success) {
+                window.location.href = '/';
+            } else {
+                errorMsg.querySelector('span').innerText = result.error;
                 errorMsg.classList.remove('hidden');
+                btn.disabled = false;
+                btn.innerText = '로그인';
             }
         });
+
+        // 이미 로그인된 경우 메인으로 이동
+        const user = Auth.getUser();
+        if (localStorage.getItem(Auth.TOKEN_KEY)) {
+            window.location.href = '/';
+        }
     </script>
 </body>
-
 </html>

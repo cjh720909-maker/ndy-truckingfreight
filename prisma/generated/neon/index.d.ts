@@ -14,6 +14,66 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
+ * Model NDY_BillingItem
+ * 
+ */
+export type NDY_BillingItem = $Result.DefaultSelection<Prisma.$NDY_BillingItemPayload>
+/**
+ * Model NDY_BillingRate
+ * 
+ */
+export type NDY_BillingRate = $Result.DefaultSelection<Prisma.$NDY_BillingRatePayload>
+/**
+ * Model NDY_Config
+ * 
+ */
+export type NDY_Config = $Result.DefaultSelection<Prisma.$NDY_ConfigPayload>
+/**
+ * Model NDY_DailySummary
+ * 
+ */
+export type NDY_DailySummary = $Result.DefaultSelection<Prisma.$NDY_DailySummaryPayload>
+/**
+ * Model NDY_DailySummaryItem
+ * 
+ */
+export type NDY_DailySummaryItem = $Result.DefaultSelection<Prisma.$NDY_DailySummaryItemPayload>
+/**
+ * Model NDY_EmergencyRate
+ * 
+ */
+export type NDY_EmergencyRate = $Result.DefaultSelection<Prisma.$NDY_EmergencyRatePayload>
+/**
+ * Model NDY_EmergencySettlement
+ * 
+ */
+export type NDY_EmergencySettlement = $Result.DefaultSelection<Prisma.$NDY_EmergencySettlementPayload>
+/**
+ * Model NDY_FixedSettlement
+ * 
+ */
+export type NDY_FixedSettlement = $Result.DefaultSelection<Prisma.$NDY_FixedSettlementPayload>
+/**
+ * Model NDY_GSSettlement
+ * 
+ */
+export type NDY_GSSettlement = $Result.DefaultSelection<Prisma.$NDY_GSSettlementPayload>
+/**
+ * Model NDY_GSSummary
+ * 
+ */
+export type NDY_GSSummary = $Result.DefaultSelection<Prisma.$NDY_GSSummaryPayload>
+/**
+ * Model NDY_InquirySettlement
+ * 
+ */
+export type NDY_InquirySettlement = $Result.DefaultSelection<Prisma.$NDY_InquirySettlementPayload>
+/**
+ * Model NDY_MonthlyClosing
+ * 
+ */
+export type NDY_MonthlyClosing = $Result.DefaultSelection<Prisma.$NDY_MonthlyClosingPayload>
+/**
  * Model Driver
  * 
  */
@@ -51,8 +111,8 @@ export type YongchaRateDetail = $Result.DefaultSelection<Prisma.$YongchaRateDeta
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Drivers
- * const drivers = await prisma.driver.findMany()
+ * // Fetch zero or more NDY_BillingItems
+ * const nDY_BillingItems = await prisma.nDY_BillingItem.findMany()
  * ```
  *
  * 
@@ -72,8 +132,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Drivers
-   * const drivers = await prisma.driver.findMany()
+   * // Fetch zero or more NDY_BillingItems
+   * const nDY_BillingItems = await prisma.nDY_BillingItem.findMany()
    * ```
    *
    * 
@@ -168,6 +228,126 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb, ExtArgs>
 
       /**
+   * `prisma.nDY_BillingItem`: Exposes CRUD operations for the **NDY_BillingItem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_BillingItems
+    * const nDY_BillingItems = await prisma.nDY_BillingItem.findMany()
+    * ```
+    */
+  get nDY_BillingItem(): Prisma.NDY_BillingItemDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_BillingRate`: Exposes CRUD operations for the **NDY_BillingRate** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_BillingRates
+    * const nDY_BillingRates = await prisma.nDY_BillingRate.findMany()
+    * ```
+    */
+  get nDY_BillingRate(): Prisma.NDY_BillingRateDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_Config`: Exposes CRUD operations for the **NDY_Config** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_Configs
+    * const nDY_Configs = await prisma.nDY_Config.findMany()
+    * ```
+    */
+  get nDY_Config(): Prisma.NDY_ConfigDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_DailySummary`: Exposes CRUD operations for the **NDY_DailySummary** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_DailySummaries
+    * const nDY_DailySummaries = await prisma.nDY_DailySummary.findMany()
+    * ```
+    */
+  get nDY_DailySummary(): Prisma.NDY_DailySummaryDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_DailySummaryItem`: Exposes CRUD operations for the **NDY_DailySummaryItem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_DailySummaryItems
+    * const nDY_DailySummaryItems = await prisma.nDY_DailySummaryItem.findMany()
+    * ```
+    */
+  get nDY_DailySummaryItem(): Prisma.NDY_DailySummaryItemDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_EmergencyRate`: Exposes CRUD operations for the **NDY_EmergencyRate** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_EmergencyRates
+    * const nDY_EmergencyRates = await prisma.nDY_EmergencyRate.findMany()
+    * ```
+    */
+  get nDY_EmergencyRate(): Prisma.NDY_EmergencyRateDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_EmergencySettlement`: Exposes CRUD operations for the **NDY_EmergencySettlement** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_EmergencySettlements
+    * const nDY_EmergencySettlements = await prisma.nDY_EmergencySettlement.findMany()
+    * ```
+    */
+  get nDY_EmergencySettlement(): Prisma.NDY_EmergencySettlementDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_FixedSettlement`: Exposes CRUD operations for the **NDY_FixedSettlement** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_FixedSettlements
+    * const nDY_FixedSettlements = await prisma.nDY_FixedSettlement.findMany()
+    * ```
+    */
+  get nDY_FixedSettlement(): Prisma.NDY_FixedSettlementDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_GSSettlement`: Exposes CRUD operations for the **NDY_GSSettlement** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_GSSettlements
+    * const nDY_GSSettlements = await prisma.nDY_GSSettlement.findMany()
+    * ```
+    */
+  get nDY_GSSettlement(): Prisma.NDY_GSSettlementDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_GSSummary`: Exposes CRUD operations for the **NDY_GSSummary** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_GSSummaries
+    * const nDY_GSSummaries = await prisma.nDY_GSSummary.findMany()
+    * ```
+    */
+  get nDY_GSSummary(): Prisma.NDY_GSSummaryDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_InquirySettlement`: Exposes CRUD operations for the **NDY_InquirySettlement** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_InquirySettlements
+    * const nDY_InquirySettlements = await prisma.nDY_InquirySettlement.findMany()
+    * ```
+    */
+  get nDY_InquirySettlement(): Prisma.NDY_InquirySettlementDelegate<ExtArgs>;
+
+  /**
+   * `prisma.nDY_MonthlyClosing`: Exposes CRUD operations for the **NDY_MonthlyClosing** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NDY_MonthlyClosings
+    * const nDY_MonthlyClosings = await prisma.nDY_MonthlyClosing.findMany()
+    * ```
+    */
+  get nDY_MonthlyClosing(): Prisma.NDY_MonthlyClosingDelegate<ExtArgs>;
+
+  /**
    * `prisma.driver`: Exposes CRUD operations for the **Driver** model.
     * Example usage:
     * ```ts
@@ -667,6 +847,18 @@ export namespace Prisma {
 
 
   export const ModelName: {
+    NDY_BillingItem: 'NDY_BillingItem',
+    NDY_BillingRate: 'NDY_BillingRate',
+    NDY_Config: 'NDY_Config',
+    NDY_DailySummary: 'NDY_DailySummary',
+    NDY_DailySummaryItem: 'NDY_DailySummaryItem',
+    NDY_EmergencyRate: 'NDY_EmergencyRate',
+    NDY_EmergencySettlement: 'NDY_EmergencySettlement',
+    NDY_FixedSettlement: 'NDY_FixedSettlement',
+    NDY_GSSettlement: 'NDY_GSSettlement',
+    NDY_GSSummary: 'NDY_GSSummary',
+    NDY_InquirySettlement: 'NDY_InquirySettlement',
+    NDY_MonthlyClosing: 'NDY_MonthlyClosing',
     Driver: 'Driver',
     SettlementHistory: 'SettlementHistory',
     Affiliation: 'Affiliation',
@@ -688,10 +880,850 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "driver" | "settlementHistory" | "affiliation" | "user" | "yongchaContract" | "yongchaRateDetail"
+      modelProps: "nDY_BillingItem" | "nDY_BillingRate" | "nDY_Config" | "nDY_DailySummary" | "nDY_DailySummaryItem" | "nDY_EmergencyRate" | "nDY_EmergencySettlement" | "nDY_FixedSettlement" | "nDY_GSSettlement" | "nDY_GSSummary" | "nDY_InquirySettlement" | "nDY_MonthlyClosing" | "driver" | "settlementHistory" | "affiliation" | "user" | "yongchaContract" | "yongchaRateDetail"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
+      NDY_BillingItem: {
+        payload: Prisma.$NDY_BillingItemPayload<ExtArgs>
+        fields: Prisma.NDY_BillingItemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_BillingItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_BillingItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_BillingItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_BillingItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_BillingItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_BillingItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_BillingItemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_BillingItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_BillingItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload>
+          }
+          update: {
+            args: Prisma.NDY_BillingItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_BillingItemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_BillingItemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_BillingItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingItemPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_BillingItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_BillingItem>
+          }
+          groupBy: {
+            args: Prisma.NDY_BillingItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_BillingItemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_BillingItemCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_BillingItemCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_BillingRate: {
+        payload: Prisma.$NDY_BillingRatePayload<ExtArgs>
+        fields: Prisma.NDY_BillingRateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_BillingRateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_BillingRateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_BillingRateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_BillingRateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload>
+          }
+          findMany: {
+            args: Prisma.NDY_BillingRateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload>[]
+          }
+          create: {
+            args: Prisma.NDY_BillingRateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload>
+          }
+          createMany: {
+            args: Prisma.NDY_BillingRateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_BillingRateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_BillingRateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload>
+          }
+          update: {
+            args: Prisma.NDY_BillingRateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_BillingRateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_BillingRateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_BillingRateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_BillingRatePayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_BillingRateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_BillingRate>
+          }
+          groupBy: {
+            args: Prisma.NDY_BillingRateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_BillingRateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_BillingRateCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_BillingRateCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_Config: {
+        payload: Prisma.$NDY_ConfigPayload<ExtArgs>
+        fields: Prisma.NDY_ConfigFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_ConfigFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_ConfigFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_ConfigFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_ConfigFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_ConfigFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_ConfigCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_ConfigCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_ConfigCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_ConfigDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload>
+          }
+          update: {
+            args: Prisma.NDY_ConfigUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_ConfigDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_ConfigUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_ConfigUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_ConfigPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_ConfigAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_Config>
+          }
+          groupBy: {
+            args: Prisma.NDY_ConfigGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_ConfigGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_ConfigCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_ConfigCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_DailySummary: {
+        payload: Prisma.$NDY_DailySummaryPayload<ExtArgs>
+        fields: Prisma.NDY_DailySummaryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_DailySummaryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_DailySummaryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_DailySummaryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_DailySummaryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_DailySummaryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_DailySummaryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_DailySummaryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_DailySummaryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_DailySummaryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload>
+          }
+          update: {
+            args: Prisma.NDY_DailySummaryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_DailySummaryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_DailySummaryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_DailySummaryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_DailySummaryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_DailySummary>
+          }
+          groupBy: {
+            args: Prisma.NDY_DailySummaryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_DailySummaryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_DailySummaryCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_DailySummaryCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_DailySummaryItem: {
+        payload: Prisma.$NDY_DailySummaryItemPayload<ExtArgs>
+        fields: Prisma.NDY_DailySummaryItemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_DailySummaryItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_DailySummaryItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_DailySummaryItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_DailySummaryItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_DailySummaryItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_DailySummaryItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_DailySummaryItemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_DailySummaryItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_DailySummaryItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload>
+          }
+          update: {
+            args: Prisma.NDY_DailySummaryItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_DailySummaryItemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_DailySummaryItemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_DailySummaryItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_DailySummaryItemPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_DailySummaryItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_DailySummaryItem>
+          }
+          groupBy: {
+            args: Prisma.NDY_DailySummaryItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_DailySummaryItemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_DailySummaryItemCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_DailySummaryItemCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_EmergencyRate: {
+        payload: Prisma.$NDY_EmergencyRatePayload<ExtArgs>
+        fields: Prisma.NDY_EmergencyRateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_EmergencyRateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_EmergencyRateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_EmergencyRateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_EmergencyRateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload>
+          }
+          findMany: {
+            args: Prisma.NDY_EmergencyRateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload>[]
+          }
+          create: {
+            args: Prisma.NDY_EmergencyRateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload>
+          }
+          createMany: {
+            args: Prisma.NDY_EmergencyRateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_EmergencyRateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_EmergencyRateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload>
+          }
+          update: {
+            args: Prisma.NDY_EmergencyRateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_EmergencyRateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_EmergencyRateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_EmergencyRateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencyRatePayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_EmergencyRateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_EmergencyRate>
+          }
+          groupBy: {
+            args: Prisma.NDY_EmergencyRateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_EmergencyRateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_EmergencyRateCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_EmergencyRateCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_EmergencySettlement: {
+        payload: Prisma.$NDY_EmergencySettlementPayload<ExtArgs>
+        fields: Prisma.NDY_EmergencySettlementFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_EmergencySettlementFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_EmergencySettlementFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_EmergencySettlementFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_EmergencySettlementFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_EmergencySettlementFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_EmergencySettlementCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_EmergencySettlementCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_EmergencySettlementCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_EmergencySettlementDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload>
+          }
+          update: {
+            args: Prisma.NDY_EmergencySettlementUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_EmergencySettlementDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_EmergencySettlementUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_EmergencySettlementUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_EmergencySettlementPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_EmergencySettlementAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_EmergencySettlement>
+          }
+          groupBy: {
+            args: Prisma.NDY_EmergencySettlementGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_EmergencySettlementGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_EmergencySettlementCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_EmergencySettlementCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_FixedSettlement: {
+        payload: Prisma.$NDY_FixedSettlementPayload<ExtArgs>
+        fields: Prisma.NDY_FixedSettlementFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_FixedSettlementFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_FixedSettlementFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_FixedSettlementFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_FixedSettlementFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_FixedSettlementFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_FixedSettlementCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_FixedSettlementCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_FixedSettlementCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_FixedSettlementDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload>
+          }
+          update: {
+            args: Prisma.NDY_FixedSettlementUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_FixedSettlementDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_FixedSettlementUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_FixedSettlementUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_FixedSettlementPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_FixedSettlementAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_FixedSettlement>
+          }
+          groupBy: {
+            args: Prisma.NDY_FixedSettlementGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_FixedSettlementGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_FixedSettlementCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_FixedSettlementCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_GSSettlement: {
+        payload: Prisma.$NDY_GSSettlementPayload<ExtArgs>
+        fields: Prisma.NDY_GSSettlementFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_GSSettlementFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_GSSettlementFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_GSSettlementFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_GSSettlementFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_GSSettlementFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_GSSettlementCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_GSSettlementCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_GSSettlementCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_GSSettlementDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload>
+          }
+          update: {
+            args: Prisma.NDY_GSSettlementUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_GSSettlementDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_GSSettlementUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_GSSettlementUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSettlementPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_GSSettlementAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_GSSettlement>
+          }
+          groupBy: {
+            args: Prisma.NDY_GSSettlementGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_GSSettlementGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_GSSettlementCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_GSSettlementCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_GSSummary: {
+        payload: Prisma.$NDY_GSSummaryPayload<ExtArgs>
+        fields: Prisma.NDY_GSSummaryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_GSSummaryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_GSSummaryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_GSSummaryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_GSSummaryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_GSSummaryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_GSSummaryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_GSSummaryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_GSSummaryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_GSSummaryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload>
+          }
+          update: {
+            args: Prisma.NDY_GSSummaryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_GSSummaryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_GSSummaryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_GSSummaryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_GSSummaryPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_GSSummaryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_GSSummary>
+          }
+          groupBy: {
+            args: Prisma.NDY_GSSummaryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_GSSummaryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_GSSummaryCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_GSSummaryCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_InquirySettlement: {
+        payload: Prisma.$NDY_InquirySettlementPayload<ExtArgs>
+        fields: Prisma.NDY_InquirySettlementFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_InquirySettlementFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_InquirySettlementFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_InquirySettlementFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_InquirySettlementFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_InquirySettlementFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_InquirySettlementCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_InquirySettlementCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_InquirySettlementCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_InquirySettlementDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload>
+          }
+          update: {
+            args: Prisma.NDY_InquirySettlementUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_InquirySettlementDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_InquirySettlementUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_InquirySettlementUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_InquirySettlementPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_InquirySettlementAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_InquirySettlement>
+          }
+          groupBy: {
+            args: Prisma.NDY_InquirySettlementGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_InquirySettlementGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_InquirySettlementCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_InquirySettlementCountAggregateOutputType> | number
+          }
+        }
+      }
+      NDY_MonthlyClosing: {
+        payload: Prisma.$NDY_MonthlyClosingPayload<ExtArgs>
+        fields: Prisma.NDY_MonthlyClosingFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NDY_MonthlyClosingFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NDY_MonthlyClosingFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload>
+          }
+          findFirst: {
+            args: Prisma.NDY_MonthlyClosingFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NDY_MonthlyClosingFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload>
+          }
+          findMany: {
+            args: Prisma.NDY_MonthlyClosingFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload>[]
+          }
+          create: {
+            args: Prisma.NDY_MonthlyClosingCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload>
+          }
+          createMany: {
+            args: Prisma.NDY_MonthlyClosingCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NDY_MonthlyClosingCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload>[]
+          }
+          delete: {
+            args: Prisma.NDY_MonthlyClosingDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload>
+          }
+          update: {
+            args: Prisma.NDY_MonthlyClosingUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload>
+          }
+          deleteMany: {
+            args: Prisma.NDY_MonthlyClosingDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NDY_MonthlyClosingUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NDY_MonthlyClosingUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NDY_MonthlyClosingPayload>
+          }
+          aggregate: {
+            args: Prisma.NDY_MonthlyClosingAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNDY_MonthlyClosing>
+          }
+          groupBy: {
+            args: Prisma.NDY_MonthlyClosingGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NDY_MonthlyClosingGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NDY_MonthlyClosingCountArgs<ExtArgs>
+            result: $Utils.Optional<NDY_MonthlyClosingCountAggregateOutputType> | number
+          }
+        }
+      }
       Driver: {
         payload: Prisma.$DriverPayload<ExtArgs>
         fields: Prisma.DriverFieldRefs
@@ -1269,19 +2301,81 @@ export namespace Prisma {
 
 
   /**
+   * Count Type NDY_BillingItemCountOutputType
+   */
+
+  export type NDY_BillingItemCountOutputType = {
+    NDY_BillingRate: number
+  }
+
+  export type NDY_BillingItemCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    NDY_BillingRate?: boolean | NDY_BillingItemCountOutputTypeCountNDY_BillingRateArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * NDY_BillingItemCountOutputType without action
+   */
+  export type NDY_BillingItemCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItemCountOutputType
+     */
+    select?: NDY_BillingItemCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * NDY_BillingItemCountOutputType without action
+   */
+  export type NDY_BillingItemCountOutputTypeCountNDY_BillingRateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_BillingRateWhereInput
+  }
+
+
+  /**
+   * Count Type NDY_DailySummaryCountOutputType
+   */
+
+  export type NDY_DailySummaryCountOutputType = {
+    NDY_DailySummaryItem: number
+  }
+
+  export type NDY_DailySummaryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    NDY_DailySummaryItem?: boolean | NDY_DailySummaryCountOutputTypeCountNDY_DailySummaryItemArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * NDY_DailySummaryCountOutputType without action
+   */
+  export type NDY_DailySummaryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryCountOutputType
+     */
+    select?: NDY_DailySummaryCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * NDY_DailySummaryCountOutputType without action
+   */
+  export type NDY_DailySummaryCountOutputTypeCountNDY_DailySummaryItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_DailySummaryItemWhereInput
+  }
+
+
+  /**
    * Count Type AffiliationCountOutputType
    */
 
   export type AffiliationCountOutputType = {
     Driver: number
-    YongchaContract: number
     User: number
+    YongchaContract: number
   }
 
   export type AffiliationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Driver?: boolean | AffiliationCountOutputTypeCountDriverArgs
-    YongchaContract?: boolean | AffiliationCountOutputTypeCountYongchaContractArgs
     User?: boolean | AffiliationCountOutputTypeCountUserArgs
+    YongchaContract?: boolean | AffiliationCountOutputTypeCountYongchaContractArgs
   }
 
   // Custom InputTypes
@@ -1305,15 +2399,15 @@ export namespace Prisma {
   /**
    * AffiliationCountOutputType without action
    */
-  export type AffiliationCountOutputTypeCountYongchaContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: YongchaContractWhereInput
+  export type AffiliationCountOutputTypeCountUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
   }
 
   /**
    * AffiliationCountOutputType without action
    */
-  export type AffiliationCountOutputTypeCountUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
+  export type AffiliationCountOutputTypeCountYongchaContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YongchaContractWhereInput
   }
 
 
@@ -1362,6 +2456,11464 @@ export namespace Prisma {
    */
 
   /**
+   * Model NDY_BillingItem
+   */
+
+  export type AggregateNDY_BillingItem = {
+    _count: NDY_BillingItemCountAggregateOutputType | null
+    _min: NDY_BillingItemMinAggregateOutputType | null
+    _max: NDY_BillingItemMaxAggregateOutputType | null
+  }
+
+  export type NDY_BillingItemMinAggregateOutputType = {
+    id: string | null
+    code: string | null
+    name: string | null
+    billingRecipient: string | null
+    type: string | null
+    mergeCriteria: string | null
+    note: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_BillingItemMaxAggregateOutputType = {
+    id: string | null
+    code: string | null
+    name: string | null
+    billingRecipient: string | null
+    type: string | null
+    mergeCriteria: string | null
+    note: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_BillingItemCountAggregateOutputType = {
+    id: number
+    code: number
+    name: number
+    billingRecipient: number
+    type: number
+    mergeCriteria: number
+    note: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type NDY_BillingItemMinAggregateInputType = {
+    id?: true
+    code?: true
+    name?: true
+    billingRecipient?: true
+    type?: true
+    mergeCriteria?: true
+    note?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NDY_BillingItemMaxAggregateInputType = {
+    id?: true
+    code?: true
+    name?: true
+    billingRecipient?: true
+    type?: true
+    mergeCriteria?: true
+    note?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NDY_BillingItemCountAggregateInputType = {
+    id?: true
+    code?: true
+    name?: true
+    billingRecipient?: true
+    type?: true
+    mergeCriteria?: true
+    note?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type NDY_BillingItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_BillingItem to aggregate.
+     */
+    where?: NDY_BillingItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_BillingItems to fetch.
+     */
+    orderBy?: NDY_BillingItemOrderByWithRelationInput | NDY_BillingItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_BillingItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_BillingItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_BillingItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_BillingItems
+    **/
+    _count?: true | NDY_BillingItemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_BillingItemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_BillingItemMaxAggregateInputType
+  }
+
+  export type GetNDY_BillingItemAggregateType<T extends NDY_BillingItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_BillingItem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_BillingItem[P]>
+      : GetScalarType<T[P], AggregateNDY_BillingItem[P]>
+  }
+
+
+
+
+  export type NDY_BillingItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_BillingItemWhereInput
+    orderBy?: NDY_BillingItemOrderByWithAggregationInput | NDY_BillingItemOrderByWithAggregationInput[]
+    by: NDY_BillingItemScalarFieldEnum[] | NDY_BillingItemScalarFieldEnum
+    having?: NDY_BillingItemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_BillingItemCountAggregateInputType | true
+    _min?: NDY_BillingItemMinAggregateInputType
+    _max?: NDY_BillingItemMaxAggregateInputType
+  }
+
+  export type NDY_BillingItemGroupByOutputType = {
+    id: string
+    code: string
+    name: string
+    billingRecipient: string
+    type: string
+    mergeCriteria: string
+    note: string
+    createdAt: Date
+    updatedAt: Date
+    _count: NDY_BillingItemCountAggregateOutputType | null
+    _min: NDY_BillingItemMinAggregateOutputType | null
+    _max: NDY_BillingItemMaxAggregateOutputType | null
+  }
+
+  type GetNDY_BillingItemGroupByPayload<T extends NDY_BillingItemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_BillingItemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_BillingItemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_BillingItemGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_BillingItemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_BillingItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    code?: boolean
+    name?: boolean
+    billingRecipient?: boolean
+    type?: boolean
+    mergeCriteria?: boolean
+    note?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    NDY_BillingRate?: boolean | NDY_BillingItem$NDY_BillingRateArgs<ExtArgs>
+    _count?: boolean | NDY_BillingItemCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["nDY_BillingItem"]>
+
+  export type NDY_BillingItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    code?: boolean
+    name?: boolean
+    billingRecipient?: boolean
+    type?: boolean
+    mergeCriteria?: boolean
+    note?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["nDY_BillingItem"]>
+
+  export type NDY_BillingItemSelectScalar = {
+    id?: boolean
+    code?: boolean
+    name?: boolean
+    billingRecipient?: boolean
+    type?: boolean
+    mergeCriteria?: boolean
+    note?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type NDY_BillingItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    NDY_BillingRate?: boolean | NDY_BillingItem$NDY_BillingRateArgs<ExtArgs>
+    _count?: boolean | NDY_BillingItemCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type NDY_BillingItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $NDY_BillingItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_BillingItem"
+    objects: {
+      NDY_BillingRate: Prisma.$NDY_BillingRatePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      code: string
+      name: string
+      billingRecipient: string
+      type: string
+      mergeCriteria: string
+      note: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["nDY_BillingItem"]>
+    composites: {}
+  }
+
+  type NDY_BillingItemGetPayload<S extends boolean | null | undefined | NDY_BillingItemDefaultArgs> = $Result.GetResult<Prisma.$NDY_BillingItemPayload, S>
+
+  type NDY_BillingItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_BillingItemFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_BillingItemCountAggregateInputType | true
+    }
+
+  export interface NDY_BillingItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_BillingItem'], meta: { name: 'NDY_BillingItem' } }
+    /**
+     * Find zero or one NDY_BillingItem that matches the filter.
+     * @param {NDY_BillingItemFindUniqueArgs} args - Arguments to find a NDY_BillingItem
+     * @example
+     * // Get one NDY_BillingItem
+     * const nDY_BillingItem = await prisma.nDY_BillingItem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_BillingItemFindUniqueArgs>(args: SelectSubset<T, NDY_BillingItemFindUniqueArgs<ExtArgs>>): Prisma__NDY_BillingItemClient<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_BillingItem that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_BillingItemFindUniqueOrThrowArgs} args - Arguments to find a NDY_BillingItem
+     * @example
+     * // Get one NDY_BillingItem
+     * const nDY_BillingItem = await prisma.nDY_BillingItem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_BillingItemFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_BillingItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_BillingItemClient<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_BillingItem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingItemFindFirstArgs} args - Arguments to find a NDY_BillingItem
+     * @example
+     * // Get one NDY_BillingItem
+     * const nDY_BillingItem = await prisma.nDY_BillingItem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_BillingItemFindFirstArgs>(args?: SelectSubset<T, NDY_BillingItemFindFirstArgs<ExtArgs>>): Prisma__NDY_BillingItemClient<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_BillingItem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingItemFindFirstOrThrowArgs} args - Arguments to find a NDY_BillingItem
+     * @example
+     * // Get one NDY_BillingItem
+     * const nDY_BillingItem = await prisma.nDY_BillingItem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_BillingItemFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_BillingItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_BillingItemClient<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_BillingItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingItemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_BillingItems
+     * const nDY_BillingItems = await prisma.nDY_BillingItem.findMany()
+     * 
+     * // Get first 10 NDY_BillingItems
+     * const nDY_BillingItems = await prisma.nDY_BillingItem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_BillingItemWithIdOnly = await prisma.nDY_BillingItem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_BillingItemFindManyArgs>(args?: SelectSubset<T, NDY_BillingItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_BillingItem.
+     * @param {NDY_BillingItemCreateArgs} args - Arguments to create a NDY_BillingItem.
+     * @example
+     * // Create one NDY_BillingItem
+     * const NDY_BillingItem = await prisma.nDY_BillingItem.create({
+     *   data: {
+     *     // ... data to create a NDY_BillingItem
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_BillingItemCreateArgs>(args: SelectSubset<T, NDY_BillingItemCreateArgs<ExtArgs>>): Prisma__NDY_BillingItemClient<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_BillingItems.
+     * @param {NDY_BillingItemCreateManyArgs} args - Arguments to create many NDY_BillingItems.
+     * @example
+     * // Create many NDY_BillingItems
+     * const nDY_BillingItem = await prisma.nDY_BillingItem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_BillingItemCreateManyArgs>(args?: SelectSubset<T, NDY_BillingItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_BillingItems and returns the data saved in the database.
+     * @param {NDY_BillingItemCreateManyAndReturnArgs} args - Arguments to create many NDY_BillingItems.
+     * @example
+     * // Create many NDY_BillingItems
+     * const nDY_BillingItem = await prisma.nDY_BillingItem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_BillingItems and only return the `id`
+     * const nDY_BillingItemWithIdOnly = await prisma.nDY_BillingItem.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_BillingItemCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_BillingItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_BillingItem.
+     * @param {NDY_BillingItemDeleteArgs} args - Arguments to delete one NDY_BillingItem.
+     * @example
+     * // Delete one NDY_BillingItem
+     * const NDY_BillingItem = await prisma.nDY_BillingItem.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_BillingItem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_BillingItemDeleteArgs>(args: SelectSubset<T, NDY_BillingItemDeleteArgs<ExtArgs>>): Prisma__NDY_BillingItemClient<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_BillingItem.
+     * @param {NDY_BillingItemUpdateArgs} args - Arguments to update one NDY_BillingItem.
+     * @example
+     * // Update one NDY_BillingItem
+     * const nDY_BillingItem = await prisma.nDY_BillingItem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_BillingItemUpdateArgs>(args: SelectSubset<T, NDY_BillingItemUpdateArgs<ExtArgs>>): Prisma__NDY_BillingItemClient<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_BillingItems.
+     * @param {NDY_BillingItemDeleteManyArgs} args - Arguments to filter NDY_BillingItems to delete.
+     * @example
+     * // Delete a few NDY_BillingItems
+     * const { count } = await prisma.nDY_BillingItem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_BillingItemDeleteManyArgs>(args?: SelectSubset<T, NDY_BillingItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_BillingItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingItemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_BillingItems
+     * const nDY_BillingItem = await prisma.nDY_BillingItem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_BillingItemUpdateManyArgs>(args: SelectSubset<T, NDY_BillingItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_BillingItem.
+     * @param {NDY_BillingItemUpsertArgs} args - Arguments to update or create a NDY_BillingItem.
+     * @example
+     * // Update or create a NDY_BillingItem
+     * const nDY_BillingItem = await prisma.nDY_BillingItem.upsert({
+     *   create: {
+     *     // ... data to create a NDY_BillingItem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_BillingItem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_BillingItemUpsertArgs>(args: SelectSubset<T, NDY_BillingItemUpsertArgs<ExtArgs>>): Prisma__NDY_BillingItemClient<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_BillingItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingItemCountArgs} args - Arguments to filter NDY_BillingItems to count.
+     * @example
+     * // Count the number of NDY_BillingItems
+     * const count = await prisma.nDY_BillingItem.count({
+     *   where: {
+     *     // ... the filter for the NDY_BillingItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_BillingItemCountArgs>(
+      args?: Subset<T, NDY_BillingItemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_BillingItemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_BillingItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_BillingItemAggregateArgs>(args: Subset<T, NDY_BillingItemAggregateArgs>): Prisma.PrismaPromise<GetNDY_BillingItemAggregateType<T>>
+
+    /**
+     * Group by NDY_BillingItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingItemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_BillingItemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_BillingItemGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_BillingItemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_BillingItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_BillingItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_BillingItem model
+   */
+  readonly fields: NDY_BillingItemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_BillingItem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_BillingItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    NDY_BillingRate<T extends NDY_BillingItem$NDY_BillingRateArgs<ExtArgs> = {}>(args?: Subset<T, NDY_BillingItem$NDY_BillingRateArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_BillingItem model
+   */ 
+  interface NDY_BillingItemFieldRefs {
+    readonly id: FieldRef<"NDY_BillingItem", 'String'>
+    readonly code: FieldRef<"NDY_BillingItem", 'String'>
+    readonly name: FieldRef<"NDY_BillingItem", 'String'>
+    readonly billingRecipient: FieldRef<"NDY_BillingItem", 'String'>
+    readonly type: FieldRef<"NDY_BillingItem", 'String'>
+    readonly mergeCriteria: FieldRef<"NDY_BillingItem", 'String'>
+    readonly note: FieldRef<"NDY_BillingItem", 'String'>
+    readonly createdAt: FieldRef<"NDY_BillingItem", 'DateTime'>
+    readonly updatedAt: FieldRef<"NDY_BillingItem", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_BillingItem findUnique
+   */
+  export type NDY_BillingItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingItem to fetch.
+     */
+    where: NDY_BillingItemWhereUniqueInput
+  }
+
+  /**
+   * NDY_BillingItem findUniqueOrThrow
+   */
+  export type NDY_BillingItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingItem to fetch.
+     */
+    where: NDY_BillingItemWhereUniqueInput
+  }
+
+  /**
+   * NDY_BillingItem findFirst
+   */
+  export type NDY_BillingItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingItem to fetch.
+     */
+    where?: NDY_BillingItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_BillingItems to fetch.
+     */
+    orderBy?: NDY_BillingItemOrderByWithRelationInput | NDY_BillingItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_BillingItems.
+     */
+    cursor?: NDY_BillingItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_BillingItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_BillingItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_BillingItems.
+     */
+    distinct?: NDY_BillingItemScalarFieldEnum | NDY_BillingItemScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_BillingItem findFirstOrThrow
+   */
+  export type NDY_BillingItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingItem to fetch.
+     */
+    where?: NDY_BillingItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_BillingItems to fetch.
+     */
+    orderBy?: NDY_BillingItemOrderByWithRelationInput | NDY_BillingItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_BillingItems.
+     */
+    cursor?: NDY_BillingItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_BillingItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_BillingItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_BillingItems.
+     */
+    distinct?: NDY_BillingItemScalarFieldEnum | NDY_BillingItemScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_BillingItem findMany
+   */
+  export type NDY_BillingItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingItems to fetch.
+     */
+    where?: NDY_BillingItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_BillingItems to fetch.
+     */
+    orderBy?: NDY_BillingItemOrderByWithRelationInput | NDY_BillingItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_BillingItems.
+     */
+    cursor?: NDY_BillingItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_BillingItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_BillingItems.
+     */
+    skip?: number
+    distinct?: NDY_BillingItemScalarFieldEnum | NDY_BillingItemScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_BillingItem create
+   */
+  export type NDY_BillingItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_BillingItem.
+     */
+    data: XOR<NDY_BillingItemCreateInput, NDY_BillingItemUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_BillingItem createMany
+   */
+  export type NDY_BillingItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_BillingItems.
+     */
+    data: NDY_BillingItemCreateManyInput | NDY_BillingItemCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_BillingItem createManyAndReturn
+   */
+  export type NDY_BillingItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_BillingItems.
+     */
+    data: NDY_BillingItemCreateManyInput | NDY_BillingItemCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_BillingItem update
+   */
+  export type NDY_BillingItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_BillingItem.
+     */
+    data: XOR<NDY_BillingItemUpdateInput, NDY_BillingItemUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_BillingItem to update.
+     */
+    where: NDY_BillingItemWhereUniqueInput
+  }
+
+  /**
+   * NDY_BillingItem updateMany
+   */
+  export type NDY_BillingItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_BillingItems.
+     */
+    data: XOR<NDY_BillingItemUpdateManyMutationInput, NDY_BillingItemUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_BillingItems to update
+     */
+    where?: NDY_BillingItemWhereInput
+  }
+
+  /**
+   * NDY_BillingItem upsert
+   */
+  export type NDY_BillingItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_BillingItem to update in case it exists.
+     */
+    where: NDY_BillingItemWhereUniqueInput
+    /**
+     * In case the NDY_BillingItem found by the `where` argument doesn't exist, create a new NDY_BillingItem with this data.
+     */
+    create: XOR<NDY_BillingItemCreateInput, NDY_BillingItemUncheckedCreateInput>
+    /**
+     * In case the NDY_BillingItem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_BillingItemUpdateInput, NDY_BillingItemUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_BillingItem delete
+   */
+  export type NDY_BillingItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+    /**
+     * Filter which NDY_BillingItem to delete.
+     */
+    where: NDY_BillingItemWhereUniqueInput
+  }
+
+  /**
+   * NDY_BillingItem deleteMany
+   */
+  export type NDY_BillingItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_BillingItems to delete
+     */
+    where?: NDY_BillingItemWhereInput
+  }
+
+  /**
+   * NDY_BillingItem.NDY_BillingRate
+   */
+  export type NDY_BillingItem$NDY_BillingRateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    where?: NDY_BillingRateWhereInput
+    orderBy?: NDY_BillingRateOrderByWithRelationInput | NDY_BillingRateOrderByWithRelationInput[]
+    cursor?: NDY_BillingRateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NDY_BillingRateScalarFieldEnum | NDY_BillingRateScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_BillingItem without action
+   */
+  export type NDY_BillingItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingItem
+     */
+    select?: NDY_BillingItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingItemInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_BillingRate
+   */
+
+  export type AggregateNDY_BillingRate = {
+    _count: NDY_BillingRateCountAggregateOutputType | null
+    _avg: NDY_BillingRateAvgAggregateOutputType | null
+    _sum: NDY_BillingRateSumAggregateOutputType | null
+    _min: NDY_BillingRateMinAggregateOutputType | null
+    _max: NDY_BillingRateMaxAggregateOutputType | null
+  }
+
+  export type NDY_BillingRateAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type NDY_BillingRateSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type NDY_BillingRateMinAggregateOutputType = {
+    id: string | null
+    itemId: string | null
+    validFrom: string | null
+    validTo: string | null
+    amount: number | null
+    note: string | null
+    createdAt: Date | null
+  }
+
+  export type NDY_BillingRateMaxAggregateOutputType = {
+    id: string | null
+    itemId: string | null
+    validFrom: string | null
+    validTo: string | null
+    amount: number | null
+    note: string | null
+    createdAt: Date | null
+  }
+
+  export type NDY_BillingRateCountAggregateOutputType = {
+    id: number
+    itemId: number
+    validFrom: number
+    validTo: number
+    amount: number
+    note: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type NDY_BillingRateAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type NDY_BillingRateSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type NDY_BillingRateMinAggregateInputType = {
+    id?: true
+    itemId?: true
+    validFrom?: true
+    validTo?: true
+    amount?: true
+    note?: true
+    createdAt?: true
+  }
+
+  export type NDY_BillingRateMaxAggregateInputType = {
+    id?: true
+    itemId?: true
+    validFrom?: true
+    validTo?: true
+    amount?: true
+    note?: true
+    createdAt?: true
+  }
+
+  export type NDY_BillingRateCountAggregateInputType = {
+    id?: true
+    itemId?: true
+    validFrom?: true
+    validTo?: true
+    amount?: true
+    note?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type NDY_BillingRateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_BillingRate to aggregate.
+     */
+    where?: NDY_BillingRateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_BillingRates to fetch.
+     */
+    orderBy?: NDY_BillingRateOrderByWithRelationInput | NDY_BillingRateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_BillingRateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_BillingRates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_BillingRates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_BillingRates
+    **/
+    _count?: true | NDY_BillingRateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NDY_BillingRateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NDY_BillingRateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_BillingRateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_BillingRateMaxAggregateInputType
+  }
+
+  export type GetNDY_BillingRateAggregateType<T extends NDY_BillingRateAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_BillingRate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_BillingRate[P]>
+      : GetScalarType<T[P], AggregateNDY_BillingRate[P]>
+  }
+
+
+
+
+  export type NDY_BillingRateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_BillingRateWhereInput
+    orderBy?: NDY_BillingRateOrderByWithAggregationInput | NDY_BillingRateOrderByWithAggregationInput[]
+    by: NDY_BillingRateScalarFieldEnum[] | NDY_BillingRateScalarFieldEnum
+    having?: NDY_BillingRateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_BillingRateCountAggregateInputType | true
+    _avg?: NDY_BillingRateAvgAggregateInputType
+    _sum?: NDY_BillingRateSumAggregateInputType
+    _min?: NDY_BillingRateMinAggregateInputType
+    _max?: NDY_BillingRateMaxAggregateInputType
+  }
+
+  export type NDY_BillingRateGroupByOutputType = {
+    id: string
+    itemId: string
+    validFrom: string
+    validTo: string | null
+    amount: number
+    note: string
+    createdAt: Date
+    _count: NDY_BillingRateCountAggregateOutputType | null
+    _avg: NDY_BillingRateAvgAggregateOutputType | null
+    _sum: NDY_BillingRateSumAggregateOutputType | null
+    _min: NDY_BillingRateMinAggregateOutputType | null
+    _max: NDY_BillingRateMaxAggregateOutputType | null
+  }
+
+  type GetNDY_BillingRateGroupByPayload<T extends NDY_BillingRateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_BillingRateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_BillingRateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_BillingRateGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_BillingRateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_BillingRateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    itemId?: boolean
+    validFrom?: boolean
+    validTo?: boolean
+    amount?: boolean
+    note?: boolean
+    createdAt?: boolean
+    NDY_BillingItem?: boolean | NDY_BillingItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["nDY_BillingRate"]>
+
+  export type NDY_BillingRateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    itemId?: boolean
+    validFrom?: boolean
+    validTo?: boolean
+    amount?: boolean
+    note?: boolean
+    createdAt?: boolean
+    NDY_BillingItem?: boolean | NDY_BillingItemDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["nDY_BillingRate"]>
+
+  export type NDY_BillingRateSelectScalar = {
+    id?: boolean
+    itemId?: boolean
+    validFrom?: boolean
+    validTo?: boolean
+    amount?: boolean
+    note?: boolean
+    createdAt?: boolean
+  }
+
+  export type NDY_BillingRateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    NDY_BillingItem?: boolean | NDY_BillingItemDefaultArgs<ExtArgs>
+  }
+  export type NDY_BillingRateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    NDY_BillingItem?: boolean | NDY_BillingItemDefaultArgs<ExtArgs>
+  }
+
+  export type $NDY_BillingRatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_BillingRate"
+    objects: {
+      NDY_BillingItem: Prisma.$NDY_BillingItemPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      itemId: string
+      validFrom: string
+      validTo: string | null
+      amount: number
+      note: string
+      createdAt: Date
+    }, ExtArgs["result"]["nDY_BillingRate"]>
+    composites: {}
+  }
+
+  type NDY_BillingRateGetPayload<S extends boolean | null | undefined | NDY_BillingRateDefaultArgs> = $Result.GetResult<Prisma.$NDY_BillingRatePayload, S>
+
+  type NDY_BillingRateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_BillingRateFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_BillingRateCountAggregateInputType | true
+    }
+
+  export interface NDY_BillingRateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_BillingRate'], meta: { name: 'NDY_BillingRate' } }
+    /**
+     * Find zero or one NDY_BillingRate that matches the filter.
+     * @param {NDY_BillingRateFindUniqueArgs} args - Arguments to find a NDY_BillingRate
+     * @example
+     * // Get one NDY_BillingRate
+     * const nDY_BillingRate = await prisma.nDY_BillingRate.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_BillingRateFindUniqueArgs>(args: SelectSubset<T, NDY_BillingRateFindUniqueArgs<ExtArgs>>): Prisma__NDY_BillingRateClient<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_BillingRate that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_BillingRateFindUniqueOrThrowArgs} args - Arguments to find a NDY_BillingRate
+     * @example
+     * // Get one NDY_BillingRate
+     * const nDY_BillingRate = await prisma.nDY_BillingRate.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_BillingRateFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_BillingRateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_BillingRateClient<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_BillingRate that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingRateFindFirstArgs} args - Arguments to find a NDY_BillingRate
+     * @example
+     * // Get one NDY_BillingRate
+     * const nDY_BillingRate = await prisma.nDY_BillingRate.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_BillingRateFindFirstArgs>(args?: SelectSubset<T, NDY_BillingRateFindFirstArgs<ExtArgs>>): Prisma__NDY_BillingRateClient<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_BillingRate that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingRateFindFirstOrThrowArgs} args - Arguments to find a NDY_BillingRate
+     * @example
+     * // Get one NDY_BillingRate
+     * const nDY_BillingRate = await prisma.nDY_BillingRate.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_BillingRateFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_BillingRateFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_BillingRateClient<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_BillingRates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingRateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_BillingRates
+     * const nDY_BillingRates = await prisma.nDY_BillingRate.findMany()
+     * 
+     * // Get first 10 NDY_BillingRates
+     * const nDY_BillingRates = await prisma.nDY_BillingRate.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_BillingRateWithIdOnly = await prisma.nDY_BillingRate.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_BillingRateFindManyArgs>(args?: SelectSubset<T, NDY_BillingRateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_BillingRate.
+     * @param {NDY_BillingRateCreateArgs} args - Arguments to create a NDY_BillingRate.
+     * @example
+     * // Create one NDY_BillingRate
+     * const NDY_BillingRate = await prisma.nDY_BillingRate.create({
+     *   data: {
+     *     // ... data to create a NDY_BillingRate
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_BillingRateCreateArgs>(args: SelectSubset<T, NDY_BillingRateCreateArgs<ExtArgs>>): Prisma__NDY_BillingRateClient<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_BillingRates.
+     * @param {NDY_BillingRateCreateManyArgs} args - Arguments to create many NDY_BillingRates.
+     * @example
+     * // Create many NDY_BillingRates
+     * const nDY_BillingRate = await prisma.nDY_BillingRate.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_BillingRateCreateManyArgs>(args?: SelectSubset<T, NDY_BillingRateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_BillingRates and returns the data saved in the database.
+     * @param {NDY_BillingRateCreateManyAndReturnArgs} args - Arguments to create many NDY_BillingRates.
+     * @example
+     * // Create many NDY_BillingRates
+     * const nDY_BillingRate = await prisma.nDY_BillingRate.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_BillingRates and only return the `id`
+     * const nDY_BillingRateWithIdOnly = await prisma.nDY_BillingRate.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_BillingRateCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_BillingRateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_BillingRate.
+     * @param {NDY_BillingRateDeleteArgs} args - Arguments to delete one NDY_BillingRate.
+     * @example
+     * // Delete one NDY_BillingRate
+     * const NDY_BillingRate = await prisma.nDY_BillingRate.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_BillingRate
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_BillingRateDeleteArgs>(args: SelectSubset<T, NDY_BillingRateDeleteArgs<ExtArgs>>): Prisma__NDY_BillingRateClient<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_BillingRate.
+     * @param {NDY_BillingRateUpdateArgs} args - Arguments to update one NDY_BillingRate.
+     * @example
+     * // Update one NDY_BillingRate
+     * const nDY_BillingRate = await prisma.nDY_BillingRate.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_BillingRateUpdateArgs>(args: SelectSubset<T, NDY_BillingRateUpdateArgs<ExtArgs>>): Prisma__NDY_BillingRateClient<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_BillingRates.
+     * @param {NDY_BillingRateDeleteManyArgs} args - Arguments to filter NDY_BillingRates to delete.
+     * @example
+     * // Delete a few NDY_BillingRates
+     * const { count } = await prisma.nDY_BillingRate.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_BillingRateDeleteManyArgs>(args?: SelectSubset<T, NDY_BillingRateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_BillingRates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingRateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_BillingRates
+     * const nDY_BillingRate = await prisma.nDY_BillingRate.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_BillingRateUpdateManyArgs>(args: SelectSubset<T, NDY_BillingRateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_BillingRate.
+     * @param {NDY_BillingRateUpsertArgs} args - Arguments to update or create a NDY_BillingRate.
+     * @example
+     * // Update or create a NDY_BillingRate
+     * const nDY_BillingRate = await prisma.nDY_BillingRate.upsert({
+     *   create: {
+     *     // ... data to create a NDY_BillingRate
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_BillingRate we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_BillingRateUpsertArgs>(args: SelectSubset<T, NDY_BillingRateUpsertArgs<ExtArgs>>): Prisma__NDY_BillingRateClient<$Result.GetResult<Prisma.$NDY_BillingRatePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_BillingRates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingRateCountArgs} args - Arguments to filter NDY_BillingRates to count.
+     * @example
+     * // Count the number of NDY_BillingRates
+     * const count = await prisma.nDY_BillingRate.count({
+     *   where: {
+     *     // ... the filter for the NDY_BillingRates we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_BillingRateCountArgs>(
+      args?: Subset<T, NDY_BillingRateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_BillingRateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_BillingRate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingRateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_BillingRateAggregateArgs>(args: Subset<T, NDY_BillingRateAggregateArgs>): Prisma.PrismaPromise<GetNDY_BillingRateAggregateType<T>>
+
+    /**
+     * Group by NDY_BillingRate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_BillingRateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_BillingRateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_BillingRateGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_BillingRateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_BillingRateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_BillingRateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_BillingRate model
+   */
+  readonly fields: NDY_BillingRateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_BillingRate.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_BillingRateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    NDY_BillingItem<T extends NDY_BillingItemDefaultArgs<ExtArgs> = {}>(args?: Subset<T, NDY_BillingItemDefaultArgs<ExtArgs>>): Prisma__NDY_BillingItemClient<$Result.GetResult<Prisma.$NDY_BillingItemPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_BillingRate model
+   */ 
+  interface NDY_BillingRateFieldRefs {
+    readonly id: FieldRef<"NDY_BillingRate", 'String'>
+    readonly itemId: FieldRef<"NDY_BillingRate", 'String'>
+    readonly validFrom: FieldRef<"NDY_BillingRate", 'String'>
+    readonly validTo: FieldRef<"NDY_BillingRate", 'String'>
+    readonly amount: FieldRef<"NDY_BillingRate", 'Int'>
+    readonly note: FieldRef<"NDY_BillingRate", 'String'>
+    readonly createdAt: FieldRef<"NDY_BillingRate", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_BillingRate findUnique
+   */
+  export type NDY_BillingRateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingRate to fetch.
+     */
+    where: NDY_BillingRateWhereUniqueInput
+  }
+
+  /**
+   * NDY_BillingRate findUniqueOrThrow
+   */
+  export type NDY_BillingRateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingRate to fetch.
+     */
+    where: NDY_BillingRateWhereUniqueInput
+  }
+
+  /**
+   * NDY_BillingRate findFirst
+   */
+  export type NDY_BillingRateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingRate to fetch.
+     */
+    where?: NDY_BillingRateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_BillingRates to fetch.
+     */
+    orderBy?: NDY_BillingRateOrderByWithRelationInput | NDY_BillingRateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_BillingRates.
+     */
+    cursor?: NDY_BillingRateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_BillingRates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_BillingRates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_BillingRates.
+     */
+    distinct?: NDY_BillingRateScalarFieldEnum | NDY_BillingRateScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_BillingRate findFirstOrThrow
+   */
+  export type NDY_BillingRateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingRate to fetch.
+     */
+    where?: NDY_BillingRateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_BillingRates to fetch.
+     */
+    orderBy?: NDY_BillingRateOrderByWithRelationInput | NDY_BillingRateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_BillingRates.
+     */
+    cursor?: NDY_BillingRateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_BillingRates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_BillingRates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_BillingRates.
+     */
+    distinct?: NDY_BillingRateScalarFieldEnum | NDY_BillingRateScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_BillingRate findMany
+   */
+  export type NDY_BillingRateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_BillingRates to fetch.
+     */
+    where?: NDY_BillingRateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_BillingRates to fetch.
+     */
+    orderBy?: NDY_BillingRateOrderByWithRelationInput | NDY_BillingRateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_BillingRates.
+     */
+    cursor?: NDY_BillingRateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_BillingRates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_BillingRates.
+     */
+    skip?: number
+    distinct?: NDY_BillingRateScalarFieldEnum | NDY_BillingRateScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_BillingRate create
+   */
+  export type NDY_BillingRateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_BillingRate.
+     */
+    data: XOR<NDY_BillingRateCreateInput, NDY_BillingRateUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_BillingRate createMany
+   */
+  export type NDY_BillingRateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_BillingRates.
+     */
+    data: NDY_BillingRateCreateManyInput | NDY_BillingRateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_BillingRate createManyAndReturn
+   */
+  export type NDY_BillingRateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_BillingRates.
+     */
+    data: NDY_BillingRateCreateManyInput | NDY_BillingRateCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * NDY_BillingRate update
+   */
+  export type NDY_BillingRateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_BillingRate.
+     */
+    data: XOR<NDY_BillingRateUpdateInput, NDY_BillingRateUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_BillingRate to update.
+     */
+    where: NDY_BillingRateWhereUniqueInput
+  }
+
+  /**
+   * NDY_BillingRate updateMany
+   */
+  export type NDY_BillingRateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_BillingRates.
+     */
+    data: XOR<NDY_BillingRateUpdateManyMutationInput, NDY_BillingRateUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_BillingRates to update
+     */
+    where?: NDY_BillingRateWhereInput
+  }
+
+  /**
+   * NDY_BillingRate upsert
+   */
+  export type NDY_BillingRateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_BillingRate to update in case it exists.
+     */
+    where: NDY_BillingRateWhereUniqueInput
+    /**
+     * In case the NDY_BillingRate found by the `where` argument doesn't exist, create a new NDY_BillingRate with this data.
+     */
+    create: XOR<NDY_BillingRateCreateInput, NDY_BillingRateUncheckedCreateInput>
+    /**
+     * In case the NDY_BillingRate was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_BillingRateUpdateInput, NDY_BillingRateUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_BillingRate delete
+   */
+  export type NDY_BillingRateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+    /**
+     * Filter which NDY_BillingRate to delete.
+     */
+    where: NDY_BillingRateWhereUniqueInput
+  }
+
+  /**
+   * NDY_BillingRate deleteMany
+   */
+  export type NDY_BillingRateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_BillingRates to delete
+     */
+    where?: NDY_BillingRateWhereInput
+  }
+
+  /**
+   * NDY_BillingRate without action
+   */
+  export type NDY_BillingRateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_BillingRate
+     */
+    select?: NDY_BillingRateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_BillingRateInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_Config
+   */
+
+  export type AggregateNDY_Config = {
+    _count: NDY_ConfigCountAggregateOutputType | null
+    _min: NDY_ConfigMinAggregateOutputType | null
+    _max: NDY_ConfigMaxAggregateOutputType | null
+  }
+
+  export type NDY_ConfigMinAggregateOutputType = {
+    key: string | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_ConfigMaxAggregateOutputType = {
+    key: string | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_ConfigCountAggregateOutputType = {
+    key: number
+    data: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type NDY_ConfigMinAggregateInputType = {
+    key?: true
+    updatedAt?: true
+  }
+
+  export type NDY_ConfigMaxAggregateInputType = {
+    key?: true
+    updatedAt?: true
+  }
+
+  export type NDY_ConfigCountAggregateInputType = {
+    key?: true
+    data?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type NDY_ConfigAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_Config to aggregate.
+     */
+    where?: NDY_ConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_Configs to fetch.
+     */
+    orderBy?: NDY_ConfigOrderByWithRelationInput | NDY_ConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_ConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_Configs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_Configs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_Configs
+    **/
+    _count?: true | NDY_ConfigCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_ConfigMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_ConfigMaxAggregateInputType
+  }
+
+  export type GetNDY_ConfigAggregateType<T extends NDY_ConfigAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_Config]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_Config[P]>
+      : GetScalarType<T[P], AggregateNDY_Config[P]>
+  }
+
+
+
+
+  export type NDY_ConfigGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_ConfigWhereInput
+    orderBy?: NDY_ConfigOrderByWithAggregationInput | NDY_ConfigOrderByWithAggregationInput[]
+    by: NDY_ConfigScalarFieldEnum[] | NDY_ConfigScalarFieldEnum
+    having?: NDY_ConfigScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_ConfigCountAggregateInputType | true
+    _min?: NDY_ConfigMinAggregateInputType
+    _max?: NDY_ConfigMaxAggregateInputType
+  }
+
+  export type NDY_ConfigGroupByOutputType = {
+    key: string
+    data: JsonValue
+    updatedAt: Date
+    _count: NDY_ConfigCountAggregateOutputType | null
+    _min: NDY_ConfigMinAggregateOutputType | null
+    _max: NDY_ConfigMaxAggregateOutputType | null
+  }
+
+  type GetNDY_ConfigGroupByPayload<T extends NDY_ConfigGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_ConfigGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_ConfigGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_ConfigGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_ConfigGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_ConfigSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    key?: boolean
+    data?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["nDY_Config"]>
+
+  export type NDY_ConfigSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    key?: boolean
+    data?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["nDY_Config"]>
+
+  export type NDY_ConfigSelectScalar = {
+    key?: boolean
+    data?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type $NDY_ConfigPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_Config"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      key: string
+      data: Prisma.JsonValue
+      updatedAt: Date
+    }, ExtArgs["result"]["nDY_Config"]>
+    composites: {}
+  }
+
+  type NDY_ConfigGetPayload<S extends boolean | null | undefined | NDY_ConfigDefaultArgs> = $Result.GetResult<Prisma.$NDY_ConfigPayload, S>
+
+  type NDY_ConfigCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_ConfigFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_ConfigCountAggregateInputType | true
+    }
+
+  export interface NDY_ConfigDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_Config'], meta: { name: 'NDY_Config' } }
+    /**
+     * Find zero or one NDY_Config that matches the filter.
+     * @param {NDY_ConfigFindUniqueArgs} args - Arguments to find a NDY_Config
+     * @example
+     * // Get one NDY_Config
+     * const nDY_Config = await prisma.nDY_Config.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_ConfigFindUniqueArgs>(args: SelectSubset<T, NDY_ConfigFindUniqueArgs<ExtArgs>>): Prisma__NDY_ConfigClient<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_Config that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_ConfigFindUniqueOrThrowArgs} args - Arguments to find a NDY_Config
+     * @example
+     * // Get one NDY_Config
+     * const nDY_Config = await prisma.nDY_Config.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_ConfigFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_ConfigFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_ConfigClient<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_Config that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_ConfigFindFirstArgs} args - Arguments to find a NDY_Config
+     * @example
+     * // Get one NDY_Config
+     * const nDY_Config = await prisma.nDY_Config.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_ConfigFindFirstArgs>(args?: SelectSubset<T, NDY_ConfigFindFirstArgs<ExtArgs>>): Prisma__NDY_ConfigClient<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_Config that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_ConfigFindFirstOrThrowArgs} args - Arguments to find a NDY_Config
+     * @example
+     * // Get one NDY_Config
+     * const nDY_Config = await prisma.nDY_Config.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_ConfigFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_ConfigFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_ConfigClient<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_Configs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_ConfigFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_Configs
+     * const nDY_Configs = await prisma.nDY_Config.findMany()
+     * 
+     * // Get first 10 NDY_Configs
+     * const nDY_Configs = await prisma.nDY_Config.findMany({ take: 10 })
+     * 
+     * // Only select the `key`
+     * const nDY_ConfigWithKeyOnly = await prisma.nDY_Config.findMany({ select: { key: true } })
+     * 
+     */
+    findMany<T extends NDY_ConfigFindManyArgs>(args?: SelectSubset<T, NDY_ConfigFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_Config.
+     * @param {NDY_ConfigCreateArgs} args - Arguments to create a NDY_Config.
+     * @example
+     * // Create one NDY_Config
+     * const NDY_Config = await prisma.nDY_Config.create({
+     *   data: {
+     *     // ... data to create a NDY_Config
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_ConfigCreateArgs>(args: SelectSubset<T, NDY_ConfigCreateArgs<ExtArgs>>): Prisma__NDY_ConfigClient<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_Configs.
+     * @param {NDY_ConfigCreateManyArgs} args - Arguments to create many NDY_Configs.
+     * @example
+     * // Create many NDY_Configs
+     * const nDY_Config = await prisma.nDY_Config.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_ConfigCreateManyArgs>(args?: SelectSubset<T, NDY_ConfigCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_Configs and returns the data saved in the database.
+     * @param {NDY_ConfigCreateManyAndReturnArgs} args - Arguments to create many NDY_Configs.
+     * @example
+     * // Create many NDY_Configs
+     * const nDY_Config = await prisma.nDY_Config.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_Configs and only return the `key`
+     * const nDY_ConfigWithKeyOnly = await prisma.nDY_Config.createManyAndReturn({ 
+     *   select: { key: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_ConfigCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_ConfigCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_Config.
+     * @param {NDY_ConfigDeleteArgs} args - Arguments to delete one NDY_Config.
+     * @example
+     * // Delete one NDY_Config
+     * const NDY_Config = await prisma.nDY_Config.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_Config
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_ConfigDeleteArgs>(args: SelectSubset<T, NDY_ConfigDeleteArgs<ExtArgs>>): Prisma__NDY_ConfigClient<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_Config.
+     * @param {NDY_ConfigUpdateArgs} args - Arguments to update one NDY_Config.
+     * @example
+     * // Update one NDY_Config
+     * const nDY_Config = await prisma.nDY_Config.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_ConfigUpdateArgs>(args: SelectSubset<T, NDY_ConfigUpdateArgs<ExtArgs>>): Prisma__NDY_ConfigClient<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_Configs.
+     * @param {NDY_ConfigDeleteManyArgs} args - Arguments to filter NDY_Configs to delete.
+     * @example
+     * // Delete a few NDY_Configs
+     * const { count } = await prisma.nDY_Config.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_ConfigDeleteManyArgs>(args?: SelectSubset<T, NDY_ConfigDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_Configs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_ConfigUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_Configs
+     * const nDY_Config = await prisma.nDY_Config.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_ConfigUpdateManyArgs>(args: SelectSubset<T, NDY_ConfigUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_Config.
+     * @param {NDY_ConfigUpsertArgs} args - Arguments to update or create a NDY_Config.
+     * @example
+     * // Update or create a NDY_Config
+     * const nDY_Config = await prisma.nDY_Config.upsert({
+     *   create: {
+     *     // ... data to create a NDY_Config
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_Config we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_ConfigUpsertArgs>(args: SelectSubset<T, NDY_ConfigUpsertArgs<ExtArgs>>): Prisma__NDY_ConfigClient<$Result.GetResult<Prisma.$NDY_ConfigPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_Configs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_ConfigCountArgs} args - Arguments to filter NDY_Configs to count.
+     * @example
+     * // Count the number of NDY_Configs
+     * const count = await prisma.nDY_Config.count({
+     *   where: {
+     *     // ... the filter for the NDY_Configs we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_ConfigCountArgs>(
+      args?: Subset<T, NDY_ConfigCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_ConfigCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_Config.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_ConfigAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_ConfigAggregateArgs>(args: Subset<T, NDY_ConfigAggregateArgs>): Prisma.PrismaPromise<GetNDY_ConfigAggregateType<T>>
+
+    /**
+     * Group by NDY_Config.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_ConfigGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_ConfigGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_ConfigGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_ConfigGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_ConfigGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_ConfigGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_Config model
+   */
+  readonly fields: NDY_ConfigFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_Config.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_ConfigClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_Config model
+   */ 
+  interface NDY_ConfigFieldRefs {
+    readonly key: FieldRef<"NDY_Config", 'String'>
+    readonly data: FieldRef<"NDY_Config", 'Json'>
+    readonly updatedAt: FieldRef<"NDY_Config", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_Config findUnique
+   */
+  export type NDY_ConfigFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_Config to fetch.
+     */
+    where: NDY_ConfigWhereUniqueInput
+  }
+
+  /**
+   * NDY_Config findUniqueOrThrow
+   */
+  export type NDY_ConfigFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_Config to fetch.
+     */
+    where: NDY_ConfigWhereUniqueInput
+  }
+
+  /**
+   * NDY_Config findFirst
+   */
+  export type NDY_ConfigFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_Config to fetch.
+     */
+    where?: NDY_ConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_Configs to fetch.
+     */
+    orderBy?: NDY_ConfigOrderByWithRelationInput | NDY_ConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_Configs.
+     */
+    cursor?: NDY_ConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_Configs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_Configs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_Configs.
+     */
+    distinct?: NDY_ConfigScalarFieldEnum | NDY_ConfigScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_Config findFirstOrThrow
+   */
+  export type NDY_ConfigFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_Config to fetch.
+     */
+    where?: NDY_ConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_Configs to fetch.
+     */
+    orderBy?: NDY_ConfigOrderByWithRelationInput | NDY_ConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_Configs.
+     */
+    cursor?: NDY_ConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_Configs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_Configs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_Configs.
+     */
+    distinct?: NDY_ConfigScalarFieldEnum | NDY_ConfigScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_Config findMany
+   */
+  export type NDY_ConfigFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_Configs to fetch.
+     */
+    where?: NDY_ConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_Configs to fetch.
+     */
+    orderBy?: NDY_ConfigOrderByWithRelationInput | NDY_ConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_Configs.
+     */
+    cursor?: NDY_ConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_Configs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_Configs.
+     */
+    skip?: number
+    distinct?: NDY_ConfigScalarFieldEnum | NDY_ConfigScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_Config create
+   */
+  export type NDY_ConfigCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_Config.
+     */
+    data: XOR<NDY_ConfigCreateInput, NDY_ConfigUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_Config createMany
+   */
+  export type NDY_ConfigCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_Configs.
+     */
+    data: NDY_ConfigCreateManyInput | NDY_ConfigCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_Config createManyAndReturn
+   */
+  export type NDY_ConfigCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_Configs.
+     */
+    data: NDY_ConfigCreateManyInput | NDY_ConfigCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_Config update
+   */
+  export type NDY_ConfigUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_Config.
+     */
+    data: XOR<NDY_ConfigUpdateInput, NDY_ConfigUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_Config to update.
+     */
+    where: NDY_ConfigWhereUniqueInput
+  }
+
+  /**
+   * NDY_Config updateMany
+   */
+  export type NDY_ConfigUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_Configs.
+     */
+    data: XOR<NDY_ConfigUpdateManyMutationInput, NDY_ConfigUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_Configs to update
+     */
+    where?: NDY_ConfigWhereInput
+  }
+
+  /**
+   * NDY_Config upsert
+   */
+  export type NDY_ConfigUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_Config to update in case it exists.
+     */
+    where: NDY_ConfigWhereUniqueInput
+    /**
+     * In case the NDY_Config found by the `where` argument doesn't exist, create a new NDY_Config with this data.
+     */
+    create: XOR<NDY_ConfigCreateInput, NDY_ConfigUncheckedCreateInput>
+    /**
+     * In case the NDY_Config was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_ConfigUpdateInput, NDY_ConfigUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_Config delete
+   */
+  export type NDY_ConfigDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+    /**
+     * Filter which NDY_Config to delete.
+     */
+    where: NDY_ConfigWhereUniqueInput
+  }
+
+  /**
+   * NDY_Config deleteMany
+   */
+  export type NDY_ConfigDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_Configs to delete
+     */
+    where?: NDY_ConfigWhereInput
+  }
+
+  /**
+   * NDY_Config without action
+   */
+  export type NDY_ConfigDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_Config
+     */
+    select?: NDY_ConfigSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_DailySummary
+   */
+
+  export type AggregateNDY_DailySummary = {
+    _count: NDY_DailySummaryCountAggregateOutputType | null
+    _min: NDY_DailySummaryMinAggregateOutputType | null
+    _max: NDY_DailySummaryMaxAggregateOutputType | null
+  }
+
+  export type NDY_DailySummaryMinAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_DailySummaryMaxAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_DailySummaryCountAggregateOutputType = {
+    id: number
+    startDate: number
+    endDate: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type NDY_DailySummaryMinAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NDY_DailySummaryMaxAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NDY_DailySummaryCountAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type NDY_DailySummaryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_DailySummary to aggregate.
+     */
+    where?: NDY_DailySummaryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_DailySummaries to fetch.
+     */
+    orderBy?: NDY_DailySummaryOrderByWithRelationInput | NDY_DailySummaryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_DailySummaryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_DailySummaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_DailySummaries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_DailySummaries
+    **/
+    _count?: true | NDY_DailySummaryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_DailySummaryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_DailySummaryMaxAggregateInputType
+  }
+
+  export type GetNDY_DailySummaryAggregateType<T extends NDY_DailySummaryAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_DailySummary]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_DailySummary[P]>
+      : GetScalarType<T[P], AggregateNDY_DailySummary[P]>
+  }
+
+
+
+
+  export type NDY_DailySummaryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_DailySummaryWhereInput
+    orderBy?: NDY_DailySummaryOrderByWithAggregationInput | NDY_DailySummaryOrderByWithAggregationInput[]
+    by: NDY_DailySummaryScalarFieldEnum[] | NDY_DailySummaryScalarFieldEnum
+    having?: NDY_DailySummaryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_DailySummaryCountAggregateInputType | true
+    _min?: NDY_DailySummaryMinAggregateInputType
+    _max?: NDY_DailySummaryMaxAggregateInputType
+  }
+
+  export type NDY_DailySummaryGroupByOutputType = {
+    id: string
+    startDate: string
+    endDate: string
+    createdAt: Date
+    updatedAt: Date
+    _count: NDY_DailySummaryCountAggregateOutputType | null
+    _min: NDY_DailySummaryMinAggregateOutputType | null
+    _max: NDY_DailySummaryMaxAggregateOutputType | null
+  }
+
+  type GetNDY_DailySummaryGroupByPayload<T extends NDY_DailySummaryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_DailySummaryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_DailySummaryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_DailySummaryGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_DailySummaryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_DailySummarySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    NDY_DailySummaryItem?: boolean | NDY_DailySummary$NDY_DailySummaryItemArgs<ExtArgs>
+    _count?: boolean | NDY_DailySummaryCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["nDY_DailySummary"]>
+
+  export type NDY_DailySummarySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["nDY_DailySummary"]>
+
+  export type NDY_DailySummarySelectScalar = {
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type NDY_DailySummaryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    NDY_DailySummaryItem?: boolean | NDY_DailySummary$NDY_DailySummaryItemArgs<ExtArgs>
+    _count?: boolean | NDY_DailySummaryCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type NDY_DailySummaryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $NDY_DailySummaryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_DailySummary"
+    objects: {
+      NDY_DailySummaryItem: Prisma.$NDY_DailySummaryItemPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      startDate: string
+      endDate: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["nDY_DailySummary"]>
+    composites: {}
+  }
+
+  type NDY_DailySummaryGetPayload<S extends boolean | null | undefined | NDY_DailySummaryDefaultArgs> = $Result.GetResult<Prisma.$NDY_DailySummaryPayload, S>
+
+  type NDY_DailySummaryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_DailySummaryFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_DailySummaryCountAggregateInputType | true
+    }
+
+  export interface NDY_DailySummaryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_DailySummary'], meta: { name: 'NDY_DailySummary' } }
+    /**
+     * Find zero or one NDY_DailySummary that matches the filter.
+     * @param {NDY_DailySummaryFindUniqueArgs} args - Arguments to find a NDY_DailySummary
+     * @example
+     * // Get one NDY_DailySummary
+     * const nDY_DailySummary = await prisma.nDY_DailySummary.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_DailySummaryFindUniqueArgs>(args: SelectSubset<T, NDY_DailySummaryFindUniqueArgs<ExtArgs>>): Prisma__NDY_DailySummaryClient<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_DailySummary that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_DailySummaryFindUniqueOrThrowArgs} args - Arguments to find a NDY_DailySummary
+     * @example
+     * // Get one NDY_DailySummary
+     * const nDY_DailySummary = await prisma.nDY_DailySummary.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_DailySummaryFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_DailySummaryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_DailySummaryClient<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_DailySummary that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryFindFirstArgs} args - Arguments to find a NDY_DailySummary
+     * @example
+     * // Get one NDY_DailySummary
+     * const nDY_DailySummary = await prisma.nDY_DailySummary.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_DailySummaryFindFirstArgs>(args?: SelectSubset<T, NDY_DailySummaryFindFirstArgs<ExtArgs>>): Prisma__NDY_DailySummaryClient<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_DailySummary that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryFindFirstOrThrowArgs} args - Arguments to find a NDY_DailySummary
+     * @example
+     * // Get one NDY_DailySummary
+     * const nDY_DailySummary = await prisma.nDY_DailySummary.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_DailySummaryFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_DailySummaryFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_DailySummaryClient<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_DailySummaries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_DailySummaries
+     * const nDY_DailySummaries = await prisma.nDY_DailySummary.findMany()
+     * 
+     * // Get first 10 NDY_DailySummaries
+     * const nDY_DailySummaries = await prisma.nDY_DailySummary.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_DailySummaryWithIdOnly = await prisma.nDY_DailySummary.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_DailySummaryFindManyArgs>(args?: SelectSubset<T, NDY_DailySummaryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_DailySummary.
+     * @param {NDY_DailySummaryCreateArgs} args - Arguments to create a NDY_DailySummary.
+     * @example
+     * // Create one NDY_DailySummary
+     * const NDY_DailySummary = await prisma.nDY_DailySummary.create({
+     *   data: {
+     *     // ... data to create a NDY_DailySummary
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_DailySummaryCreateArgs>(args: SelectSubset<T, NDY_DailySummaryCreateArgs<ExtArgs>>): Prisma__NDY_DailySummaryClient<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_DailySummaries.
+     * @param {NDY_DailySummaryCreateManyArgs} args - Arguments to create many NDY_DailySummaries.
+     * @example
+     * // Create many NDY_DailySummaries
+     * const nDY_DailySummary = await prisma.nDY_DailySummary.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_DailySummaryCreateManyArgs>(args?: SelectSubset<T, NDY_DailySummaryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_DailySummaries and returns the data saved in the database.
+     * @param {NDY_DailySummaryCreateManyAndReturnArgs} args - Arguments to create many NDY_DailySummaries.
+     * @example
+     * // Create many NDY_DailySummaries
+     * const nDY_DailySummary = await prisma.nDY_DailySummary.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_DailySummaries and only return the `id`
+     * const nDY_DailySummaryWithIdOnly = await prisma.nDY_DailySummary.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_DailySummaryCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_DailySummaryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_DailySummary.
+     * @param {NDY_DailySummaryDeleteArgs} args - Arguments to delete one NDY_DailySummary.
+     * @example
+     * // Delete one NDY_DailySummary
+     * const NDY_DailySummary = await prisma.nDY_DailySummary.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_DailySummary
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_DailySummaryDeleteArgs>(args: SelectSubset<T, NDY_DailySummaryDeleteArgs<ExtArgs>>): Prisma__NDY_DailySummaryClient<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_DailySummary.
+     * @param {NDY_DailySummaryUpdateArgs} args - Arguments to update one NDY_DailySummary.
+     * @example
+     * // Update one NDY_DailySummary
+     * const nDY_DailySummary = await prisma.nDY_DailySummary.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_DailySummaryUpdateArgs>(args: SelectSubset<T, NDY_DailySummaryUpdateArgs<ExtArgs>>): Prisma__NDY_DailySummaryClient<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_DailySummaries.
+     * @param {NDY_DailySummaryDeleteManyArgs} args - Arguments to filter NDY_DailySummaries to delete.
+     * @example
+     * // Delete a few NDY_DailySummaries
+     * const { count } = await prisma.nDY_DailySummary.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_DailySummaryDeleteManyArgs>(args?: SelectSubset<T, NDY_DailySummaryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_DailySummaries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_DailySummaries
+     * const nDY_DailySummary = await prisma.nDY_DailySummary.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_DailySummaryUpdateManyArgs>(args: SelectSubset<T, NDY_DailySummaryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_DailySummary.
+     * @param {NDY_DailySummaryUpsertArgs} args - Arguments to update or create a NDY_DailySummary.
+     * @example
+     * // Update or create a NDY_DailySummary
+     * const nDY_DailySummary = await prisma.nDY_DailySummary.upsert({
+     *   create: {
+     *     // ... data to create a NDY_DailySummary
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_DailySummary we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_DailySummaryUpsertArgs>(args: SelectSubset<T, NDY_DailySummaryUpsertArgs<ExtArgs>>): Prisma__NDY_DailySummaryClient<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_DailySummaries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryCountArgs} args - Arguments to filter NDY_DailySummaries to count.
+     * @example
+     * // Count the number of NDY_DailySummaries
+     * const count = await prisma.nDY_DailySummary.count({
+     *   where: {
+     *     // ... the filter for the NDY_DailySummaries we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_DailySummaryCountArgs>(
+      args?: Subset<T, NDY_DailySummaryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_DailySummaryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_DailySummary.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_DailySummaryAggregateArgs>(args: Subset<T, NDY_DailySummaryAggregateArgs>): Prisma.PrismaPromise<GetNDY_DailySummaryAggregateType<T>>
+
+    /**
+     * Group by NDY_DailySummary.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_DailySummaryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_DailySummaryGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_DailySummaryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_DailySummaryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_DailySummaryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_DailySummary model
+   */
+  readonly fields: NDY_DailySummaryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_DailySummary.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_DailySummaryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    NDY_DailySummaryItem<T extends NDY_DailySummary$NDY_DailySummaryItemArgs<ExtArgs> = {}>(args?: Subset<T, NDY_DailySummary$NDY_DailySummaryItemArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_DailySummary model
+   */ 
+  interface NDY_DailySummaryFieldRefs {
+    readonly id: FieldRef<"NDY_DailySummary", 'String'>
+    readonly startDate: FieldRef<"NDY_DailySummary", 'String'>
+    readonly endDate: FieldRef<"NDY_DailySummary", 'String'>
+    readonly createdAt: FieldRef<"NDY_DailySummary", 'DateTime'>
+    readonly updatedAt: FieldRef<"NDY_DailySummary", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_DailySummary findUnique
+   */
+  export type NDY_DailySummaryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummary to fetch.
+     */
+    where: NDY_DailySummaryWhereUniqueInput
+  }
+
+  /**
+   * NDY_DailySummary findUniqueOrThrow
+   */
+  export type NDY_DailySummaryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummary to fetch.
+     */
+    where: NDY_DailySummaryWhereUniqueInput
+  }
+
+  /**
+   * NDY_DailySummary findFirst
+   */
+  export type NDY_DailySummaryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummary to fetch.
+     */
+    where?: NDY_DailySummaryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_DailySummaries to fetch.
+     */
+    orderBy?: NDY_DailySummaryOrderByWithRelationInput | NDY_DailySummaryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_DailySummaries.
+     */
+    cursor?: NDY_DailySummaryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_DailySummaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_DailySummaries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_DailySummaries.
+     */
+    distinct?: NDY_DailySummaryScalarFieldEnum | NDY_DailySummaryScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_DailySummary findFirstOrThrow
+   */
+  export type NDY_DailySummaryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummary to fetch.
+     */
+    where?: NDY_DailySummaryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_DailySummaries to fetch.
+     */
+    orderBy?: NDY_DailySummaryOrderByWithRelationInput | NDY_DailySummaryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_DailySummaries.
+     */
+    cursor?: NDY_DailySummaryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_DailySummaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_DailySummaries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_DailySummaries.
+     */
+    distinct?: NDY_DailySummaryScalarFieldEnum | NDY_DailySummaryScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_DailySummary findMany
+   */
+  export type NDY_DailySummaryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummaries to fetch.
+     */
+    where?: NDY_DailySummaryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_DailySummaries to fetch.
+     */
+    orderBy?: NDY_DailySummaryOrderByWithRelationInput | NDY_DailySummaryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_DailySummaries.
+     */
+    cursor?: NDY_DailySummaryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_DailySummaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_DailySummaries.
+     */
+    skip?: number
+    distinct?: NDY_DailySummaryScalarFieldEnum | NDY_DailySummaryScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_DailySummary create
+   */
+  export type NDY_DailySummaryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_DailySummary.
+     */
+    data: XOR<NDY_DailySummaryCreateInput, NDY_DailySummaryUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_DailySummary createMany
+   */
+  export type NDY_DailySummaryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_DailySummaries.
+     */
+    data: NDY_DailySummaryCreateManyInput | NDY_DailySummaryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_DailySummary createManyAndReturn
+   */
+  export type NDY_DailySummaryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_DailySummaries.
+     */
+    data: NDY_DailySummaryCreateManyInput | NDY_DailySummaryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_DailySummary update
+   */
+  export type NDY_DailySummaryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_DailySummary.
+     */
+    data: XOR<NDY_DailySummaryUpdateInput, NDY_DailySummaryUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_DailySummary to update.
+     */
+    where: NDY_DailySummaryWhereUniqueInput
+  }
+
+  /**
+   * NDY_DailySummary updateMany
+   */
+  export type NDY_DailySummaryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_DailySummaries.
+     */
+    data: XOR<NDY_DailySummaryUpdateManyMutationInput, NDY_DailySummaryUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_DailySummaries to update
+     */
+    where?: NDY_DailySummaryWhereInput
+  }
+
+  /**
+   * NDY_DailySummary upsert
+   */
+  export type NDY_DailySummaryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_DailySummary to update in case it exists.
+     */
+    where: NDY_DailySummaryWhereUniqueInput
+    /**
+     * In case the NDY_DailySummary found by the `where` argument doesn't exist, create a new NDY_DailySummary with this data.
+     */
+    create: XOR<NDY_DailySummaryCreateInput, NDY_DailySummaryUncheckedCreateInput>
+    /**
+     * In case the NDY_DailySummary was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_DailySummaryUpdateInput, NDY_DailySummaryUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_DailySummary delete
+   */
+  export type NDY_DailySummaryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+    /**
+     * Filter which NDY_DailySummary to delete.
+     */
+    where: NDY_DailySummaryWhereUniqueInput
+  }
+
+  /**
+   * NDY_DailySummary deleteMany
+   */
+  export type NDY_DailySummaryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_DailySummaries to delete
+     */
+    where?: NDY_DailySummaryWhereInput
+  }
+
+  /**
+   * NDY_DailySummary.NDY_DailySummaryItem
+   */
+  export type NDY_DailySummary$NDY_DailySummaryItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    where?: NDY_DailySummaryItemWhereInput
+    orderBy?: NDY_DailySummaryItemOrderByWithRelationInput | NDY_DailySummaryItemOrderByWithRelationInput[]
+    cursor?: NDY_DailySummaryItemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NDY_DailySummaryItemScalarFieldEnum | NDY_DailySummaryItemScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_DailySummary without action
+   */
+  export type NDY_DailySummaryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummary
+     */
+    select?: NDY_DailySummarySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_DailySummaryItem
+   */
+
+  export type AggregateNDY_DailySummaryItem = {
+    _count: NDY_DailySummaryItemCountAggregateOutputType | null
+    _avg: NDY_DailySummaryItemAvgAggregateOutputType | null
+    _sum: NDY_DailySummaryItemSumAggregateOutputType | null
+    _min: NDY_DailySummaryItemMinAggregateOutputType | null
+    _max: NDY_DailySummaryItemMaxAggregateOutputType | null
+  }
+
+  export type NDY_DailySummaryItemAvgAggregateOutputType = {
+    deliveryDays: number | null
+    totalAmount: number | null
+  }
+
+  export type NDY_DailySummaryItemSumAggregateOutputType = {
+    deliveryDays: number | null
+    totalAmount: number | null
+  }
+
+  export type NDY_DailySummaryItemMinAggregateOutputType = {
+    id: string | null
+    summaryId: string | null
+    placeName: string | null
+    deliveryDays: number | null
+    totalAmount: number | null
+  }
+
+  export type NDY_DailySummaryItemMaxAggregateOutputType = {
+    id: string | null
+    summaryId: string | null
+    placeName: string | null
+    deliveryDays: number | null
+    totalAmount: number | null
+  }
+
+  export type NDY_DailySummaryItemCountAggregateOutputType = {
+    id: number
+    summaryId: number
+    placeName: number
+    deliveryDays: number
+    totalAmount: number
+    deliveryDates: number
+    _all: number
+  }
+
+
+  export type NDY_DailySummaryItemAvgAggregateInputType = {
+    deliveryDays?: true
+    totalAmount?: true
+  }
+
+  export type NDY_DailySummaryItemSumAggregateInputType = {
+    deliveryDays?: true
+    totalAmount?: true
+  }
+
+  export type NDY_DailySummaryItemMinAggregateInputType = {
+    id?: true
+    summaryId?: true
+    placeName?: true
+    deliveryDays?: true
+    totalAmount?: true
+  }
+
+  export type NDY_DailySummaryItemMaxAggregateInputType = {
+    id?: true
+    summaryId?: true
+    placeName?: true
+    deliveryDays?: true
+    totalAmount?: true
+  }
+
+  export type NDY_DailySummaryItemCountAggregateInputType = {
+    id?: true
+    summaryId?: true
+    placeName?: true
+    deliveryDays?: true
+    totalAmount?: true
+    deliveryDates?: true
+    _all?: true
+  }
+
+  export type NDY_DailySummaryItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_DailySummaryItem to aggregate.
+     */
+    where?: NDY_DailySummaryItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_DailySummaryItems to fetch.
+     */
+    orderBy?: NDY_DailySummaryItemOrderByWithRelationInput | NDY_DailySummaryItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_DailySummaryItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_DailySummaryItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_DailySummaryItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_DailySummaryItems
+    **/
+    _count?: true | NDY_DailySummaryItemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NDY_DailySummaryItemAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NDY_DailySummaryItemSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_DailySummaryItemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_DailySummaryItemMaxAggregateInputType
+  }
+
+  export type GetNDY_DailySummaryItemAggregateType<T extends NDY_DailySummaryItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_DailySummaryItem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_DailySummaryItem[P]>
+      : GetScalarType<T[P], AggregateNDY_DailySummaryItem[P]>
+  }
+
+
+
+
+  export type NDY_DailySummaryItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_DailySummaryItemWhereInput
+    orderBy?: NDY_DailySummaryItemOrderByWithAggregationInput | NDY_DailySummaryItemOrderByWithAggregationInput[]
+    by: NDY_DailySummaryItemScalarFieldEnum[] | NDY_DailySummaryItemScalarFieldEnum
+    having?: NDY_DailySummaryItemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_DailySummaryItemCountAggregateInputType | true
+    _avg?: NDY_DailySummaryItemAvgAggregateInputType
+    _sum?: NDY_DailySummaryItemSumAggregateInputType
+    _min?: NDY_DailySummaryItemMinAggregateInputType
+    _max?: NDY_DailySummaryItemMaxAggregateInputType
+  }
+
+  export type NDY_DailySummaryItemGroupByOutputType = {
+    id: string
+    summaryId: string
+    placeName: string
+    deliveryDays: number
+    totalAmount: number
+    deliveryDates: string[]
+    _count: NDY_DailySummaryItemCountAggregateOutputType | null
+    _avg: NDY_DailySummaryItemAvgAggregateOutputType | null
+    _sum: NDY_DailySummaryItemSumAggregateOutputType | null
+    _min: NDY_DailySummaryItemMinAggregateOutputType | null
+    _max: NDY_DailySummaryItemMaxAggregateOutputType | null
+  }
+
+  type GetNDY_DailySummaryItemGroupByPayload<T extends NDY_DailySummaryItemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_DailySummaryItemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_DailySummaryItemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_DailySummaryItemGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_DailySummaryItemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_DailySummaryItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    summaryId?: boolean
+    placeName?: boolean
+    deliveryDays?: boolean
+    totalAmount?: boolean
+    deliveryDates?: boolean
+    NDY_DailySummary?: boolean | NDY_DailySummaryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["nDY_DailySummaryItem"]>
+
+  export type NDY_DailySummaryItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    summaryId?: boolean
+    placeName?: boolean
+    deliveryDays?: boolean
+    totalAmount?: boolean
+    deliveryDates?: boolean
+    NDY_DailySummary?: boolean | NDY_DailySummaryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["nDY_DailySummaryItem"]>
+
+  export type NDY_DailySummaryItemSelectScalar = {
+    id?: boolean
+    summaryId?: boolean
+    placeName?: boolean
+    deliveryDays?: boolean
+    totalAmount?: boolean
+    deliveryDates?: boolean
+  }
+
+  export type NDY_DailySummaryItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    NDY_DailySummary?: boolean | NDY_DailySummaryDefaultArgs<ExtArgs>
+  }
+  export type NDY_DailySummaryItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    NDY_DailySummary?: boolean | NDY_DailySummaryDefaultArgs<ExtArgs>
+  }
+
+  export type $NDY_DailySummaryItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_DailySummaryItem"
+    objects: {
+      NDY_DailySummary: Prisma.$NDY_DailySummaryPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      summaryId: string
+      placeName: string
+      deliveryDays: number
+      totalAmount: number
+      deliveryDates: string[]
+    }, ExtArgs["result"]["nDY_DailySummaryItem"]>
+    composites: {}
+  }
+
+  type NDY_DailySummaryItemGetPayload<S extends boolean | null | undefined | NDY_DailySummaryItemDefaultArgs> = $Result.GetResult<Prisma.$NDY_DailySummaryItemPayload, S>
+
+  type NDY_DailySummaryItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_DailySummaryItemFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_DailySummaryItemCountAggregateInputType | true
+    }
+
+  export interface NDY_DailySummaryItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_DailySummaryItem'], meta: { name: 'NDY_DailySummaryItem' } }
+    /**
+     * Find zero or one NDY_DailySummaryItem that matches the filter.
+     * @param {NDY_DailySummaryItemFindUniqueArgs} args - Arguments to find a NDY_DailySummaryItem
+     * @example
+     * // Get one NDY_DailySummaryItem
+     * const nDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_DailySummaryItemFindUniqueArgs>(args: SelectSubset<T, NDY_DailySummaryItemFindUniqueArgs<ExtArgs>>): Prisma__NDY_DailySummaryItemClient<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_DailySummaryItem that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_DailySummaryItemFindUniqueOrThrowArgs} args - Arguments to find a NDY_DailySummaryItem
+     * @example
+     * // Get one NDY_DailySummaryItem
+     * const nDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_DailySummaryItemFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_DailySummaryItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_DailySummaryItemClient<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_DailySummaryItem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryItemFindFirstArgs} args - Arguments to find a NDY_DailySummaryItem
+     * @example
+     * // Get one NDY_DailySummaryItem
+     * const nDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_DailySummaryItemFindFirstArgs>(args?: SelectSubset<T, NDY_DailySummaryItemFindFirstArgs<ExtArgs>>): Prisma__NDY_DailySummaryItemClient<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_DailySummaryItem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryItemFindFirstOrThrowArgs} args - Arguments to find a NDY_DailySummaryItem
+     * @example
+     * // Get one NDY_DailySummaryItem
+     * const nDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_DailySummaryItemFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_DailySummaryItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_DailySummaryItemClient<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_DailySummaryItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryItemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_DailySummaryItems
+     * const nDY_DailySummaryItems = await prisma.nDY_DailySummaryItem.findMany()
+     * 
+     * // Get first 10 NDY_DailySummaryItems
+     * const nDY_DailySummaryItems = await prisma.nDY_DailySummaryItem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_DailySummaryItemWithIdOnly = await prisma.nDY_DailySummaryItem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_DailySummaryItemFindManyArgs>(args?: SelectSubset<T, NDY_DailySummaryItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_DailySummaryItem.
+     * @param {NDY_DailySummaryItemCreateArgs} args - Arguments to create a NDY_DailySummaryItem.
+     * @example
+     * // Create one NDY_DailySummaryItem
+     * const NDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.create({
+     *   data: {
+     *     // ... data to create a NDY_DailySummaryItem
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_DailySummaryItemCreateArgs>(args: SelectSubset<T, NDY_DailySummaryItemCreateArgs<ExtArgs>>): Prisma__NDY_DailySummaryItemClient<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_DailySummaryItems.
+     * @param {NDY_DailySummaryItemCreateManyArgs} args - Arguments to create many NDY_DailySummaryItems.
+     * @example
+     * // Create many NDY_DailySummaryItems
+     * const nDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_DailySummaryItemCreateManyArgs>(args?: SelectSubset<T, NDY_DailySummaryItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_DailySummaryItems and returns the data saved in the database.
+     * @param {NDY_DailySummaryItemCreateManyAndReturnArgs} args - Arguments to create many NDY_DailySummaryItems.
+     * @example
+     * // Create many NDY_DailySummaryItems
+     * const nDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_DailySummaryItems and only return the `id`
+     * const nDY_DailySummaryItemWithIdOnly = await prisma.nDY_DailySummaryItem.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_DailySummaryItemCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_DailySummaryItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_DailySummaryItem.
+     * @param {NDY_DailySummaryItemDeleteArgs} args - Arguments to delete one NDY_DailySummaryItem.
+     * @example
+     * // Delete one NDY_DailySummaryItem
+     * const NDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_DailySummaryItem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_DailySummaryItemDeleteArgs>(args: SelectSubset<T, NDY_DailySummaryItemDeleteArgs<ExtArgs>>): Prisma__NDY_DailySummaryItemClient<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_DailySummaryItem.
+     * @param {NDY_DailySummaryItemUpdateArgs} args - Arguments to update one NDY_DailySummaryItem.
+     * @example
+     * // Update one NDY_DailySummaryItem
+     * const nDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_DailySummaryItemUpdateArgs>(args: SelectSubset<T, NDY_DailySummaryItemUpdateArgs<ExtArgs>>): Prisma__NDY_DailySummaryItemClient<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_DailySummaryItems.
+     * @param {NDY_DailySummaryItemDeleteManyArgs} args - Arguments to filter NDY_DailySummaryItems to delete.
+     * @example
+     * // Delete a few NDY_DailySummaryItems
+     * const { count } = await prisma.nDY_DailySummaryItem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_DailySummaryItemDeleteManyArgs>(args?: SelectSubset<T, NDY_DailySummaryItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_DailySummaryItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryItemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_DailySummaryItems
+     * const nDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_DailySummaryItemUpdateManyArgs>(args: SelectSubset<T, NDY_DailySummaryItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_DailySummaryItem.
+     * @param {NDY_DailySummaryItemUpsertArgs} args - Arguments to update or create a NDY_DailySummaryItem.
+     * @example
+     * // Update or create a NDY_DailySummaryItem
+     * const nDY_DailySummaryItem = await prisma.nDY_DailySummaryItem.upsert({
+     *   create: {
+     *     // ... data to create a NDY_DailySummaryItem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_DailySummaryItem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_DailySummaryItemUpsertArgs>(args: SelectSubset<T, NDY_DailySummaryItemUpsertArgs<ExtArgs>>): Prisma__NDY_DailySummaryItemClient<$Result.GetResult<Prisma.$NDY_DailySummaryItemPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_DailySummaryItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryItemCountArgs} args - Arguments to filter NDY_DailySummaryItems to count.
+     * @example
+     * // Count the number of NDY_DailySummaryItems
+     * const count = await prisma.nDY_DailySummaryItem.count({
+     *   where: {
+     *     // ... the filter for the NDY_DailySummaryItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_DailySummaryItemCountArgs>(
+      args?: Subset<T, NDY_DailySummaryItemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_DailySummaryItemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_DailySummaryItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_DailySummaryItemAggregateArgs>(args: Subset<T, NDY_DailySummaryItemAggregateArgs>): Prisma.PrismaPromise<GetNDY_DailySummaryItemAggregateType<T>>
+
+    /**
+     * Group by NDY_DailySummaryItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_DailySummaryItemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_DailySummaryItemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_DailySummaryItemGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_DailySummaryItemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_DailySummaryItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_DailySummaryItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_DailySummaryItem model
+   */
+  readonly fields: NDY_DailySummaryItemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_DailySummaryItem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_DailySummaryItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    NDY_DailySummary<T extends NDY_DailySummaryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, NDY_DailySummaryDefaultArgs<ExtArgs>>): Prisma__NDY_DailySummaryClient<$Result.GetResult<Prisma.$NDY_DailySummaryPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_DailySummaryItem model
+   */ 
+  interface NDY_DailySummaryItemFieldRefs {
+    readonly id: FieldRef<"NDY_DailySummaryItem", 'String'>
+    readonly summaryId: FieldRef<"NDY_DailySummaryItem", 'String'>
+    readonly placeName: FieldRef<"NDY_DailySummaryItem", 'String'>
+    readonly deliveryDays: FieldRef<"NDY_DailySummaryItem", 'Int'>
+    readonly totalAmount: FieldRef<"NDY_DailySummaryItem", 'Int'>
+    readonly deliveryDates: FieldRef<"NDY_DailySummaryItem", 'String[]'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_DailySummaryItem findUnique
+   */
+  export type NDY_DailySummaryItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummaryItem to fetch.
+     */
+    where: NDY_DailySummaryItemWhereUniqueInput
+  }
+
+  /**
+   * NDY_DailySummaryItem findUniqueOrThrow
+   */
+  export type NDY_DailySummaryItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummaryItem to fetch.
+     */
+    where: NDY_DailySummaryItemWhereUniqueInput
+  }
+
+  /**
+   * NDY_DailySummaryItem findFirst
+   */
+  export type NDY_DailySummaryItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummaryItem to fetch.
+     */
+    where?: NDY_DailySummaryItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_DailySummaryItems to fetch.
+     */
+    orderBy?: NDY_DailySummaryItemOrderByWithRelationInput | NDY_DailySummaryItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_DailySummaryItems.
+     */
+    cursor?: NDY_DailySummaryItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_DailySummaryItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_DailySummaryItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_DailySummaryItems.
+     */
+    distinct?: NDY_DailySummaryItemScalarFieldEnum | NDY_DailySummaryItemScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_DailySummaryItem findFirstOrThrow
+   */
+  export type NDY_DailySummaryItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummaryItem to fetch.
+     */
+    where?: NDY_DailySummaryItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_DailySummaryItems to fetch.
+     */
+    orderBy?: NDY_DailySummaryItemOrderByWithRelationInput | NDY_DailySummaryItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_DailySummaryItems.
+     */
+    cursor?: NDY_DailySummaryItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_DailySummaryItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_DailySummaryItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_DailySummaryItems.
+     */
+    distinct?: NDY_DailySummaryItemScalarFieldEnum | NDY_DailySummaryItemScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_DailySummaryItem findMany
+   */
+  export type NDY_DailySummaryItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which NDY_DailySummaryItems to fetch.
+     */
+    where?: NDY_DailySummaryItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_DailySummaryItems to fetch.
+     */
+    orderBy?: NDY_DailySummaryItemOrderByWithRelationInput | NDY_DailySummaryItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_DailySummaryItems.
+     */
+    cursor?: NDY_DailySummaryItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_DailySummaryItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_DailySummaryItems.
+     */
+    skip?: number
+    distinct?: NDY_DailySummaryItemScalarFieldEnum | NDY_DailySummaryItemScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_DailySummaryItem create
+   */
+  export type NDY_DailySummaryItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_DailySummaryItem.
+     */
+    data: XOR<NDY_DailySummaryItemCreateInput, NDY_DailySummaryItemUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_DailySummaryItem createMany
+   */
+  export type NDY_DailySummaryItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_DailySummaryItems.
+     */
+    data: NDY_DailySummaryItemCreateManyInput | NDY_DailySummaryItemCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_DailySummaryItem createManyAndReturn
+   */
+  export type NDY_DailySummaryItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_DailySummaryItems.
+     */
+    data: NDY_DailySummaryItemCreateManyInput | NDY_DailySummaryItemCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * NDY_DailySummaryItem update
+   */
+  export type NDY_DailySummaryItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_DailySummaryItem.
+     */
+    data: XOR<NDY_DailySummaryItemUpdateInput, NDY_DailySummaryItemUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_DailySummaryItem to update.
+     */
+    where: NDY_DailySummaryItemWhereUniqueInput
+  }
+
+  /**
+   * NDY_DailySummaryItem updateMany
+   */
+  export type NDY_DailySummaryItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_DailySummaryItems.
+     */
+    data: XOR<NDY_DailySummaryItemUpdateManyMutationInput, NDY_DailySummaryItemUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_DailySummaryItems to update
+     */
+    where?: NDY_DailySummaryItemWhereInput
+  }
+
+  /**
+   * NDY_DailySummaryItem upsert
+   */
+  export type NDY_DailySummaryItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_DailySummaryItem to update in case it exists.
+     */
+    where: NDY_DailySummaryItemWhereUniqueInput
+    /**
+     * In case the NDY_DailySummaryItem found by the `where` argument doesn't exist, create a new NDY_DailySummaryItem with this data.
+     */
+    create: XOR<NDY_DailySummaryItemCreateInput, NDY_DailySummaryItemUncheckedCreateInput>
+    /**
+     * In case the NDY_DailySummaryItem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_DailySummaryItemUpdateInput, NDY_DailySummaryItemUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_DailySummaryItem delete
+   */
+  export type NDY_DailySummaryItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+    /**
+     * Filter which NDY_DailySummaryItem to delete.
+     */
+    where: NDY_DailySummaryItemWhereUniqueInput
+  }
+
+  /**
+   * NDY_DailySummaryItem deleteMany
+   */
+  export type NDY_DailySummaryItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_DailySummaryItems to delete
+     */
+    where?: NDY_DailySummaryItemWhereInput
+  }
+
+  /**
+   * NDY_DailySummaryItem without action
+   */
+  export type NDY_DailySummaryItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_DailySummaryItem
+     */
+    select?: NDY_DailySummaryItemSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDY_DailySummaryItemInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_EmergencyRate
+   */
+
+  export type AggregateNDY_EmergencyRate = {
+    _count: NDY_EmergencyRateCountAggregateOutputType | null
+    _avg: NDY_EmergencyRateAvgAggregateOutputType | null
+    _sum: NDY_EmergencyRateSumAggregateOutputType | null
+    _min: NDY_EmergencyRateMinAggregateOutputType | null
+    _max: NDY_EmergencyRateMaxAggregateOutputType | null
+  }
+
+  export type NDY_EmergencyRateAvgAggregateOutputType = {
+    rate: number | null
+  }
+
+  export type NDY_EmergencyRateSumAggregateOutputType = {
+    rate: number | null
+  }
+
+  export type NDY_EmergencyRateMinAggregateOutputType = {
+    name: string | null
+    rate: number | null
+    chung: string | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_EmergencyRateMaxAggregateOutputType = {
+    name: string | null
+    rate: number | null
+    chung: string | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_EmergencyRateCountAggregateOutputType = {
+    name: number
+    rate: number
+    chung: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type NDY_EmergencyRateAvgAggregateInputType = {
+    rate?: true
+  }
+
+  export type NDY_EmergencyRateSumAggregateInputType = {
+    rate?: true
+  }
+
+  export type NDY_EmergencyRateMinAggregateInputType = {
+    name?: true
+    rate?: true
+    chung?: true
+    updatedAt?: true
+  }
+
+  export type NDY_EmergencyRateMaxAggregateInputType = {
+    name?: true
+    rate?: true
+    chung?: true
+    updatedAt?: true
+  }
+
+  export type NDY_EmergencyRateCountAggregateInputType = {
+    name?: true
+    rate?: true
+    chung?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type NDY_EmergencyRateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_EmergencyRate to aggregate.
+     */
+    where?: NDY_EmergencyRateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_EmergencyRates to fetch.
+     */
+    orderBy?: NDY_EmergencyRateOrderByWithRelationInput | NDY_EmergencyRateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_EmergencyRateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_EmergencyRates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_EmergencyRates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_EmergencyRates
+    **/
+    _count?: true | NDY_EmergencyRateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NDY_EmergencyRateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NDY_EmergencyRateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_EmergencyRateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_EmergencyRateMaxAggregateInputType
+  }
+
+  export type GetNDY_EmergencyRateAggregateType<T extends NDY_EmergencyRateAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_EmergencyRate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_EmergencyRate[P]>
+      : GetScalarType<T[P], AggregateNDY_EmergencyRate[P]>
+  }
+
+
+
+
+  export type NDY_EmergencyRateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_EmergencyRateWhereInput
+    orderBy?: NDY_EmergencyRateOrderByWithAggregationInput | NDY_EmergencyRateOrderByWithAggregationInput[]
+    by: NDY_EmergencyRateScalarFieldEnum[] | NDY_EmergencyRateScalarFieldEnum
+    having?: NDY_EmergencyRateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_EmergencyRateCountAggregateInputType | true
+    _avg?: NDY_EmergencyRateAvgAggregateInputType
+    _sum?: NDY_EmergencyRateSumAggregateInputType
+    _min?: NDY_EmergencyRateMinAggregateInputType
+    _max?: NDY_EmergencyRateMaxAggregateInputType
+  }
+
+  export type NDY_EmergencyRateGroupByOutputType = {
+    name: string
+    rate: number
+    chung: string
+    updatedAt: Date
+    _count: NDY_EmergencyRateCountAggregateOutputType | null
+    _avg: NDY_EmergencyRateAvgAggregateOutputType | null
+    _sum: NDY_EmergencyRateSumAggregateOutputType | null
+    _min: NDY_EmergencyRateMinAggregateOutputType | null
+    _max: NDY_EmergencyRateMaxAggregateOutputType | null
+  }
+
+  type GetNDY_EmergencyRateGroupByPayload<T extends NDY_EmergencyRateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_EmergencyRateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_EmergencyRateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_EmergencyRateGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_EmergencyRateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_EmergencyRateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    name?: boolean
+    rate?: boolean
+    chung?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["nDY_EmergencyRate"]>
+
+  export type NDY_EmergencyRateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    name?: boolean
+    rate?: boolean
+    chung?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["nDY_EmergencyRate"]>
+
+  export type NDY_EmergencyRateSelectScalar = {
+    name?: boolean
+    rate?: boolean
+    chung?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type $NDY_EmergencyRatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_EmergencyRate"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      name: string
+      rate: number
+      chung: string
+      updatedAt: Date
+    }, ExtArgs["result"]["nDY_EmergencyRate"]>
+    composites: {}
+  }
+
+  type NDY_EmergencyRateGetPayload<S extends boolean | null | undefined | NDY_EmergencyRateDefaultArgs> = $Result.GetResult<Prisma.$NDY_EmergencyRatePayload, S>
+
+  type NDY_EmergencyRateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_EmergencyRateFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_EmergencyRateCountAggregateInputType | true
+    }
+
+  export interface NDY_EmergencyRateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_EmergencyRate'], meta: { name: 'NDY_EmergencyRate' } }
+    /**
+     * Find zero or one NDY_EmergencyRate that matches the filter.
+     * @param {NDY_EmergencyRateFindUniqueArgs} args - Arguments to find a NDY_EmergencyRate
+     * @example
+     * // Get one NDY_EmergencyRate
+     * const nDY_EmergencyRate = await prisma.nDY_EmergencyRate.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_EmergencyRateFindUniqueArgs>(args: SelectSubset<T, NDY_EmergencyRateFindUniqueArgs<ExtArgs>>): Prisma__NDY_EmergencyRateClient<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_EmergencyRate that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_EmergencyRateFindUniqueOrThrowArgs} args - Arguments to find a NDY_EmergencyRate
+     * @example
+     * // Get one NDY_EmergencyRate
+     * const nDY_EmergencyRate = await prisma.nDY_EmergencyRate.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_EmergencyRateFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_EmergencyRateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_EmergencyRateClient<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_EmergencyRate that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencyRateFindFirstArgs} args - Arguments to find a NDY_EmergencyRate
+     * @example
+     * // Get one NDY_EmergencyRate
+     * const nDY_EmergencyRate = await prisma.nDY_EmergencyRate.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_EmergencyRateFindFirstArgs>(args?: SelectSubset<T, NDY_EmergencyRateFindFirstArgs<ExtArgs>>): Prisma__NDY_EmergencyRateClient<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_EmergencyRate that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencyRateFindFirstOrThrowArgs} args - Arguments to find a NDY_EmergencyRate
+     * @example
+     * // Get one NDY_EmergencyRate
+     * const nDY_EmergencyRate = await prisma.nDY_EmergencyRate.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_EmergencyRateFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_EmergencyRateFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_EmergencyRateClient<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_EmergencyRates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencyRateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_EmergencyRates
+     * const nDY_EmergencyRates = await prisma.nDY_EmergencyRate.findMany()
+     * 
+     * // Get first 10 NDY_EmergencyRates
+     * const nDY_EmergencyRates = await prisma.nDY_EmergencyRate.findMany({ take: 10 })
+     * 
+     * // Only select the `name`
+     * const nDY_EmergencyRateWithNameOnly = await prisma.nDY_EmergencyRate.findMany({ select: { name: true } })
+     * 
+     */
+    findMany<T extends NDY_EmergencyRateFindManyArgs>(args?: SelectSubset<T, NDY_EmergencyRateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_EmergencyRate.
+     * @param {NDY_EmergencyRateCreateArgs} args - Arguments to create a NDY_EmergencyRate.
+     * @example
+     * // Create one NDY_EmergencyRate
+     * const NDY_EmergencyRate = await prisma.nDY_EmergencyRate.create({
+     *   data: {
+     *     // ... data to create a NDY_EmergencyRate
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_EmergencyRateCreateArgs>(args: SelectSubset<T, NDY_EmergencyRateCreateArgs<ExtArgs>>): Prisma__NDY_EmergencyRateClient<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_EmergencyRates.
+     * @param {NDY_EmergencyRateCreateManyArgs} args - Arguments to create many NDY_EmergencyRates.
+     * @example
+     * // Create many NDY_EmergencyRates
+     * const nDY_EmergencyRate = await prisma.nDY_EmergencyRate.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_EmergencyRateCreateManyArgs>(args?: SelectSubset<T, NDY_EmergencyRateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_EmergencyRates and returns the data saved in the database.
+     * @param {NDY_EmergencyRateCreateManyAndReturnArgs} args - Arguments to create many NDY_EmergencyRates.
+     * @example
+     * // Create many NDY_EmergencyRates
+     * const nDY_EmergencyRate = await prisma.nDY_EmergencyRate.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_EmergencyRates and only return the `name`
+     * const nDY_EmergencyRateWithNameOnly = await prisma.nDY_EmergencyRate.createManyAndReturn({ 
+     *   select: { name: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_EmergencyRateCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_EmergencyRateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_EmergencyRate.
+     * @param {NDY_EmergencyRateDeleteArgs} args - Arguments to delete one NDY_EmergencyRate.
+     * @example
+     * // Delete one NDY_EmergencyRate
+     * const NDY_EmergencyRate = await prisma.nDY_EmergencyRate.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_EmergencyRate
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_EmergencyRateDeleteArgs>(args: SelectSubset<T, NDY_EmergencyRateDeleteArgs<ExtArgs>>): Prisma__NDY_EmergencyRateClient<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_EmergencyRate.
+     * @param {NDY_EmergencyRateUpdateArgs} args - Arguments to update one NDY_EmergencyRate.
+     * @example
+     * // Update one NDY_EmergencyRate
+     * const nDY_EmergencyRate = await prisma.nDY_EmergencyRate.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_EmergencyRateUpdateArgs>(args: SelectSubset<T, NDY_EmergencyRateUpdateArgs<ExtArgs>>): Prisma__NDY_EmergencyRateClient<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_EmergencyRates.
+     * @param {NDY_EmergencyRateDeleteManyArgs} args - Arguments to filter NDY_EmergencyRates to delete.
+     * @example
+     * // Delete a few NDY_EmergencyRates
+     * const { count } = await prisma.nDY_EmergencyRate.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_EmergencyRateDeleteManyArgs>(args?: SelectSubset<T, NDY_EmergencyRateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_EmergencyRates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencyRateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_EmergencyRates
+     * const nDY_EmergencyRate = await prisma.nDY_EmergencyRate.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_EmergencyRateUpdateManyArgs>(args: SelectSubset<T, NDY_EmergencyRateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_EmergencyRate.
+     * @param {NDY_EmergencyRateUpsertArgs} args - Arguments to update or create a NDY_EmergencyRate.
+     * @example
+     * // Update or create a NDY_EmergencyRate
+     * const nDY_EmergencyRate = await prisma.nDY_EmergencyRate.upsert({
+     *   create: {
+     *     // ... data to create a NDY_EmergencyRate
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_EmergencyRate we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_EmergencyRateUpsertArgs>(args: SelectSubset<T, NDY_EmergencyRateUpsertArgs<ExtArgs>>): Prisma__NDY_EmergencyRateClient<$Result.GetResult<Prisma.$NDY_EmergencyRatePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_EmergencyRates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencyRateCountArgs} args - Arguments to filter NDY_EmergencyRates to count.
+     * @example
+     * // Count the number of NDY_EmergencyRates
+     * const count = await prisma.nDY_EmergencyRate.count({
+     *   where: {
+     *     // ... the filter for the NDY_EmergencyRates we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_EmergencyRateCountArgs>(
+      args?: Subset<T, NDY_EmergencyRateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_EmergencyRateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_EmergencyRate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencyRateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_EmergencyRateAggregateArgs>(args: Subset<T, NDY_EmergencyRateAggregateArgs>): Prisma.PrismaPromise<GetNDY_EmergencyRateAggregateType<T>>
+
+    /**
+     * Group by NDY_EmergencyRate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencyRateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_EmergencyRateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_EmergencyRateGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_EmergencyRateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_EmergencyRateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_EmergencyRateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_EmergencyRate model
+   */
+  readonly fields: NDY_EmergencyRateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_EmergencyRate.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_EmergencyRateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_EmergencyRate model
+   */ 
+  interface NDY_EmergencyRateFieldRefs {
+    readonly name: FieldRef<"NDY_EmergencyRate", 'String'>
+    readonly rate: FieldRef<"NDY_EmergencyRate", 'Int'>
+    readonly chung: FieldRef<"NDY_EmergencyRate", 'String'>
+    readonly updatedAt: FieldRef<"NDY_EmergencyRate", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_EmergencyRate findUnique
+   */
+  export type NDY_EmergencyRateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencyRate to fetch.
+     */
+    where: NDY_EmergencyRateWhereUniqueInput
+  }
+
+  /**
+   * NDY_EmergencyRate findUniqueOrThrow
+   */
+  export type NDY_EmergencyRateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencyRate to fetch.
+     */
+    where: NDY_EmergencyRateWhereUniqueInput
+  }
+
+  /**
+   * NDY_EmergencyRate findFirst
+   */
+  export type NDY_EmergencyRateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencyRate to fetch.
+     */
+    where?: NDY_EmergencyRateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_EmergencyRates to fetch.
+     */
+    orderBy?: NDY_EmergencyRateOrderByWithRelationInput | NDY_EmergencyRateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_EmergencyRates.
+     */
+    cursor?: NDY_EmergencyRateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_EmergencyRates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_EmergencyRates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_EmergencyRates.
+     */
+    distinct?: NDY_EmergencyRateScalarFieldEnum | NDY_EmergencyRateScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_EmergencyRate findFirstOrThrow
+   */
+  export type NDY_EmergencyRateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencyRate to fetch.
+     */
+    where?: NDY_EmergencyRateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_EmergencyRates to fetch.
+     */
+    orderBy?: NDY_EmergencyRateOrderByWithRelationInput | NDY_EmergencyRateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_EmergencyRates.
+     */
+    cursor?: NDY_EmergencyRateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_EmergencyRates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_EmergencyRates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_EmergencyRates.
+     */
+    distinct?: NDY_EmergencyRateScalarFieldEnum | NDY_EmergencyRateScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_EmergencyRate findMany
+   */
+  export type NDY_EmergencyRateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencyRates to fetch.
+     */
+    where?: NDY_EmergencyRateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_EmergencyRates to fetch.
+     */
+    orderBy?: NDY_EmergencyRateOrderByWithRelationInput | NDY_EmergencyRateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_EmergencyRates.
+     */
+    cursor?: NDY_EmergencyRateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_EmergencyRates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_EmergencyRates.
+     */
+    skip?: number
+    distinct?: NDY_EmergencyRateScalarFieldEnum | NDY_EmergencyRateScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_EmergencyRate create
+   */
+  export type NDY_EmergencyRateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_EmergencyRate.
+     */
+    data: XOR<NDY_EmergencyRateCreateInput, NDY_EmergencyRateUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_EmergencyRate createMany
+   */
+  export type NDY_EmergencyRateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_EmergencyRates.
+     */
+    data: NDY_EmergencyRateCreateManyInput | NDY_EmergencyRateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_EmergencyRate createManyAndReturn
+   */
+  export type NDY_EmergencyRateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_EmergencyRates.
+     */
+    data: NDY_EmergencyRateCreateManyInput | NDY_EmergencyRateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_EmergencyRate update
+   */
+  export type NDY_EmergencyRateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_EmergencyRate.
+     */
+    data: XOR<NDY_EmergencyRateUpdateInput, NDY_EmergencyRateUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_EmergencyRate to update.
+     */
+    where: NDY_EmergencyRateWhereUniqueInput
+  }
+
+  /**
+   * NDY_EmergencyRate updateMany
+   */
+  export type NDY_EmergencyRateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_EmergencyRates.
+     */
+    data: XOR<NDY_EmergencyRateUpdateManyMutationInput, NDY_EmergencyRateUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_EmergencyRates to update
+     */
+    where?: NDY_EmergencyRateWhereInput
+  }
+
+  /**
+   * NDY_EmergencyRate upsert
+   */
+  export type NDY_EmergencyRateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_EmergencyRate to update in case it exists.
+     */
+    where: NDY_EmergencyRateWhereUniqueInput
+    /**
+     * In case the NDY_EmergencyRate found by the `where` argument doesn't exist, create a new NDY_EmergencyRate with this data.
+     */
+    create: XOR<NDY_EmergencyRateCreateInput, NDY_EmergencyRateUncheckedCreateInput>
+    /**
+     * In case the NDY_EmergencyRate was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_EmergencyRateUpdateInput, NDY_EmergencyRateUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_EmergencyRate delete
+   */
+  export type NDY_EmergencyRateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+    /**
+     * Filter which NDY_EmergencyRate to delete.
+     */
+    where: NDY_EmergencyRateWhereUniqueInput
+  }
+
+  /**
+   * NDY_EmergencyRate deleteMany
+   */
+  export type NDY_EmergencyRateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_EmergencyRates to delete
+     */
+    where?: NDY_EmergencyRateWhereInput
+  }
+
+  /**
+   * NDY_EmergencyRate without action
+   */
+  export type NDY_EmergencyRateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencyRate
+     */
+    select?: NDY_EmergencyRateSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_EmergencySettlement
+   */
+
+  export type AggregateNDY_EmergencySettlement = {
+    _count: NDY_EmergencySettlementCountAggregateOutputType | null
+    _avg: NDY_EmergencySettlementAvgAggregateOutputType | null
+    _sum: NDY_EmergencySettlementSumAggregateOutputType | null
+    _min: NDY_EmergencySettlementMinAggregateOutputType | null
+    _max: NDY_EmergencySettlementMaxAggregateOutputType | null
+  }
+
+  export type NDY_EmergencySettlementAvgAggregateOutputType = {
+    count: number | null
+    rate: number | null
+    total: number | null
+  }
+
+  export type NDY_EmergencySettlementSumAggregateOutputType = {
+    count: number | null
+    rate: number | null
+    total: number | null
+  }
+
+  export type NDY_EmergencySettlementMinAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    name: string | null
+    chung: string | null
+    count: number | null
+    rate: number | null
+    total: number | null
+    createdAt: Date | null
+  }
+
+  export type NDY_EmergencySettlementMaxAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    name: string | null
+    chung: string | null
+    count: number | null
+    rate: number | null
+    total: number | null
+    createdAt: Date | null
+  }
+
+  export type NDY_EmergencySettlementCountAggregateOutputType = {
+    id: number
+    startDate: number
+    endDate: number
+    name: number
+    chung: number
+    count: number
+    rate: number
+    total: number
+    dates: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type NDY_EmergencySettlementAvgAggregateInputType = {
+    count?: true
+    rate?: true
+    total?: true
+  }
+
+  export type NDY_EmergencySettlementSumAggregateInputType = {
+    count?: true
+    rate?: true
+    total?: true
+  }
+
+  export type NDY_EmergencySettlementMinAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    name?: true
+    chung?: true
+    count?: true
+    rate?: true
+    total?: true
+    createdAt?: true
+  }
+
+  export type NDY_EmergencySettlementMaxAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    name?: true
+    chung?: true
+    count?: true
+    rate?: true
+    total?: true
+    createdAt?: true
+  }
+
+  export type NDY_EmergencySettlementCountAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    name?: true
+    chung?: true
+    count?: true
+    rate?: true
+    total?: true
+    dates?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type NDY_EmergencySettlementAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_EmergencySettlement to aggregate.
+     */
+    where?: NDY_EmergencySettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_EmergencySettlements to fetch.
+     */
+    orderBy?: NDY_EmergencySettlementOrderByWithRelationInput | NDY_EmergencySettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_EmergencySettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_EmergencySettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_EmergencySettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_EmergencySettlements
+    **/
+    _count?: true | NDY_EmergencySettlementCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NDY_EmergencySettlementAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NDY_EmergencySettlementSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_EmergencySettlementMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_EmergencySettlementMaxAggregateInputType
+  }
+
+  export type GetNDY_EmergencySettlementAggregateType<T extends NDY_EmergencySettlementAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_EmergencySettlement]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_EmergencySettlement[P]>
+      : GetScalarType<T[P], AggregateNDY_EmergencySettlement[P]>
+  }
+
+
+
+
+  export type NDY_EmergencySettlementGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_EmergencySettlementWhereInput
+    orderBy?: NDY_EmergencySettlementOrderByWithAggregationInput | NDY_EmergencySettlementOrderByWithAggregationInput[]
+    by: NDY_EmergencySettlementScalarFieldEnum[] | NDY_EmergencySettlementScalarFieldEnum
+    having?: NDY_EmergencySettlementScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_EmergencySettlementCountAggregateInputType | true
+    _avg?: NDY_EmergencySettlementAvgAggregateInputType
+    _sum?: NDY_EmergencySettlementSumAggregateInputType
+    _min?: NDY_EmergencySettlementMinAggregateInputType
+    _max?: NDY_EmergencySettlementMaxAggregateInputType
+  }
+
+  export type NDY_EmergencySettlementGroupByOutputType = {
+    id: string
+    startDate: string
+    endDate: string
+    name: string
+    chung: string
+    count: number
+    rate: number
+    total: number
+    dates: string[]
+    createdAt: Date
+    _count: NDY_EmergencySettlementCountAggregateOutputType | null
+    _avg: NDY_EmergencySettlementAvgAggregateOutputType | null
+    _sum: NDY_EmergencySettlementSumAggregateOutputType | null
+    _min: NDY_EmergencySettlementMinAggregateOutputType | null
+    _max: NDY_EmergencySettlementMaxAggregateOutputType | null
+  }
+
+  type GetNDY_EmergencySettlementGroupByPayload<T extends NDY_EmergencySettlementGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_EmergencySettlementGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_EmergencySettlementGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_EmergencySettlementGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_EmergencySettlementGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_EmergencySettlementSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    name?: boolean
+    chung?: boolean
+    count?: boolean
+    rate?: boolean
+    total?: boolean
+    dates?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["nDY_EmergencySettlement"]>
+
+  export type NDY_EmergencySettlementSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    name?: boolean
+    chung?: boolean
+    count?: boolean
+    rate?: boolean
+    total?: boolean
+    dates?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["nDY_EmergencySettlement"]>
+
+  export type NDY_EmergencySettlementSelectScalar = {
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    name?: boolean
+    chung?: boolean
+    count?: boolean
+    rate?: boolean
+    total?: boolean
+    dates?: boolean
+    createdAt?: boolean
+  }
+
+
+  export type $NDY_EmergencySettlementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_EmergencySettlement"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      startDate: string
+      endDate: string
+      name: string
+      chung: string
+      count: number
+      rate: number
+      total: number
+      dates: string[]
+      createdAt: Date
+    }, ExtArgs["result"]["nDY_EmergencySettlement"]>
+    composites: {}
+  }
+
+  type NDY_EmergencySettlementGetPayload<S extends boolean | null | undefined | NDY_EmergencySettlementDefaultArgs> = $Result.GetResult<Prisma.$NDY_EmergencySettlementPayload, S>
+
+  type NDY_EmergencySettlementCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_EmergencySettlementFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_EmergencySettlementCountAggregateInputType | true
+    }
+
+  export interface NDY_EmergencySettlementDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_EmergencySettlement'], meta: { name: 'NDY_EmergencySettlement' } }
+    /**
+     * Find zero or one NDY_EmergencySettlement that matches the filter.
+     * @param {NDY_EmergencySettlementFindUniqueArgs} args - Arguments to find a NDY_EmergencySettlement
+     * @example
+     * // Get one NDY_EmergencySettlement
+     * const nDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_EmergencySettlementFindUniqueArgs>(args: SelectSubset<T, NDY_EmergencySettlementFindUniqueArgs<ExtArgs>>): Prisma__NDY_EmergencySettlementClient<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_EmergencySettlement that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_EmergencySettlementFindUniqueOrThrowArgs} args - Arguments to find a NDY_EmergencySettlement
+     * @example
+     * // Get one NDY_EmergencySettlement
+     * const nDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_EmergencySettlementFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_EmergencySettlementFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_EmergencySettlementClient<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_EmergencySettlement that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencySettlementFindFirstArgs} args - Arguments to find a NDY_EmergencySettlement
+     * @example
+     * // Get one NDY_EmergencySettlement
+     * const nDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_EmergencySettlementFindFirstArgs>(args?: SelectSubset<T, NDY_EmergencySettlementFindFirstArgs<ExtArgs>>): Prisma__NDY_EmergencySettlementClient<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_EmergencySettlement that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencySettlementFindFirstOrThrowArgs} args - Arguments to find a NDY_EmergencySettlement
+     * @example
+     * // Get one NDY_EmergencySettlement
+     * const nDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_EmergencySettlementFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_EmergencySettlementFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_EmergencySettlementClient<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_EmergencySettlements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencySettlementFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_EmergencySettlements
+     * const nDY_EmergencySettlements = await prisma.nDY_EmergencySettlement.findMany()
+     * 
+     * // Get first 10 NDY_EmergencySettlements
+     * const nDY_EmergencySettlements = await prisma.nDY_EmergencySettlement.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_EmergencySettlementWithIdOnly = await prisma.nDY_EmergencySettlement.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_EmergencySettlementFindManyArgs>(args?: SelectSubset<T, NDY_EmergencySettlementFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_EmergencySettlement.
+     * @param {NDY_EmergencySettlementCreateArgs} args - Arguments to create a NDY_EmergencySettlement.
+     * @example
+     * // Create one NDY_EmergencySettlement
+     * const NDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.create({
+     *   data: {
+     *     // ... data to create a NDY_EmergencySettlement
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_EmergencySettlementCreateArgs>(args: SelectSubset<T, NDY_EmergencySettlementCreateArgs<ExtArgs>>): Prisma__NDY_EmergencySettlementClient<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_EmergencySettlements.
+     * @param {NDY_EmergencySettlementCreateManyArgs} args - Arguments to create many NDY_EmergencySettlements.
+     * @example
+     * // Create many NDY_EmergencySettlements
+     * const nDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_EmergencySettlementCreateManyArgs>(args?: SelectSubset<T, NDY_EmergencySettlementCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_EmergencySettlements and returns the data saved in the database.
+     * @param {NDY_EmergencySettlementCreateManyAndReturnArgs} args - Arguments to create many NDY_EmergencySettlements.
+     * @example
+     * // Create many NDY_EmergencySettlements
+     * const nDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_EmergencySettlements and only return the `id`
+     * const nDY_EmergencySettlementWithIdOnly = await prisma.nDY_EmergencySettlement.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_EmergencySettlementCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_EmergencySettlementCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_EmergencySettlement.
+     * @param {NDY_EmergencySettlementDeleteArgs} args - Arguments to delete one NDY_EmergencySettlement.
+     * @example
+     * // Delete one NDY_EmergencySettlement
+     * const NDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_EmergencySettlement
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_EmergencySettlementDeleteArgs>(args: SelectSubset<T, NDY_EmergencySettlementDeleteArgs<ExtArgs>>): Prisma__NDY_EmergencySettlementClient<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_EmergencySettlement.
+     * @param {NDY_EmergencySettlementUpdateArgs} args - Arguments to update one NDY_EmergencySettlement.
+     * @example
+     * // Update one NDY_EmergencySettlement
+     * const nDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_EmergencySettlementUpdateArgs>(args: SelectSubset<T, NDY_EmergencySettlementUpdateArgs<ExtArgs>>): Prisma__NDY_EmergencySettlementClient<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_EmergencySettlements.
+     * @param {NDY_EmergencySettlementDeleteManyArgs} args - Arguments to filter NDY_EmergencySettlements to delete.
+     * @example
+     * // Delete a few NDY_EmergencySettlements
+     * const { count } = await prisma.nDY_EmergencySettlement.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_EmergencySettlementDeleteManyArgs>(args?: SelectSubset<T, NDY_EmergencySettlementDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_EmergencySettlements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencySettlementUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_EmergencySettlements
+     * const nDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_EmergencySettlementUpdateManyArgs>(args: SelectSubset<T, NDY_EmergencySettlementUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_EmergencySettlement.
+     * @param {NDY_EmergencySettlementUpsertArgs} args - Arguments to update or create a NDY_EmergencySettlement.
+     * @example
+     * // Update or create a NDY_EmergencySettlement
+     * const nDY_EmergencySettlement = await prisma.nDY_EmergencySettlement.upsert({
+     *   create: {
+     *     // ... data to create a NDY_EmergencySettlement
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_EmergencySettlement we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_EmergencySettlementUpsertArgs>(args: SelectSubset<T, NDY_EmergencySettlementUpsertArgs<ExtArgs>>): Prisma__NDY_EmergencySettlementClient<$Result.GetResult<Prisma.$NDY_EmergencySettlementPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_EmergencySettlements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencySettlementCountArgs} args - Arguments to filter NDY_EmergencySettlements to count.
+     * @example
+     * // Count the number of NDY_EmergencySettlements
+     * const count = await prisma.nDY_EmergencySettlement.count({
+     *   where: {
+     *     // ... the filter for the NDY_EmergencySettlements we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_EmergencySettlementCountArgs>(
+      args?: Subset<T, NDY_EmergencySettlementCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_EmergencySettlementCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_EmergencySettlement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencySettlementAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_EmergencySettlementAggregateArgs>(args: Subset<T, NDY_EmergencySettlementAggregateArgs>): Prisma.PrismaPromise<GetNDY_EmergencySettlementAggregateType<T>>
+
+    /**
+     * Group by NDY_EmergencySettlement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_EmergencySettlementGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_EmergencySettlementGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_EmergencySettlementGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_EmergencySettlementGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_EmergencySettlementGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_EmergencySettlementGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_EmergencySettlement model
+   */
+  readonly fields: NDY_EmergencySettlementFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_EmergencySettlement.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_EmergencySettlementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_EmergencySettlement model
+   */ 
+  interface NDY_EmergencySettlementFieldRefs {
+    readonly id: FieldRef<"NDY_EmergencySettlement", 'String'>
+    readonly startDate: FieldRef<"NDY_EmergencySettlement", 'String'>
+    readonly endDate: FieldRef<"NDY_EmergencySettlement", 'String'>
+    readonly name: FieldRef<"NDY_EmergencySettlement", 'String'>
+    readonly chung: FieldRef<"NDY_EmergencySettlement", 'String'>
+    readonly count: FieldRef<"NDY_EmergencySettlement", 'Int'>
+    readonly rate: FieldRef<"NDY_EmergencySettlement", 'Int'>
+    readonly total: FieldRef<"NDY_EmergencySettlement", 'Int'>
+    readonly dates: FieldRef<"NDY_EmergencySettlement", 'String[]'>
+    readonly createdAt: FieldRef<"NDY_EmergencySettlement", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_EmergencySettlement findUnique
+   */
+  export type NDY_EmergencySettlementFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencySettlement to fetch.
+     */
+    where: NDY_EmergencySettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_EmergencySettlement findUniqueOrThrow
+   */
+  export type NDY_EmergencySettlementFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencySettlement to fetch.
+     */
+    where: NDY_EmergencySettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_EmergencySettlement findFirst
+   */
+  export type NDY_EmergencySettlementFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencySettlement to fetch.
+     */
+    where?: NDY_EmergencySettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_EmergencySettlements to fetch.
+     */
+    orderBy?: NDY_EmergencySettlementOrderByWithRelationInput | NDY_EmergencySettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_EmergencySettlements.
+     */
+    cursor?: NDY_EmergencySettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_EmergencySettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_EmergencySettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_EmergencySettlements.
+     */
+    distinct?: NDY_EmergencySettlementScalarFieldEnum | NDY_EmergencySettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_EmergencySettlement findFirstOrThrow
+   */
+  export type NDY_EmergencySettlementFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencySettlement to fetch.
+     */
+    where?: NDY_EmergencySettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_EmergencySettlements to fetch.
+     */
+    orderBy?: NDY_EmergencySettlementOrderByWithRelationInput | NDY_EmergencySettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_EmergencySettlements.
+     */
+    cursor?: NDY_EmergencySettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_EmergencySettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_EmergencySettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_EmergencySettlements.
+     */
+    distinct?: NDY_EmergencySettlementScalarFieldEnum | NDY_EmergencySettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_EmergencySettlement findMany
+   */
+  export type NDY_EmergencySettlementFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_EmergencySettlements to fetch.
+     */
+    where?: NDY_EmergencySettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_EmergencySettlements to fetch.
+     */
+    orderBy?: NDY_EmergencySettlementOrderByWithRelationInput | NDY_EmergencySettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_EmergencySettlements.
+     */
+    cursor?: NDY_EmergencySettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_EmergencySettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_EmergencySettlements.
+     */
+    skip?: number
+    distinct?: NDY_EmergencySettlementScalarFieldEnum | NDY_EmergencySettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_EmergencySettlement create
+   */
+  export type NDY_EmergencySettlementCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_EmergencySettlement.
+     */
+    data: XOR<NDY_EmergencySettlementCreateInput, NDY_EmergencySettlementUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_EmergencySettlement createMany
+   */
+  export type NDY_EmergencySettlementCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_EmergencySettlements.
+     */
+    data: NDY_EmergencySettlementCreateManyInput | NDY_EmergencySettlementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_EmergencySettlement createManyAndReturn
+   */
+  export type NDY_EmergencySettlementCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_EmergencySettlements.
+     */
+    data: NDY_EmergencySettlementCreateManyInput | NDY_EmergencySettlementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_EmergencySettlement update
+   */
+  export type NDY_EmergencySettlementUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_EmergencySettlement.
+     */
+    data: XOR<NDY_EmergencySettlementUpdateInput, NDY_EmergencySettlementUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_EmergencySettlement to update.
+     */
+    where: NDY_EmergencySettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_EmergencySettlement updateMany
+   */
+  export type NDY_EmergencySettlementUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_EmergencySettlements.
+     */
+    data: XOR<NDY_EmergencySettlementUpdateManyMutationInput, NDY_EmergencySettlementUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_EmergencySettlements to update
+     */
+    where?: NDY_EmergencySettlementWhereInput
+  }
+
+  /**
+   * NDY_EmergencySettlement upsert
+   */
+  export type NDY_EmergencySettlementUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_EmergencySettlement to update in case it exists.
+     */
+    where: NDY_EmergencySettlementWhereUniqueInput
+    /**
+     * In case the NDY_EmergencySettlement found by the `where` argument doesn't exist, create a new NDY_EmergencySettlement with this data.
+     */
+    create: XOR<NDY_EmergencySettlementCreateInput, NDY_EmergencySettlementUncheckedCreateInput>
+    /**
+     * In case the NDY_EmergencySettlement was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_EmergencySettlementUpdateInput, NDY_EmergencySettlementUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_EmergencySettlement delete
+   */
+  export type NDY_EmergencySettlementDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+    /**
+     * Filter which NDY_EmergencySettlement to delete.
+     */
+    where: NDY_EmergencySettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_EmergencySettlement deleteMany
+   */
+  export type NDY_EmergencySettlementDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_EmergencySettlements to delete
+     */
+    where?: NDY_EmergencySettlementWhereInput
+  }
+
+  /**
+   * NDY_EmergencySettlement without action
+   */
+  export type NDY_EmergencySettlementDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_EmergencySettlement
+     */
+    select?: NDY_EmergencySettlementSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_FixedSettlement
+   */
+
+  export type AggregateNDY_FixedSettlement = {
+    _count: NDY_FixedSettlementCountAggregateOutputType | null
+    _avg: NDY_FixedSettlementAvgAggregateOutputType | null
+    _sum: NDY_FixedSettlementSumAggregateOutputType | null
+    _min: NDY_FixedSettlementMinAggregateOutputType | null
+    _max: NDY_FixedSettlementMaxAggregateOutputType | null
+  }
+
+  export type NDY_FixedSettlementAvgAggregateOutputType = {
+    amount: number | null
+    count: number | null
+    rate: number | null
+  }
+
+  export type NDY_FixedSettlementSumAggregateOutputType = {
+    amount: number | null
+    count: number | null
+    rate: number | null
+  }
+
+  export type NDY_FixedSettlementMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    billingRecipient: string | null
+    amount: number | null
+    count: number | null
+    rate: number | null
+    note: string | null
+    createdAt: Date | null
+  }
+
+  export type NDY_FixedSettlementMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    billingRecipient: string | null
+    amount: number | null
+    count: number | null
+    rate: number | null
+    note: string | null
+    createdAt: Date | null
+  }
+
+  export type NDY_FixedSettlementCountAggregateOutputType = {
+    id: number
+    name: number
+    billingRecipient: number
+    amount: number
+    count: number
+    rate: number
+    note: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type NDY_FixedSettlementAvgAggregateInputType = {
+    amount?: true
+    count?: true
+    rate?: true
+  }
+
+  export type NDY_FixedSettlementSumAggregateInputType = {
+    amount?: true
+    count?: true
+    rate?: true
+  }
+
+  export type NDY_FixedSettlementMinAggregateInputType = {
+    id?: true
+    name?: true
+    billingRecipient?: true
+    amount?: true
+    count?: true
+    rate?: true
+    note?: true
+    createdAt?: true
+  }
+
+  export type NDY_FixedSettlementMaxAggregateInputType = {
+    id?: true
+    name?: true
+    billingRecipient?: true
+    amount?: true
+    count?: true
+    rate?: true
+    note?: true
+    createdAt?: true
+  }
+
+  export type NDY_FixedSettlementCountAggregateInputType = {
+    id?: true
+    name?: true
+    billingRecipient?: true
+    amount?: true
+    count?: true
+    rate?: true
+    note?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type NDY_FixedSettlementAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_FixedSettlement to aggregate.
+     */
+    where?: NDY_FixedSettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_FixedSettlements to fetch.
+     */
+    orderBy?: NDY_FixedSettlementOrderByWithRelationInput | NDY_FixedSettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_FixedSettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_FixedSettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_FixedSettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_FixedSettlements
+    **/
+    _count?: true | NDY_FixedSettlementCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NDY_FixedSettlementAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NDY_FixedSettlementSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_FixedSettlementMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_FixedSettlementMaxAggregateInputType
+  }
+
+  export type GetNDY_FixedSettlementAggregateType<T extends NDY_FixedSettlementAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_FixedSettlement]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_FixedSettlement[P]>
+      : GetScalarType<T[P], AggregateNDY_FixedSettlement[P]>
+  }
+
+
+
+
+  export type NDY_FixedSettlementGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_FixedSettlementWhereInput
+    orderBy?: NDY_FixedSettlementOrderByWithAggregationInput | NDY_FixedSettlementOrderByWithAggregationInput[]
+    by: NDY_FixedSettlementScalarFieldEnum[] | NDY_FixedSettlementScalarFieldEnum
+    having?: NDY_FixedSettlementScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_FixedSettlementCountAggregateInputType | true
+    _avg?: NDY_FixedSettlementAvgAggregateInputType
+    _sum?: NDY_FixedSettlementSumAggregateInputType
+    _min?: NDY_FixedSettlementMinAggregateInputType
+    _max?: NDY_FixedSettlementMaxAggregateInputType
+  }
+
+  export type NDY_FixedSettlementGroupByOutputType = {
+    id: string
+    name: string
+    billingRecipient: string
+    amount: number
+    count: number
+    rate: number
+    note: string | null
+    createdAt: Date
+    _count: NDY_FixedSettlementCountAggregateOutputType | null
+    _avg: NDY_FixedSettlementAvgAggregateOutputType | null
+    _sum: NDY_FixedSettlementSumAggregateOutputType | null
+    _min: NDY_FixedSettlementMinAggregateOutputType | null
+    _max: NDY_FixedSettlementMaxAggregateOutputType | null
+  }
+
+  type GetNDY_FixedSettlementGroupByPayload<T extends NDY_FixedSettlementGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_FixedSettlementGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_FixedSettlementGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_FixedSettlementGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_FixedSettlementGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_FixedSettlementSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    billingRecipient?: boolean
+    amount?: boolean
+    count?: boolean
+    rate?: boolean
+    note?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["nDY_FixedSettlement"]>
+
+  export type NDY_FixedSettlementSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    billingRecipient?: boolean
+    amount?: boolean
+    count?: boolean
+    rate?: boolean
+    note?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["nDY_FixedSettlement"]>
+
+  export type NDY_FixedSettlementSelectScalar = {
+    id?: boolean
+    name?: boolean
+    billingRecipient?: boolean
+    amount?: boolean
+    count?: boolean
+    rate?: boolean
+    note?: boolean
+    createdAt?: boolean
+  }
+
+
+  export type $NDY_FixedSettlementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_FixedSettlement"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      billingRecipient: string
+      amount: number
+      count: number
+      rate: number
+      note: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["nDY_FixedSettlement"]>
+    composites: {}
+  }
+
+  type NDY_FixedSettlementGetPayload<S extends boolean | null | undefined | NDY_FixedSettlementDefaultArgs> = $Result.GetResult<Prisma.$NDY_FixedSettlementPayload, S>
+
+  type NDY_FixedSettlementCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_FixedSettlementFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_FixedSettlementCountAggregateInputType | true
+    }
+
+  export interface NDY_FixedSettlementDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_FixedSettlement'], meta: { name: 'NDY_FixedSettlement' } }
+    /**
+     * Find zero or one NDY_FixedSettlement that matches the filter.
+     * @param {NDY_FixedSettlementFindUniqueArgs} args - Arguments to find a NDY_FixedSettlement
+     * @example
+     * // Get one NDY_FixedSettlement
+     * const nDY_FixedSettlement = await prisma.nDY_FixedSettlement.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_FixedSettlementFindUniqueArgs>(args: SelectSubset<T, NDY_FixedSettlementFindUniqueArgs<ExtArgs>>): Prisma__NDY_FixedSettlementClient<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_FixedSettlement that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_FixedSettlementFindUniqueOrThrowArgs} args - Arguments to find a NDY_FixedSettlement
+     * @example
+     * // Get one NDY_FixedSettlement
+     * const nDY_FixedSettlement = await prisma.nDY_FixedSettlement.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_FixedSettlementFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_FixedSettlementFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_FixedSettlementClient<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_FixedSettlement that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_FixedSettlementFindFirstArgs} args - Arguments to find a NDY_FixedSettlement
+     * @example
+     * // Get one NDY_FixedSettlement
+     * const nDY_FixedSettlement = await prisma.nDY_FixedSettlement.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_FixedSettlementFindFirstArgs>(args?: SelectSubset<T, NDY_FixedSettlementFindFirstArgs<ExtArgs>>): Prisma__NDY_FixedSettlementClient<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_FixedSettlement that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_FixedSettlementFindFirstOrThrowArgs} args - Arguments to find a NDY_FixedSettlement
+     * @example
+     * // Get one NDY_FixedSettlement
+     * const nDY_FixedSettlement = await prisma.nDY_FixedSettlement.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_FixedSettlementFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_FixedSettlementFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_FixedSettlementClient<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_FixedSettlements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_FixedSettlementFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_FixedSettlements
+     * const nDY_FixedSettlements = await prisma.nDY_FixedSettlement.findMany()
+     * 
+     * // Get first 10 NDY_FixedSettlements
+     * const nDY_FixedSettlements = await prisma.nDY_FixedSettlement.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_FixedSettlementWithIdOnly = await prisma.nDY_FixedSettlement.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_FixedSettlementFindManyArgs>(args?: SelectSubset<T, NDY_FixedSettlementFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_FixedSettlement.
+     * @param {NDY_FixedSettlementCreateArgs} args - Arguments to create a NDY_FixedSettlement.
+     * @example
+     * // Create one NDY_FixedSettlement
+     * const NDY_FixedSettlement = await prisma.nDY_FixedSettlement.create({
+     *   data: {
+     *     // ... data to create a NDY_FixedSettlement
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_FixedSettlementCreateArgs>(args: SelectSubset<T, NDY_FixedSettlementCreateArgs<ExtArgs>>): Prisma__NDY_FixedSettlementClient<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_FixedSettlements.
+     * @param {NDY_FixedSettlementCreateManyArgs} args - Arguments to create many NDY_FixedSettlements.
+     * @example
+     * // Create many NDY_FixedSettlements
+     * const nDY_FixedSettlement = await prisma.nDY_FixedSettlement.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_FixedSettlementCreateManyArgs>(args?: SelectSubset<T, NDY_FixedSettlementCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_FixedSettlements and returns the data saved in the database.
+     * @param {NDY_FixedSettlementCreateManyAndReturnArgs} args - Arguments to create many NDY_FixedSettlements.
+     * @example
+     * // Create many NDY_FixedSettlements
+     * const nDY_FixedSettlement = await prisma.nDY_FixedSettlement.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_FixedSettlements and only return the `id`
+     * const nDY_FixedSettlementWithIdOnly = await prisma.nDY_FixedSettlement.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_FixedSettlementCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_FixedSettlementCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_FixedSettlement.
+     * @param {NDY_FixedSettlementDeleteArgs} args - Arguments to delete one NDY_FixedSettlement.
+     * @example
+     * // Delete one NDY_FixedSettlement
+     * const NDY_FixedSettlement = await prisma.nDY_FixedSettlement.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_FixedSettlement
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_FixedSettlementDeleteArgs>(args: SelectSubset<T, NDY_FixedSettlementDeleteArgs<ExtArgs>>): Prisma__NDY_FixedSettlementClient<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_FixedSettlement.
+     * @param {NDY_FixedSettlementUpdateArgs} args - Arguments to update one NDY_FixedSettlement.
+     * @example
+     * // Update one NDY_FixedSettlement
+     * const nDY_FixedSettlement = await prisma.nDY_FixedSettlement.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_FixedSettlementUpdateArgs>(args: SelectSubset<T, NDY_FixedSettlementUpdateArgs<ExtArgs>>): Prisma__NDY_FixedSettlementClient<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_FixedSettlements.
+     * @param {NDY_FixedSettlementDeleteManyArgs} args - Arguments to filter NDY_FixedSettlements to delete.
+     * @example
+     * // Delete a few NDY_FixedSettlements
+     * const { count } = await prisma.nDY_FixedSettlement.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_FixedSettlementDeleteManyArgs>(args?: SelectSubset<T, NDY_FixedSettlementDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_FixedSettlements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_FixedSettlementUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_FixedSettlements
+     * const nDY_FixedSettlement = await prisma.nDY_FixedSettlement.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_FixedSettlementUpdateManyArgs>(args: SelectSubset<T, NDY_FixedSettlementUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_FixedSettlement.
+     * @param {NDY_FixedSettlementUpsertArgs} args - Arguments to update or create a NDY_FixedSettlement.
+     * @example
+     * // Update or create a NDY_FixedSettlement
+     * const nDY_FixedSettlement = await prisma.nDY_FixedSettlement.upsert({
+     *   create: {
+     *     // ... data to create a NDY_FixedSettlement
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_FixedSettlement we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_FixedSettlementUpsertArgs>(args: SelectSubset<T, NDY_FixedSettlementUpsertArgs<ExtArgs>>): Prisma__NDY_FixedSettlementClient<$Result.GetResult<Prisma.$NDY_FixedSettlementPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_FixedSettlements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_FixedSettlementCountArgs} args - Arguments to filter NDY_FixedSettlements to count.
+     * @example
+     * // Count the number of NDY_FixedSettlements
+     * const count = await prisma.nDY_FixedSettlement.count({
+     *   where: {
+     *     // ... the filter for the NDY_FixedSettlements we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_FixedSettlementCountArgs>(
+      args?: Subset<T, NDY_FixedSettlementCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_FixedSettlementCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_FixedSettlement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_FixedSettlementAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_FixedSettlementAggregateArgs>(args: Subset<T, NDY_FixedSettlementAggregateArgs>): Prisma.PrismaPromise<GetNDY_FixedSettlementAggregateType<T>>
+
+    /**
+     * Group by NDY_FixedSettlement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_FixedSettlementGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_FixedSettlementGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_FixedSettlementGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_FixedSettlementGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_FixedSettlementGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_FixedSettlementGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_FixedSettlement model
+   */
+  readonly fields: NDY_FixedSettlementFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_FixedSettlement.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_FixedSettlementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_FixedSettlement model
+   */ 
+  interface NDY_FixedSettlementFieldRefs {
+    readonly id: FieldRef<"NDY_FixedSettlement", 'String'>
+    readonly name: FieldRef<"NDY_FixedSettlement", 'String'>
+    readonly billingRecipient: FieldRef<"NDY_FixedSettlement", 'String'>
+    readonly amount: FieldRef<"NDY_FixedSettlement", 'Int'>
+    readonly count: FieldRef<"NDY_FixedSettlement", 'Int'>
+    readonly rate: FieldRef<"NDY_FixedSettlement", 'Int'>
+    readonly note: FieldRef<"NDY_FixedSettlement", 'String'>
+    readonly createdAt: FieldRef<"NDY_FixedSettlement", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_FixedSettlement findUnique
+   */
+  export type NDY_FixedSettlementFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_FixedSettlement to fetch.
+     */
+    where: NDY_FixedSettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_FixedSettlement findUniqueOrThrow
+   */
+  export type NDY_FixedSettlementFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_FixedSettlement to fetch.
+     */
+    where: NDY_FixedSettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_FixedSettlement findFirst
+   */
+  export type NDY_FixedSettlementFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_FixedSettlement to fetch.
+     */
+    where?: NDY_FixedSettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_FixedSettlements to fetch.
+     */
+    orderBy?: NDY_FixedSettlementOrderByWithRelationInput | NDY_FixedSettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_FixedSettlements.
+     */
+    cursor?: NDY_FixedSettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_FixedSettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_FixedSettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_FixedSettlements.
+     */
+    distinct?: NDY_FixedSettlementScalarFieldEnum | NDY_FixedSettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_FixedSettlement findFirstOrThrow
+   */
+  export type NDY_FixedSettlementFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_FixedSettlement to fetch.
+     */
+    where?: NDY_FixedSettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_FixedSettlements to fetch.
+     */
+    orderBy?: NDY_FixedSettlementOrderByWithRelationInput | NDY_FixedSettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_FixedSettlements.
+     */
+    cursor?: NDY_FixedSettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_FixedSettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_FixedSettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_FixedSettlements.
+     */
+    distinct?: NDY_FixedSettlementScalarFieldEnum | NDY_FixedSettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_FixedSettlement findMany
+   */
+  export type NDY_FixedSettlementFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_FixedSettlements to fetch.
+     */
+    where?: NDY_FixedSettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_FixedSettlements to fetch.
+     */
+    orderBy?: NDY_FixedSettlementOrderByWithRelationInput | NDY_FixedSettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_FixedSettlements.
+     */
+    cursor?: NDY_FixedSettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_FixedSettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_FixedSettlements.
+     */
+    skip?: number
+    distinct?: NDY_FixedSettlementScalarFieldEnum | NDY_FixedSettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_FixedSettlement create
+   */
+  export type NDY_FixedSettlementCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_FixedSettlement.
+     */
+    data: XOR<NDY_FixedSettlementCreateInput, NDY_FixedSettlementUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_FixedSettlement createMany
+   */
+  export type NDY_FixedSettlementCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_FixedSettlements.
+     */
+    data: NDY_FixedSettlementCreateManyInput | NDY_FixedSettlementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_FixedSettlement createManyAndReturn
+   */
+  export type NDY_FixedSettlementCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_FixedSettlements.
+     */
+    data: NDY_FixedSettlementCreateManyInput | NDY_FixedSettlementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_FixedSettlement update
+   */
+  export type NDY_FixedSettlementUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_FixedSettlement.
+     */
+    data: XOR<NDY_FixedSettlementUpdateInput, NDY_FixedSettlementUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_FixedSettlement to update.
+     */
+    where: NDY_FixedSettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_FixedSettlement updateMany
+   */
+  export type NDY_FixedSettlementUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_FixedSettlements.
+     */
+    data: XOR<NDY_FixedSettlementUpdateManyMutationInput, NDY_FixedSettlementUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_FixedSettlements to update
+     */
+    where?: NDY_FixedSettlementWhereInput
+  }
+
+  /**
+   * NDY_FixedSettlement upsert
+   */
+  export type NDY_FixedSettlementUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_FixedSettlement to update in case it exists.
+     */
+    where: NDY_FixedSettlementWhereUniqueInput
+    /**
+     * In case the NDY_FixedSettlement found by the `where` argument doesn't exist, create a new NDY_FixedSettlement with this data.
+     */
+    create: XOR<NDY_FixedSettlementCreateInput, NDY_FixedSettlementUncheckedCreateInput>
+    /**
+     * In case the NDY_FixedSettlement was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_FixedSettlementUpdateInput, NDY_FixedSettlementUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_FixedSettlement delete
+   */
+  export type NDY_FixedSettlementDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+    /**
+     * Filter which NDY_FixedSettlement to delete.
+     */
+    where: NDY_FixedSettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_FixedSettlement deleteMany
+   */
+  export type NDY_FixedSettlementDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_FixedSettlements to delete
+     */
+    where?: NDY_FixedSettlementWhereInput
+  }
+
+  /**
+   * NDY_FixedSettlement without action
+   */
+  export type NDY_FixedSettlementDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_FixedSettlement
+     */
+    select?: NDY_FixedSettlementSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_GSSettlement
+   */
+
+  export type AggregateNDY_GSSettlement = {
+    _count: NDY_GSSettlementCountAggregateOutputType | null
+    _avg: NDY_GSSettlementAvgAggregateOutputType | null
+    _sum: NDY_GSSettlementSumAggregateOutputType | null
+    _min: NDY_GSSettlementMinAggregateOutputType | null
+    _max: NDY_GSSettlementMaxAggregateOutputType | null
+  }
+
+  export type NDY_GSSettlementAvgAggregateOutputType = {
+    qty: Decimal | null
+    weight: Decimal | null
+    amount: number | null
+  }
+
+  export type NDY_GSSettlementSumAggregateOutputType = {
+    qty: Decimal | null
+    weight: Decimal | null
+    amount: number | null
+  }
+
+  export type NDY_GSSettlementMinAggregateOutputType = {
+    id: string | null
+    date: string | null
+    code: string | null
+    name: string | null
+    qty: Decimal | null
+    weight: Decimal | null
+    amount: number | null
+    remarks: string | null
+    modDate: Date | null
+  }
+
+  export type NDY_GSSettlementMaxAggregateOutputType = {
+    id: string | null
+    date: string | null
+    code: string | null
+    name: string | null
+    qty: Decimal | null
+    weight: Decimal | null
+    amount: number | null
+    remarks: string | null
+    modDate: Date | null
+  }
+
+  export type NDY_GSSettlementCountAggregateOutputType = {
+    id: number
+    date: number
+    code: number
+    name: number
+    qty: number
+    weight: number
+    amount: number
+    remarks: number
+    modDate: number
+    _all: number
+  }
+
+
+  export type NDY_GSSettlementAvgAggregateInputType = {
+    qty?: true
+    weight?: true
+    amount?: true
+  }
+
+  export type NDY_GSSettlementSumAggregateInputType = {
+    qty?: true
+    weight?: true
+    amount?: true
+  }
+
+  export type NDY_GSSettlementMinAggregateInputType = {
+    id?: true
+    date?: true
+    code?: true
+    name?: true
+    qty?: true
+    weight?: true
+    amount?: true
+    remarks?: true
+    modDate?: true
+  }
+
+  export type NDY_GSSettlementMaxAggregateInputType = {
+    id?: true
+    date?: true
+    code?: true
+    name?: true
+    qty?: true
+    weight?: true
+    amount?: true
+    remarks?: true
+    modDate?: true
+  }
+
+  export type NDY_GSSettlementCountAggregateInputType = {
+    id?: true
+    date?: true
+    code?: true
+    name?: true
+    qty?: true
+    weight?: true
+    amount?: true
+    remarks?: true
+    modDate?: true
+    _all?: true
+  }
+
+  export type NDY_GSSettlementAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_GSSettlement to aggregate.
+     */
+    where?: NDY_GSSettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_GSSettlements to fetch.
+     */
+    orderBy?: NDY_GSSettlementOrderByWithRelationInput | NDY_GSSettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_GSSettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_GSSettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_GSSettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_GSSettlements
+    **/
+    _count?: true | NDY_GSSettlementCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NDY_GSSettlementAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NDY_GSSettlementSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_GSSettlementMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_GSSettlementMaxAggregateInputType
+  }
+
+  export type GetNDY_GSSettlementAggregateType<T extends NDY_GSSettlementAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_GSSettlement]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_GSSettlement[P]>
+      : GetScalarType<T[P], AggregateNDY_GSSettlement[P]>
+  }
+
+
+
+
+  export type NDY_GSSettlementGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_GSSettlementWhereInput
+    orderBy?: NDY_GSSettlementOrderByWithAggregationInput | NDY_GSSettlementOrderByWithAggregationInput[]
+    by: NDY_GSSettlementScalarFieldEnum[] | NDY_GSSettlementScalarFieldEnum
+    having?: NDY_GSSettlementScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_GSSettlementCountAggregateInputType | true
+    _avg?: NDY_GSSettlementAvgAggregateInputType
+    _sum?: NDY_GSSettlementSumAggregateInputType
+    _min?: NDY_GSSettlementMinAggregateInputType
+    _max?: NDY_GSSettlementMaxAggregateInputType
+  }
+
+  export type NDY_GSSettlementGroupByOutputType = {
+    id: string
+    date: string
+    code: string
+    name: string | null
+    qty: Decimal
+    weight: Decimal
+    amount: number
+    remarks: string | null
+    modDate: Date
+    _count: NDY_GSSettlementCountAggregateOutputType | null
+    _avg: NDY_GSSettlementAvgAggregateOutputType | null
+    _sum: NDY_GSSettlementSumAggregateOutputType | null
+    _min: NDY_GSSettlementMinAggregateOutputType | null
+    _max: NDY_GSSettlementMaxAggregateOutputType | null
+  }
+
+  type GetNDY_GSSettlementGroupByPayload<T extends NDY_GSSettlementGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_GSSettlementGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_GSSettlementGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_GSSettlementGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_GSSettlementGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_GSSettlementSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    date?: boolean
+    code?: boolean
+    name?: boolean
+    qty?: boolean
+    weight?: boolean
+    amount?: boolean
+    remarks?: boolean
+    modDate?: boolean
+  }, ExtArgs["result"]["nDY_GSSettlement"]>
+
+  export type NDY_GSSettlementSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    date?: boolean
+    code?: boolean
+    name?: boolean
+    qty?: boolean
+    weight?: boolean
+    amount?: boolean
+    remarks?: boolean
+    modDate?: boolean
+  }, ExtArgs["result"]["nDY_GSSettlement"]>
+
+  export type NDY_GSSettlementSelectScalar = {
+    id?: boolean
+    date?: boolean
+    code?: boolean
+    name?: boolean
+    qty?: boolean
+    weight?: boolean
+    amount?: boolean
+    remarks?: boolean
+    modDate?: boolean
+  }
+
+
+  export type $NDY_GSSettlementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_GSSettlement"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      date: string
+      code: string
+      name: string | null
+      qty: Prisma.Decimal
+      weight: Prisma.Decimal
+      amount: number
+      remarks: string | null
+      modDate: Date
+    }, ExtArgs["result"]["nDY_GSSettlement"]>
+    composites: {}
+  }
+
+  type NDY_GSSettlementGetPayload<S extends boolean | null | undefined | NDY_GSSettlementDefaultArgs> = $Result.GetResult<Prisma.$NDY_GSSettlementPayload, S>
+
+  type NDY_GSSettlementCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_GSSettlementFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_GSSettlementCountAggregateInputType | true
+    }
+
+  export interface NDY_GSSettlementDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_GSSettlement'], meta: { name: 'NDY_GSSettlement' } }
+    /**
+     * Find zero or one NDY_GSSettlement that matches the filter.
+     * @param {NDY_GSSettlementFindUniqueArgs} args - Arguments to find a NDY_GSSettlement
+     * @example
+     * // Get one NDY_GSSettlement
+     * const nDY_GSSettlement = await prisma.nDY_GSSettlement.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_GSSettlementFindUniqueArgs>(args: SelectSubset<T, NDY_GSSettlementFindUniqueArgs<ExtArgs>>): Prisma__NDY_GSSettlementClient<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_GSSettlement that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_GSSettlementFindUniqueOrThrowArgs} args - Arguments to find a NDY_GSSettlement
+     * @example
+     * // Get one NDY_GSSettlement
+     * const nDY_GSSettlement = await prisma.nDY_GSSettlement.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_GSSettlementFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_GSSettlementFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_GSSettlementClient<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_GSSettlement that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSettlementFindFirstArgs} args - Arguments to find a NDY_GSSettlement
+     * @example
+     * // Get one NDY_GSSettlement
+     * const nDY_GSSettlement = await prisma.nDY_GSSettlement.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_GSSettlementFindFirstArgs>(args?: SelectSubset<T, NDY_GSSettlementFindFirstArgs<ExtArgs>>): Prisma__NDY_GSSettlementClient<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_GSSettlement that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSettlementFindFirstOrThrowArgs} args - Arguments to find a NDY_GSSettlement
+     * @example
+     * // Get one NDY_GSSettlement
+     * const nDY_GSSettlement = await prisma.nDY_GSSettlement.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_GSSettlementFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_GSSettlementFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_GSSettlementClient<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_GSSettlements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSettlementFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_GSSettlements
+     * const nDY_GSSettlements = await prisma.nDY_GSSettlement.findMany()
+     * 
+     * // Get first 10 NDY_GSSettlements
+     * const nDY_GSSettlements = await prisma.nDY_GSSettlement.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_GSSettlementWithIdOnly = await prisma.nDY_GSSettlement.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_GSSettlementFindManyArgs>(args?: SelectSubset<T, NDY_GSSettlementFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_GSSettlement.
+     * @param {NDY_GSSettlementCreateArgs} args - Arguments to create a NDY_GSSettlement.
+     * @example
+     * // Create one NDY_GSSettlement
+     * const NDY_GSSettlement = await prisma.nDY_GSSettlement.create({
+     *   data: {
+     *     // ... data to create a NDY_GSSettlement
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_GSSettlementCreateArgs>(args: SelectSubset<T, NDY_GSSettlementCreateArgs<ExtArgs>>): Prisma__NDY_GSSettlementClient<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_GSSettlements.
+     * @param {NDY_GSSettlementCreateManyArgs} args - Arguments to create many NDY_GSSettlements.
+     * @example
+     * // Create many NDY_GSSettlements
+     * const nDY_GSSettlement = await prisma.nDY_GSSettlement.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_GSSettlementCreateManyArgs>(args?: SelectSubset<T, NDY_GSSettlementCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_GSSettlements and returns the data saved in the database.
+     * @param {NDY_GSSettlementCreateManyAndReturnArgs} args - Arguments to create many NDY_GSSettlements.
+     * @example
+     * // Create many NDY_GSSettlements
+     * const nDY_GSSettlement = await prisma.nDY_GSSettlement.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_GSSettlements and only return the `id`
+     * const nDY_GSSettlementWithIdOnly = await prisma.nDY_GSSettlement.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_GSSettlementCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_GSSettlementCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_GSSettlement.
+     * @param {NDY_GSSettlementDeleteArgs} args - Arguments to delete one NDY_GSSettlement.
+     * @example
+     * // Delete one NDY_GSSettlement
+     * const NDY_GSSettlement = await prisma.nDY_GSSettlement.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_GSSettlement
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_GSSettlementDeleteArgs>(args: SelectSubset<T, NDY_GSSettlementDeleteArgs<ExtArgs>>): Prisma__NDY_GSSettlementClient<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_GSSettlement.
+     * @param {NDY_GSSettlementUpdateArgs} args - Arguments to update one NDY_GSSettlement.
+     * @example
+     * // Update one NDY_GSSettlement
+     * const nDY_GSSettlement = await prisma.nDY_GSSettlement.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_GSSettlementUpdateArgs>(args: SelectSubset<T, NDY_GSSettlementUpdateArgs<ExtArgs>>): Prisma__NDY_GSSettlementClient<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_GSSettlements.
+     * @param {NDY_GSSettlementDeleteManyArgs} args - Arguments to filter NDY_GSSettlements to delete.
+     * @example
+     * // Delete a few NDY_GSSettlements
+     * const { count } = await prisma.nDY_GSSettlement.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_GSSettlementDeleteManyArgs>(args?: SelectSubset<T, NDY_GSSettlementDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_GSSettlements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSettlementUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_GSSettlements
+     * const nDY_GSSettlement = await prisma.nDY_GSSettlement.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_GSSettlementUpdateManyArgs>(args: SelectSubset<T, NDY_GSSettlementUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_GSSettlement.
+     * @param {NDY_GSSettlementUpsertArgs} args - Arguments to update or create a NDY_GSSettlement.
+     * @example
+     * // Update or create a NDY_GSSettlement
+     * const nDY_GSSettlement = await prisma.nDY_GSSettlement.upsert({
+     *   create: {
+     *     // ... data to create a NDY_GSSettlement
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_GSSettlement we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_GSSettlementUpsertArgs>(args: SelectSubset<T, NDY_GSSettlementUpsertArgs<ExtArgs>>): Prisma__NDY_GSSettlementClient<$Result.GetResult<Prisma.$NDY_GSSettlementPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_GSSettlements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSettlementCountArgs} args - Arguments to filter NDY_GSSettlements to count.
+     * @example
+     * // Count the number of NDY_GSSettlements
+     * const count = await prisma.nDY_GSSettlement.count({
+     *   where: {
+     *     // ... the filter for the NDY_GSSettlements we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_GSSettlementCountArgs>(
+      args?: Subset<T, NDY_GSSettlementCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_GSSettlementCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_GSSettlement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSettlementAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_GSSettlementAggregateArgs>(args: Subset<T, NDY_GSSettlementAggregateArgs>): Prisma.PrismaPromise<GetNDY_GSSettlementAggregateType<T>>
+
+    /**
+     * Group by NDY_GSSettlement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSettlementGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_GSSettlementGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_GSSettlementGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_GSSettlementGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_GSSettlementGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_GSSettlementGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_GSSettlement model
+   */
+  readonly fields: NDY_GSSettlementFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_GSSettlement.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_GSSettlementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_GSSettlement model
+   */ 
+  interface NDY_GSSettlementFieldRefs {
+    readonly id: FieldRef<"NDY_GSSettlement", 'String'>
+    readonly date: FieldRef<"NDY_GSSettlement", 'String'>
+    readonly code: FieldRef<"NDY_GSSettlement", 'String'>
+    readonly name: FieldRef<"NDY_GSSettlement", 'String'>
+    readonly qty: FieldRef<"NDY_GSSettlement", 'Decimal'>
+    readonly weight: FieldRef<"NDY_GSSettlement", 'Decimal'>
+    readonly amount: FieldRef<"NDY_GSSettlement", 'Int'>
+    readonly remarks: FieldRef<"NDY_GSSettlement", 'String'>
+    readonly modDate: FieldRef<"NDY_GSSettlement", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_GSSettlement findUnique
+   */
+  export type NDY_GSSettlementFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSettlement to fetch.
+     */
+    where: NDY_GSSettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_GSSettlement findUniqueOrThrow
+   */
+  export type NDY_GSSettlementFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSettlement to fetch.
+     */
+    where: NDY_GSSettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_GSSettlement findFirst
+   */
+  export type NDY_GSSettlementFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSettlement to fetch.
+     */
+    where?: NDY_GSSettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_GSSettlements to fetch.
+     */
+    orderBy?: NDY_GSSettlementOrderByWithRelationInput | NDY_GSSettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_GSSettlements.
+     */
+    cursor?: NDY_GSSettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_GSSettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_GSSettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_GSSettlements.
+     */
+    distinct?: NDY_GSSettlementScalarFieldEnum | NDY_GSSettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_GSSettlement findFirstOrThrow
+   */
+  export type NDY_GSSettlementFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSettlement to fetch.
+     */
+    where?: NDY_GSSettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_GSSettlements to fetch.
+     */
+    orderBy?: NDY_GSSettlementOrderByWithRelationInput | NDY_GSSettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_GSSettlements.
+     */
+    cursor?: NDY_GSSettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_GSSettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_GSSettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_GSSettlements.
+     */
+    distinct?: NDY_GSSettlementScalarFieldEnum | NDY_GSSettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_GSSettlement findMany
+   */
+  export type NDY_GSSettlementFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSettlements to fetch.
+     */
+    where?: NDY_GSSettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_GSSettlements to fetch.
+     */
+    orderBy?: NDY_GSSettlementOrderByWithRelationInput | NDY_GSSettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_GSSettlements.
+     */
+    cursor?: NDY_GSSettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_GSSettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_GSSettlements.
+     */
+    skip?: number
+    distinct?: NDY_GSSettlementScalarFieldEnum | NDY_GSSettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_GSSettlement create
+   */
+  export type NDY_GSSettlementCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_GSSettlement.
+     */
+    data: XOR<NDY_GSSettlementCreateInput, NDY_GSSettlementUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_GSSettlement createMany
+   */
+  export type NDY_GSSettlementCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_GSSettlements.
+     */
+    data: NDY_GSSettlementCreateManyInput | NDY_GSSettlementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_GSSettlement createManyAndReturn
+   */
+  export type NDY_GSSettlementCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_GSSettlements.
+     */
+    data: NDY_GSSettlementCreateManyInput | NDY_GSSettlementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_GSSettlement update
+   */
+  export type NDY_GSSettlementUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_GSSettlement.
+     */
+    data: XOR<NDY_GSSettlementUpdateInput, NDY_GSSettlementUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_GSSettlement to update.
+     */
+    where: NDY_GSSettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_GSSettlement updateMany
+   */
+  export type NDY_GSSettlementUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_GSSettlements.
+     */
+    data: XOR<NDY_GSSettlementUpdateManyMutationInput, NDY_GSSettlementUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_GSSettlements to update
+     */
+    where?: NDY_GSSettlementWhereInput
+  }
+
+  /**
+   * NDY_GSSettlement upsert
+   */
+  export type NDY_GSSettlementUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_GSSettlement to update in case it exists.
+     */
+    where: NDY_GSSettlementWhereUniqueInput
+    /**
+     * In case the NDY_GSSettlement found by the `where` argument doesn't exist, create a new NDY_GSSettlement with this data.
+     */
+    create: XOR<NDY_GSSettlementCreateInput, NDY_GSSettlementUncheckedCreateInput>
+    /**
+     * In case the NDY_GSSettlement was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_GSSettlementUpdateInput, NDY_GSSettlementUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_GSSettlement delete
+   */
+  export type NDY_GSSettlementDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+    /**
+     * Filter which NDY_GSSettlement to delete.
+     */
+    where: NDY_GSSettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_GSSettlement deleteMany
+   */
+  export type NDY_GSSettlementDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_GSSettlements to delete
+     */
+    where?: NDY_GSSettlementWhereInput
+  }
+
+  /**
+   * NDY_GSSettlement without action
+   */
+  export type NDY_GSSettlementDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSettlement
+     */
+    select?: NDY_GSSettlementSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_GSSummary
+   */
+
+  export type AggregateNDY_GSSummary = {
+    _count: NDY_GSSummaryCountAggregateOutputType | null
+    _avg: NDY_GSSummaryAvgAggregateOutputType | null
+    _sum: NDY_GSSummarySumAggregateOutputType | null
+    _min: NDY_GSSummaryMinAggregateOutputType | null
+    _max: NDY_GSSummaryMaxAggregateOutputType | null
+  }
+
+  export type NDY_GSSummaryAvgAggregateOutputType = {
+    weekday: number | null
+    saturday: number | null
+    sunday: number | null
+    extraTrucks: number | null
+    totalAmount: number | null
+  }
+
+  export type NDY_GSSummarySumAggregateOutputType = {
+    weekday: number | null
+    saturday: number | null
+    sunday: number | null
+    extraTrucks: number | null
+    totalAmount: number | null
+  }
+
+  export type NDY_GSSummaryMinAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    weekday: number | null
+    saturday: number | null
+    sunday: number | null
+    extraTrucks: number | null
+    totalAmount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_GSSummaryMaxAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    weekday: number | null
+    saturday: number | null
+    sunday: number | null
+    extraTrucks: number | null
+    totalAmount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NDY_GSSummaryCountAggregateOutputType = {
+    id: number
+    startDate: number
+    endDate: number
+    weekday: number
+    saturday: number
+    sunday: number
+    extraTrucks: number
+    totalAmount: number
+    dates: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type NDY_GSSummaryAvgAggregateInputType = {
+    weekday?: true
+    saturday?: true
+    sunday?: true
+    extraTrucks?: true
+    totalAmount?: true
+  }
+
+  export type NDY_GSSummarySumAggregateInputType = {
+    weekday?: true
+    saturday?: true
+    sunday?: true
+    extraTrucks?: true
+    totalAmount?: true
+  }
+
+  export type NDY_GSSummaryMinAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    weekday?: true
+    saturday?: true
+    sunday?: true
+    extraTrucks?: true
+    totalAmount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NDY_GSSummaryMaxAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    weekday?: true
+    saturday?: true
+    sunday?: true
+    extraTrucks?: true
+    totalAmount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NDY_GSSummaryCountAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    weekday?: true
+    saturday?: true
+    sunday?: true
+    extraTrucks?: true
+    totalAmount?: true
+    dates?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type NDY_GSSummaryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_GSSummary to aggregate.
+     */
+    where?: NDY_GSSummaryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_GSSummaries to fetch.
+     */
+    orderBy?: NDY_GSSummaryOrderByWithRelationInput | NDY_GSSummaryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_GSSummaryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_GSSummaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_GSSummaries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_GSSummaries
+    **/
+    _count?: true | NDY_GSSummaryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NDY_GSSummaryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NDY_GSSummarySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_GSSummaryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_GSSummaryMaxAggregateInputType
+  }
+
+  export type GetNDY_GSSummaryAggregateType<T extends NDY_GSSummaryAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_GSSummary]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_GSSummary[P]>
+      : GetScalarType<T[P], AggregateNDY_GSSummary[P]>
+  }
+
+
+
+
+  export type NDY_GSSummaryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_GSSummaryWhereInput
+    orderBy?: NDY_GSSummaryOrderByWithAggregationInput | NDY_GSSummaryOrderByWithAggregationInput[]
+    by: NDY_GSSummaryScalarFieldEnum[] | NDY_GSSummaryScalarFieldEnum
+    having?: NDY_GSSummaryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_GSSummaryCountAggregateInputType | true
+    _avg?: NDY_GSSummaryAvgAggregateInputType
+    _sum?: NDY_GSSummarySumAggregateInputType
+    _min?: NDY_GSSummaryMinAggregateInputType
+    _max?: NDY_GSSummaryMaxAggregateInputType
+  }
+
+  export type NDY_GSSummaryGroupByOutputType = {
+    id: string
+    startDate: string
+    endDate: string
+    weekday: number
+    saturday: number
+    sunday: number
+    extraTrucks: number
+    totalAmount: number
+    dates: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: NDY_GSSummaryCountAggregateOutputType | null
+    _avg: NDY_GSSummaryAvgAggregateOutputType | null
+    _sum: NDY_GSSummarySumAggregateOutputType | null
+    _min: NDY_GSSummaryMinAggregateOutputType | null
+    _max: NDY_GSSummaryMaxAggregateOutputType | null
+  }
+
+  type GetNDY_GSSummaryGroupByPayload<T extends NDY_GSSummaryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_GSSummaryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_GSSummaryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_GSSummaryGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_GSSummaryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_GSSummarySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    weekday?: boolean
+    saturday?: boolean
+    sunday?: boolean
+    extraTrucks?: boolean
+    totalAmount?: boolean
+    dates?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["nDY_GSSummary"]>
+
+  export type NDY_GSSummarySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    weekday?: boolean
+    saturday?: boolean
+    sunday?: boolean
+    extraTrucks?: boolean
+    totalAmount?: boolean
+    dates?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["nDY_GSSummary"]>
+
+  export type NDY_GSSummarySelectScalar = {
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    weekday?: boolean
+    saturday?: boolean
+    sunday?: boolean
+    extraTrucks?: boolean
+    totalAmount?: boolean
+    dates?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type $NDY_GSSummaryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_GSSummary"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      startDate: string
+      endDate: string
+      weekday: number
+      saturday: number
+      sunday: number
+      extraTrucks: number
+      totalAmount: number
+      dates: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["nDY_GSSummary"]>
+    composites: {}
+  }
+
+  type NDY_GSSummaryGetPayload<S extends boolean | null | undefined | NDY_GSSummaryDefaultArgs> = $Result.GetResult<Prisma.$NDY_GSSummaryPayload, S>
+
+  type NDY_GSSummaryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_GSSummaryFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_GSSummaryCountAggregateInputType | true
+    }
+
+  export interface NDY_GSSummaryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_GSSummary'], meta: { name: 'NDY_GSSummary' } }
+    /**
+     * Find zero or one NDY_GSSummary that matches the filter.
+     * @param {NDY_GSSummaryFindUniqueArgs} args - Arguments to find a NDY_GSSummary
+     * @example
+     * // Get one NDY_GSSummary
+     * const nDY_GSSummary = await prisma.nDY_GSSummary.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_GSSummaryFindUniqueArgs>(args: SelectSubset<T, NDY_GSSummaryFindUniqueArgs<ExtArgs>>): Prisma__NDY_GSSummaryClient<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_GSSummary that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_GSSummaryFindUniqueOrThrowArgs} args - Arguments to find a NDY_GSSummary
+     * @example
+     * // Get one NDY_GSSummary
+     * const nDY_GSSummary = await prisma.nDY_GSSummary.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_GSSummaryFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_GSSummaryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_GSSummaryClient<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_GSSummary that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSummaryFindFirstArgs} args - Arguments to find a NDY_GSSummary
+     * @example
+     * // Get one NDY_GSSummary
+     * const nDY_GSSummary = await prisma.nDY_GSSummary.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_GSSummaryFindFirstArgs>(args?: SelectSubset<T, NDY_GSSummaryFindFirstArgs<ExtArgs>>): Prisma__NDY_GSSummaryClient<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_GSSummary that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSummaryFindFirstOrThrowArgs} args - Arguments to find a NDY_GSSummary
+     * @example
+     * // Get one NDY_GSSummary
+     * const nDY_GSSummary = await prisma.nDY_GSSummary.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_GSSummaryFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_GSSummaryFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_GSSummaryClient<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_GSSummaries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSummaryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_GSSummaries
+     * const nDY_GSSummaries = await prisma.nDY_GSSummary.findMany()
+     * 
+     * // Get first 10 NDY_GSSummaries
+     * const nDY_GSSummaries = await prisma.nDY_GSSummary.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_GSSummaryWithIdOnly = await prisma.nDY_GSSummary.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_GSSummaryFindManyArgs>(args?: SelectSubset<T, NDY_GSSummaryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_GSSummary.
+     * @param {NDY_GSSummaryCreateArgs} args - Arguments to create a NDY_GSSummary.
+     * @example
+     * // Create one NDY_GSSummary
+     * const NDY_GSSummary = await prisma.nDY_GSSummary.create({
+     *   data: {
+     *     // ... data to create a NDY_GSSummary
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_GSSummaryCreateArgs>(args: SelectSubset<T, NDY_GSSummaryCreateArgs<ExtArgs>>): Prisma__NDY_GSSummaryClient<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_GSSummaries.
+     * @param {NDY_GSSummaryCreateManyArgs} args - Arguments to create many NDY_GSSummaries.
+     * @example
+     * // Create many NDY_GSSummaries
+     * const nDY_GSSummary = await prisma.nDY_GSSummary.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_GSSummaryCreateManyArgs>(args?: SelectSubset<T, NDY_GSSummaryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_GSSummaries and returns the data saved in the database.
+     * @param {NDY_GSSummaryCreateManyAndReturnArgs} args - Arguments to create many NDY_GSSummaries.
+     * @example
+     * // Create many NDY_GSSummaries
+     * const nDY_GSSummary = await prisma.nDY_GSSummary.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_GSSummaries and only return the `id`
+     * const nDY_GSSummaryWithIdOnly = await prisma.nDY_GSSummary.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_GSSummaryCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_GSSummaryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_GSSummary.
+     * @param {NDY_GSSummaryDeleteArgs} args - Arguments to delete one NDY_GSSummary.
+     * @example
+     * // Delete one NDY_GSSummary
+     * const NDY_GSSummary = await prisma.nDY_GSSummary.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_GSSummary
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_GSSummaryDeleteArgs>(args: SelectSubset<T, NDY_GSSummaryDeleteArgs<ExtArgs>>): Prisma__NDY_GSSummaryClient<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_GSSummary.
+     * @param {NDY_GSSummaryUpdateArgs} args - Arguments to update one NDY_GSSummary.
+     * @example
+     * // Update one NDY_GSSummary
+     * const nDY_GSSummary = await prisma.nDY_GSSummary.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_GSSummaryUpdateArgs>(args: SelectSubset<T, NDY_GSSummaryUpdateArgs<ExtArgs>>): Prisma__NDY_GSSummaryClient<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_GSSummaries.
+     * @param {NDY_GSSummaryDeleteManyArgs} args - Arguments to filter NDY_GSSummaries to delete.
+     * @example
+     * // Delete a few NDY_GSSummaries
+     * const { count } = await prisma.nDY_GSSummary.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_GSSummaryDeleteManyArgs>(args?: SelectSubset<T, NDY_GSSummaryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_GSSummaries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSummaryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_GSSummaries
+     * const nDY_GSSummary = await prisma.nDY_GSSummary.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_GSSummaryUpdateManyArgs>(args: SelectSubset<T, NDY_GSSummaryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_GSSummary.
+     * @param {NDY_GSSummaryUpsertArgs} args - Arguments to update or create a NDY_GSSummary.
+     * @example
+     * // Update or create a NDY_GSSummary
+     * const nDY_GSSummary = await prisma.nDY_GSSummary.upsert({
+     *   create: {
+     *     // ... data to create a NDY_GSSummary
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_GSSummary we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_GSSummaryUpsertArgs>(args: SelectSubset<T, NDY_GSSummaryUpsertArgs<ExtArgs>>): Prisma__NDY_GSSummaryClient<$Result.GetResult<Prisma.$NDY_GSSummaryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_GSSummaries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSummaryCountArgs} args - Arguments to filter NDY_GSSummaries to count.
+     * @example
+     * // Count the number of NDY_GSSummaries
+     * const count = await prisma.nDY_GSSummary.count({
+     *   where: {
+     *     // ... the filter for the NDY_GSSummaries we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_GSSummaryCountArgs>(
+      args?: Subset<T, NDY_GSSummaryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_GSSummaryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_GSSummary.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSummaryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_GSSummaryAggregateArgs>(args: Subset<T, NDY_GSSummaryAggregateArgs>): Prisma.PrismaPromise<GetNDY_GSSummaryAggregateType<T>>
+
+    /**
+     * Group by NDY_GSSummary.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_GSSummaryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_GSSummaryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_GSSummaryGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_GSSummaryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_GSSummaryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_GSSummaryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_GSSummary model
+   */
+  readonly fields: NDY_GSSummaryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_GSSummary.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_GSSummaryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_GSSummary model
+   */ 
+  interface NDY_GSSummaryFieldRefs {
+    readonly id: FieldRef<"NDY_GSSummary", 'String'>
+    readonly startDate: FieldRef<"NDY_GSSummary", 'String'>
+    readonly endDate: FieldRef<"NDY_GSSummary", 'String'>
+    readonly weekday: FieldRef<"NDY_GSSummary", 'Int'>
+    readonly saturday: FieldRef<"NDY_GSSummary", 'Int'>
+    readonly sunday: FieldRef<"NDY_GSSummary", 'Int'>
+    readonly extraTrucks: FieldRef<"NDY_GSSummary", 'Int'>
+    readonly totalAmount: FieldRef<"NDY_GSSummary", 'Int'>
+    readonly dates: FieldRef<"NDY_GSSummary", 'String[]'>
+    readonly createdAt: FieldRef<"NDY_GSSummary", 'DateTime'>
+    readonly updatedAt: FieldRef<"NDY_GSSummary", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_GSSummary findUnique
+   */
+  export type NDY_GSSummaryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSummary to fetch.
+     */
+    where: NDY_GSSummaryWhereUniqueInput
+  }
+
+  /**
+   * NDY_GSSummary findUniqueOrThrow
+   */
+  export type NDY_GSSummaryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSummary to fetch.
+     */
+    where: NDY_GSSummaryWhereUniqueInput
+  }
+
+  /**
+   * NDY_GSSummary findFirst
+   */
+  export type NDY_GSSummaryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSummary to fetch.
+     */
+    where?: NDY_GSSummaryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_GSSummaries to fetch.
+     */
+    orderBy?: NDY_GSSummaryOrderByWithRelationInput | NDY_GSSummaryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_GSSummaries.
+     */
+    cursor?: NDY_GSSummaryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_GSSummaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_GSSummaries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_GSSummaries.
+     */
+    distinct?: NDY_GSSummaryScalarFieldEnum | NDY_GSSummaryScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_GSSummary findFirstOrThrow
+   */
+  export type NDY_GSSummaryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSummary to fetch.
+     */
+    where?: NDY_GSSummaryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_GSSummaries to fetch.
+     */
+    orderBy?: NDY_GSSummaryOrderByWithRelationInput | NDY_GSSummaryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_GSSummaries.
+     */
+    cursor?: NDY_GSSummaryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_GSSummaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_GSSummaries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_GSSummaries.
+     */
+    distinct?: NDY_GSSummaryScalarFieldEnum | NDY_GSSummaryScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_GSSummary findMany
+   */
+  export type NDY_GSSummaryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_GSSummaries to fetch.
+     */
+    where?: NDY_GSSummaryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_GSSummaries to fetch.
+     */
+    orderBy?: NDY_GSSummaryOrderByWithRelationInput | NDY_GSSummaryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_GSSummaries.
+     */
+    cursor?: NDY_GSSummaryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_GSSummaries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_GSSummaries.
+     */
+    skip?: number
+    distinct?: NDY_GSSummaryScalarFieldEnum | NDY_GSSummaryScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_GSSummary create
+   */
+  export type NDY_GSSummaryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_GSSummary.
+     */
+    data: XOR<NDY_GSSummaryCreateInput, NDY_GSSummaryUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_GSSummary createMany
+   */
+  export type NDY_GSSummaryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_GSSummaries.
+     */
+    data: NDY_GSSummaryCreateManyInput | NDY_GSSummaryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_GSSummary createManyAndReturn
+   */
+  export type NDY_GSSummaryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_GSSummaries.
+     */
+    data: NDY_GSSummaryCreateManyInput | NDY_GSSummaryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_GSSummary update
+   */
+  export type NDY_GSSummaryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_GSSummary.
+     */
+    data: XOR<NDY_GSSummaryUpdateInput, NDY_GSSummaryUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_GSSummary to update.
+     */
+    where: NDY_GSSummaryWhereUniqueInput
+  }
+
+  /**
+   * NDY_GSSummary updateMany
+   */
+  export type NDY_GSSummaryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_GSSummaries.
+     */
+    data: XOR<NDY_GSSummaryUpdateManyMutationInput, NDY_GSSummaryUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_GSSummaries to update
+     */
+    where?: NDY_GSSummaryWhereInput
+  }
+
+  /**
+   * NDY_GSSummary upsert
+   */
+  export type NDY_GSSummaryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_GSSummary to update in case it exists.
+     */
+    where: NDY_GSSummaryWhereUniqueInput
+    /**
+     * In case the NDY_GSSummary found by the `where` argument doesn't exist, create a new NDY_GSSummary with this data.
+     */
+    create: XOR<NDY_GSSummaryCreateInput, NDY_GSSummaryUncheckedCreateInput>
+    /**
+     * In case the NDY_GSSummary was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_GSSummaryUpdateInput, NDY_GSSummaryUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_GSSummary delete
+   */
+  export type NDY_GSSummaryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+    /**
+     * Filter which NDY_GSSummary to delete.
+     */
+    where: NDY_GSSummaryWhereUniqueInput
+  }
+
+  /**
+   * NDY_GSSummary deleteMany
+   */
+  export type NDY_GSSummaryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_GSSummaries to delete
+     */
+    where?: NDY_GSSummaryWhereInput
+  }
+
+  /**
+   * NDY_GSSummary without action
+   */
+  export type NDY_GSSummaryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_GSSummary
+     */
+    select?: NDY_GSSummarySelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_InquirySettlement
+   */
+
+  export type AggregateNDY_InquirySettlement = {
+    _count: NDY_InquirySettlementCountAggregateOutputType | null
+    _avg: NDY_InquirySettlementAvgAggregateOutputType | null
+    _sum: NDY_InquirySettlementSumAggregateOutputType | null
+    _min: NDY_InquirySettlementMinAggregateOutputType | null
+    _max: NDY_InquirySettlementMaxAggregateOutputType | null
+  }
+
+  export type NDY_InquirySettlementAvgAggregateOutputType = {
+    kum: number | null
+    un: number | null
+  }
+
+  export type NDY_InquirySettlementSumAggregateOutputType = {
+    kum: number | null
+    un: number | null
+  }
+
+  export type NDY_InquirySettlementMinAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    date: string | null
+    name: string | null
+    so: string | null
+    nap: string | null
+    ton: string | null
+    kum: number | null
+    yo: string | null
+    chung: string | null
+    un: number | null
+    memo: string | null
+    createdAt: Date | null
+  }
+
+  export type NDY_InquirySettlementMaxAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    date: string | null
+    name: string | null
+    so: string | null
+    nap: string | null
+    ton: string | null
+    kum: number | null
+    yo: string | null
+    chung: string | null
+    un: number | null
+    memo: string | null
+    createdAt: Date | null
+  }
+
+  export type NDY_InquirySettlementCountAggregateOutputType = {
+    id: number
+    startDate: number
+    endDate: number
+    date: number
+    name: number
+    so: number
+    nap: number
+    ton: number
+    kum: number
+    yo: number
+    chung: number
+    un: number
+    memo: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type NDY_InquirySettlementAvgAggregateInputType = {
+    kum?: true
+    un?: true
+  }
+
+  export type NDY_InquirySettlementSumAggregateInputType = {
+    kum?: true
+    un?: true
+  }
+
+  export type NDY_InquirySettlementMinAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    date?: true
+    name?: true
+    so?: true
+    nap?: true
+    ton?: true
+    kum?: true
+    yo?: true
+    chung?: true
+    un?: true
+    memo?: true
+    createdAt?: true
+  }
+
+  export type NDY_InquirySettlementMaxAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    date?: true
+    name?: true
+    so?: true
+    nap?: true
+    ton?: true
+    kum?: true
+    yo?: true
+    chung?: true
+    un?: true
+    memo?: true
+    createdAt?: true
+  }
+
+  export type NDY_InquirySettlementCountAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    date?: true
+    name?: true
+    so?: true
+    nap?: true
+    ton?: true
+    kum?: true
+    yo?: true
+    chung?: true
+    un?: true
+    memo?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type NDY_InquirySettlementAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_InquirySettlement to aggregate.
+     */
+    where?: NDY_InquirySettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_InquirySettlements to fetch.
+     */
+    orderBy?: NDY_InquirySettlementOrderByWithRelationInput | NDY_InquirySettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_InquirySettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_InquirySettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_InquirySettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_InquirySettlements
+    **/
+    _count?: true | NDY_InquirySettlementCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NDY_InquirySettlementAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NDY_InquirySettlementSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_InquirySettlementMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_InquirySettlementMaxAggregateInputType
+  }
+
+  export type GetNDY_InquirySettlementAggregateType<T extends NDY_InquirySettlementAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_InquirySettlement]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_InquirySettlement[P]>
+      : GetScalarType<T[P], AggregateNDY_InquirySettlement[P]>
+  }
+
+
+
+
+  export type NDY_InquirySettlementGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_InquirySettlementWhereInput
+    orderBy?: NDY_InquirySettlementOrderByWithAggregationInput | NDY_InquirySettlementOrderByWithAggregationInput[]
+    by: NDY_InquirySettlementScalarFieldEnum[] | NDY_InquirySettlementScalarFieldEnum
+    having?: NDY_InquirySettlementScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_InquirySettlementCountAggregateInputType | true
+    _avg?: NDY_InquirySettlementAvgAggregateInputType
+    _sum?: NDY_InquirySettlementSumAggregateInputType
+    _min?: NDY_InquirySettlementMinAggregateInputType
+    _max?: NDY_InquirySettlementMaxAggregateInputType
+  }
+
+  export type NDY_InquirySettlementGroupByOutputType = {
+    id: string
+    startDate: string
+    endDate: string
+    date: string
+    name: string
+    so: string
+    nap: string
+    ton: string
+    kum: number
+    yo: string
+    chung: string
+    un: number
+    memo: string
+    createdAt: Date
+    _count: NDY_InquirySettlementCountAggregateOutputType | null
+    _avg: NDY_InquirySettlementAvgAggregateOutputType | null
+    _sum: NDY_InquirySettlementSumAggregateOutputType | null
+    _min: NDY_InquirySettlementMinAggregateOutputType | null
+    _max: NDY_InquirySettlementMaxAggregateOutputType | null
+  }
+
+  type GetNDY_InquirySettlementGroupByPayload<T extends NDY_InquirySettlementGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_InquirySettlementGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_InquirySettlementGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_InquirySettlementGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_InquirySettlementGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_InquirySettlementSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    date?: boolean
+    name?: boolean
+    so?: boolean
+    nap?: boolean
+    ton?: boolean
+    kum?: boolean
+    yo?: boolean
+    chung?: boolean
+    un?: boolean
+    memo?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["nDY_InquirySettlement"]>
+
+  export type NDY_InquirySettlementSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    date?: boolean
+    name?: boolean
+    so?: boolean
+    nap?: boolean
+    ton?: boolean
+    kum?: boolean
+    yo?: boolean
+    chung?: boolean
+    un?: boolean
+    memo?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["nDY_InquirySettlement"]>
+
+  export type NDY_InquirySettlementSelectScalar = {
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    date?: boolean
+    name?: boolean
+    so?: boolean
+    nap?: boolean
+    ton?: boolean
+    kum?: boolean
+    yo?: boolean
+    chung?: boolean
+    un?: boolean
+    memo?: boolean
+    createdAt?: boolean
+  }
+
+
+  export type $NDY_InquirySettlementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_InquirySettlement"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      startDate: string
+      endDate: string
+      date: string
+      name: string
+      so: string
+      nap: string
+      ton: string
+      kum: number
+      yo: string
+      chung: string
+      un: number
+      memo: string
+      createdAt: Date
+    }, ExtArgs["result"]["nDY_InquirySettlement"]>
+    composites: {}
+  }
+
+  type NDY_InquirySettlementGetPayload<S extends boolean | null | undefined | NDY_InquirySettlementDefaultArgs> = $Result.GetResult<Prisma.$NDY_InquirySettlementPayload, S>
+
+  type NDY_InquirySettlementCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_InquirySettlementFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_InquirySettlementCountAggregateInputType | true
+    }
+
+  export interface NDY_InquirySettlementDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_InquirySettlement'], meta: { name: 'NDY_InquirySettlement' } }
+    /**
+     * Find zero or one NDY_InquirySettlement that matches the filter.
+     * @param {NDY_InquirySettlementFindUniqueArgs} args - Arguments to find a NDY_InquirySettlement
+     * @example
+     * // Get one NDY_InquirySettlement
+     * const nDY_InquirySettlement = await prisma.nDY_InquirySettlement.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_InquirySettlementFindUniqueArgs>(args: SelectSubset<T, NDY_InquirySettlementFindUniqueArgs<ExtArgs>>): Prisma__NDY_InquirySettlementClient<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_InquirySettlement that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_InquirySettlementFindUniqueOrThrowArgs} args - Arguments to find a NDY_InquirySettlement
+     * @example
+     * // Get one NDY_InquirySettlement
+     * const nDY_InquirySettlement = await prisma.nDY_InquirySettlement.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_InquirySettlementFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_InquirySettlementFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_InquirySettlementClient<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_InquirySettlement that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_InquirySettlementFindFirstArgs} args - Arguments to find a NDY_InquirySettlement
+     * @example
+     * // Get one NDY_InquirySettlement
+     * const nDY_InquirySettlement = await prisma.nDY_InquirySettlement.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_InquirySettlementFindFirstArgs>(args?: SelectSubset<T, NDY_InquirySettlementFindFirstArgs<ExtArgs>>): Prisma__NDY_InquirySettlementClient<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_InquirySettlement that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_InquirySettlementFindFirstOrThrowArgs} args - Arguments to find a NDY_InquirySettlement
+     * @example
+     * // Get one NDY_InquirySettlement
+     * const nDY_InquirySettlement = await prisma.nDY_InquirySettlement.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_InquirySettlementFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_InquirySettlementFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_InquirySettlementClient<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_InquirySettlements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_InquirySettlementFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_InquirySettlements
+     * const nDY_InquirySettlements = await prisma.nDY_InquirySettlement.findMany()
+     * 
+     * // Get first 10 NDY_InquirySettlements
+     * const nDY_InquirySettlements = await prisma.nDY_InquirySettlement.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_InquirySettlementWithIdOnly = await prisma.nDY_InquirySettlement.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_InquirySettlementFindManyArgs>(args?: SelectSubset<T, NDY_InquirySettlementFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_InquirySettlement.
+     * @param {NDY_InquirySettlementCreateArgs} args - Arguments to create a NDY_InquirySettlement.
+     * @example
+     * // Create one NDY_InquirySettlement
+     * const NDY_InquirySettlement = await prisma.nDY_InquirySettlement.create({
+     *   data: {
+     *     // ... data to create a NDY_InquirySettlement
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_InquirySettlementCreateArgs>(args: SelectSubset<T, NDY_InquirySettlementCreateArgs<ExtArgs>>): Prisma__NDY_InquirySettlementClient<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_InquirySettlements.
+     * @param {NDY_InquirySettlementCreateManyArgs} args - Arguments to create many NDY_InquirySettlements.
+     * @example
+     * // Create many NDY_InquirySettlements
+     * const nDY_InquirySettlement = await prisma.nDY_InquirySettlement.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_InquirySettlementCreateManyArgs>(args?: SelectSubset<T, NDY_InquirySettlementCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_InquirySettlements and returns the data saved in the database.
+     * @param {NDY_InquirySettlementCreateManyAndReturnArgs} args - Arguments to create many NDY_InquirySettlements.
+     * @example
+     * // Create many NDY_InquirySettlements
+     * const nDY_InquirySettlement = await prisma.nDY_InquirySettlement.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_InquirySettlements and only return the `id`
+     * const nDY_InquirySettlementWithIdOnly = await prisma.nDY_InquirySettlement.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_InquirySettlementCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_InquirySettlementCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_InquirySettlement.
+     * @param {NDY_InquirySettlementDeleteArgs} args - Arguments to delete one NDY_InquirySettlement.
+     * @example
+     * // Delete one NDY_InquirySettlement
+     * const NDY_InquirySettlement = await prisma.nDY_InquirySettlement.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_InquirySettlement
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_InquirySettlementDeleteArgs>(args: SelectSubset<T, NDY_InquirySettlementDeleteArgs<ExtArgs>>): Prisma__NDY_InquirySettlementClient<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_InquirySettlement.
+     * @param {NDY_InquirySettlementUpdateArgs} args - Arguments to update one NDY_InquirySettlement.
+     * @example
+     * // Update one NDY_InquirySettlement
+     * const nDY_InquirySettlement = await prisma.nDY_InquirySettlement.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_InquirySettlementUpdateArgs>(args: SelectSubset<T, NDY_InquirySettlementUpdateArgs<ExtArgs>>): Prisma__NDY_InquirySettlementClient<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_InquirySettlements.
+     * @param {NDY_InquirySettlementDeleteManyArgs} args - Arguments to filter NDY_InquirySettlements to delete.
+     * @example
+     * // Delete a few NDY_InquirySettlements
+     * const { count } = await prisma.nDY_InquirySettlement.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_InquirySettlementDeleteManyArgs>(args?: SelectSubset<T, NDY_InquirySettlementDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_InquirySettlements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_InquirySettlementUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_InquirySettlements
+     * const nDY_InquirySettlement = await prisma.nDY_InquirySettlement.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_InquirySettlementUpdateManyArgs>(args: SelectSubset<T, NDY_InquirySettlementUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_InquirySettlement.
+     * @param {NDY_InquirySettlementUpsertArgs} args - Arguments to update or create a NDY_InquirySettlement.
+     * @example
+     * // Update or create a NDY_InquirySettlement
+     * const nDY_InquirySettlement = await prisma.nDY_InquirySettlement.upsert({
+     *   create: {
+     *     // ... data to create a NDY_InquirySettlement
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_InquirySettlement we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_InquirySettlementUpsertArgs>(args: SelectSubset<T, NDY_InquirySettlementUpsertArgs<ExtArgs>>): Prisma__NDY_InquirySettlementClient<$Result.GetResult<Prisma.$NDY_InquirySettlementPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_InquirySettlements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_InquirySettlementCountArgs} args - Arguments to filter NDY_InquirySettlements to count.
+     * @example
+     * // Count the number of NDY_InquirySettlements
+     * const count = await prisma.nDY_InquirySettlement.count({
+     *   where: {
+     *     // ... the filter for the NDY_InquirySettlements we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_InquirySettlementCountArgs>(
+      args?: Subset<T, NDY_InquirySettlementCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_InquirySettlementCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_InquirySettlement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_InquirySettlementAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_InquirySettlementAggregateArgs>(args: Subset<T, NDY_InquirySettlementAggregateArgs>): Prisma.PrismaPromise<GetNDY_InquirySettlementAggregateType<T>>
+
+    /**
+     * Group by NDY_InquirySettlement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_InquirySettlementGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_InquirySettlementGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_InquirySettlementGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_InquirySettlementGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_InquirySettlementGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_InquirySettlementGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_InquirySettlement model
+   */
+  readonly fields: NDY_InquirySettlementFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_InquirySettlement.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_InquirySettlementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_InquirySettlement model
+   */ 
+  interface NDY_InquirySettlementFieldRefs {
+    readonly id: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly startDate: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly endDate: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly date: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly name: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly so: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly nap: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly ton: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly kum: FieldRef<"NDY_InquirySettlement", 'Int'>
+    readonly yo: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly chung: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly un: FieldRef<"NDY_InquirySettlement", 'Int'>
+    readonly memo: FieldRef<"NDY_InquirySettlement", 'String'>
+    readonly createdAt: FieldRef<"NDY_InquirySettlement", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_InquirySettlement findUnique
+   */
+  export type NDY_InquirySettlementFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_InquirySettlement to fetch.
+     */
+    where: NDY_InquirySettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_InquirySettlement findUniqueOrThrow
+   */
+  export type NDY_InquirySettlementFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_InquirySettlement to fetch.
+     */
+    where: NDY_InquirySettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_InquirySettlement findFirst
+   */
+  export type NDY_InquirySettlementFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_InquirySettlement to fetch.
+     */
+    where?: NDY_InquirySettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_InquirySettlements to fetch.
+     */
+    orderBy?: NDY_InquirySettlementOrderByWithRelationInput | NDY_InquirySettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_InquirySettlements.
+     */
+    cursor?: NDY_InquirySettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_InquirySettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_InquirySettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_InquirySettlements.
+     */
+    distinct?: NDY_InquirySettlementScalarFieldEnum | NDY_InquirySettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_InquirySettlement findFirstOrThrow
+   */
+  export type NDY_InquirySettlementFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_InquirySettlement to fetch.
+     */
+    where?: NDY_InquirySettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_InquirySettlements to fetch.
+     */
+    orderBy?: NDY_InquirySettlementOrderByWithRelationInput | NDY_InquirySettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_InquirySettlements.
+     */
+    cursor?: NDY_InquirySettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_InquirySettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_InquirySettlements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_InquirySettlements.
+     */
+    distinct?: NDY_InquirySettlementScalarFieldEnum | NDY_InquirySettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_InquirySettlement findMany
+   */
+  export type NDY_InquirySettlementFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_InquirySettlements to fetch.
+     */
+    where?: NDY_InquirySettlementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_InquirySettlements to fetch.
+     */
+    orderBy?: NDY_InquirySettlementOrderByWithRelationInput | NDY_InquirySettlementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_InquirySettlements.
+     */
+    cursor?: NDY_InquirySettlementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_InquirySettlements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_InquirySettlements.
+     */
+    skip?: number
+    distinct?: NDY_InquirySettlementScalarFieldEnum | NDY_InquirySettlementScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_InquirySettlement create
+   */
+  export type NDY_InquirySettlementCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_InquirySettlement.
+     */
+    data: XOR<NDY_InquirySettlementCreateInput, NDY_InquirySettlementUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_InquirySettlement createMany
+   */
+  export type NDY_InquirySettlementCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_InquirySettlements.
+     */
+    data: NDY_InquirySettlementCreateManyInput | NDY_InquirySettlementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_InquirySettlement createManyAndReturn
+   */
+  export type NDY_InquirySettlementCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_InquirySettlements.
+     */
+    data: NDY_InquirySettlementCreateManyInput | NDY_InquirySettlementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_InquirySettlement update
+   */
+  export type NDY_InquirySettlementUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_InquirySettlement.
+     */
+    data: XOR<NDY_InquirySettlementUpdateInput, NDY_InquirySettlementUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_InquirySettlement to update.
+     */
+    where: NDY_InquirySettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_InquirySettlement updateMany
+   */
+  export type NDY_InquirySettlementUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_InquirySettlements.
+     */
+    data: XOR<NDY_InquirySettlementUpdateManyMutationInput, NDY_InquirySettlementUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_InquirySettlements to update
+     */
+    where?: NDY_InquirySettlementWhereInput
+  }
+
+  /**
+   * NDY_InquirySettlement upsert
+   */
+  export type NDY_InquirySettlementUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_InquirySettlement to update in case it exists.
+     */
+    where: NDY_InquirySettlementWhereUniqueInput
+    /**
+     * In case the NDY_InquirySettlement found by the `where` argument doesn't exist, create a new NDY_InquirySettlement with this data.
+     */
+    create: XOR<NDY_InquirySettlementCreateInput, NDY_InquirySettlementUncheckedCreateInput>
+    /**
+     * In case the NDY_InquirySettlement was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_InquirySettlementUpdateInput, NDY_InquirySettlementUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_InquirySettlement delete
+   */
+  export type NDY_InquirySettlementDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+    /**
+     * Filter which NDY_InquirySettlement to delete.
+     */
+    where: NDY_InquirySettlementWhereUniqueInput
+  }
+
+  /**
+   * NDY_InquirySettlement deleteMany
+   */
+  export type NDY_InquirySettlementDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_InquirySettlements to delete
+     */
+    where?: NDY_InquirySettlementWhereInput
+  }
+
+  /**
+   * NDY_InquirySettlement without action
+   */
+  export type NDY_InquirySettlementDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_InquirySettlement
+     */
+    select?: NDY_InquirySettlementSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NDY_MonthlyClosing
+   */
+
+  export type AggregateNDY_MonthlyClosing = {
+    _count: NDY_MonthlyClosingCountAggregateOutputType | null
+    _min: NDY_MonthlyClosingMinAggregateOutputType | null
+    _max: NDY_MonthlyClosingMaxAggregateOutputType | null
+  }
+
+  export type NDY_MonthlyClosingMinAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    closedAt: Date | null
+  }
+
+  export type NDY_MonthlyClosingMaxAggregateOutputType = {
+    id: string | null
+    startDate: string | null
+    endDate: string | null
+    closedAt: Date | null
+  }
+
+  export type NDY_MonthlyClosingCountAggregateOutputType = {
+    id: number
+    startDate: number
+    endDate: number
+    data: number
+    closedAt: number
+    _all: number
+  }
+
+
+  export type NDY_MonthlyClosingMinAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    closedAt?: true
+  }
+
+  export type NDY_MonthlyClosingMaxAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    closedAt?: true
+  }
+
+  export type NDY_MonthlyClosingCountAggregateInputType = {
+    id?: true
+    startDate?: true
+    endDate?: true
+    data?: true
+    closedAt?: true
+    _all?: true
+  }
+
+  export type NDY_MonthlyClosingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_MonthlyClosing to aggregate.
+     */
+    where?: NDY_MonthlyClosingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_MonthlyClosings to fetch.
+     */
+    orderBy?: NDY_MonthlyClosingOrderByWithRelationInput | NDY_MonthlyClosingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NDY_MonthlyClosingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_MonthlyClosings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_MonthlyClosings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NDY_MonthlyClosings
+    **/
+    _count?: true | NDY_MonthlyClosingCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NDY_MonthlyClosingMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NDY_MonthlyClosingMaxAggregateInputType
+  }
+
+  export type GetNDY_MonthlyClosingAggregateType<T extends NDY_MonthlyClosingAggregateArgs> = {
+        [P in keyof T & keyof AggregateNDY_MonthlyClosing]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNDY_MonthlyClosing[P]>
+      : GetScalarType<T[P], AggregateNDY_MonthlyClosing[P]>
+  }
+
+
+
+
+  export type NDY_MonthlyClosingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDY_MonthlyClosingWhereInput
+    orderBy?: NDY_MonthlyClosingOrderByWithAggregationInput | NDY_MonthlyClosingOrderByWithAggregationInput[]
+    by: NDY_MonthlyClosingScalarFieldEnum[] | NDY_MonthlyClosingScalarFieldEnum
+    having?: NDY_MonthlyClosingScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NDY_MonthlyClosingCountAggregateInputType | true
+    _min?: NDY_MonthlyClosingMinAggregateInputType
+    _max?: NDY_MonthlyClosingMaxAggregateInputType
+  }
+
+  export type NDY_MonthlyClosingGroupByOutputType = {
+    id: string
+    startDate: string
+    endDate: string
+    data: JsonValue
+    closedAt: Date
+    _count: NDY_MonthlyClosingCountAggregateOutputType | null
+    _min: NDY_MonthlyClosingMinAggregateOutputType | null
+    _max: NDY_MonthlyClosingMaxAggregateOutputType | null
+  }
+
+  type GetNDY_MonthlyClosingGroupByPayload<T extends NDY_MonthlyClosingGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NDY_MonthlyClosingGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NDY_MonthlyClosingGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NDY_MonthlyClosingGroupByOutputType[P]>
+            : GetScalarType<T[P], NDY_MonthlyClosingGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NDY_MonthlyClosingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    data?: boolean
+    closedAt?: boolean
+  }, ExtArgs["result"]["nDY_MonthlyClosing"]>
+
+  export type NDY_MonthlyClosingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    data?: boolean
+    closedAt?: boolean
+  }, ExtArgs["result"]["nDY_MonthlyClosing"]>
+
+  export type NDY_MonthlyClosingSelectScalar = {
+    id?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    data?: boolean
+    closedAt?: boolean
+  }
+
+
+  export type $NDY_MonthlyClosingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NDY_MonthlyClosing"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      startDate: string
+      endDate: string
+      data: Prisma.JsonValue
+      closedAt: Date
+    }, ExtArgs["result"]["nDY_MonthlyClosing"]>
+    composites: {}
+  }
+
+  type NDY_MonthlyClosingGetPayload<S extends boolean | null | undefined | NDY_MonthlyClosingDefaultArgs> = $Result.GetResult<Prisma.$NDY_MonthlyClosingPayload, S>
+
+  type NDY_MonthlyClosingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<NDY_MonthlyClosingFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: NDY_MonthlyClosingCountAggregateInputType | true
+    }
+
+  export interface NDY_MonthlyClosingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NDY_MonthlyClosing'], meta: { name: 'NDY_MonthlyClosing' } }
+    /**
+     * Find zero or one NDY_MonthlyClosing that matches the filter.
+     * @param {NDY_MonthlyClosingFindUniqueArgs} args - Arguments to find a NDY_MonthlyClosing
+     * @example
+     * // Get one NDY_MonthlyClosing
+     * const nDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NDY_MonthlyClosingFindUniqueArgs>(args: SelectSubset<T, NDY_MonthlyClosingFindUniqueArgs<ExtArgs>>): Prisma__NDY_MonthlyClosingClient<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one NDY_MonthlyClosing that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {NDY_MonthlyClosingFindUniqueOrThrowArgs} args - Arguments to find a NDY_MonthlyClosing
+     * @example
+     * // Get one NDY_MonthlyClosing
+     * const nDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NDY_MonthlyClosingFindUniqueOrThrowArgs>(args: SelectSubset<T, NDY_MonthlyClosingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NDY_MonthlyClosingClient<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first NDY_MonthlyClosing that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_MonthlyClosingFindFirstArgs} args - Arguments to find a NDY_MonthlyClosing
+     * @example
+     * // Get one NDY_MonthlyClosing
+     * const nDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NDY_MonthlyClosingFindFirstArgs>(args?: SelectSubset<T, NDY_MonthlyClosingFindFirstArgs<ExtArgs>>): Prisma__NDY_MonthlyClosingClient<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first NDY_MonthlyClosing that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_MonthlyClosingFindFirstOrThrowArgs} args - Arguments to find a NDY_MonthlyClosing
+     * @example
+     * // Get one NDY_MonthlyClosing
+     * const nDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NDY_MonthlyClosingFindFirstOrThrowArgs>(args?: SelectSubset<T, NDY_MonthlyClosingFindFirstOrThrowArgs<ExtArgs>>): Prisma__NDY_MonthlyClosingClient<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more NDY_MonthlyClosings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_MonthlyClosingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NDY_MonthlyClosings
+     * const nDY_MonthlyClosings = await prisma.nDY_MonthlyClosing.findMany()
+     * 
+     * // Get first 10 NDY_MonthlyClosings
+     * const nDY_MonthlyClosings = await prisma.nDY_MonthlyClosing.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const nDY_MonthlyClosingWithIdOnly = await prisma.nDY_MonthlyClosing.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NDY_MonthlyClosingFindManyArgs>(args?: SelectSubset<T, NDY_MonthlyClosingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a NDY_MonthlyClosing.
+     * @param {NDY_MonthlyClosingCreateArgs} args - Arguments to create a NDY_MonthlyClosing.
+     * @example
+     * // Create one NDY_MonthlyClosing
+     * const NDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.create({
+     *   data: {
+     *     // ... data to create a NDY_MonthlyClosing
+     *   }
+     * })
+     * 
+     */
+    create<T extends NDY_MonthlyClosingCreateArgs>(args: SelectSubset<T, NDY_MonthlyClosingCreateArgs<ExtArgs>>): Prisma__NDY_MonthlyClosingClient<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many NDY_MonthlyClosings.
+     * @param {NDY_MonthlyClosingCreateManyArgs} args - Arguments to create many NDY_MonthlyClosings.
+     * @example
+     * // Create many NDY_MonthlyClosings
+     * const nDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NDY_MonthlyClosingCreateManyArgs>(args?: SelectSubset<T, NDY_MonthlyClosingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NDY_MonthlyClosings and returns the data saved in the database.
+     * @param {NDY_MonthlyClosingCreateManyAndReturnArgs} args - Arguments to create many NDY_MonthlyClosings.
+     * @example
+     * // Create many NDY_MonthlyClosings
+     * const nDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NDY_MonthlyClosings and only return the `id`
+     * const nDY_MonthlyClosingWithIdOnly = await prisma.nDY_MonthlyClosing.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NDY_MonthlyClosingCreateManyAndReturnArgs>(args?: SelectSubset<T, NDY_MonthlyClosingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a NDY_MonthlyClosing.
+     * @param {NDY_MonthlyClosingDeleteArgs} args - Arguments to delete one NDY_MonthlyClosing.
+     * @example
+     * // Delete one NDY_MonthlyClosing
+     * const NDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.delete({
+     *   where: {
+     *     // ... filter to delete one NDY_MonthlyClosing
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NDY_MonthlyClosingDeleteArgs>(args: SelectSubset<T, NDY_MonthlyClosingDeleteArgs<ExtArgs>>): Prisma__NDY_MonthlyClosingClient<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one NDY_MonthlyClosing.
+     * @param {NDY_MonthlyClosingUpdateArgs} args - Arguments to update one NDY_MonthlyClosing.
+     * @example
+     * // Update one NDY_MonthlyClosing
+     * const nDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NDY_MonthlyClosingUpdateArgs>(args: SelectSubset<T, NDY_MonthlyClosingUpdateArgs<ExtArgs>>): Prisma__NDY_MonthlyClosingClient<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more NDY_MonthlyClosings.
+     * @param {NDY_MonthlyClosingDeleteManyArgs} args - Arguments to filter NDY_MonthlyClosings to delete.
+     * @example
+     * // Delete a few NDY_MonthlyClosings
+     * const { count } = await prisma.nDY_MonthlyClosing.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NDY_MonthlyClosingDeleteManyArgs>(args?: SelectSubset<T, NDY_MonthlyClosingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NDY_MonthlyClosings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_MonthlyClosingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NDY_MonthlyClosings
+     * const nDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NDY_MonthlyClosingUpdateManyArgs>(args: SelectSubset<T, NDY_MonthlyClosingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NDY_MonthlyClosing.
+     * @param {NDY_MonthlyClosingUpsertArgs} args - Arguments to update or create a NDY_MonthlyClosing.
+     * @example
+     * // Update or create a NDY_MonthlyClosing
+     * const nDY_MonthlyClosing = await prisma.nDY_MonthlyClosing.upsert({
+     *   create: {
+     *     // ... data to create a NDY_MonthlyClosing
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NDY_MonthlyClosing we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NDY_MonthlyClosingUpsertArgs>(args: SelectSubset<T, NDY_MonthlyClosingUpsertArgs<ExtArgs>>): Prisma__NDY_MonthlyClosingClient<$Result.GetResult<Prisma.$NDY_MonthlyClosingPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of NDY_MonthlyClosings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_MonthlyClosingCountArgs} args - Arguments to filter NDY_MonthlyClosings to count.
+     * @example
+     * // Count the number of NDY_MonthlyClosings
+     * const count = await prisma.nDY_MonthlyClosing.count({
+     *   where: {
+     *     // ... the filter for the NDY_MonthlyClosings we want to count
+     *   }
+     * })
+    **/
+    count<T extends NDY_MonthlyClosingCountArgs>(
+      args?: Subset<T, NDY_MonthlyClosingCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NDY_MonthlyClosingCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NDY_MonthlyClosing.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_MonthlyClosingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NDY_MonthlyClosingAggregateArgs>(args: Subset<T, NDY_MonthlyClosingAggregateArgs>): Prisma.PrismaPromise<GetNDY_MonthlyClosingAggregateType<T>>
+
+    /**
+     * Group by NDY_MonthlyClosing.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NDY_MonthlyClosingGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NDY_MonthlyClosingGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NDY_MonthlyClosingGroupByArgs['orderBy'] }
+        : { orderBy?: NDY_MonthlyClosingGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NDY_MonthlyClosingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNDY_MonthlyClosingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NDY_MonthlyClosing model
+   */
+  readonly fields: NDY_MonthlyClosingFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NDY_MonthlyClosing.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NDY_MonthlyClosingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NDY_MonthlyClosing model
+   */ 
+  interface NDY_MonthlyClosingFieldRefs {
+    readonly id: FieldRef<"NDY_MonthlyClosing", 'String'>
+    readonly startDate: FieldRef<"NDY_MonthlyClosing", 'String'>
+    readonly endDate: FieldRef<"NDY_MonthlyClosing", 'String'>
+    readonly data: FieldRef<"NDY_MonthlyClosing", 'Json'>
+    readonly closedAt: FieldRef<"NDY_MonthlyClosing", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NDY_MonthlyClosing findUnique
+   */
+  export type NDY_MonthlyClosingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_MonthlyClosing to fetch.
+     */
+    where: NDY_MonthlyClosingWhereUniqueInput
+  }
+
+  /**
+   * NDY_MonthlyClosing findUniqueOrThrow
+   */
+  export type NDY_MonthlyClosingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_MonthlyClosing to fetch.
+     */
+    where: NDY_MonthlyClosingWhereUniqueInput
+  }
+
+  /**
+   * NDY_MonthlyClosing findFirst
+   */
+  export type NDY_MonthlyClosingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_MonthlyClosing to fetch.
+     */
+    where?: NDY_MonthlyClosingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_MonthlyClosings to fetch.
+     */
+    orderBy?: NDY_MonthlyClosingOrderByWithRelationInput | NDY_MonthlyClosingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_MonthlyClosings.
+     */
+    cursor?: NDY_MonthlyClosingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_MonthlyClosings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_MonthlyClosings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_MonthlyClosings.
+     */
+    distinct?: NDY_MonthlyClosingScalarFieldEnum | NDY_MonthlyClosingScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_MonthlyClosing findFirstOrThrow
+   */
+  export type NDY_MonthlyClosingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_MonthlyClosing to fetch.
+     */
+    where?: NDY_MonthlyClosingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_MonthlyClosings to fetch.
+     */
+    orderBy?: NDY_MonthlyClosingOrderByWithRelationInput | NDY_MonthlyClosingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NDY_MonthlyClosings.
+     */
+    cursor?: NDY_MonthlyClosingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_MonthlyClosings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_MonthlyClosings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NDY_MonthlyClosings.
+     */
+    distinct?: NDY_MonthlyClosingScalarFieldEnum | NDY_MonthlyClosingScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_MonthlyClosing findMany
+   */
+  export type NDY_MonthlyClosingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+    /**
+     * Filter, which NDY_MonthlyClosings to fetch.
+     */
+    where?: NDY_MonthlyClosingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NDY_MonthlyClosings to fetch.
+     */
+    orderBy?: NDY_MonthlyClosingOrderByWithRelationInput | NDY_MonthlyClosingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NDY_MonthlyClosings.
+     */
+    cursor?: NDY_MonthlyClosingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NDY_MonthlyClosings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NDY_MonthlyClosings.
+     */
+    skip?: number
+    distinct?: NDY_MonthlyClosingScalarFieldEnum | NDY_MonthlyClosingScalarFieldEnum[]
+  }
+
+  /**
+   * NDY_MonthlyClosing create
+   */
+  export type NDY_MonthlyClosingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+    /**
+     * The data needed to create a NDY_MonthlyClosing.
+     */
+    data: XOR<NDY_MonthlyClosingCreateInput, NDY_MonthlyClosingUncheckedCreateInput>
+  }
+
+  /**
+   * NDY_MonthlyClosing createMany
+   */
+  export type NDY_MonthlyClosingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NDY_MonthlyClosings.
+     */
+    data: NDY_MonthlyClosingCreateManyInput | NDY_MonthlyClosingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_MonthlyClosing createManyAndReturn
+   */
+  export type NDY_MonthlyClosingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many NDY_MonthlyClosings.
+     */
+    data: NDY_MonthlyClosingCreateManyInput | NDY_MonthlyClosingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NDY_MonthlyClosing update
+   */
+  export type NDY_MonthlyClosingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+    /**
+     * The data needed to update a NDY_MonthlyClosing.
+     */
+    data: XOR<NDY_MonthlyClosingUpdateInput, NDY_MonthlyClosingUncheckedUpdateInput>
+    /**
+     * Choose, which NDY_MonthlyClosing to update.
+     */
+    where: NDY_MonthlyClosingWhereUniqueInput
+  }
+
+  /**
+   * NDY_MonthlyClosing updateMany
+   */
+  export type NDY_MonthlyClosingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NDY_MonthlyClosings.
+     */
+    data: XOR<NDY_MonthlyClosingUpdateManyMutationInput, NDY_MonthlyClosingUncheckedUpdateManyInput>
+    /**
+     * Filter which NDY_MonthlyClosings to update
+     */
+    where?: NDY_MonthlyClosingWhereInput
+  }
+
+  /**
+   * NDY_MonthlyClosing upsert
+   */
+  export type NDY_MonthlyClosingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+    /**
+     * The filter to search for the NDY_MonthlyClosing to update in case it exists.
+     */
+    where: NDY_MonthlyClosingWhereUniqueInput
+    /**
+     * In case the NDY_MonthlyClosing found by the `where` argument doesn't exist, create a new NDY_MonthlyClosing with this data.
+     */
+    create: XOR<NDY_MonthlyClosingCreateInput, NDY_MonthlyClosingUncheckedCreateInput>
+    /**
+     * In case the NDY_MonthlyClosing was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NDY_MonthlyClosingUpdateInput, NDY_MonthlyClosingUncheckedUpdateInput>
+  }
+
+  /**
+   * NDY_MonthlyClosing delete
+   */
+  export type NDY_MonthlyClosingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+    /**
+     * Filter which NDY_MonthlyClosing to delete.
+     */
+    where: NDY_MonthlyClosingWhereUniqueInput
+  }
+
+  /**
+   * NDY_MonthlyClosing deleteMany
+   */
+  export type NDY_MonthlyClosingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NDY_MonthlyClosings to delete
+     */
+    where?: NDY_MonthlyClosingWhereInput
+  }
+
+  /**
+   * NDY_MonthlyClosing without action
+   */
+  export type NDY_MonthlyClosingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDY_MonthlyClosing
+     */
+    select?: NDY_MonthlyClosingSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Model Driver
    */
 
@@ -1395,6 +13947,7 @@ export namespace Prisma {
     memo: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    oldId: string | null
   }
 
   export type DriverMaxAggregateOutputType = {
@@ -1409,6 +13962,7 @@ export namespace Prisma {
     memo: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    oldId: string | null
   }
 
   export type DriverCountAggregateOutputType = {
@@ -1423,6 +13977,7 @@ export namespace Prisma {
     memo: number
     createdAt: number
     updatedAt: number
+    oldId: number
     _all: number
   }
 
@@ -1449,6 +14004,7 @@ export namespace Prisma {
     memo?: true
     createdAt?: true
     updatedAt?: true
+    oldId?: true
   }
 
   export type DriverMaxAggregateInputType = {
@@ -1463,6 +14019,7 @@ export namespace Prisma {
     memo?: true
     createdAt?: true
     updatedAt?: true
+    oldId?: true
   }
 
   export type DriverCountAggregateInputType = {
@@ -1477,6 +14034,7 @@ export namespace Prisma {
     memo?: true
     createdAt?: true
     updatedAt?: true
+    oldId?: true
     _all?: true
   }
 
@@ -1578,6 +14136,7 @@ export namespace Prisma {
     memo: string | null
     createdAt: Date
     updatedAt: Date
+    oldId: string | null
     _count: DriverCountAggregateOutputType | null
     _avg: DriverAvgAggregateOutputType | null
     _sum: DriverSumAggregateOutputType | null
@@ -1611,6 +14170,7 @@ export namespace Prisma {
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    oldId?: boolean
     Affiliation?: boolean | Driver$AffiliationArgs<ExtArgs>
   }, ExtArgs["result"]["driver"]>
 
@@ -1626,6 +14186,7 @@ export namespace Prisma {
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    oldId?: boolean
     Affiliation?: boolean | Driver$AffiliationArgs<ExtArgs>
   }, ExtArgs["result"]["driver"]>
 
@@ -1641,6 +14202,7 @@ export namespace Prisma {
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    oldId?: boolean
   }
 
   export type DriverInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1667,6 +14229,7 @@ export namespace Prisma {
       memo: string | null
       createdAt: Date
       updatedAt: Date
+      oldId: string | null
     }, ExtArgs["result"]["driver"]>
     composites: {}
   }
@@ -2072,6 +14635,7 @@ export namespace Prisma {
     readonly memo: FieldRef<"Driver", 'String'>
     readonly createdAt: FieldRef<"Driver", 'DateTime'>
     readonly updatedAt: FieldRef<"Driver", 'DateTime'>
+    readonly oldId: FieldRef<"Driver", 'String'>
   }
     
 
@@ -2468,6 +15032,7 @@ export namespace Prisma {
     contractId: number | null
     appliedTonnage: string | null
     createdAt: Date | null
+    oldId: string | null
   }
 
   export type SettlementHistoryMaxAggregateOutputType = {
@@ -2489,6 +15054,7 @@ export namespace Prisma {
     contractId: number | null
     appliedTonnage: string | null
     createdAt: Date | null
+    oldId: string | null
   }
 
   export type SettlementHistoryCountAggregateOutputType = {
@@ -2510,6 +15076,7 @@ export namespace Prisma {
     contractId: number
     appliedTonnage: number
     createdAt: number
+    oldId: number
     _all: number
   }
 
@@ -2551,6 +15118,7 @@ export namespace Prisma {
     contractId?: true
     appliedTonnage?: true
     createdAt?: true
+    oldId?: true
   }
 
   export type SettlementHistoryMaxAggregateInputType = {
@@ -2572,6 +15140,7 @@ export namespace Prisma {
     contractId?: true
     appliedTonnage?: true
     createdAt?: true
+    oldId?: true
   }
 
   export type SettlementHistoryCountAggregateInputType = {
@@ -2593,6 +15162,7 @@ export namespace Prisma {
     contractId?: true
     appliedTonnage?: true
     createdAt?: true
+    oldId?: true
     _all?: true
   }
 
@@ -2701,6 +15271,7 @@ export namespace Prisma {
     contractId: number | null
     appliedTonnage: string | null
     createdAt: Date
+    oldId: string | null
     _count: SettlementHistoryCountAggregateOutputType | null
     _avg: SettlementHistoryAvgAggregateOutputType | null
     _sum: SettlementHistorySumAggregateOutputType | null
@@ -2741,6 +15312,7 @@ export namespace Prisma {
     contractId?: boolean
     appliedTonnage?: boolean
     createdAt?: boolean
+    oldId?: boolean
     YongchaContract?: boolean | SettlementHistory$YongchaContractArgs<ExtArgs>
   }, ExtArgs["result"]["settlementHistory"]>
 
@@ -2763,6 +15335,7 @@ export namespace Prisma {
     contractId?: boolean
     appliedTonnage?: boolean
     createdAt?: boolean
+    oldId?: boolean
     YongchaContract?: boolean | SettlementHistory$YongchaContractArgs<ExtArgs>
   }, ExtArgs["result"]["settlementHistory"]>
 
@@ -2785,6 +15358,7 @@ export namespace Prisma {
     contractId?: boolean
     appliedTonnage?: boolean
     createdAt?: boolean
+    oldId?: boolean
   }
 
   export type SettlementHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2818,6 +15392,7 @@ export namespace Prisma {
       contractId: number | null
       appliedTonnage: string | null
       createdAt: Date
+      oldId: string | null
     }, ExtArgs["result"]["settlementHistory"]>
     composites: {}
   }
@@ -3230,6 +15805,7 @@ export namespace Prisma {
     readonly contractId: FieldRef<"SettlementHistory", 'Int'>
     readonly appliedTonnage: FieldRef<"SettlementHistory", 'String'>
     readonly createdAt: FieldRef<"SettlementHistory", 'DateTime'>
+    readonly oldId: FieldRef<"SettlementHistory", 'String'>
   }
     
 
@@ -3608,6 +16184,7 @@ export namespace Prisma {
     email: string | null
     memo: string | null
     createdAt: Date | null
+    oldId: string | null
   }
 
   export type AffiliationMaxAggregateOutputType = {
@@ -3621,6 +16198,7 @@ export namespace Prisma {
     email: string | null
     memo: string | null
     createdAt: Date | null
+    oldId: string | null
   }
 
   export type AffiliationCountAggregateOutputType = {
@@ -3634,6 +16212,7 @@ export namespace Prisma {
     email: number
     memo: number
     createdAt: number
+    oldId: number
     _all: number
   }
 
@@ -3657,6 +16236,7 @@ export namespace Prisma {
     email?: true
     memo?: true
     createdAt?: true
+    oldId?: true
   }
 
   export type AffiliationMaxAggregateInputType = {
@@ -3670,6 +16250,7 @@ export namespace Prisma {
     email?: true
     memo?: true
     createdAt?: true
+    oldId?: true
   }
 
   export type AffiliationCountAggregateInputType = {
@@ -3683,6 +16264,7 @@ export namespace Prisma {
     email?: true
     memo?: true
     createdAt?: true
+    oldId?: true
     _all?: true
   }
 
@@ -3783,6 +16365,7 @@ export namespace Prisma {
     email: string | null
     memo: string | null
     createdAt: Date
+    oldId: string | null
     _count: AffiliationCountAggregateOutputType | null
     _avg: AffiliationAvgAggregateOutputType | null
     _sum: AffiliationSumAggregateOutputType | null
@@ -3815,9 +16398,10 @@ export namespace Prisma {
     email?: boolean
     memo?: boolean
     createdAt?: boolean
+    oldId?: boolean
     Driver?: boolean | Affiliation$DriverArgs<ExtArgs>
-    YongchaContract?: boolean | Affiliation$YongchaContractArgs<ExtArgs>
     User?: boolean | Affiliation$UserArgs<ExtArgs>
+    YongchaContract?: boolean | Affiliation$YongchaContractArgs<ExtArgs>
     _count?: boolean | AffiliationCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["affiliation"]>
 
@@ -3832,6 +16416,7 @@ export namespace Prisma {
     email?: boolean
     memo?: boolean
     createdAt?: boolean
+    oldId?: boolean
   }, ExtArgs["result"]["affiliation"]>
 
   export type AffiliationSelectScalar = {
@@ -3845,12 +16430,13 @@ export namespace Prisma {
     email?: boolean
     memo?: boolean
     createdAt?: boolean
+    oldId?: boolean
   }
 
   export type AffiliationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Driver?: boolean | Affiliation$DriverArgs<ExtArgs>
-    YongchaContract?: boolean | Affiliation$YongchaContractArgs<ExtArgs>
     User?: boolean | Affiliation$UserArgs<ExtArgs>
+    YongchaContract?: boolean | Affiliation$YongchaContractArgs<ExtArgs>
     _count?: boolean | AffiliationCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type AffiliationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3859,8 +16445,8 @@ export namespace Prisma {
     name: "Affiliation"
     objects: {
       Driver: Prisma.$DriverPayload<ExtArgs>[]
-      YongchaContract: Prisma.$YongchaContractPayload<ExtArgs>[]
       User: Prisma.$UserPayload<ExtArgs>[]
+      YongchaContract: Prisma.$YongchaContractPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3873,6 +16459,7 @@ export namespace Prisma {
       email: string | null
       memo: string | null
       createdAt: Date
+      oldId: string | null
     }, ExtArgs["result"]["affiliation"]>
     composites: {}
   }
@@ -4238,8 +16825,8 @@ export namespace Prisma {
   export interface Prisma__AffiliationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Driver<T extends Affiliation$DriverArgs<ExtArgs> = {}>(args?: Subset<T, Affiliation$DriverArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DriverPayload<ExtArgs>, T, "findMany"> | Null>
-    YongchaContract<T extends Affiliation$YongchaContractArgs<ExtArgs> = {}>(args?: Subset<T, Affiliation$YongchaContractArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findMany"> | Null>
     User<T extends Affiliation$UserArgs<ExtArgs> = {}>(args?: Subset<T, Affiliation$UserArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
+    YongchaContract<T extends Affiliation$YongchaContractArgs<ExtArgs> = {}>(args?: Subset<T, Affiliation$YongchaContractArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YongchaContractPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4279,6 +16866,7 @@ export namespace Prisma {
     readonly email: FieldRef<"Affiliation", 'String'>
     readonly memo: FieldRef<"Affiliation", 'String'>
     readonly createdAt: FieldRef<"Affiliation", 'DateTime'>
+    readonly oldId: FieldRef<"Affiliation", 'String'>
   }
     
 
@@ -4613,26 +17201,6 @@ export namespace Prisma {
   }
 
   /**
-   * Affiliation.YongchaContract
-   */
-  export type Affiliation$YongchaContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the YongchaContract
-     */
-    select?: YongchaContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: YongchaContractInclude<ExtArgs> | null
-    where?: YongchaContractWhereInput
-    orderBy?: YongchaContractOrderByWithRelationInput | YongchaContractOrderByWithRelationInput[]
-    cursor?: YongchaContractWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: YongchaContractScalarFieldEnum | YongchaContractScalarFieldEnum[]
-  }
-
-  /**
    * Affiliation.User
    */
   export type Affiliation$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4650,6 +17218,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * Affiliation.YongchaContract
+   */
+  export type Affiliation$YongchaContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YongchaContract
+     */
+    select?: YongchaContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YongchaContractInclude<ExtArgs> | null
+    where?: YongchaContractWhereInput
+    orderBy?: YongchaContractOrderByWithRelationInput | YongchaContractOrderByWithRelationInput[]
+    cursor?: YongchaContractWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: YongchaContractScalarFieldEnum | YongchaContractScalarFieldEnum[]
   }
 
   /**
@@ -4698,6 +17286,7 @@ export namespace Prisma {
     affiliationId: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    oldId: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -4709,6 +17298,7 @@ export namespace Prisma {
     affiliationId: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    oldId: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -4720,6 +17310,7 @@ export namespace Prisma {
     affiliationId: number
     createdAt: number
     updatedAt: number
+    oldId: number
     _all: number
   }
 
@@ -4743,6 +17334,7 @@ export namespace Prisma {
     affiliationId?: true
     createdAt?: true
     updatedAt?: true
+    oldId?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -4754,6 +17346,7 @@ export namespace Prisma {
     affiliationId?: true
     createdAt?: true
     updatedAt?: true
+    oldId?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -4765,6 +17358,7 @@ export namespace Prisma {
     affiliationId?: true
     createdAt?: true
     updatedAt?: true
+    oldId?: true
     _all?: true
   }
 
@@ -4863,6 +17457,7 @@ export namespace Prisma {
     affiliationId: number | null
     createdAt: Date
     updatedAt: Date
+    oldId: string | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -4893,6 +17488,7 @@ export namespace Prisma {
     affiliationId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    oldId?: boolean
     Affiliation?: boolean | User$AffiliationArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -4905,6 +17501,7 @@ export namespace Prisma {
     affiliationId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    oldId?: boolean
     Affiliation?: boolean | User$AffiliationArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -4917,6 +17514,7 @@ export namespace Prisma {
     affiliationId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    oldId?: boolean
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4940,6 +17538,7 @@ export namespace Prisma {
       affiliationId: number | null
       createdAt: Date
       updatedAt: Date
+      oldId: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -5342,6 +17941,7 @@ export namespace Prisma {
     readonly affiliationId: FieldRef<"User", 'Int'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
+    readonly oldId: FieldRef<"User", 'String'>
   }
     
 
@@ -5723,6 +18323,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     memo: string | null
+    oldId: string | null
   }
 
   export type YongchaContractMaxAggregateOutputType = {
@@ -5735,6 +18336,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     memo: string | null
+    oldId: string | null
   }
 
   export type YongchaContractCountAggregateOutputType = {
@@ -5747,6 +18349,7 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     memo: number
+    oldId: number
     _all: number
   }
 
@@ -5773,6 +18376,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     memo?: true
+    oldId?: true
   }
 
   export type YongchaContractMaxAggregateInputType = {
@@ -5785,6 +18389,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     memo?: true
+    oldId?: true
   }
 
   export type YongchaContractCountAggregateInputType = {
@@ -5797,6 +18402,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     memo?: true
+    oldId?: true
     _all?: true
   }
 
@@ -5896,6 +18502,7 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     memo: string | null
+    oldId: string | null
     _count: YongchaContractCountAggregateOutputType | null
     _avg: YongchaContractAvgAggregateOutputType | null
     _sum: YongchaContractSumAggregateOutputType | null
@@ -5927,6 +18534,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     memo?: boolean
+    oldId?: boolean
     SettlementHistory?: boolean | YongchaContract$SettlementHistoryArgs<ExtArgs>
     Affiliation?: boolean | AffiliationDefaultArgs<ExtArgs>
     YongchaRateDetail?: boolean | YongchaContract$YongchaRateDetailArgs<ExtArgs>
@@ -5943,6 +18551,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     memo?: boolean
+    oldId?: boolean
     Affiliation?: boolean | AffiliationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["yongchaContract"]>
 
@@ -5956,6 +18565,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     memo?: boolean
+    oldId?: boolean
   }
 
   export type YongchaContractInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5985,6 +18595,7 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       memo: string | null
+      oldId: string | null
     }, ExtArgs["result"]["yongchaContract"]>
     composites: {}
   }
@@ -6390,6 +19001,7 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"YongchaContract", 'DateTime'>
     readonly updatedAt: FieldRef<"YongchaContract", 'DateTime'>
     readonly memo: FieldRef<"YongchaContract", 'String'>
+    readonly oldId: FieldRef<"YongchaContract", 'String'>
   }
     
 
@@ -6789,34 +19401,34 @@ export namespace Prisma {
   export type YongchaRateDetailMinAggregateOutputType = {
     id: number | null
     contractId: number | null
-    tonnage: string | null
     region: string | null
     price: number | null
     memo: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    oldId: string | null
   }
 
   export type YongchaRateDetailMaxAggregateOutputType = {
     id: number | null
     contractId: number | null
-    tonnage: string | null
     region: string | null
     price: number | null
     memo: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    oldId: string | null
   }
 
   export type YongchaRateDetailCountAggregateOutputType = {
     id: number
     contractId: number
-    tonnage: number
     region: number
     price: number
     memo: number
     createdAt: number
     updatedAt: number
+    oldId: number
     _all: number
   }
 
@@ -6836,34 +19448,34 @@ export namespace Prisma {
   export type YongchaRateDetailMinAggregateInputType = {
     id?: true
     contractId?: true
-    tonnage?: true
     region?: true
     price?: true
     memo?: true
     createdAt?: true
     updatedAt?: true
+    oldId?: true
   }
 
   export type YongchaRateDetailMaxAggregateInputType = {
     id?: true
     contractId?: true
-    tonnage?: true
     region?: true
     price?: true
     memo?: true
     createdAt?: true
     updatedAt?: true
+    oldId?: true
   }
 
   export type YongchaRateDetailCountAggregateInputType = {
     id?: true
     contractId?: true
-    tonnage?: true
     region?: true
     price?: true
     memo?: true
     createdAt?: true
     updatedAt?: true
+    oldId?: true
     _all?: true
   }
 
@@ -6956,12 +19568,12 @@ export namespace Prisma {
   export type YongchaRateDetailGroupByOutputType = {
     id: number
     contractId: number
-    tonnage: string | null
     region: string
     price: number
     memo: string | null
     createdAt: Date
     updatedAt: Date
+    oldId: string | null
     _count: YongchaRateDetailCountAggregateOutputType | null
     _avg: YongchaRateDetailAvgAggregateOutputType | null
     _sum: YongchaRateDetailSumAggregateOutputType | null
@@ -6986,36 +19598,36 @@ export namespace Prisma {
   export type YongchaRateDetailSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     contractId?: boolean
-    tonnage?: boolean
     region?: boolean
     price?: boolean
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    oldId?: boolean
     YongchaContract?: boolean | YongchaContractDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["yongchaRateDetail"]>
 
   export type YongchaRateDetailSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     contractId?: boolean
-    tonnage?: boolean
     region?: boolean
     price?: boolean
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    oldId?: boolean
     YongchaContract?: boolean | YongchaContractDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["yongchaRateDetail"]>
 
   export type YongchaRateDetailSelectScalar = {
     id?: boolean
     contractId?: boolean
-    tonnage?: boolean
     region?: boolean
     price?: boolean
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    oldId?: boolean
   }
 
   export type YongchaRateDetailInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7033,12 +19645,12 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       contractId: number
-      tonnage: string | null
       region: string
       price: number
       memo: string | null
       createdAt: Date
       updatedAt: Date
+      oldId: string | null
     }, ExtArgs["result"]["yongchaRateDetail"]>
     composites: {}
   }
@@ -7435,12 +20047,12 @@ export namespace Prisma {
   interface YongchaRateDetailFieldRefs {
     readonly id: FieldRef<"YongchaRateDetail", 'Int'>
     readonly contractId: FieldRef<"YongchaRateDetail", 'Int'>
-    readonly tonnage: FieldRef<"YongchaRateDetail", 'String'>
     readonly region: FieldRef<"YongchaRateDetail", 'String'>
     readonly price: FieldRef<"YongchaRateDetail", 'Int'>
     readonly memo: FieldRef<"YongchaRateDetail", 'String'>
     readonly createdAt: FieldRef<"YongchaRateDetail", 'DateTime'>
     readonly updatedAt: FieldRef<"YongchaRateDetail", 'DateTime'>
+    readonly oldId: FieldRef<"YongchaRateDetail", 'String'>
   }
     
 
@@ -7787,6 +20399,169 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+  export const NDY_BillingItemScalarFieldEnum: {
+    id: 'id',
+    code: 'code',
+    name: 'name',
+    billingRecipient: 'billingRecipient',
+    type: 'type',
+    mergeCriteria: 'mergeCriteria',
+    note: 'note',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type NDY_BillingItemScalarFieldEnum = (typeof NDY_BillingItemScalarFieldEnum)[keyof typeof NDY_BillingItemScalarFieldEnum]
+
+
+  export const NDY_BillingRateScalarFieldEnum: {
+    id: 'id',
+    itemId: 'itemId',
+    validFrom: 'validFrom',
+    validTo: 'validTo',
+    amount: 'amount',
+    note: 'note',
+    createdAt: 'createdAt'
+  };
+
+  export type NDY_BillingRateScalarFieldEnum = (typeof NDY_BillingRateScalarFieldEnum)[keyof typeof NDY_BillingRateScalarFieldEnum]
+
+
+  export const NDY_ConfigScalarFieldEnum: {
+    key: 'key',
+    data: 'data',
+    updatedAt: 'updatedAt'
+  };
+
+  export type NDY_ConfigScalarFieldEnum = (typeof NDY_ConfigScalarFieldEnum)[keyof typeof NDY_ConfigScalarFieldEnum]
+
+
+  export const NDY_DailySummaryScalarFieldEnum: {
+    id: 'id',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type NDY_DailySummaryScalarFieldEnum = (typeof NDY_DailySummaryScalarFieldEnum)[keyof typeof NDY_DailySummaryScalarFieldEnum]
+
+
+  export const NDY_DailySummaryItemScalarFieldEnum: {
+    id: 'id',
+    summaryId: 'summaryId',
+    placeName: 'placeName',
+    deliveryDays: 'deliveryDays',
+    totalAmount: 'totalAmount',
+    deliveryDates: 'deliveryDates'
+  };
+
+  export type NDY_DailySummaryItemScalarFieldEnum = (typeof NDY_DailySummaryItemScalarFieldEnum)[keyof typeof NDY_DailySummaryItemScalarFieldEnum]
+
+
+  export const NDY_EmergencyRateScalarFieldEnum: {
+    name: 'name',
+    rate: 'rate',
+    chung: 'chung',
+    updatedAt: 'updatedAt'
+  };
+
+  export type NDY_EmergencyRateScalarFieldEnum = (typeof NDY_EmergencyRateScalarFieldEnum)[keyof typeof NDY_EmergencyRateScalarFieldEnum]
+
+
+  export const NDY_EmergencySettlementScalarFieldEnum: {
+    id: 'id',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    name: 'name',
+    chung: 'chung',
+    count: 'count',
+    rate: 'rate',
+    total: 'total',
+    dates: 'dates',
+    createdAt: 'createdAt'
+  };
+
+  export type NDY_EmergencySettlementScalarFieldEnum = (typeof NDY_EmergencySettlementScalarFieldEnum)[keyof typeof NDY_EmergencySettlementScalarFieldEnum]
+
+
+  export const NDY_FixedSettlementScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    billingRecipient: 'billingRecipient',
+    amount: 'amount',
+    count: 'count',
+    rate: 'rate',
+    note: 'note',
+    createdAt: 'createdAt'
+  };
+
+  export type NDY_FixedSettlementScalarFieldEnum = (typeof NDY_FixedSettlementScalarFieldEnum)[keyof typeof NDY_FixedSettlementScalarFieldEnum]
+
+
+  export const NDY_GSSettlementScalarFieldEnum: {
+    id: 'id',
+    date: 'date',
+    code: 'code',
+    name: 'name',
+    qty: 'qty',
+    weight: 'weight',
+    amount: 'amount',
+    remarks: 'remarks',
+    modDate: 'modDate'
+  };
+
+  export type NDY_GSSettlementScalarFieldEnum = (typeof NDY_GSSettlementScalarFieldEnum)[keyof typeof NDY_GSSettlementScalarFieldEnum]
+
+
+  export const NDY_GSSummaryScalarFieldEnum: {
+    id: 'id',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    weekday: 'weekday',
+    saturday: 'saturday',
+    sunday: 'sunday',
+    extraTrucks: 'extraTrucks',
+    totalAmount: 'totalAmount',
+    dates: 'dates',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type NDY_GSSummaryScalarFieldEnum = (typeof NDY_GSSummaryScalarFieldEnum)[keyof typeof NDY_GSSummaryScalarFieldEnum]
+
+
+  export const NDY_InquirySettlementScalarFieldEnum: {
+    id: 'id',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    date: 'date',
+    name: 'name',
+    so: 'so',
+    nap: 'nap',
+    ton: 'ton',
+    kum: 'kum',
+    yo: 'yo',
+    chung: 'chung',
+    un: 'un',
+    memo: 'memo',
+    createdAt: 'createdAt'
+  };
+
+  export type NDY_InquirySettlementScalarFieldEnum = (typeof NDY_InquirySettlementScalarFieldEnum)[keyof typeof NDY_InquirySettlementScalarFieldEnum]
+
+
+  export const NDY_MonthlyClosingScalarFieldEnum: {
+    id: 'id',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    data: 'data',
+    closedAt: 'closedAt'
+  };
+
+  export type NDY_MonthlyClosingScalarFieldEnum = (typeof NDY_MonthlyClosingScalarFieldEnum)[keyof typeof NDY_MonthlyClosingScalarFieldEnum]
+
+
   export const DriverScalarFieldEnum: {
     id: 'id',
     name: 'name',
@@ -7798,7 +20573,8 @@ export namespace Prisma {
     address: 'address',
     memo: 'memo',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    oldId: 'oldId'
   };
 
   export type DriverScalarFieldEnum = (typeof DriverScalarFieldEnum)[keyof typeof DriverScalarFieldEnum]
@@ -7822,7 +20598,8 @@ export namespace Prisma {
     ton: 'ton',
     contractId: 'contractId',
     appliedTonnage: 'appliedTonnage',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    oldId: 'oldId'
   };
 
   export type SettlementHistoryScalarFieldEnum = (typeof SettlementHistoryScalarFieldEnum)[keyof typeof SettlementHistoryScalarFieldEnum]
@@ -7838,7 +20615,8 @@ export namespace Prisma {
     contact: 'contact',
     email: 'email',
     memo: 'memo',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    oldId: 'oldId'
   };
 
   export type AffiliationScalarFieldEnum = (typeof AffiliationScalarFieldEnum)[keyof typeof AffiliationScalarFieldEnum]
@@ -7852,7 +20630,8 @@ export namespace Prisma {
     role: 'role',
     affiliationId: 'affiliationId',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    oldId: 'oldId'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -7867,7 +20646,8 @@ export namespace Prisma {
     status: 'status',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    memo: 'memo'
+    memo: 'memo',
+    oldId: 'oldId'
   };
 
   export type YongchaContractScalarFieldEnum = (typeof YongchaContractScalarFieldEnum)[keyof typeof YongchaContractScalarFieldEnum]
@@ -7876,12 +20656,12 @@ export namespace Prisma {
   export const YongchaRateDetailScalarFieldEnum: {
     id: 'id',
     contractId: 'contractId',
-    tonnage: 'tonnage',
     region: 'region',
     price: 'price',
     memo: 'memo',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    oldId: 'oldId'
   };
 
   export type YongchaRateDetailScalarFieldEnum = (typeof YongchaRateDetailScalarFieldEnum)[keyof typeof YongchaRateDetailScalarFieldEnum]
@@ -7893,6 +20673,13 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const QueryMode: {
@@ -7911,23 +20698,18 @@ export namespace Prisma {
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
+
+
   /**
    * Field references 
    */
-
-
-  /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
 
 
   /**
@@ -7959,6 +20741,41 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -7982,6 +20799,819 @@ export namespace Prisma {
    */
 
 
+  export type NDY_BillingItemWhereInput = {
+    AND?: NDY_BillingItemWhereInput | NDY_BillingItemWhereInput[]
+    OR?: NDY_BillingItemWhereInput[]
+    NOT?: NDY_BillingItemWhereInput | NDY_BillingItemWhereInput[]
+    id?: StringFilter<"NDY_BillingItem"> | string
+    code?: StringFilter<"NDY_BillingItem"> | string
+    name?: StringFilter<"NDY_BillingItem"> | string
+    billingRecipient?: StringFilter<"NDY_BillingItem"> | string
+    type?: StringFilter<"NDY_BillingItem"> | string
+    mergeCriteria?: StringFilter<"NDY_BillingItem"> | string
+    note?: StringFilter<"NDY_BillingItem"> | string
+    createdAt?: DateTimeFilter<"NDY_BillingItem"> | Date | string
+    updatedAt?: DateTimeFilter<"NDY_BillingItem"> | Date | string
+    NDY_BillingRate?: NDY_BillingRateListRelationFilter
+  }
+
+  export type NDY_BillingItemOrderByWithRelationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    name?: SortOrder
+    billingRecipient?: SortOrder
+    type?: SortOrder
+    mergeCriteria?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    NDY_BillingRate?: NDY_BillingRateOrderByRelationAggregateInput
+  }
+
+  export type NDY_BillingItemWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NDY_BillingItemWhereInput | NDY_BillingItemWhereInput[]
+    OR?: NDY_BillingItemWhereInput[]
+    NOT?: NDY_BillingItemWhereInput | NDY_BillingItemWhereInput[]
+    code?: StringFilter<"NDY_BillingItem"> | string
+    name?: StringFilter<"NDY_BillingItem"> | string
+    billingRecipient?: StringFilter<"NDY_BillingItem"> | string
+    type?: StringFilter<"NDY_BillingItem"> | string
+    mergeCriteria?: StringFilter<"NDY_BillingItem"> | string
+    note?: StringFilter<"NDY_BillingItem"> | string
+    createdAt?: DateTimeFilter<"NDY_BillingItem"> | Date | string
+    updatedAt?: DateTimeFilter<"NDY_BillingItem"> | Date | string
+    NDY_BillingRate?: NDY_BillingRateListRelationFilter
+  }, "id">
+
+  export type NDY_BillingItemOrderByWithAggregationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    name?: SortOrder
+    billingRecipient?: SortOrder
+    type?: SortOrder
+    mergeCriteria?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: NDY_BillingItemCountOrderByAggregateInput
+    _max?: NDY_BillingItemMaxOrderByAggregateInput
+    _min?: NDY_BillingItemMinOrderByAggregateInput
+  }
+
+  export type NDY_BillingItemScalarWhereWithAggregatesInput = {
+    AND?: NDY_BillingItemScalarWhereWithAggregatesInput | NDY_BillingItemScalarWhereWithAggregatesInput[]
+    OR?: NDY_BillingItemScalarWhereWithAggregatesInput[]
+    NOT?: NDY_BillingItemScalarWhereWithAggregatesInput | NDY_BillingItemScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_BillingItem"> | string
+    code?: StringWithAggregatesFilter<"NDY_BillingItem"> | string
+    name?: StringWithAggregatesFilter<"NDY_BillingItem"> | string
+    billingRecipient?: StringWithAggregatesFilter<"NDY_BillingItem"> | string
+    type?: StringWithAggregatesFilter<"NDY_BillingItem"> | string
+    mergeCriteria?: StringWithAggregatesFilter<"NDY_BillingItem"> | string
+    note?: StringWithAggregatesFilter<"NDY_BillingItem"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"NDY_BillingItem"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"NDY_BillingItem"> | Date | string
+  }
+
+  export type NDY_BillingRateWhereInput = {
+    AND?: NDY_BillingRateWhereInput | NDY_BillingRateWhereInput[]
+    OR?: NDY_BillingRateWhereInput[]
+    NOT?: NDY_BillingRateWhereInput | NDY_BillingRateWhereInput[]
+    id?: StringFilter<"NDY_BillingRate"> | string
+    itemId?: StringFilter<"NDY_BillingRate"> | string
+    validFrom?: StringFilter<"NDY_BillingRate"> | string
+    validTo?: StringNullableFilter<"NDY_BillingRate"> | string | null
+    amount?: IntFilter<"NDY_BillingRate"> | number
+    note?: StringFilter<"NDY_BillingRate"> | string
+    createdAt?: DateTimeFilter<"NDY_BillingRate"> | Date | string
+    NDY_BillingItem?: XOR<NDY_BillingItemRelationFilter, NDY_BillingItemWhereInput>
+  }
+
+  export type NDY_BillingRateOrderByWithRelationInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    validFrom?: SortOrder
+    validTo?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    NDY_BillingItem?: NDY_BillingItemOrderByWithRelationInput
+  }
+
+  export type NDY_BillingRateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NDY_BillingRateWhereInput | NDY_BillingRateWhereInput[]
+    OR?: NDY_BillingRateWhereInput[]
+    NOT?: NDY_BillingRateWhereInput | NDY_BillingRateWhereInput[]
+    itemId?: StringFilter<"NDY_BillingRate"> | string
+    validFrom?: StringFilter<"NDY_BillingRate"> | string
+    validTo?: StringNullableFilter<"NDY_BillingRate"> | string | null
+    amount?: IntFilter<"NDY_BillingRate"> | number
+    note?: StringFilter<"NDY_BillingRate"> | string
+    createdAt?: DateTimeFilter<"NDY_BillingRate"> | Date | string
+    NDY_BillingItem?: XOR<NDY_BillingItemRelationFilter, NDY_BillingItemWhereInput>
+  }, "id">
+
+  export type NDY_BillingRateOrderByWithAggregationInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    validFrom?: SortOrder
+    validTo?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    _count?: NDY_BillingRateCountOrderByAggregateInput
+    _avg?: NDY_BillingRateAvgOrderByAggregateInput
+    _max?: NDY_BillingRateMaxOrderByAggregateInput
+    _min?: NDY_BillingRateMinOrderByAggregateInput
+    _sum?: NDY_BillingRateSumOrderByAggregateInput
+  }
+
+  export type NDY_BillingRateScalarWhereWithAggregatesInput = {
+    AND?: NDY_BillingRateScalarWhereWithAggregatesInput | NDY_BillingRateScalarWhereWithAggregatesInput[]
+    OR?: NDY_BillingRateScalarWhereWithAggregatesInput[]
+    NOT?: NDY_BillingRateScalarWhereWithAggregatesInput | NDY_BillingRateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_BillingRate"> | string
+    itemId?: StringWithAggregatesFilter<"NDY_BillingRate"> | string
+    validFrom?: StringWithAggregatesFilter<"NDY_BillingRate"> | string
+    validTo?: StringNullableWithAggregatesFilter<"NDY_BillingRate"> | string | null
+    amount?: IntWithAggregatesFilter<"NDY_BillingRate"> | number
+    note?: StringWithAggregatesFilter<"NDY_BillingRate"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"NDY_BillingRate"> | Date | string
+  }
+
+  export type NDY_ConfigWhereInput = {
+    AND?: NDY_ConfigWhereInput | NDY_ConfigWhereInput[]
+    OR?: NDY_ConfigWhereInput[]
+    NOT?: NDY_ConfigWhereInput | NDY_ConfigWhereInput[]
+    key?: StringFilter<"NDY_Config"> | string
+    data?: JsonFilter<"NDY_Config">
+    updatedAt?: DateTimeFilter<"NDY_Config"> | Date | string
+  }
+
+  export type NDY_ConfigOrderByWithRelationInput = {
+    key?: SortOrder
+    data?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_ConfigWhereUniqueInput = Prisma.AtLeast<{
+    key?: string
+    AND?: NDY_ConfigWhereInput | NDY_ConfigWhereInput[]
+    OR?: NDY_ConfigWhereInput[]
+    NOT?: NDY_ConfigWhereInput | NDY_ConfigWhereInput[]
+    data?: JsonFilter<"NDY_Config">
+    updatedAt?: DateTimeFilter<"NDY_Config"> | Date | string
+  }, "key">
+
+  export type NDY_ConfigOrderByWithAggregationInput = {
+    key?: SortOrder
+    data?: SortOrder
+    updatedAt?: SortOrder
+    _count?: NDY_ConfigCountOrderByAggregateInput
+    _max?: NDY_ConfigMaxOrderByAggregateInput
+    _min?: NDY_ConfigMinOrderByAggregateInput
+  }
+
+  export type NDY_ConfigScalarWhereWithAggregatesInput = {
+    AND?: NDY_ConfigScalarWhereWithAggregatesInput | NDY_ConfigScalarWhereWithAggregatesInput[]
+    OR?: NDY_ConfigScalarWhereWithAggregatesInput[]
+    NOT?: NDY_ConfigScalarWhereWithAggregatesInput | NDY_ConfigScalarWhereWithAggregatesInput[]
+    key?: StringWithAggregatesFilter<"NDY_Config"> | string
+    data?: JsonWithAggregatesFilter<"NDY_Config">
+    updatedAt?: DateTimeWithAggregatesFilter<"NDY_Config"> | Date | string
+  }
+
+  export type NDY_DailySummaryWhereInput = {
+    AND?: NDY_DailySummaryWhereInput | NDY_DailySummaryWhereInput[]
+    OR?: NDY_DailySummaryWhereInput[]
+    NOT?: NDY_DailySummaryWhereInput | NDY_DailySummaryWhereInput[]
+    id?: StringFilter<"NDY_DailySummary"> | string
+    startDate?: StringFilter<"NDY_DailySummary"> | string
+    endDate?: StringFilter<"NDY_DailySummary"> | string
+    createdAt?: DateTimeFilter<"NDY_DailySummary"> | Date | string
+    updatedAt?: DateTimeFilter<"NDY_DailySummary"> | Date | string
+    NDY_DailySummaryItem?: NDY_DailySummaryItemListRelationFilter
+  }
+
+  export type NDY_DailySummaryOrderByWithRelationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    NDY_DailySummaryItem?: NDY_DailySummaryItemOrderByRelationAggregateInput
+  }
+
+  export type NDY_DailySummaryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    startDate_endDate?: NDY_DailySummaryStartDateEndDateCompoundUniqueInput
+    AND?: NDY_DailySummaryWhereInput | NDY_DailySummaryWhereInput[]
+    OR?: NDY_DailySummaryWhereInput[]
+    NOT?: NDY_DailySummaryWhereInput | NDY_DailySummaryWhereInput[]
+    startDate?: StringFilter<"NDY_DailySummary"> | string
+    endDate?: StringFilter<"NDY_DailySummary"> | string
+    createdAt?: DateTimeFilter<"NDY_DailySummary"> | Date | string
+    updatedAt?: DateTimeFilter<"NDY_DailySummary"> | Date | string
+    NDY_DailySummaryItem?: NDY_DailySummaryItemListRelationFilter
+  }, "id" | "startDate_endDate">
+
+  export type NDY_DailySummaryOrderByWithAggregationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: NDY_DailySummaryCountOrderByAggregateInput
+    _max?: NDY_DailySummaryMaxOrderByAggregateInput
+    _min?: NDY_DailySummaryMinOrderByAggregateInput
+  }
+
+  export type NDY_DailySummaryScalarWhereWithAggregatesInput = {
+    AND?: NDY_DailySummaryScalarWhereWithAggregatesInput | NDY_DailySummaryScalarWhereWithAggregatesInput[]
+    OR?: NDY_DailySummaryScalarWhereWithAggregatesInput[]
+    NOT?: NDY_DailySummaryScalarWhereWithAggregatesInput | NDY_DailySummaryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_DailySummary"> | string
+    startDate?: StringWithAggregatesFilter<"NDY_DailySummary"> | string
+    endDate?: StringWithAggregatesFilter<"NDY_DailySummary"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"NDY_DailySummary"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"NDY_DailySummary"> | Date | string
+  }
+
+  export type NDY_DailySummaryItemWhereInput = {
+    AND?: NDY_DailySummaryItemWhereInput | NDY_DailySummaryItemWhereInput[]
+    OR?: NDY_DailySummaryItemWhereInput[]
+    NOT?: NDY_DailySummaryItemWhereInput | NDY_DailySummaryItemWhereInput[]
+    id?: StringFilter<"NDY_DailySummaryItem"> | string
+    summaryId?: StringFilter<"NDY_DailySummaryItem"> | string
+    placeName?: StringFilter<"NDY_DailySummaryItem"> | string
+    deliveryDays?: IntFilter<"NDY_DailySummaryItem"> | number
+    totalAmount?: IntFilter<"NDY_DailySummaryItem"> | number
+    deliveryDates?: StringNullableListFilter<"NDY_DailySummaryItem">
+    NDY_DailySummary?: XOR<NDY_DailySummaryRelationFilter, NDY_DailySummaryWhereInput>
+  }
+
+  export type NDY_DailySummaryItemOrderByWithRelationInput = {
+    id?: SortOrder
+    summaryId?: SortOrder
+    placeName?: SortOrder
+    deliveryDays?: SortOrder
+    totalAmount?: SortOrder
+    deliveryDates?: SortOrder
+    NDY_DailySummary?: NDY_DailySummaryOrderByWithRelationInput
+  }
+
+  export type NDY_DailySummaryItemWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NDY_DailySummaryItemWhereInput | NDY_DailySummaryItemWhereInput[]
+    OR?: NDY_DailySummaryItemWhereInput[]
+    NOT?: NDY_DailySummaryItemWhereInput | NDY_DailySummaryItemWhereInput[]
+    summaryId?: StringFilter<"NDY_DailySummaryItem"> | string
+    placeName?: StringFilter<"NDY_DailySummaryItem"> | string
+    deliveryDays?: IntFilter<"NDY_DailySummaryItem"> | number
+    totalAmount?: IntFilter<"NDY_DailySummaryItem"> | number
+    deliveryDates?: StringNullableListFilter<"NDY_DailySummaryItem">
+    NDY_DailySummary?: XOR<NDY_DailySummaryRelationFilter, NDY_DailySummaryWhereInput>
+  }, "id">
+
+  export type NDY_DailySummaryItemOrderByWithAggregationInput = {
+    id?: SortOrder
+    summaryId?: SortOrder
+    placeName?: SortOrder
+    deliveryDays?: SortOrder
+    totalAmount?: SortOrder
+    deliveryDates?: SortOrder
+    _count?: NDY_DailySummaryItemCountOrderByAggregateInput
+    _avg?: NDY_DailySummaryItemAvgOrderByAggregateInput
+    _max?: NDY_DailySummaryItemMaxOrderByAggregateInput
+    _min?: NDY_DailySummaryItemMinOrderByAggregateInput
+    _sum?: NDY_DailySummaryItemSumOrderByAggregateInput
+  }
+
+  export type NDY_DailySummaryItemScalarWhereWithAggregatesInput = {
+    AND?: NDY_DailySummaryItemScalarWhereWithAggregatesInput | NDY_DailySummaryItemScalarWhereWithAggregatesInput[]
+    OR?: NDY_DailySummaryItemScalarWhereWithAggregatesInput[]
+    NOT?: NDY_DailySummaryItemScalarWhereWithAggregatesInput | NDY_DailySummaryItemScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_DailySummaryItem"> | string
+    summaryId?: StringWithAggregatesFilter<"NDY_DailySummaryItem"> | string
+    placeName?: StringWithAggregatesFilter<"NDY_DailySummaryItem"> | string
+    deliveryDays?: IntWithAggregatesFilter<"NDY_DailySummaryItem"> | number
+    totalAmount?: IntWithAggregatesFilter<"NDY_DailySummaryItem"> | number
+    deliveryDates?: StringNullableListFilter<"NDY_DailySummaryItem">
+  }
+
+  export type NDY_EmergencyRateWhereInput = {
+    AND?: NDY_EmergencyRateWhereInput | NDY_EmergencyRateWhereInput[]
+    OR?: NDY_EmergencyRateWhereInput[]
+    NOT?: NDY_EmergencyRateWhereInput | NDY_EmergencyRateWhereInput[]
+    name?: StringFilter<"NDY_EmergencyRate"> | string
+    rate?: IntFilter<"NDY_EmergencyRate"> | number
+    chung?: StringFilter<"NDY_EmergencyRate"> | string
+    updatedAt?: DateTimeFilter<"NDY_EmergencyRate"> | Date | string
+  }
+
+  export type NDY_EmergencyRateOrderByWithRelationInput = {
+    name?: SortOrder
+    rate?: SortOrder
+    chung?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_EmergencyRateWhereUniqueInput = Prisma.AtLeast<{
+    name?: string
+    AND?: NDY_EmergencyRateWhereInput | NDY_EmergencyRateWhereInput[]
+    OR?: NDY_EmergencyRateWhereInput[]
+    NOT?: NDY_EmergencyRateWhereInput | NDY_EmergencyRateWhereInput[]
+    rate?: IntFilter<"NDY_EmergencyRate"> | number
+    chung?: StringFilter<"NDY_EmergencyRate"> | string
+    updatedAt?: DateTimeFilter<"NDY_EmergencyRate"> | Date | string
+  }, "name">
+
+  export type NDY_EmergencyRateOrderByWithAggregationInput = {
+    name?: SortOrder
+    rate?: SortOrder
+    chung?: SortOrder
+    updatedAt?: SortOrder
+    _count?: NDY_EmergencyRateCountOrderByAggregateInput
+    _avg?: NDY_EmergencyRateAvgOrderByAggregateInput
+    _max?: NDY_EmergencyRateMaxOrderByAggregateInput
+    _min?: NDY_EmergencyRateMinOrderByAggregateInput
+    _sum?: NDY_EmergencyRateSumOrderByAggregateInput
+  }
+
+  export type NDY_EmergencyRateScalarWhereWithAggregatesInput = {
+    AND?: NDY_EmergencyRateScalarWhereWithAggregatesInput | NDY_EmergencyRateScalarWhereWithAggregatesInput[]
+    OR?: NDY_EmergencyRateScalarWhereWithAggregatesInput[]
+    NOT?: NDY_EmergencyRateScalarWhereWithAggregatesInput | NDY_EmergencyRateScalarWhereWithAggregatesInput[]
+    name?: StringWithAggregatesFilter<"NDY_EmergencyRate"> | string
+    rate?: IntWithAggregatesFilter<"NDY_EmergencyRate"> | number
+    chung?: StringWithAggregatesFilter<"NDY_EmergencyRate"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"NDY_EmergencyRate"> | Date | string
+  }
+
+  export type NDY_EmergencySettlementWhereInput = {
+    AND?: NDY_EmergencySettlementWhereInput | NDY_EmergencySettlementWhereInput[]
+    OR?: NDY_EmergencySettlementWhereInput[]
+    NOT?: NDY_EmergencySettlementWhereInput | NDY_EmergencySettlementWhereInput[]
+    id?: StringFilter<"NDY_EmergencySettlement"> | string
+    startDate?: StringFilter<"NDY_EmergencySettlement"> | string
+    endDate?: StringFilter<"NDY_EmergencySettlement"> | string
+    name?: StringFilter<"NDY_EmergencySettlement"> | string
+    chung?: StringFilter<"NDY_EmergencySettlement"> | string
+    count?: IntFilter<"NDY_EmergencySettlement"> | number
+    rate?: IntFilter<"NDY_EmergencySettlement"> | number
+    total?: IntFilter<"NDY_EmergencySettlement"> | number
+    dates?: StringNullableListFilter<"NDY_EmergencySettlement">
+    createdAt?: DateTimeFilter<"NDY_EmergencySettlement"> | Date | string
+  }
+
+  export type NDY_EmergencySettlementOrderByWithRelationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    name?: SortOrder
+    chung?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    total?: SortOrder
+    dates?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_EmergencySettlementWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    startDate_endDate_name?: NDY_EmergencySettlementStartDateEndDateNameCompoundUniqueInput
+    AND?: NDY_EmergencySettlementWhereInput | NDY_EmergencySettlementWhereInput[]
+    OR?: NDY_EmergencySettlementWhereInput[]
+    NOT?: NDY_EmergencySettlementWhereInput | NDY_EmergencySettlementWhereInput[]
+    startDate?: StringFilter<"NDY_EmergencySettlement"> | string
+    endDate?: StringFilter<"NDY_EmergencySettlement"> | string
+    name?: StringFilter<"NDY_EmergencySettlement"> | string
+    chung?: StringFilter<"NDY_EmergencySettlement"> | string
+    count?: IntFilter<"NDY_EmergencySettlement"> | number
+    rate?: IntFilter<"NDY_EmergencySettlement"> | number
+    total?: IntFilter<"NDY_EmergencySettlement"> | number
+    dates?: StringNullableListFilter<"NDY_EmergencySettlement">
+    createdAt?: DateTimeFilter<"NDY_EmergencySettlement"> | Date | string
+  }, "id" | "startDate_endDate_name">
+
+  export type NDY_EmergencySettlementOrderByWithAggregationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    name?: SortOrder
+    chung?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    total?: SortOrder
+    dates?: SortOrder
+    createdAt?: SortOrder
+    _count?: NDY_EmergencySettlementCountOrderByAggregateInput
+    _avg?: NDY_EmergencySettlementAvgOrderByAggregateInput
+    _max?: NDY_EmergencySettlementMaxOrderByAggregateInput
+    _min?: NDY_EmergencySettlementMinOrderByAggregateInput
+    _sum?: NDY_EmergencySettlementSumOrderByAggregateInput
+  }
+
+  export type NDY_EmergencySettlementScalarWhereWithAggregatesInput = {
+    AND?: NDY_EmergencySettlementScalarWhereWithAggregatesInput | NDY_EmergencySettlementScalarWhereWithAggregatesInput[]
+    OR?: NDY_EmergencySettlementScalarWhereWithAggregatesInput[]
+    NOT?: NDY_EmergencySettlementScalarWhereWithAggregatesInput | NDY_EmergencySettlementScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_EmergencySettlement"> | string
+    startDate?: StringWithAggregatesFilter<"NDY_EmergencySettlement"> | string
+    endDate?: StringWithAggregatesFilter<"NDY_EmergencySettlement"> | string
+    name?: StringWithAggregatesFilter<"NDY_EmergencySettlement"> | string
+    chung?: StringWithAggregatesFilter<"NDY_EmergencySettlement"> | string
+    count?: IntWithAggregatesFilter<"NDY_EmergencySettlement"> | number
+    rate?: IntWithAggregatesFilter<"NDY_EmergencySettlement"> | number
+    total?: IntWithAggregatesFilter<"NDY_EmergencySettlement"> | number
+    dates?: StringNullableListFilter<"NDY_EmergencySettlement">
+    createdAt?: DateTimeWithAggregatesFilter<"NDY_EmergencySettlement"> | Date | string
+  }
+
+  export type NDY_FixedSettlementWhereInput = {
+    AND?: NDY_FixedSettlementWhereInput | NDY_FixedSettlementWhereInput[]
+    OR?: NDY_FixedSettlementWhereInput[]
+    NOT?: NDY_FixedSettlementWhereInput | NDY_FixedSettlementWhereInput[]
+    id?: StringFilter<"NDY_FixedSettlement"> | string
+    name?: StringFilter<"NDY_FixedSettlement"> | string
+    billingRecipient?: StringFilter<"NDY_FixedSettlement"> | string
+    amount?: IntFilter<"NDY_FixedSettlement"> | number
+    count?: IntFilter<"NDY_FixedSettlement"> | number
+    rate?: IntFilter<"NDY_FixedSettlement"> | number
+    note?: StringNullableFilter<"NDY_FixedSettlement"> | string | null
+    createdAt?: DateTimeFilter<"NDY_FixedSettlement"> | Date | string
+  }
+
+  export type NDY_FixedSettlementOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    billingRecipient?: SortOrder
+    amount?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    note?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_FixedSettlementWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NDY_FixedSettlementWhereInput | NDY_FixedSettlementWhereInput[]
+    OR?: NDY_FixedSettlementWhereInput[]
+    NOT?: NDY_FixedSettlementWhereInput | NDY_FixedSettlementWhereInput[]
+    name?: StringFilter<"NDY_FixedSettlement"> | string
+    billingRecipient?: StringFilter<"NDY_FixedSettlement"> | string
+    amount?: IntFilter<"NDY_FixedSettlement"> | number
+    count?: IntFilter<"NDY_FixedSettlement"> | number
+    rate?: IntFilter<"NDY_FixedSettlement"> | number
+    note?: StringNullableFilter<"NDY_FixedSettlement"> | string | null
+    createdAt?: DateTimeFilter<"NDY_FixedSettlement"> | Date | string
+  }, "id">
+
+  export type NDY_FixedSettlementOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    billingRecipient?: SortOrder
+    amount?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    note?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: NDY_FixedSettlementCountOrderByAggregateInput
+    _avg?: NDY_FixedSettlementAvgOrderByAggregateInput
+    _max?: NDY_FixedSettlementMaxOrderByAggregateInput
+    _min?: NDY_FixedSettlementMinOrderByAggregateInput
+    _sum?: NDY_FixedSettlementSumOrderByAggregateInput
+  }
+
+  export type NDY_FixedSettlementScalarWhereWithAggregatesInput = {
+    AND?: NDY_FixedSettlementScalarWhereWithAggregatesInput | NDY_FixedSettlementScalarWhereWithAggregatesInput[]
+    OR?: NDY_FixedSettlementScalarWhereWithAggregatesInput[]
+    NOT?: NDY_FixedSettlementScalarWhereWithAggregatesInput | NDY_FixedSettlementScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_FixedSettlement"> | string
+    name?: StringWithAggregatesFilter<"NDY_FixedSettlement"> | string
+    billingRecipient?: StringWithAggregatesFilter<"NDY_FixedSettlement"> | string
+    amount?: IntWithAggregatesFilter<"NDY_FixedSettlement"> | number
+    count?: IntWithAggregatesFilter<"NDY_FixedSettlement"> | number
+    rate?: IntWithAggregatesFilter<"NDY_FixedSettlement"> | number
+    note?: StringNullableWithAggregatesFilter<"NDY_FixedSettlement"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"NDY_FixedSettlement"> | Date | string
+  }
+
+  export type NDY_GSSettlementWhereInput = {
+    AND?: NDY_GSSettlementWhereInput | NDY_GSSettlementWhereInput[]
+    OR?: NDY_GSSettlementWhereInput[]
+    NOT?: NDY_GSSettlementWhereInput | NDY_GSSettlementWhereInput[]
+    id?: StringFilter<"NDY_GSSettlement"> | string
+    date?: StringFilter<"NDY_GSSettlement"> | string
+    code?: StringFilter<"NDY_GSSettlement"> | string
+    name?: StringNullableFilter<"NDY_GSSettlement"> | string | null
+    qty?: DecimalFilter<"NDY_GSSettlement"> | Decimal | DecimalJsLike | number | string
+    weight?: DecimalFilter<"NDY_GSSettlement"> | Decimal | DecimalJsLike | number | string
+    amount?: IntFilter<"NDY_GSSettlement"> | number
+    remarks?: StringNullableFilter<"NDY_GSSettlement"> | string | null
+    modDate?: DateTimeFilter<"NDY_GSSettlement"> | Date | string
+  }
+
+  export type NDY_GSSettlementOrderByWithRelationInput = {
+    id?: SortOrder
+    date?: SortOrder
+    code?: SortOrder
+    name?: SortOrderInput | SortOrder
+    qty?: SortOrder
+    weight?: SortOrder
+    amount?: SortOrder
+    remarks?: SortOrderInput | SortOrder
+    modDate?: SortOrder
+  }
+
+  export type NDY_GSSettlementWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    date_code?: NDY_GSSettlementDateCodeCompoundUniqueInput
+    AND?: NDY_GSSettlementWhereInput | NDY_GSSettlementWhereInput[]
+    OR?: NDY_GSSettlementWhereInput[]
+    NOT?: NDY_GSSettlementWhereInput | NDY_GSSettlementWhereInput[]
+    date?: StringFilter<"NDY_GSSettlement"> | string
+    code?: StringFilter<"NDY_GSSettlement"> | string
+    name?: StringNullableFilter<"NDY_GSSettlement"> | string | null
+    qty?: DecimalFilter<"NDY_GSSettlement"> | Decimal | DecimalJsLike | number | string
+    weight?: DecimalFilter<"NDY_GSSettlement"> | Decimal | DecimalJsLike | number | string
+    amount?: IntFilter<"NDY_GSSettlement"> | number
+    remarks?: StringNullableFilter<"NDY_GSSettlement"> | string | null
+    modDate?: DateTimeFilter<"NDY_GSSettlement"> | Date | string
+  }, "id" | "date_code">
+
+  export type NDY_GSSettlementOrderByWithAggregationInput = {
+    id?: SortOrder
+    date?: SortOrder
+    code?: SortOrder
+    name?: SortOrderInput | SortOrder
+    qty?: SortOrder
+    weight?: SortOrder
+    amount?: SortOrder
+    remarks?: SortOrderInput | SortOrder
+    modDate?: SortOrder
+    _count?: NDY_GSSettlementCountOrderByAggregateInput
+    _avg?: NDY_GSSettlementAvgOrderByAggregateInput
+    _max?: NDY_GSSettlementMaxOrderByAggregateInput
+    _min?: NDY_GSSettlementMinOrderByAggregateInput
+    _sum?: NDY_GSSettlementSumOrderByAggregateInput
+  }
+
+  export type NDY_GSSettlementScalarWhereWithAggregatesInput = {
+    AND?: NDY_GSSettlementScalarWhereWithAggregatesInput | NDY_GSSettlementScalarWhereWithAggregatesInput[]
+    OR?: NDY_GSSettlementScalarWhereWithAggregatesInput[]
+    NOT?: NDY_GSSettlementScalarWhereWithAggregatesInput | NDY_GSSettlementScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_GSSettlement"> | string
+    date?: StringWithAggregatesFilter<"NDY_GSSettlement"> | string
+    code?: StringWithAggregatesFilter<"NDY_GSSettlement"> | string
+    name?: StringNullableWithAggregatesFilter<"NDY_GSSettlement"> | string | null
+    qty?: DecimalWithAggregatesFilter<"NDY_GSSettlement"> | Decimal | DecimalJsLike | number | string
+    weight?: DecimalWithAggregatesFilter<"NDY_GSSettlement"> | Decimal | DecimalJsLike | number | string
+    amount?: IntWithAggregatesFilter<"NDY_GSSettlement"> | number
+    remarks?: StringNullableWithAggregatesFilter<"NDY_GSSettlement"> | string | null
+    modDate?: DateTimeWithAggregatesFilter<"NDY_GSSettlement"> | Date | string
+  }
+
+  export type NDY_GSSummaryWhereInput = {
+    AND?: NDY_GSSummaryWhereInput | NDY_GSSummaryWhereInput[]
+    OR?: NDY_GSSummaryWhereInput[]
+    NOT?: NDY_GSSummaryWhereInput | NDY_GSSummaryWhereInput[]
+    id?: StringFilter<"NDY_GSSummary"> | string
+    startDate?: StringFilter<"NDY_GSSummary"> | string
+    endDate?: StringFilter<"NDY_GSSummary"> | string
+    weekday?: IntFilter<"NDY_GSSummary"> | number
+    saturday?: IntFilter<"NDY_GSSummary"> | number
+    sunday?: IntFilter<"NDY_GSSummary"> | number
+    extraTrucks?: IntFilter<"NDY_GSSummary"> | number
+    totalAmount?: IntFilter<"NDY_GSSummary"> | number
+    dates?: StringNullableListFilter<"NDY_GSSummary">
+    createdAt?: DateTimeFilter<"NDY_GSSummary"> | Date | string
+    updatedAt?: DateTimeFilter<"NDY_GSSummary"> | Date | string
+  }
+
+  export type NDY_GSSummaryOrderByWithRelationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    weekday?: SortOrder
+    saturday?: SortOrder
+    sunday?: SortOrder
+    extraTrucks?: SortOrder
+    totalAmount?: SortOrder
+    dates?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_GSSummaryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    startDate_endDate?: NDY_GSSummaryStartDateEndDateCompoundUniqueInput
+    AND?: NDY_GSSummaryWhereInput | NDY_GSSummaryWhereInput[]
+    OR?: NDY_GSSummaryWhereInput[]
+    NOT?: NDY_GSSummaryWhereInput | NDY_GSSummaryWhereInput[]
+    startDate?: StringFilter<"NDY_GSSummary"> | string
+    endDate?: StringFilter<"NDY_GSSummary"> | string
+    weekday?: IntFilter<"NDY_GSSummary"> | number
+    saturday?: IntFilter<"NDY_GSSummary"> | number
+    sunday?: IntFilter<"NDY_GSSummary"> | number
+    extraTrucks?: IntFilter<"NDY_GSSummary"> | number
+    totalAmount?: IntFilter<"NDY_GSSummary"> | number
+    dates?: StringNullableListFilter<"NDY_GSSummary">
+    createdAt?: DateTimeFilter<"NDY_GSSummary"> | Date | string
+    updatedAt?: DateTimeFilter<"NDY_GSSummary"> | Date | string
+  }, "id" | "startDate_endDate">
+
+  export type NDY_GSSummaryOrderByWithAggregationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    weekday?: SortOrder
+    saturday?: SortOrder
+    sunday?: SortOrder
+    extraTrucks?: SortOrder
+    totalAmount?: SortOrder
+    dates?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: NDY_GSSummaryCountOrderByAggregateInput
+    _avg?: NDY_GSSummaryAvgOrderByAggregateInput
+    _max?: NDY_GSSummaryMaxOrderByAggregateInput
+    _min?: NDY_GSSummaryMinOrderByAggregateInput
+    _sum?: NDY_GSSummarySumOrderByAggregateInput
+  }
+
+  export type NDY_GSSummaryScalarWhereWithAggregatesInput = {
+    AND?: NDY_GSSummaryScalarWhereWithAggregatesInput | NDY_GSSummaryScalarWhereWithAggregatesInput[]
+    OR?: NDY_GSSummaryScalarWhereWithAggregatesInput[]
+    NOT?: NDY_GSSummaryScalarWhereWithAggregatesInput | NDY_GSSummaryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_GSSummary"> | string
+    startDate?: StringWithAggregatesFilter<"NDY_GSSummary"> | string
+    endDate?: StringWithAggregatesFilter<"NDY_GSSummary"> | string
+    weekday?: IntWithAggregatesFilter<"NDY_GSSummary"> | number
+    saturday?: IntWithAggregatesFilter<"NDY_GSSummary"> | number
+    sunday?: IntWithAggregatesFilter<"NDY_GSSummary"> | number
+    extraTrucks?: IntWithAggregatesFilter<"NDY_GSSummary"> | number
+    totalAmount?: IntWithAggregatesFilter<"NDY_GSSummary"> | number
+    dates?: StringNullableListFilter<"NDY_GSSummary">
+    createdAt?: DateTimeWithAggregatesFilter<"NDY_GSSummary"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"NDY_GSSummary"> | Date | string
+  }
+
+  export type NDY_InquirySettlementWhereInput = {
+    AND?: NDY_InquirySettlementWhereInput | NDY_InquirySettlementWhereInput[]
+    OR?: NDY_InquirySettlementWhereInput[]
+    NOT?: NDY_InquirySettlementWhereInput | NDY_InquirySettlementWhereInput[]
+    id?: StringFilter<"NDY_InquirySettlement"> | string
+    startDate?: StringFilter<"NDY_InquirySettlement"> | string
+    endDate?: StringFilter<"NDY_InquirySettlement"> | string
+    date?: StringFilter<"NDY_InquirySettlement"> | string
+    name?: StringFilter<"NDY_InquirySettlement"> | string
+    so?: StringFilter<"NDY_InquirySettlement"> | string
+    nap?: StringFilter<"NDY_InquirySettlement"> | string
+    ton?: StringFilter<"NDY_InquirySettlement"> | string
+    kum?: IntFilter<"NDY_InquirySettlement"> | number
+    yo?: StringFilter<"NDY_InquirySettlement"> | string
+    chung?: StringFilter<"NDY_InquirySettlement"> | string
+    un?: IntFilter<"NDY_InquirySettlement"> | number
+    memo?: StringFilter<"NDY_InquirySettlement"> | string
+    createdAt?: DateTimeFilter<"NDY_InquirySettlement"> | Date | string
+  }
+
+  export type NDY_InquirySettlementOrderByWithRelationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    date?: SortOrder
+    name?: SortOrder
+    so?: SortOrder
+    nap?: SortOrder
+    ton?: SortOrder
+    kum?: SortOrder
+    yo?: SortOrder
+    chung?: SortOrder
+    un?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_InquirySettlementWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    startDate_endDate_date_name_so_nap_kum?: NDY_InquirySettlementStartDateEndDateDateNameSoNapKumCompoundUniqueInput
+    AND?: NDY_InquirySettlementWhereInput | NDY_InquirySettlementWhereInput[]
+    OR?: NDY_InquirySettlementWhereInput[]
+    NOT?: NDY_InquirySettlementWhereInput | NDY_InquirySettlementWhereInput[]
+    startDate?: StringFilter<"NDY_InquirySettlement"> | string
+    endDate?: StringFilter<"NDY_InquirySettlement"> | string
+    date?: StringFilter<"NDY_InquirySettlement"> | string
+    name?: StringFilter<"NDY_InquirySettlement"> | string
+    so?: StringFilter<"NDY_InquirySettlement"> | string
+    nap?: StringFilter<"NDY_InquirySettlement"> | string
+    ton?: StringFilter<"NDY_InquirySettlement"> | string
+    kum?: IntFilter<"NDY_InquirySettlement"> | number
+    yo?: StringFilter<"NDY_InquirySettlement"> | string
+    chung?: StringFilter<"NDY_InquirySettlement"> | string
+    un?: IntFilter<"NDY_InquirySettlement"> | number
+    memo?: StringFilter<"NDY_InquirySettlement"> | string
+    createdAt?: DateTimeFilter<"NDY_InquirySettlement"> | Date | string
+  }, "id" | "startDate_endDate_date_name_so_nap_kum">
+
+  export type NDY_InquirySettlementOrderByWithAggregationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    date?: SortOrder
+    name?: SortOrder
+    so?: SortOrder
+    nap?: SortOrder
+    ton?: SortOrder
+    kum?: SortOrder
+    yo?: SortOrder
+    chung?: SortOrder
+    un?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    _count?: NDY_InquirySettlementCountOrderByAggregateInput
+    _avg?: NDY_InquirySettlementAvgOrderByAggregateInput
+    _max?: NDY_InquirySettlementMaxOrderByAggregateInput
+    _min?: NDY_InquirySettlementMinOrderByAggregateInput
+    _sum?: NDY_InquirySettlementSumOrderByAggregateInput
+  }
+
+  export type NDY_InquirySettlementScalarWhereWithAggregatesInput = {
+    AND?: NDY_InquirySettlementScalarWhereWithAggregatesInput | NDY_InquirySettlementScalarWhereWithAggregatesInput[]
+    OR?: NDY_InquirySettlementScalarWhereWithAggregatesInput[]
+    NOT?: NDY_InquirySettlementScalarWhereWithAggregatesInput | NDY_InquirySettlementScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    startDate?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    endDate?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    date?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    name?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    so?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    nap?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    ton?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    kum?: IntWithAggregatesFilter<"NDY_InquirySettlement"> | number
+    yo?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    chung?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    un?: IntWithAggregatesFilter<"NDY_InquirySettlement"> | number
+    memo?: StringWithAggregatesFilter<"NDY_InquirySettlement"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"NDY_InquirySettlement"> | Date | string
+  }
+
+  export type NDY_MonthlyClosingWhereInput = {
+    AND?: NDY_MonthlyClosingWhereInput | NDY_MonthlyClosingWhereInput[]
+    OR?: NDY_MonthlyClosingWhereInput[]
+    NOT?: NDY_MonthlyClosingWhereInput | NDY_MonthlyClosingWhereInput[]
+    id?: StringFilter<"NDY_MonthlyClosing"> | string
+    startDate?: StringFilter<"NDY_MonthlyClosing"> | string
+    endDate?: StringFilter<"NDY_MonthlyClosing"> | string
+    data?: JsonFilter<"NDY_MonthlyClosing">
+    closedAt?: DateTimeFilter<"NDY_MonthlyClosing"> | Date | string
+  }
+
+  export type NDY_MonthlyClosingOrderByWithRelationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    data?: SortOrder
+    closedAt?: SortOrder
+  }
+
+  export type NDY_MonthlyClosingWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    startDate_endDate?: NDY_MonthlyClosingStartDateEndDateCompoundUniqueInput
+    AND?: NDY_MonthlyClosingWhereInput | NDY_MonthlyClosingWhereInput[]
+    OR?: NDY_MonthlyClosingWhereInput[]
+    NOT?: NDY_MonthlyClosingWhereInput | NDY_MonthlyClosingWhereInput[]
+    startDate?: StringFilter<"NDY_MonthlyClosing"> | string
+    endDate?: StringFilter<"NDY_MonthlyClosing"> | string
+    data?: JsonFilter<"NDY_MonthlyClosing">
+    closedAt?: DateTimeFilter<"NDY_MonthlyClosing"> | Date | string
+  }, "id" | "startDate_endDate">
+
+  export type NDY_MonthlyClosingOrderByWithAggregationInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    data?: SortOrder
+    closedAt?: SortOrder
+    _count?: NDY_MonthlyClosingCountOrderByAggregateInput
+    _max?: NDY_MonthlyClosingMaxOrderByAggregateInput
+    _min?: NDY_MonthlyClosingMinOrderByAggregateInput
+  }
+
+  export type NDY_MonthlyClosingScalarWhereWithAggregatesInput = {
+    AND?: NDY_MonthlyClosingScalarWhereWithAggregatesInput | NDY_MonthlyClosingScalarWhereWithAggregatesInput[]
+    OR?: NDY_MonthlyClosingScalarWhereWithAggregatesInput[]
+    NOT?: NDY_MonthlyClosingScalarWhereWithAggregatesInput | NDY_MonthlyClosingScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NDY_MonthlyClosing"> | string
+    startDate?: StringWithAggregatesFilter<"NDY_MonthlyClosing"> | string
+    endDate?: StringWithAggregatesFilter<"NDY_MonthlyClosing"> | string
+    data?: JsonWithAggregatesFilter<"NDY_MonthlyClosing">
+    closedAt?: DateTimeWithAggregatesFilter<"NDY_MonthlyClosing"> | Date | string
+  }
+
   export type DriverWhereInput = {
     AND?: DriverWhereInput | DriverWhereInput[]
     OR?: DriverWhereInput[]
@@ -7997,6 +21627,7 @@ export namespace Prisma {
     memo?: StringNullableFilter<"Driver"> | string | null
     createdAt?: DateTimeFilter<"Driver"> | Date | string
     updatedAt?: DateTimeFilter<"Driver"> | Date | string
+    oldId?: StringNullableFilter<"Driver"> | string | null
     Affiliation?: XOR<AffiliationNullableRelationFilter, AffiliationWhereInput> | null
   }
 
@@ -8012,6 +21643,7 @@ export namespace Prisma {
     memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     Affiliation?: AffiliationOrderByWithRelationInput
   }
 
@@ -8030,6 +21662,7 @@ export namespace Prisma {
     memo?: StringNullableFilter<"Driver"> | string | null
     createdAt?: DateTimeFilter<"Driver"> | Date | string
     updatedAt?: DateTimeFilter<"Driver"> | Date | string
+    oldId?: StringNullableFilter<"Driver"> | string | null
     Affiliation?: XOR<AffiliationNullableRelationFilter, AffiliationWhereInput> | null
   }, "id">
 
@@ -8045,6 +21678,7 @@ export namespace Prisma {
     memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     _count?: DriverCountOrderByAggregateInput
     _avg?: DriverAvgOrderByAggregateInput
     _max?: DriverMaxOrderByAggregateInput
@@ -8067,6 +21701,7 @@ export namespace Prisma {
     memo?: StringNullableWithAggregatesFilter<"Driver"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Driver"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Driver"> | Date | string
+    oldId?: StringNullableWithAggregatesFilter<"Driver"> | string | null
   }
 
   export type SettlementHistoryWhereInput = {
@@ -8091,6 +21726,7 @@ export namespace Prisma {
     contractId?: IntNullableFilter<"SettlementHistory"> | number | null
     appliedTonnage?: StringNullableFilter<"SettlementHistory"> | string | null
     createdAt?: DateTimeFilter<"SettlementHistory"> | Date | string
+    oldId?: StringNullableFilter<"SettlementHistory"> | string | null
     YongchaContract?: XOR<YongchaContractNullableRelationFilter, YongchaContractWhereInput> | null
   }
 
@@ -8113,6 +21749,7 @@ export namespace Prisma {
     contractId?: SortOrderInput | SortOrder
     appliedTonnage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     YongchaContract?: YongchaContractOrderByWithRelationInput
   }
 
@@ -8138,6 +21775,7 @@ export namespace Prisma {
     contractId?: IntNullableFilter<"SettlementHistory"> | number | null
     appliedTonnage?: StringNullableFilter<"SettlementHistory"> | string | null
     createdAt?: DateTimeFilter<"SettlementHistory"> | Date | string
+    oldId?: StringNullableFilter<"SettlementHistory"> | string | null
     YongchaContract?: XOR<YongchaContractNullableRelationFilter, YongchaContractWhereInput> | null
   }, "id">
 
@@ -8160,6 +21798,7 @@ export namespace Prisma {
     contractId?: SortOrderInput | SortOrder
     appliedTonnage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     _count?: SettlementHistoryCountOrderByAggregateInput
     _avg?: SettlementHistoryAvgOrderByAggregateInput
     _max?: SettlementHistoryMaxOrderByAggregateInput
@@ -8189,6 +21828,7 @@ export namespace Prisma {
     contractId?: IntNullableWithAggregatesFilter<"SettlementHistory"> | number | null
     appliedTonnage?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"SettlementHistory"> | Date | string
+    oldId?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
   }
 
   export type AffiliationWhereInput = {
@@ -8205,9 +21845,10 @@ export namespace Prisma {
     email?: StringNullableFilter<"Affiliation"> | string | null
     memo?: StringNullableFilter<"Affiliation"> | string | null
     createdAt?: DateTimeFilter<"Affiliation"> | Date | string
+    oldId?: StringNullableFilter<"Affiliation"> | string | null
     Driver?: DriverListRelationFilter
-    YongchaContract?: YongchaContractListRelationFilter
     User?: UserListRelationFilter
+    YongchaContract?: YongchaContractListRelationFilter
   }
 
   export type AffiliationOrderByWithRelationInput = {
@@ -8221,9 +21862,10 @@ export namespace Prisma {
     email?: SortOrderInput | SortOrder
     memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     Driver?: DriverOrderByRelationAggregateInput
-    YongchaContract?: YongchaContractOrderByRelationAggregateInput
     User?: UserOrderByRelationAggregateInput
+    YongchaContract?: YongchaContractOrderByRelationAggregateInput
   }
 
   export type AffiliationWhereUniqueInput = Prisma.AtLeast<{
@@ -8240,9 +21882,10 @@ export namespace Prisma {
     email?: StringNullableFilter<"Affiliation"> | string | null
     memo?: StringNullableFilter<"Affiliation"> | string | null
     createdAt?: DateTimeFilter<"Affiliation"> | Date | string
+    oldId?: StringNullableFilter<"Affiliation"> | string | null
     Driver?: DriverListRelationFilter
-    YongchaContract?: YongchaContractListRelationFilter
     User?: UserListRelationFilter
+    YongchaContract?: YongchaContractListRelationFilter
   }, "id" | "name">
 
   export type AffiliationOrderByWithAggregationInput = {
@@ -8256,6 +21899,7 @@ export namespace Prisma {
     email?: SortOrderInput | SortOrder
     memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     _count?: AffiliationCountOrderByAggregateInput
     _avg?: AffiliationAvgOrderByAggregateInput
     _max?: AffiliationMaxOrderByAggregateInput
@@ -8277,6 +21921,7 @@ export namespace Prisma {
     email?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
     memo?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Affiliation"> | Date | string
+    oldId?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
   }
 
   export type UserWhereInput = {
@@ -8291,6 +21936,7 @@ export namespace Prisma {
     affiliationId?: IntNullableFilter<"User"> | number | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    oldId?: StringNullableFilter<"User"> | string | null
     Affiliation?: XOR<AffiliationNullableRelationFilter, AffiliationWhereInput> | null
   }
 
@@ -8303,6 +21949,7 @@ export namespace Prisma {
     affiliationId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     Affiliation?: AffiliationOrderByWithRelationInput
   }
 
@@ -8318,6 +21965,7 @@ export namespace Prisma {
     affiliationId?: IntNullableFilter<"User"> | number | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    oldId?: StringNullableFilter<"User"> | string | null
     Affiliation?: XOR<AffiliationNullableRelationFilter, AffiliationWhereInput> | null
   }, "id" | "loginId">
 
@@ -8330,6 +21978,7 @@ export namespace Prisma {
     affiliationId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -8349,6 +21998,7 @@ export namespace Prisma {
     affiliationId?: IntNullableWithAggregatesFilter<"User"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    oldId?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
   export type YongchaContractWhereInput = {
@@ -8364,6 +22014,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"YongchaContract"> | Date | string
     updatedAt?: DateTimeFilter<"YongchaContract"> | Date | string
     memo?: StringNullableFilter<"YongchaContract"> | string | null
+    oldId?: StringNullableFilter<"YongchaContract"> | string | null
     SettlementHistory?: SettlementHistoryListRelationFilter
     Affiliation?: XOR<AffiliationRelationFilter, AffiliationWhereInput>
     YongchaRateDetail?: YongchaRateDetailListRelationFilter
@@ -8379,6 +22030,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     memo?: SortOrderInput | SortOrder
+    oldId?: SortOrderInput | SortOrder
     SettlementHistory?: SettlementHistoryOrderByRelationAggregateInput
     Affiliation?: AffiliationOrderByWithRelationInput
     YongchaRateDetail?: YongchaRateDetailOrderByRelationAggregateInput
@@ -8397,6 +22049,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"YongchaContract"> | Date | string
     updatedAt?: DateTimeFilter<"YongchaContract"> | Date | string
     memo?: StringNullableFilter<"YongchaContract"> | string | null
+    oldId?: StringNullableFilter<"YongchaContract"> | string | null
     SettlementHistory?: SettlementHistoryListRelationFilter
     Affiliation?: XOR<AffiliationRelationFilter, AffiliationWhereInput>
     YongchaRateDetail?: YongchaRateDetailListRelationFilter
@@ -8412,6 +22065,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     memo?: SortOrderInput | SortOrder
+    oldId?: SortOrderInput | SortOrder
     _count?: YongchaContractCountOrderByAggregateInput
     _avg?: YongchaContractAvgOrderByAggregateInput
     _max?: YongchaContractMaxOrderByAggregateInput
@@ -8432,6 +22086,7 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"YongchaContract"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"YongchaContract"> | Date | string
     memo?: StringNullableWithAggregatesFilter<"YongchaContract"> | string | null
+    oldId?: StringNullableWithAggregatesFilter<"YongchaContract"> | string | null
   }
 
   export type YongchaRateDetailWhereInput = {
@@ -8440,24 +22095,24 @@ export namespace Prisma {
     NOT?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
     id?: IntFilter<"YongchaRateDetail"> | number
     contractId?: IntFilter<"YongchaRateDetail"> | number
-    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
     region?: StringFilter<"YongchaRateDetail"> | string
     price?: IntFilter<"YongchaRateDetail"> | number
     memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
     createdAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
     updatedAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
+    oldId?: StringNullableFilter<"YongchaRateDetail"> | string | null
     YongchaContract?: XOR<YongchaContractRelationFilter, YongchaContractWhereInput>
   }
 
   export type YongchaRateDetailOrderByWithRelationInput = {
     id?: SortOrder
     contractId?: SortOrder
-    tonnage?: SortOrderInput | SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     YongchaContract?: YongchaContractOrderByWithRelationInput
   }
 
@@ -8467,24 +22122,24 @@ export namespace Prisma {
     OR?: YongchaRateDetailWhereInput[]
     NOT?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
     contractId?: IntFilter<"YongchaRateDetail"> | number
-    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
     region?: StringFilter<"YongchaRateDetail"> | string
     price?: IntFilter<"YongchaRateDetail"> | number
     memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
     createdAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
     updatedAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
+    oldId?: StringNullableFilter<"YongchaRateDetail"> | string | null
     YongchaContract?: XOR<YongchaContractRelationFilter, YongchaContractWhereInput>
   }, "id">
 
   export type YongchaRateDetailOrderByWithAggregationInput = {
     id?: SortOrder
     contractId?: SortOrder
-    tonnage?: SortOrderInput | SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     _count?: YongchaRateDetailCountOrderByAggregateInput
     _avg?: YongchaRateDetailAvgOrderByAggregateInput
     _max?: YongchaRateDetailMaxOrderByAggregateInput
@@ -8498,12 +22153,907 @@ export namespace Prisma {
     NOT?: YongchaRateDetailScalarWhereWithAggregatesInput | YongchaRateDetailScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
     contractId?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
-    tonnage?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
     region?: StringWithAggregatesFilter<"YongchaRateDetail"> | string
     price?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
     memo?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"YongchaRateDetail"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"YongchaRateDetail"> | Date | string
+    oldId?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
+  }
+
+  export type NDY_BillingItemCreateInput = {
+    id: string
+    code?: string
+    name: string
+    billingRecipient?: string
+    type?: string
+    mergeCriteria?: string
+    note?: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+    NDY_BillingRate?: NDY_BillingRateCreateNestedManyWithoutNDY_BillingItemInput
+  }
+
+  export type NDY_BillingItemUncheckedCreateInput = {
+    id: string
+    code?: string
+    name: string
+    billingRecipient?: string
+    type?: string
+    mergeCriteria?: string
+    note?: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+    NDY_BillingRate?: NDY_BillingRateUncheckedCreateNestedManyWithoutNDY_BillingItemInput
+  }
+
+  export type NDY_BillingItemUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    mergeCriteria?: StringFieldUpdateOperationsInput | string
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    NDY_BillingRate?: NDY_BillingRateUpdateManyWithoutNDY_BillingItemNestedInput
+  }
+
+  export type NDY_BillingItemUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    mergeCriteria?: StringFieldUpdateOperationsInput | string
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    NDY_BillingRate?: NDY_BillingRateUncheckedUpdateManyWithoutNDY_BillingItemNestedInput
+  }
+
+  export type NDY_BillingItemCreateManyInput = {
+    id: string
+    code?: string
+    name: string
+    billingRecipient?: string
+    type?: string
+    mergeCriteria?: string
+    note?: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+  }
+
+  export type NDY_BillingItemUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    mergeCriteria?: StringFieldUpdateOperationsInput | string
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_BillingItemUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    mergeCriteria?: StringFieldUpdateOperationsInput | string
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_BillingRateCreateInput = {
+    id: string
+    validFrom: string
+    validTo?: string | null
+    amount?: number
+    note?: string
+    createdAt?: Date | string
+    NDY_BillingItem: NDY_BillingItemCreateNestedOneWithoutNDY_BillingRateInput
+  }
+
+  export type NDY_BillingRateUncheckedCreateInput = {
+    id: string
+    itemId: string
+    validFrom: string
+    validTo?: string | null
+    amount?: number
+    note?: string
+    createdAt?: Date | string
+  }
+
+  export type NDY_BillingRateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    validFrom?: StringFieldUpdateOperationsInput | string
+    validTo?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    NDY_BillingItem?: NDY_BillingItemUpdateOneRequiredWithoutNDY_BillingRateNestedInput
+  }
+
+  export type NDY_BillingRateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    itemId?: StringFieldUpdateOperationsInput | string
+    validFrom?: StringFieldUpdateOperationsInput | string
+    validTo?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_BillingRateCreateManyInput = {
+    id: string
+    itemId: string
+    validFrom: string
+    validTo?: string | null
+    amount?: number
+    note?: string
+    createdAt?: Date | string
+  }
+
+  export type NDY_BillingRateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    validFrom?: StringFieldUpdateOperationsInput | string
+    validTo?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_BillingRateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    itemId?: StringFieldUpdateOperationsInput | string
+    validFrom?: StringFieldUpdateOperationsInput | string
+    validTo?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_ConfigCreateInput = {
+    key: string
+    data: JsonNullValueInput | InputJsonValue
+    updatedAt: Date | string
+  }
+
+  export type NDY_ConfigUncheckedCreateInput = {
+    key: string
+    data: JsonNullValueInput | InputJsonValue
+    updatedAt: Date | string
+  }
+
+  export type NDY_ConfigUpdateInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_ConfigUncheckedUpdateInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_ConfigCreateManyInput = {
+    key: string
+    data: JsonNullValueInput | InputJsonValue
+    updatedAt: Date | string
+  }
+
+  export type NDY_ConfigUpdateManyMutationInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_ConfigUncheckedUpdateManyInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_DailySummaryCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+    NDY_DailySummaryItem?: NDY_DailySummaryItemCreateNestedManyWithoutNDY_DailySummaryInput
+  }
+
+  export type NDY_DailySummaryUncheckedCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+    NDY_DailySummaryItem?: NDY_DailySummaryItemUncheckedCreateNestedManyWithoutNDY_DailySummaryInput
+  }
+
+  export type NDY_DailySummaryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    NDY_DailySummaryItem?: NDY_DailySummaryItemUpdateManyWithoutNDY_DailySummaryNestedInput
+  }
+
+  export type NDY_DailySummaryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    NDY_DailySummaryItem?: NDY_DailySummaryItemUncheckedUpdateManyWithoutNDY_DailySummaryNestedInput
+  }
+
+  export type NDY_DailySummaryCreateManyInput = {
+    id: string
+    startDate: string
+    endDate: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+  }
+
+  export type NDY_DailySummaryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_DailySummaryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_DailySummaryItemCreateInput = {
+    id: string
+    placeName: string
+    deliveryDays?: number
+    totalAmount?: number
+    deliveryDates?: NDY_DailySummaryItemCreatedeliveryDatesInput | string[]
+    NDY_DailySummary: NDY_DailySummaryCreateNestedOneWithoutNDY_DailySummaryItemInput
+  }
+
+  export type NDY_DailySummaryItemUncheckedCreateInput = {
+    id: string
+    summaryId: string
+    placeName: string
+    deliveryDays?: number
+    totalAmount?: number
+    deliveryDates?: NDY_DailySummaryItemCreatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_DailySummaryItemUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    placeName?: StringFieldUpdateOperationsInput | string
+    deliveryDays?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    deliveryDates?: NDY_DailySummaryItemUpdatedeliveryDatesInput | string[]
+    NDY_DailySummary?: NDY_DailySummaryUpdateOneRequiredWithoutNDY_DailySummaryItemNestedInput
+  }
+
+  export type NDY_DailySummaryItemUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    summaryId?: StringFieldUpdateOperationsInput | string
+    placeName?: StringFieldUpdateOperationsInput | string
+    deliveryDays?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    deliveryDates?: NDY_DailySummaryItemUpdatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_DailySummaryItemCreateManyInput = {
+    id: string
+    summaryId: string
+    placeName: string
+    deliveryDays?: number
+    totalAmount?: number
+    deliveryDates?: NDY_DailySummaryItemCreatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_DailySummaryItemUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    placeName?: StringFieldUpdateOperationsInput | string
+    deliveryDays?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    deliveryDates?: NDY_DailySummaryItemUpdatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_DailySummaryItemUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    summaryId?: StringFieldUpdateOperationsInput | string
+    placeName?: StringFieldUpdateOperationsInput | string
+    deliveryDays?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    deliveryDates?: NDY_DailySummaryItemUpdatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_EmergencyRateCreateInput = {
+    name: string
+    rate?: number
+    chung?: string
+    updatedAt: Date | string
+  }
+
+  export type NDY_EmergencyRateUncheckedCreateInput = {
+    name: string
+    rate?: number
+    chung?: string
+    updatedAt: Date | string
+  }
+
+  export type NDY_EmergencyRateUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    rate?: IntFieldUpdateOperationsInput | number
+    chung?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_EmergencyRateUncheckedUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    rate?: IntFieldUpdateOperationsInput | number
+    chung?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_EmergencyRateCreateManyInput = {
+    name: string
+    rate?: number
+    chung?: string
+    updatedAt: Date | string
+  }
+
+  export type NDY_EmergencyRateUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    rate?: IntFieldUpdateOperationsInput | number
+    chung?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_EmergencyRateUncheckedUpdateManyInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    rate?: IntFieldUpdateOperationsInput | number
+    chung?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_EmergencySettlementCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    name: string
+    chung?: string
+    count?: number
+    rate?: number
+    total?: number
+    dates?: NDY_EmergencySettlementCreatedatesInput | string[]
+    createdAt?: Date | string
+  }
+
+  export type NDY_EmergencySettlementUncheckedCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    name: string
+    chung?: string
+    count?: number
+    rate?: number
+    total?: number
+    dates?: NDY_EmergencySettlementCreatedatesInput | string[]
+    createdAt?: Date | string
+  }
+
+  export type NDY_EmergencySettlementUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    chung?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    rate?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    dates?: NDY_EmergencySettlementUpdatedatesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_EmergencySettlementUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    chung?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    rate?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    dates?: NDY_EmergencySettlementUpdatedatesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_EmergencySettlementCreateManyInput = {
+    id: string
+    startDate: string
+    endDate: string
+    name: string
+    chung?: string
+    count?: number
+    rate?: number
+    total?: number
+    dates?: NDY_EmergencySettlementCreatedatesInput | string[]
+    createdAt?: Date | string
+  }
+
+  export type NDY_EmergencySettlementUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    chung?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    rate?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    dates?: NDY_EmergencySettlementUpdatedatesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_EmergencySettlementUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    chung?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    rate?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    dates?: NDY_EmergencySettlementUpdatedatesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_FixedSettlementCreateInput = {
+    id: string
+    name: string
+    billingRecipient?: string
+    amount?: number
+    count?: number
+    rate?: number
+    note?: string | null
+    createdAt?: Date | string
+  }
+
+  export type NDY_FixedSettlementUncheckedCreateInput = {
+    id: string
+    name: string
+    billingRecipient?: string
+    amount?: number
+    count?: number
+    rate?: number
+    note?: string | null
+    createdAt?: Date | string
+  }
+
+  export type NDY_FixedSettlementUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    count?: IntFieldUpdateOperationsInput | number
+    rate?: IntFieldUpdateOperationsInput | number
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_FixedSettlementUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    count?: IntFieldUpdateOperationsInput | number
+    rate?: IntFieldUpdateOperationsInput | number
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_FixedSettlementCreateManyInput = {
+    id: string
+    name: string
+    billingRecipient?: string
+    amount?: number
+    count?: number
+    rate?: number
+    note?: string | null
+    createdAt?: Date | string
+  }
+
+  export type NDY_FixedSettlementUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    count?: IntFieldUpdateOperationsInput | number
+    rate?: IntFieldUpdateOperationsInput | number
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_FixedSettlementUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    count?: IntFieldUpdateOperationsInput | number
+    rate?: IntFieldUpdateOperationsInput | number
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_GSSettlementCreateInput = {
+    id: string
+    date: string
+    code: string
+    name?: string | null
+    qty: Decimal | DecimalJsLike | number | string
+    weight: Decimal | DecimalJsLike | number | string
+    amount?: number
+    remarks?: string | null
+    modDate?: Date | string
+  }
+
+  export type NDY_GSSettlementUncheckedCreateInput = {
+    id: string
+    date: string
+    code: string
+    name?: string | null
+    qty: Decimal | DecimalJsLike | number | string
+    weight: Decimal | DecimalJsLike | number | string
+    amount?: number
+    remarks?: string | null
+    modDate?: Date | string
+  }
+
+  export type NDY_GSSettlementUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    qty?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    weight?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    amount?: IntFieldUpdateOperationsInput | number
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    modDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_GSSettlementUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    qty?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    weight?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    amount?: IntFieldUpdateOperationsInput | number
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    modDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_GSSettlementCreateManyInput = {
+    id: string
+    date: string
+    code: string
+    name?: string | null
+    qty: Decimal | DecimalJsLike | number | string
+    weight: Decimal | DecimalJsLike | number | string
+    amount?: number
+    remarks?: string | null
+    modDate?: Date | string
+  }
+
+  export type NDY_GSSettlementUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    qty?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    weight?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    amount?: IntFieldUpdateOperationsInput | number
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    modDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_GSSettlementUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    qty?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    weight?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    amount?: IntFieldUpdateOperationsInput | number
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    modDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_GSSummaryCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    weekday?: number
+    saturday?: number
+    sunday?: number
+    extraTrucks?: number
+    totalAmount?: number
+    dates?: NDY_GSSummaryCreatedatesInput | string[]
+    createdAt?: Date | string
+    updatedAt: Date | string
+  }
+
+  export type NDY_GSSummaryUncheckedCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    weekday?: number
+    saturday?: number
+    sunday?: number
+    extraTrucks?: number
+    totalAmount?: number
+    dates?: NDY_GSSummaryCreatedatesInput | string[]
+    createdAt?: Date | string
+    updatedAt: Date | string
+  }
+
+  export type NDY_GSSummaryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    weekday?: IntFieldUpdateOperationsInput | number
+    saturday?: IntFieldUpdateOperationsInput | number
+    sunday?: IntFieldUpdateOperationsInput | number
+    extraTrucks?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    dates?: NDY_GSSummaryUpdatedatesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_GSSummaryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    weekday?: IntFieldUpdateOperationsInput | number
+    saturday?: IntFieldUpdateOperationsInput | number
+    sunday?: IntFieldUpdateOperationsInput | number
+    extraTrucks?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    dates?: NDY_GSSummaryUpdatedatesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_GSSummaryCreateManyInput = {
+    id: string
+    startDate: string
+    endDate: string
+    weekday?: number
+    saturday?: number
+    sunday?: number
+    extraTrucks?: number
+    totalAmount?: number
+    dates?: NDY_GSSummaryCreatedatesInput | string[]
+    createdAt?: Date | string
+    updatedAt: Date | string
+  }
+
+  export type NDY_GSSummaryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    weekday?: IntFieldUpdateOperationsInput | number
+    saturday?: IntFieldUpdateOperationsInput | number
+    sunday?: IntFieldUpdateOperationsInput | number
+    extraTrucks?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    dates?: NDY_GSSummaryUpdatedatesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_GSSummaryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    weekday?: IntFieldUpdateOperationsInput | number
+    saturday?: IntFieldUpdateOperationsInput | number
+    sunday?: IntFieldUpdateOperationsInput | number
+    extraTrucks?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    dates?: NDY_GSSummaryUpdatedatesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_InquirySettlementCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    date: string
+    name: string
+    so: string
+    nap: string
+    ton: string
+    kum?: number
+    yo: string
+    chung: string
+    un?: number
+    memo: string
+    createdAt?: Date | string
+  }
+
+  export type NDY_InquirySettlementUncheckedCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    date: string
+    name: string
+    so: string
+    nap: string
+    ton: string
+    kum?: number
+    yo: string
+    chung: string
+    un?: number
+    memo: string
+    createdAt?: Date | string
+  }
+
+  export type NDY_InquirySettlementUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    date?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    so?: StringFieldUpdateOperationsInput | string
+    nap?: StringFieldUpdateOperationsInput | string
+    ton?: StringFieldUpdateOperationsInput | string
+    kum?: IntFieldUpdateOperationsInput | number
+    yo?: StringFieldUpdateOperationsInput | string
+    chung?: StringFieldUpdateOperationsInput | string
+    un?: IntFieldUpdateOperationsInput | number
+    memo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_InquirySettlementUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    date?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    so?: StringFieldUpdateOperationsInput | string
+    nap?: StringFieldUpdateOperationsInput | string
+    ton?: StringFieldUpdateOperationsInput | string
+    kum?: IntFieldUpdateOperationsInput | number
+    yo?: StringFieldUpdateOperationsInput | string
+    chung?: StringFieldUpdateOperationsInput | string
+    un?: IntFieldUpdateOperationsInput | number
+    memo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_InquirySettlementCreateManyInput = {
+    id: string
+    startDate: string
+    endDate: string
+    date: string
+    name: string
+    so: string
+    nap: string
+    ton: string
+    kum?: number
+    yo: string
+    chung: string
+    un?: number
+    memo: string
+    createdAt?: Date | string
+  }
+
+  export type NDY_InquirySettlementUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    date?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    so?: StringFieldUpdateOperationsInput | string
+    nap?: StringFieldUpdateOperationsInput | string
+    ton?: StringFieldUpdateOperationsInput | string
+    kum?: IntFieldUpdateOperationsInput | number
+    yo?: StringFieldUpdateOperationsInput | string
+    chung?: StringFieldUpdateOperationsInput | string
+    un?: IntFieldUpdateOperationsInput | number
+    memo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_InquirySettlementUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    date?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    so?: StringFieldUpdateOperationsInput | string
+    nap?: StringFieldUpdateOperationsInput | string
+    ton?: StringFieldUpdateOperationsInput | string
+    kum?: IntFieldUpdateOperationsInput | number
+    yo?: StringFieldUpdateOperationsInput | string
+    chung?: StringFieldUpdateOperationsInput | string
+    un?: IntFieldUpdateOperationsInput | number
+    memo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_MonthlyClosingCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    data: JsonNullValueInput | InputJsonValue
+    closedAt?: Date | string
+  }
+
+  export type NDY_MonthlyClosingUncheckedCreateInput = {
+    id: string
+    startDate: string
+    endDate: string
+    data: JsonNullValueInput | InputJsonValue
+    closedAt?: Date | string
+  }
+
+  export type NDY_MonthlyClosingUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    closedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_MonthlyClosingUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    closedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_MonthlyClosingCreateManyInput = {
+    id: string
+    startDate: string
+    endDate: string
+    data: JsonNullValueInput | InputJsonValue
+    closedAt?: Date | string
+  }
+
+  export type NDY_MonthlyClosingUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    closedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_MonthlyClosingUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    data?: JsonNullValueInput | InputJsonValue
+    closedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DriverCreateInput = {
@@ -8516,6 +23066,7 @@ export namespace Prisma {
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
     Affiliation?: AffiliationCreateNestedOneWithoutDriverInput
   }
 
@@ -8531,6 +23082,7 @@ export namespace Prisma {
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type DriverUpdateInput = {
@@ -8543,6 +23095,7 @@ export namespace Prisma {
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     Affiliation?: AffiliationUpdateOneWithoutDriverNestedInput
   }
 
@@ -8558,6 +23111,7 @@ export namespace Prisma {
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DriverCreateManyInput = {
@@ -8572,6 +23126,7 @@ export namespace Prisma {
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type DriverUpdateManyMutationInput = {
@@ -8584,6 +23139,7 @@ export namespace Prisma {
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DriverUncheckedUpdateManyInput = {
@@ -8598,6 +23154,7 @@ export namespace Prisma {
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SettlementHistoryCreateInput = {
@@ -8617,6 +23174,7 @@ export namespace Prisma {
     ton?: number | null
     appliedTonnage?: string | null
     createdAt?: Date | string
+    oldId?: string | null
     YongchaContract?: YongchaContractCreateNestedOneWithoutSettlementHistoryInput
   }
 
@@ -8639,6 +23197,7 @@ export namespace Prisma {
     contractId?: number | null
     appliedTonnage?: string | null
     createdAt?: Date | string
+    oldId?: string | null
   }
 
   export type SettlementHistoryUpdateInput = {
@@ -8658,6 +23217,7 @@ export namespace Prisma {
     ton?: NullableIntFieldUpdateOperationsInput | number | null
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     YongchaContract?: YongchaContractUpdateOneWithoutSettlementHistoryNestedInput
   }
 
@@ -8680,6 +23240,7 @@ export namespace Prisma {
     contractId?: NullableIntFieldUpdateOperationsInput | number | null
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SettlementHistoryCreateManyInput = {
@@ -8701,6 +23262,7 @@ export namespace Prisma {
     contractId?: number | null
     appliedTonnage?: string | null
     createdAt?: Date | string
+    oldId?: string | null
   }
 
   export type SettlementHistoryUpdateManyMutationInput = {
@@ -8720,6 +23282,7 @@ export namespace Prisma {
     ton?: NullableIntFieldUpdateOperationsInput | number | null
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SettlementHistoryUncheckedUpdateManyInput = {
@@ -8741,6 +23304,7 @@ export namespace Prisma {
     contractId?: NullableIntFieldUpdateOperationsInput | number | null
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AffiliationCreateInput = {
@@ -8753,9 +23317,10 @@ export namespace Prisma {
     email?: string | null
     memo?: string | null
     createdAt?: Date | string
+    oldId?: string | null
     Driver?: DriverCreateNestedManyWithoutAffiliationInput
-    YongchaContract?: YongchaContractCreateNestedManyWithoutAffiliationInput
     User?: UserCreateNestedManyWithoutAffiliationInput
+    YongchaContract?: YongchaContractCreateNestedManyWithoutAffiliationInput
   }
 
   export type AffiliationUncheckedCreateInput = {
@@ -8769,9 +23334,10 @@ export namespace Prisma {
     email?: string | null
     memo?: string | null
     createdAt?: Date | string
+    oldId?: string | null
     Driver?: DriverUncheckedCreateNestedManyWithoutAffiliationInput
-    YongchaContract?: YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput
     User?: UserUncheckedCreateNestedManyWithoutAffiliationInput
+    YongchaContract?: YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput
   }
 
   export type AffiliationUpdateInput = {
@@ -8784,9 +23350,10 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     Driver?: DriverUpdateManyWithoutAffiliationNestedInput
-    YongchaContract?: YongchaContractUpdateManyWithoutAffiliationNestedInput
     User?: UserUpdateManyWithoutAffiliationNestedInput
+    YongchaContract?: YongchaContractUpdateManyWithoutAffiliationNestedInput
   }
 
   export type AffiliationUncheckedUpdateInput = {
@@ -8800,9 +23367,10 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     Driver?: DriverUncheckedUpdateManyWithoutAffiliationNestedInput
-    YongchaContract?: YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput
     User?: UserUncheckedUpdateManyWithoutAffiliationNestedInput
+    YongchaContract?: YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput
   }
 
   export type AffiliationCreateManyInput = {
@@ -8816,6 +23384,7 @@ export namespace Prisma {
     email?: string | null
     memo?: string | null
     createdAt?: Date | string
+    oldId?: string | null
   }
 
   export type AffiliationUpdateManyMutationInput = {
@@ -8828,6 +23397,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AffiliationUncheckedUpdateManyInput = {
@@ -8841,6 +23411,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateInput = {
@@ -8850,6 +23421,7 @@ export namespace Prisma {
     role?: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
     Affiliation?: AffiliationCreateNestedOneWithoutUserInput
   }
 
@@ -8862,6 +23434,7 @@ export namespace Prisma {
     affiliationId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type UserUpdateInput = {
@@ -8871,6 +23444,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     Affiliation?: AffiliationUpdateOneWithoutUserNestedInput
   }
 
@@ -8883,6 +23457,7 @@ export namespace Prisma {
     affiliationId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateManyInput = {
@@ -8894,6 +23469,7 @@ export namespace Prisma {
     affiliationId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type UserUpdateManyMutationInput = {
@@ -8903,6 +23479,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -8914,6 +23491,7 @@ export namespace Prisma {
     affiliationId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaContractCreateInput = {
@@ -8924,6 +23502,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
+    oldId?: string | null
     SettlementHistory?: SettlementHistoryCreateNestedManyWithoutYongchaContractInput
     Affiliation: AffiliationCreateNestedOneWithoutYongchaContractInput
     YongchaRateDetail?: YongchaRateDetailCreateNestedManyWithoutYongchaContractInput
@@ -8939,6 +23518,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
+    oldId?: string | null
     SettlementHistory?: SettlementHistoryUncheckedCreateNestedManyWithoutYongchaContractInput
     YongchaRateDetail?: YongchaRateDetailUncheckedCreateNestedManyWithoutYongchaContractInput
   }
@@ -8951,6 +23531,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     SettlementHistory?: SettlementHistoryUpdateManyWithoutYongchaContractNestedInput
     Affiliation?: AffiliationUpdateOneRequiredWithoutYongchaContractNestedInput
     YongchaRateDetail?: YongchaRateDetailUpdateManyWithoutYongchaContractNestedInput
@@ -8966,6 +23547,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     SettlementHistory?: SettlementHistoryUncheckedUpdateManyWithoutYongchaContractNestedInput
     YongchaRateDetail?: YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractNestedInput
   }
@@ -8980,6 +23562,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
+    oldId?: string | null
   }
 
   export type YongchaContractUpdateManyMutationInput = {
@@ -8990,6 +23573,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaContractUncheckedUpdateManyInput = {
@@ -9002,90 +23586,80 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailCreateInput = {
-    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
     YongchaContract: YongchaContractCreateNestedOneWithoutYongchaRateDetailInput
   }
 
   export type YongchaRateDetailUncheckedCreateInput = {
     id?: number
     contractId: number
-    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type YongchaRateDetailUpdateInput = {
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     YongchaContract?: YongchaContractUpdateOneRequiredWithoutYongchaRateDetailNestedInput
   }
 
   export type YongchaRateDetailUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     contractId?: IntFieldUpdateOperationsInput | number
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailCreateManyInput = {
     id?: number
     contractId: number
-    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type YongchaRateDetailUpdateManyMutationInput = {
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     contractId?: IntFieldUpdateOperationsInput | number
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -9103,43 +23677,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -9151,82 +23688,50 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type AffiliationNullableRelationFilter = {
-    is?: AffiliationWhereInput | null
-    isNot?: AffiliationWhereInput | null
+  export type NDY_BillingRateListRelationFilter = {
+    every?: NDY_BillingRateWhereInput
+    some?: NDY_BillingRateWhereInput
+    none?: NDY_BillingRateWhereInput
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
+  export type NDY_BillingRateOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
-  export type DriverCountOrderByAggregateInput = {
+  export type NDY_BillingItemCountOrderByAggregateInput = {
     id?: SortOrder
+    code?: SortOrder
     name?: SortOrder
-    affiliationId?: SortOrder
-    carNo?: SortOrder
-    tonnage?: SortOrder
-    phone?: SortOrder
-    regDate?: SortOrder
-    address?: SortOrder
-    memo?: SortOrder
+    billingRecipient?: SortOrder
+    type?: SortOrder
+    mergeCriteria?: SortOrder
+    note?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type DriverAvgOrderByAggregateInput = {
+  export type NDY_BillingItemMaxOrderByAggregateInput = {
     id?: SortOrder
-    affiliationId?: SortOrder
-  }
-
-  export type DriverMaxOrderByAggregateInput = {
-    id?: SortOrder
+    code?: SortOrder
     name?: SortOrder
-    affiliationId?: SortOrder
-    carNo?: SortOrder
-    tonnage?: SortOrder
-    phone?: SortOrder
-    regDate?: SortOrder
-    address?: SortOrder
-    memo?: SortOrder
+    billingRecipient?: SortOrder
+    type?: SortOrder
+    mergeCriteria?: SortOrder
+    note?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type DriverMinOrderByAggregateInput = {
+  export type NDY_BillingItemMinOrderByAggregateInput = {
     id?: SortOrder
+    code?: SortOrder
     name?: SortOrder
-    affiliationId?: SortOrder
-    carNo?: SortOrder
-    tonnage?: SortOrder
-    phone?: SortOrder
-    regDate?: SortOrder
-    address?: SortOrder
-    memo?: SortOrder
+    billingRecipient?: SortOrder
+    type?: SortOrder
+    mergeCriteria?: SortOrder
+    note?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type DriverSumOrderByAggregateInput = {
-    id?: SortOrder
-    affiliationId?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -9247,20 +23752,92 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NDY_BillingItemRelationFilter = {
+    is?: NDY_BillingItemWhereInput
+    isNot?: NDY_BillingItemWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type NDY_BillingRateCountOrderByAggregateInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    validFrom?: SortOrder
+    validTo?: SortOrder
+    amount?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_BillingRateAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type NDY_BillingRateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    validFrom?: SortOrder
+    validTo?: SortOrder
+    amount?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_BillingRateMinOrderByAggregateInput = {
+    id?: SortOrder
+    itemId?: SortOrder
+    validFrom?: SortOrder
+    validTo?: SortOrder
+    amount?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_BillingRateSumOrderByAggregateInput = {
+    amount?: SortOrder
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9281,6 +23858,638 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+  export type JsonFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NDY_ConfigCountOrderByAggregateInput = {
+    key?: SortOrder
+    data?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_ConfigMaxOrderByAggregateInput = {
+    key?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_ConfigMinOrderByAggregateInput = {
+    key?: SortOrder
+    updatedAt?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type NDY_DailySummaryItemListRelationFilter = {
+    every?: NDY_DailySummaryItemWhereInput
+    some?: NDY_DailySummaryItemWhereInput
+    none?: NDY_DailySummaryItemWhereInput
+  }
+
+  export type NDY_DailySummaryItemOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type NDY_DailySummaryStartDateEndDateCompoundUniqueInput = {
+    startDate: string
+    endDate: string
+  }
+
+  export type NDY_DailySummaryCountOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_DailySummaryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_DailySummaryMinOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type NDY_DailySummaryRelationFilter = {
+    is?: NDY_DailySummaryWhereInput
+    isNot?: NDY_DailySummaryWhereInput
+  }
+
+  export type NDY_DailySummaryItemCountOrderByAggregateInput = {
+    id?: SortOrder
+    summaryId?: SortOrder
+    placeName?: SortOrder
+    deliveryDays?: SortOrder
+    totalAmount?: SortOrder
+    deliveryDates?: SortOrder
+  }
+
+  export type NDY_DailySummaryItemAvgOrderByAggregateInput = {
+    deliveryDays?: SortOrder
+    totalAmount?: SortOrder
+  }
+
+  export type NDY_DailySummaryItemMaxOrderByAggregateInput = {
+    id?: SortOrder
+    summaryId?: SortOrder
+    placeName?: SortOrder
+    deliveryDays?: SortOrder
+    totalAmount?: SortOrder
+  }
+
+  export type NDY_DailySummaryItemMinOrderByAggregateInput = {
+    id?: SortOrder
+    summaryId?: SortOrder
+    placeName?: SortOrder
+    deliveryDays?: SortOrder
+    totalAmount?: SortOrder
+  }
+
+  export type NDY_DailySummaryItemSumOrderByAggregateInput = {
+    deliveryDays?: SortOrder
+    totalAmount?: SortOrder
+  }
+
+  export type NDY_EmergencyRateCountOrderByAggregateInput = {
+    name?: SortOrder
+    rate?: SortOrder
+    chung?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_EmergencyRateAvgOrderByAggregateInput = {
+    rate?: SortOrder
+  }
+
+  export type NDY_EmergencyRateMaxOrderByAggregateInput = {
+    name?: SortOrder
+    rate?: SortOrder
+    chung?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_EmergencyRateMinOrderByAggregateInput = {
+    name?: SortOrder
+    rate?: SortOrder
+    chung?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_EmergencyRateSumOrderByAggregateInput = {
+    rate?: SortOrder
+  }
+
+  export type NDY_EmergencySettlementStartDateEndDateNameCompoundUniqueInput = {
+    startDate: string
+    endDate: string
+    name: string
+  }
+
+  export type NDY_EmergencySettlementCountOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    name?: SortOrder
+    chung?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    total?: SortOrder
+    dates?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_EmergencySettlementAvgOrderByAggregateInput = {
+    count?: SortOrder
+    rate?: SortOrder
+    total?: SortOrder
+  }
+
+  export type NDY_EmergencySettlementMaxOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    name?: SortOrder
+    chung?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    total?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_EmergencySettlementMinOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    name?: SortOrder
+    chung?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    total?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_EmergencySettlementSumOrderByAggregateInput = {
+    count?: SortOrder
+    rate?: SortOrder
+    total?: SortOrder
+  }
+
+  export type NDY_FixedSettlementCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    billingRecipient?: SortOrder
+    amount?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_FixedSettlementAvgOrderByAggregateInput = {
+    amount?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+  }
+
+  export type NDY_FixedSettlementMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    billingRecipient?: SortOrder
+    amount?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_FixedSettlementMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    billingRecipient?: SortOrder
+    amount?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_FixedSettlementSumOrderByAggregateInput = {
+    amount?: SortOrder
+    count?: SortOrder
+    rate?: SortOrder
+  }
+
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type NDY_GSSettlementDateCodeCompoundUniqueInput = {
+    date: string
+    code: string
+  }
+
+  export type NDY_GSSettlementCountOrderByAggregateInput = {
+    id?: SortOrder
+    date?: SortOrder
+    code?: SortOrder
+    name?: SortOrder
+    qty?: SortOrder
+    weight?: SortOrder
+    amount?: SortOrder
+    remarks?: SortOrder
+    modDate?: SortOrder
+  }
+
+  export type NDY_GSSettlementAvgOrderByAggregateInput = {
+    qty?: SortOrder
+    weight?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type NDY_GSSettlementMaxOrderByAggregateInput = {
+    id?: SortOrder
+    date?: SortOrder
+    code?: SortOrder
+    name?: SortOrder
+    qty?: SortOrder
+    weight?: SortOrder
+    amount?: SortOrder
+    remarks?: SortOrder
+    modDate?: SortOrder
+  }
+
+  export type NDY_GSSettlementMinOrderByAggregateInput = {
+    id?: SortOrder
+    date?: SortOrder
+    code?: SortOrder
+    name?: SortOrder
+    qty?: SortOrder
+    weight?: SortOrder
+    amount?: SortOrder
+    remarks?: SortOrder
+    modDate?: SortOrder
+  }
+
+  export type NDY_GSSettlementSumOrderByAggregateInput = {
+    qty?: SortOrder
+    weight?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NDY_GSSummaryStartDateEndDateCompoundUniqueInput = {
+    startDate: string
+    endDate: string
+  }
+
+  export type NDY_GSSummaryCountOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    weekday?: SortOrder
+    saturday?: SortOrder
+    sunday?: SortOrder
+    extraTrucks?: SortOrder
+    totalAmount?: SortOrder
+    dates?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_GSSummaryAvgOrderByAggregateInput = {
+    weekday?: SortOrder
+    saturday?: SortOrder
+    sunday?: SortOrder
+    extraTrucks?: SortOrder
+    totalAmount?: SortOrder
+  }
+
+  export type NDY_GSSummaryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    weekday?: SortOrder
+    saturday?: SortOrder
+    sunday?: SortOrder
+    extraTrucks?: SortOrder
+    totalAmount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_GSSummaryMinOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    weekday?: SortOrder
+    saturday?: SortOrder
+    sunday?: SortOrder
+    extraTrucks?: SortOrder
+    totalAmount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NDY_GSSummarySumOrderByAggregateInput = {
+    weekday?: SortOrder
+    saturday?: SortOrder
+    sunday?: SortOrder
+    extraTrucks?: SortOrder
+    totalAmount?: SortOrder
+  }
+
+  export type NDY_InquirySettlementStartDateEndDateDateNameSoNapKumCompoundUniqueInput = {
+    startDate: string
+    endDate: string
+    date: string
+    name: string
+    so: string
+    nap: string
+    kum: number
+  }
+
+  export type NDY_InquirySettlementCountOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    date?: SortOrder
+    name?: SortOrder
+    so?: SortOrder
+    nap?: SortOrder
+    ton?: SortOrder
+    kum?: SortOrder
+    yo?: SortOrder
+    chung?: SortOrder
+    un?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_InquirySettlementAvgOrderByAggregateInput = {
+    kum?: SortOrder
+    un?: SortOrder
+  }
+
+  export type NDY_InquirySettlementMaxOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    date?: SortOrder
+    name?: SortOrder
+    so?: SortOrder
+    nap?: SortOrder
+    ton?: SortOrder
+    kum?: SortOrder
+    yo?: SortOrder
+    chung?: SortOrder
+    un?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_InquirySettlementMinOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    date?: SortOrder
+    name?: SortOrder
+    so?: SortOrder
+    nap?: SortOrder
+    ton?: SortOrder
+    kum?: SortOrder
+    yo?: SortOrder
+    chung?: SortOrder
+    un?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NDY_InquirySettlementSumOrderByAggregateInput = {
+    kum?: SortOrder
+    un?: SortOrder
+  }
+
+  export type NDY_MonthlyClosingStartDateEndDateCompoundUniqueInput = {
+    startDate: string
+    endDate: string
+  }
+
+  export type NDY_MonthlyClosingCountOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    data?: SortOrder
+    closedAt?: SortOrder
+  }
+
+  export type NDY_MonthlyClosingMaxOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    closedAt?: SortOrder
+  }
+
+  export type NDY_MonthlyClosingMinOrderByAggregateInput = {
+    id?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    closedAt?: SortOrder
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type AffiliationNullableRelationFilter = {
+    is?: AffiliationWhereInput | null
+    isNot?: AffiliationWhereInput | null
+  }
+
+  export type DriverCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    affiliationId?: SortOrder
+    carNo?: SortOrder
+    tonnage?: SortOrder
+    phone?: SortOrder
+    regDate?: SortOrder
+    address?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    oldId?: SortOrder
+  }
+
+  export type DriverAvgOrderByAggregateInput = {
+    id?: SortOrder
+    affiliationId?: SortOrder
+  }
+
+  export type DriverMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    affiliationId?: SortOrder
+    carNo?: SortOrder
+    tonnage?: SortOrder
+    phone?: SortOrder
+    regDate?: SortOrder
+    address?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    oldId?: SortOrder
+  }
+
+  export type DriverMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    affiliationId?: SortOrder
+    carNo?: SortOrder
+    tonnage?: SortOrder
+    phone?: SortOrder
+    regDate?: SortOrder
+    address?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    oldId?: SortOrder
+  }
+
+  export type DriverSumOrderByAggregateInput = {
+    id?: SortOrder
+    affiliationId?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -9293,20 +24502,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -9338,6 +24533,7 @@ export namespace Prisma {
     contractId?: SortOrder
     appliedTonnage?: SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type SettlementHistoryAvgOrderByAggregateInput = {
@@ -9368,6 +24564,7 @@ export namespace Prisma {
     contractId?: SortOrder
     appliedTonnage?: SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type SettlementHistoryMinOrderByAggregateInput = {
@@ -9389,6 +24586,7 @@ export namespace Prisma {
     contractId?: SortOrder
     appliedTonnage?: SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type SettlementHistorySumOrderByAggregateInput = {
@@ -9414,27 +24612,27 @@ export namespace Prisma {
     none?: DriverWhereInput
   }
 
-  export type YongchaContractListRelationFilter = {
-    every?: YongchaContractWhereInput
-    some?: YongchaContractWhereInput
-    none?: YongchaContractWhereInput
-  }
-
   export type UserListRelationFilter = {
     every?: UserWhereInput
     some?: UserWhereInput
     none?: UserWhereInput
   }
 
+  export type YongchaContractListRelationFilter = {
+    every?: YongchaContractWhereInput
+    some?: YongchaContractWhereInput
+    none?: YongchaContractWhereInput
+  }
+
   export type DriverOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type YongchaContractOrderByRelationAggregateInput = {
+  export type UserOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type UserOrderByRelationAggregateInput = {
+  export type YongchaContractOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -9449,6 +24647,7 @@ export namespace Prisma {
     email?: SortOrder
     memo?: SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type AffiliationAvgOrderByAggregateInput = {
@@ -9466,6 +24665,7 @@ export namespace Prisma {
     email?: SortOrder
     memo?: SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type AffiliationMinOrderByAggregateInput = {
@@ -9479,6 +24679,7 @@ export namespace Prisma {
     email?: SortOrder
     memo?: SortOrder
     createdAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type AffiliationSumOrderByAggregateInput = {
@@ -9494,6 +24695,7 @@ export namespace Prisma {
     affiliationId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -9510,6 +24712,7 @@ export namespace Prisma {
     affiliationId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -9521,6 +24724,7 @@ export namespace Prisma {
     affiliationId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -9563,6 +24767,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     memo?: SortOrder
+    oldId?: SortOrder
   }
 
   export type YongchaContractAvgOrderByAggregateInput = {
@@ -9581,6 +24786,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     memo?: SortOrder
+    oldId?: SortOrder
   }
 
   export type YongchaContractMinOrderByAggregateInput = {
@@ -9593,6 +24799,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     memo?: SortOrder
+    oldId?: SortOrder
   }
 
   export type YongchaContractSumOrderByAggregateInput = {
@@ -9609,12 +24816,12 @@ export namespace Prisma {
   export type YongchaRateDetailCountOrderByAggregateInput = {
     id?: SortOrder
     contractId?: SortOrder
-    tonnage?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type YongchaRateDetailAvgOrderByAggregateInput = {
@@ -9626,23 +24833,23 @@ export namespace Prisma {
   export type YongchaRateDetailMaxOrderByAggregateInput = {
     id?: SortOrder
     contractId?: SortOrder
-    tonnage?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type YongchaRateDetailMinOrderByAggregateInput = {
     id?: SortOrder
     contractId?: SortOrder
-    tonnage?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    oldId?: SortOrder
   }
 
   export type YongchaRateDetailSumOrderByAggregateInput = {
@@ -9651,26 +24858,181 @@ export namespace Prisma {
     price?: SortOrder
   }
 
-  export type AffiliationCreateNestedOneWithoutDriverInput = {
-    create?: XOR<AffiliationCreateWithoutDriverInput, AffiliationUncheckedCreateWithoutDriverInput>
-    connectOrCreate?: AffiliationCreateOrConnectWithoutDriverInput
-    connect?: AffiliationWhereUniqueInput
+  export type NDY_BillingRateCreateNestedManyWithoutNDY_BillingItemInput = {
+    create?: XOR<NDY_BillingRateCreateWithoutNDY_BillingItemInput, NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput> | NDY_BillingRateCreateWithoutNDY_BillingItemInput[] | NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput[]
+    connectOrCreate?: NDY_BillingRateCreateOrConnectWithoutNDY_BillingItemInput | NDY_BillingRateCreateOrConnectWithoutNDY_BillingItemInput[]
+    createMany?: NDY_BillingRateCreateManyNDY_BillingItemInputEnvelope
+    connect?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
+  }
+
+  export type NDY_BillingRateUncheckedCreateNestedManyWithoutNDY_BillingItemInput = {
+    create?: XOR<NDY_BillingRateCreateWithoutNDY_BillingItemInput, NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput> | NDY_BillingRateCreateWithoutNDY_BillingItemInput[] | NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput[]
+    connectOrCreate?: NDY_BillingRateCreateOrConnectWithoutNDY_BillingItemInput | NDY_BillingRateCreateOrConnectWithoutNDY_BillingItemInput[]
+    createMany?: NDY_BillingRateCreateManyNDY_BillingItemInputEnvelope
+    connect?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type NDY_BillingRateUpdateManyWithoutNDY_BillingItemNestedInput = {
+    create?: XOR<NDY_BillingRateCreateWithoutNDY_BillingItemInput, NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput> | NDY_BillingRateCreateWithoutNDY_BillingItemInput[] | NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput[]
+    connectOrCreate?: NDY_BillingRateCreateOrConnectWithoutNDY_BillingItemInput | NDY_BillingRateCreateOrConnectWithoutNDY_BillingItemInput[]
+    upsert?: NDY_BillingRateUpsertWithWhereUniqueWithoutNDY_BillingItemInput | NDY_BillingRateUpsertWithWhereUniqueWithoutNDY_BillingItemInput[]
+    createMany?: NDY_BillingRateCreateManyNDY_BillingItemInputEnvelope
+    set?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
+    disconnect?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
+    delete?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
+    connect?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
+    update?: NDY_BillingRateUpdateWithWhereUniqueWithoutNDY_BillingItemInput | NDY_BillingRateUpdateWithWhereUniqueWithoutNDY_BillingItemInput[]
+    updateMany?: NDY_BillingRateUpdateManyWithWhereWithoutNDY_BillingItemInput | NDY_BillingRateUpdateManyWithWhereWithoutNDY_BillingItemInput[]
+    deleteMany?: NDY_BillingRateScalarWhereInput | NDY_BillingRateScalarWhereInput[]
+  }
+
+  export type NDY_BillingRateUncheckedUpdateManyWithoutNDY_BillingItemNestedInput = {
+    create?: XOR<NDY_BillingRateCreateWithoutNDY_BillingItemInput, NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput> | NDY_BillingRateCreateWithoutNDY_BillingItemInput[] | NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput[]
+    connectOrCreate?: NDY_BillingRateCreateOrConnectWithoutNDY_BillingItemInput | NDY_BillingRateCreateOrConnectWithoutNDY_BillingItemInput[]
+    upsert?: NDY_BillingRateUpsertWithWhereUniqueWithoutNDY_BillingItemInput | NDY_BillingRateUpsertWithWhereUniqueWithoutNDY_BillingItemInput[]
+    createMany?: NDY_BillingRateCreateManyNDY_BillingItemInputEnvelope
+    set?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
+    disconnect?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
+    delete?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
+    connect?: NDY_BillingRateWhereUniqueInput | NDY_BillingRateWhereUniqueInput[]
+    update?: NDY_BillingRateUpdateWithWhereUniqueWithoutNDY_BillingItemInput | NDY_BillingRateUpdateWithWhereUniqueWithoutNDY_BillingItemInput[]
+    updateMany?: NDY_BillingRateUpdateManyWithWhereWithoutNDY_BillingItemInput | NDY_BillingRateUpdateManyWithWhereWithoutNDY_BillingItemInput[]
+    deleteMany?: NDY_BillingRateScalarWhereInput | NDY_BillingRateScalarWhereInput[]
+  }
+
+  export type NDY_BillingItemCreateNestedOneWithoutNDY_BillingRateInput = {
+    create?: XOR<NDY_BillingItemCreateWithoutNDY_BillingRateInput, NDY_BillingItemUncheckedCreateWithoutNDY_BillingRateInput>
+    connectOrCreate?: NDY_BillingItemCreateOrConnectWithoutNDY_BillingRateInput
+    connect?: NDY_BillingItemWhereUniqueInput
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
+  export type NDY_BillingItemUpdateOneRequiredWithoutNDY_BillingRateNestedInput = {
+    create?: XOR<NDY_BillingItemCreateWithoutNDY_BillingRateInput, NDY_BillingItemUncheckedCreateWithoutNDY_BillingRateInput>
+    connectOrCreate?: NDY_BillingItemCreateOrConnectWithoutNDY_BillingRateInput
+    upsert?: NDY_BillingItemUpsertWithoutNDY_BillingRateInput
+    connect?: NDY_BillingItemWhereUniqueInput
+    update?: XOR<XOR<NDY_BillingItemUpdateToOneWithWhereWithoutNDY_BillingRateInput, NDY_BillingItemUpdateWithoutNDY_BillingRateInput>, NDY_BillingItemUncheckedUpdateWithoutNDY_BillingRateInput>
+  }
+
+  export type NDY_DailySummaryItemCreateNestedManyWithoutNDY_DailySummaryInput = {
+    create?: XOR<NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput, NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput> | NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput[] | NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput[]
+    connectOrCreate?: NDY_DailySummaryItemCreateOrConnectWithoutNDY_DailySummaryInput | NDY_DailySummaryItemCreateOrConnectWithoutNDY_DailySummaryInput[]
+    createMany?: NDY_DailySummaryItemCreateManyNDY_DailySummaryInputEnvelope
+    connect?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+  }
+
+  export type NDY_DailySummaryItemUncheckedCreateNestedManyWithoutNDY_DailySummaryInput = {
+    create?: XOR<NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput, NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput> | NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput[] | NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput[]
+    connectOrCreate?: NDY_DailySummaryItemCreateOrConnectWithoutNDY_DailySummaryInput | NDY_DailySummaryItemCreateOrConnectWithoutNDY_DailySummaryInput[]
+    createMany?: NDY_DailySummaryItemCreateManyNDY_DailySummaryInputEnvelope
+    connect?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+  }
+
+  export type NDY_DailySummaryItemUpdateManyWithoutNDY_DailySummaryNestedInput = {
+    create?: XOR<NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput, NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput> | NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput[] | NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput[]
+    connectOrCreate?: NDY_DailySummaryItemCreateOrConnectWithoutNDY_DailySummaryInput | NDY_DailySummaryItemCreateOrConnectWithoutNDY_DailySummaryInput[]
+    upsert?: NDY_DailySummaryItemUpsertWithWhereUniqueWithoutNDY_DailySummaryInput | NDY_DailySummaryItemUpsertWithWhereUniqueWithoutNDY_DailySummaryInput[]
+    createMany?: NDY_DailySummaryItemCreateManyNDY_DailySummaryInputEnvelope
+    set?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+    disconnect?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+    delete?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+    connect?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+    update?: NDY_DailySummaryItemUpdateWithWhereUniqueWithoutNDY_DailySummaryInput | NDY_DailySummaryItemUpdateWithWhereUniqueWithoutNDY_DailySummaryInput[]
+    updateMany?: NDY_DailySummaryItemUpdateManyWithWhereWithoutNDY_DailySummaryInput | NDY_DailySummaryItemUpdateManyWithWhereWithoutNDY_DailySummaryInput[]
+    deleteMany?: NDY_DailySummaryItemScalarWhereInput | NDY_DailySummaryItemScalarWhereInput[]
+  }
+
+  export type NDY_DailySummaryItemUncheckedUpdateManyWithoutNDY_DailySummaryNestedInput = {
+    create?: XOR<NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput, NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput> | NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput[] | NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput[]
+    connectOrCreate?: NDY_DailySummaryItemCreateOrConnectWithoutNDY_DailySummaryInput | NDY_DailySummaryItemCreateOrConnectWithoutNDY_DailySummaryInput[]
+    upsert?: NDY_DailySummaryItemUpsertWithWhereUniqueWithoutNDY_DailySummaryInput | NDY_DailySummaryItemUpsertWithWhereUniqueWithoutNDY_DailySummaryInput[]
+    createMany?: NDY_DailySummaryItemCreateManyNDY_DailySummaryInputEnvelope
+    set?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+    disconnect?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+    delete?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+    connect?: NDY_DailySummaryItemWhereUniqueInput | NDY_DailySummaryItemWhereUniqueInput[]
+    update?: NDY_DailySummaryItemUpdateWithWhereUniqueWithoutNDY_DailySummaryInput | NDY_DailySummaryItemUpdateWithWhereUniqueWithoutNDY_DailySummaryInput[]
+    updateMany?: NDY_DailySummaryItemUpdateManyWithWhereWithoutNDY_DailySummaryInput | NDY_DailySummaryItemUpdateManyWithWhereWithoutNDY_DailySummaryInput[]
+    deleteMany?: NDY_DailySummaryItemScalarWhereInput | NDY_DailySummaryItemScalarWhereInput[]
+  }
+
+  export type NDY_DailySummaryItemCreatedeliveryDatesInput = {
+    set: string[]
+  }
+
+  export type NDY_DailySummaryCreateNestedOneWithoutNDY_DailySummaryItemInput = {
+    create?: XOR<NDY_DailySummaryCreateWithoutNDY_DailySummaryItemInput, NDY_DailySummaryUncheckedCreateWithoutNDY_DailySummaryItemInput>
+    connectOrCreate?: NDY_DailySummaryCreateOrConnectWithoutNDY_DailySummaryItemInput
+    connect?: NDY_DailySummaryWhereUniqueInput
+  }
+
+  export type NDY_DailySummaryItemUpdatedeliveryDatesInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type NDY_DailySummaryUpdateOneRequiredWithoutNDY_DailySummaryItemNestedInput = {
+    create?: XOR<NDY_DailySummaryCreateWithoutNDY_DailySummaryItemInput, NDY_DailySummaryUncheckedCreateWithoutNDY_DailySummaryItemInput>
+    connectOrCreate?: NDY_DailySummaryCreateOrConnectWithoutNDY_DailySummaryItemInput
+    upsert?: NDY_DailySummaryUpsertWithoutNDY_DailySummaryItemInput
+    connect?: NDY_DailySummaryWhereUniqueInput
+    update?: XOR<XOR<NDY_DailySummaryUpdateToOneWithWhereWithoutNDY_DailySummaryItemInput, NDY_DailySummaryUpdateWithoutNDY_DailySummaryItemInput>, NDY_DailySummaryUncheckedUpdateWithoutNDY_DailySummaryItemInput>
+  }
+
+  export type NDY_EmergencySettlementCreatedatesInput = {
+    set: string[]
+  }
+
+  export type NDY_EmergencySettlementUpdatedatesInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type NDY_GSSummaryCreatedatesInput = {
+    set: string[]
+  }
+
+  export type NDY_GSSummaryUpdatedatesInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type AffiliationCreateNestedOneWithoutDriverInput = {
+    create?: XOR<AffiliationCreateWithoutDriverInput, AffiliationUncheckedCreateWithoutDriverInput>
+    connectOrCreate?: AffiliationCreateOrConnectWithoutDriverInput
+    connect?: AffiliationWhereUniqueInput
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type AffiliationUpdateOneWithoutDriverNestedInput = {
@@ -9681,14 +25043,6 @@ export namespace Prisma {
     delete?: AffiliationWhereInput | boolean
     connect?: AffiliationWhereUniqueInput
     update?: XOR<XOR<AffiliationUpdateToOneWithWhereWithoutDriverInput, AffiliationUpdateWithoutDriverInput>, AffiliationUncheckedUpdateWithoutDriverInput>
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -9726,18 +25080,18 @@ export namespace Prisma {
     connect?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
   }
 
-  export type YongchaContractCreateNestedManyWithoutAffiliationInput = {
-    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
-    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
-    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
-    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-  }
-
   export type UserCreateNestedManyWithoutAffiliationInput = {
     create?: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput> | UserCreateWithoutAffiliationInput[] | UserUncheckedCreateWithoutAffiliationInput[]
     connectOrCreate?: UserCreateOrConnectWithoutAffiliationInput | UserCreateOrConnectWithoutAffiliationInput[]
     createMany?: UserCreateManyAffiliationInputEnvelope
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type YongchaContractCreateNestedManyWithoutAffiliationInput = {
+    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
+    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
+    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
   }
 
   export type DriverUncheckedCreateNestedManyWithoutAffiliationInput = {
@@ -9747,18 +25101,18 @@ export namespace Prisma {
     connect?: DriverWhereUniqueInput | DriverWhereUniqueInput[]
   }
 
-  export type YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput = {
-    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
-    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
-    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
-    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-  }
-
   export type UserUncheckedCreateNestedManyWithoutAffiliationInput = {
     create?: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput> | UserCreateWithoutAffiliationInput[] | UserUncheckedCreateWithoutAffiliationInput[]
     connectOrCreate?: UserCreateOrConnectWithoutAffiliationInput | UserCreateOrConnectWithoutAffiliationInput[]
     createMany?: UserCreateManyAffiliationInputEnvelope
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput = {
+    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
+    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
+    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
   }
 
   export type DriverUpdateManyWithoutAffiliationNestedInput = {
@@ -9775,20 +25129,6 @@ export namespace Prisma {
     deleteMany?: DriverScalarWhereInput | DriverScalarWhereInput[]
   }
 
-  export type YongchaContractUpdateManyWithoutAffiliationNestedInput = {
-    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
-    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
-    upsert?: YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput | YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput[]
-    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
-    set?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-    disconnect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-    delete?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-    update?: YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput | YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput[]
-    updateMany?: YongchaContractUpdateManyWithWhereWithoutAffiliationInput | YongchaContractUpdateManyWithWhereWithoutAffiliationInput[]
-    deleteMany?: YongchaContractScalarWhereInput | YongchaContractScalarWhereInput[]
-  }
-
   export type UserUpdateManyWithoutAffiliationNestedInput = {
     create?: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput> | UserCreateWithoutAffiliationInput[] | UserUncheckedCreateWithoutAffiliationInput[]
     connectOrCreate?: UserCreateOrConnectWithoutAffiliationInput | UserCreateOrConnectWithoutAffiliationInput[]
@@ -9801,6 +25141,20 @@ export namespace Prisma {
     update?: UserUpdateWithWhereUniqueWithoutAffiliationInput | UserUpdateWithWhereUniqueWithoutAffiliationInput[]
     updateMany?: UserUpdateManyWithWhereWithoutAffiliationInput | UserUpdateManyWithWhereWithoutAffiliationInput[]
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type YongchaContractUpdateManyWithoutAffiliationNestedInput = {
+    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
+    upsert?: YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput | YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput[]
+    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
+    set?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    disconnect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    delete?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    update?: YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput | YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput[]
+    updateMany?: YongchaContractUpdateManyWithWhereWithoutAffiliationInput | YongchaContractUpdateManyWithWhereWithoutAffiliationInput[]
+    deleteMany?: YongchaContractScalarWhereInput | YongchaContractScalarWhereInput[]
   }
 
   export type DriverUncheckedUpdateManyWithoutAffiliationNestedInput = {
@@ -9817,20 +25171,6 @@ export namespace Prisma {
     deleteMany?: DriverScalarWhereInput | DriverScalarWhereInput[]
   }
 
-  export type YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput = {
-    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
-    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
-    upsert?: YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput | YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput[]
-    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
-    set?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-    disconnect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-    delete?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
-    update?: YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput | YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput[]
-    updateMany?: YongchaContractUpdateManyWithWhereWithoutAffiliationInput | YongchaContractUpdateManyWithWhereWithoutAffiliationInput[]
-    deleteMany?: YongchaContractScalarWhereInput | YongchaContractScalarWhereInput[]
-  }
-
   export type UserUncheckedUpdateManyWithoutAffiliationNestedInput = {
     create?: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput> | UserCreateWithoutAffiliationInput[] | UserUncheckedCreateWithoutAffiliationInput[]
     connectOrCreate?: UserCreateOrConnectWithoutAffiliationInput | UserCreateOrConnectWithoutAffiliationInput[]
@@ -9843,6 +25183,20 @@ export namespace Prisma {
     update?: UserUpdateWithWhereUniqueWithoutAffiliationInput | UserUpdateWithWhereUniqueWithoutAffiliationInput[]
     updateMany?: UserUpdateManyWithWhereWithoutAffiliationInput | UserUpdateManyWithWhereWithoutAffiliationInput[]
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput = {
+    create?: XOR<YongchaContractCreateWithoutAffiliationInput, YongchaContractUncheckedCreateWithoutAffiliationInput> | YongchaContractCreateWithoutAffiliationInput[] | YongchaContractUncheckedCreateWithoutAffiliationInput[]
+    connectOrCreate?: YongchaContractCreateOrConnectWithoutAffiliationInput | YongchaContractCreateOrConnectWithoutAffiliationInput[]
+    upsert?: YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput | YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput[]
+    createMany?: YongchaContractCreateManyAffiliationInputEnvelope
+    set?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    disconnect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    delete?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    connect?: YongchaContractWhereUniqueInput | YongchaContractWhereUniqueInput[]
+    update?: YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput | YongchaContractUpdateWithWhereUniqueWithoutAffiliationInput[]
+    updateMany?: YongchaContractUpdateManyWithWhereWithoutAffiliationInput | YongchaContractUpdateManyWithWhereWithoutAffiliationInput[]
+    deleteMany?: YongchaContractScalarWhereInput | YongchaContractScalarWhereInput[]
   }
 
   export type AffiliationCreateNestedOneWithoutUserInput = {
@@ -9973,17 +25327,6 @@ export namespace Prisma {
     update?: XOR<XOR<YongchaContractUpdateToOneWithWhereWithoutYongchaRateDetailInput, YongchaContractUpdateWithoutYongchaRateDetailInput>, YongchaContractUncheckedUpdateWithoutYongchaRateDetailInput>
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -9998,15 +25341,57 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -10023,26 +25408,32 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -10071,22 +25462,65 @@ export namespace Prisma {
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
   }
+  export type NestedJsonFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
 
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -10116,23 +25550,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -10145,20 +25562,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedBoolFilter<$PrismaModel = never> = {
@@ -10174,6 +25577,229 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type NDY_BillingRateCreateWithoutNDY_BillingItemInput = {
+    id: string
+    validFrom: string
+    validTo?: string | null
+    amount?: number
+    note?: string
+    createdAt?: Date | string
+  }
+
+  export type NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput = {
+    id: string
+    validFrom: string
+    validTo?: string | null
+    amount?: number
+    note?: string
+    createdAt?: Date | string
+  }
+
+  export type NDY_BillingRateCreateOrConnectWithoutNDY_BillingItemInput = {
+    where: NDY_BillingRateWhereUniqueInput
+    create: XOR<NDY_BillingRateCreateWithoutNDY_BillingItemInput, NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput>
+  }
+
+  export type NDY_BillingRateCreateManyNDY_BillingItemInputEnvelope = {
+    data: NDY_BillingRateCreateManyNDY_BillingItemInput | NDY_BillingRateCreateManyNDY_BillingItemInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NDY_BillingRateUpsertWithWhereUniqueWithoutNDY_BillingItemInput = {
+    where: NDY_BillingRateWhereUniqueInput
+    update: XOR<NDY_BillingRateUpdateWithoutNDY_BillingItemInput, NDY_BillingRateUncheckedUpdateWithoutNDY_BillingItemInput>
+    create: XOR<NDY_BillingRateCreateWithoutNDY_BillingItemInput, NDY_BillingRateUncheckedCreateWithoutNDY_BillingItemInput>
+  }
+
+  export type NDY_BillingRateUpdateWithWhereUniqueWithoutNDY_BillingItemInput = {
+    where: NDY_BillingRateWhereUniqueInput
+    data: XOR<NDY_BillingRateUpdateWithoutNDY_BillingItemInput, NDY_BillingRateUncheckedUpdateWithoutNDY_BillingItemInput>
+  }
+
+  export type NDY_BillingRateUpdateManyWithWhereWithoutNDY_BillingItemInput = {
+    where: NDY_BillingRateScalarWhereInput
+    data: XOR<NDY_BillingRateUpdateManyMutationInput, NDY_BillingRateUncheckedUpdateManyWithoutNDY_BillingItemInput>
+  }
+
+  export type NDY_BillingRateScalarWhereInput = {
+    AND?: NDY_BillingRateScalarWhereInput | NDY_BillingRateScalarWhereInput[]
+    OR?: NDY_BillingRateScalarWhereInput[]
+    NOT?: NDY_BillingRateScalarWhereInput | NDY_BillingRateScalarWhereInput[]
+    id?: StringFilter<"NDY_BillingRate"> | string
+    itemId?: StringFilter<"NDY_BillingRate"> | string
+    validFrom?: StringFilter<"NDY_BillingRate"> | string
+    validTo?: StringNullableFilter<"NDY_BillingRate"> | string | null
+    amount?: IntFilter<"NDY_BillingRate"> | number
+    note?: StringFilter<"NDY_BillingRate"> | string
+    createdAt?: DateTimeFilter<"NDY_BillingRate"> | Date | string
+  }
+
+  export type NDY_BillingItemCreateWithoutNDY_BillingRateInput = {
+    id: string
+    code?: string
+    name: string
+    billingRecipient?: string
+    type?: string
+    mergeCriteria?: string
+    note?: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+  }
+
+  export type NDY_BillingItemUncheckedCreateWithoutNDY_BillingRateInput = {
+    id: string
+    code?: string
+    name: string
+    billingRecipient?: string
+    type?: string
+    mergeCriteria?: string
+    note?: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+  }
+
+  export type NDY_BillingItemCreateOrConnectWithoutNDY_BillingRateInput = {
+    where: NDY_BillingItemWhereUniqueInput
+    create: XOR<NDY_BillingItemCreateWithoutNDY_BillingRateInput, NDY_BillingItemUncheckedCreateWithoutNDY_BillingRateInput>
+  }
+
+  export type NDY_BillingItemUpsertWithoutNDY_BillingRateInput = {
+    update: XOR<NDY_BillingItemUpdateWithoutNDY_BillingRateInput, NDY_BillingItemUncheckedUpdateWithoutNDY_BillingRateInput>
+    create: XOR<NDY_BillingItemCreateWithoutNDY_BillingRateInput, NDY_BillingItemUncheckedCreateWithoutNDY_BillingRateInput>
+    where?: NDY_BillingItemWhereInput
+  }
+
+  export type NDY_BillingItemUpdateToOneWithWhereWithoutNDY_BillingRateInput = {
+    where?: NDY_BillingItemWhereInput
+    data: XOR<NDY_BillingItemUpdateWithoutNDY_BillingRateInput, NDY_BillingItemUncheckedUpdateWithoutNDY_BillingRateInput>
+  }
+
+  export type NDY_BillingItemUpdateWithoutNDY_BillingRateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    mergeCriteria?: StringFieldUpdateOperationsInput | string
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_BillingItemUncheckedUpdateWithoutNDY_BillingRateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    billingRecipient?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    mergeCriteria?: StringFieldUpdateOperationsInput | string
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput = {
+    id: string
+    placeName: string
+    deliveryDays?: number
+    totalAmount?: number
+    deliveryDates?: NDY_DailySummaryItemCreatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput = {
+    id: string
+    placeName: string
+    deliveryDays?: number
+    totalAmount?: number
+    deliveryDates?: NDY_DailySummaryItemCreatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_DailySummaryItemCreateOrConnectWithoutNDY_DailySummaryInput = {
+    where: NDY_DailySummaryItemWhereUniqueInput
+    create: XOR<NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput, NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput>
+  }
+
+  export type NDY_DailySummaryItemCreateManyNDY_DailySummaryInputEnvelope = {
+    data: NDY_DailySummaryItemCreateManyNDY_DailySummaryInput | NDY_DailySummaryItemCreateManyNDY_DailySummaryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NDY_DailySummaryItemUpsertWithWhereUniqueWithoutNDY_DailySummaryInput = {
+    where: NDY_DailySummaryItemWhereUniqueInput
+    update: XOR<NDY_DailySummaryItemUpdateWithoutNDY_DailySummaryInput, NDY_DailySummaryItemUncheckedUpdateWithoutNDY_DailySummaryInput>
+    create: XOR<NDY_DailySummaryItemCreateWithoutNDY_DailySummaryInput, NDY_DailySummaryItemUncheckedCreateWithoutNDY_DailySummaryInput>
+  }
+
+  export type NDY_DailySummaryItemUpdateWithWhereUniqueWithoutNDY_DailySummaryInput = {
+    where: NDY_DailySummaryItemWhereUniqueInput
+    data: XOR<NDY_DailySummaryItemUpdateWithoutNDY_DailySummaryInput, NDY_DailySummaryItemUncheckedUpdateWithoutNDY_DailySummaryInput>
+  }
+
+  export type NDY_DailySummaryItemUpdateManyWithWhereWithoutNDY_DailySummaryInput = {
+    where: NDY_DailySummaryItemScalarWhereInput
+    data: XOR<NDY_DailySummaryItemUpdateManyMutationInput, NDY_DailySummaryItemUncheckedUpdateManyWithoutNDY_DailySummaryInput>
+  }
+
+  export type NDY_DailySummaryItemScalarWhereInput = {
+    AND?: NDY_DailySummaryItemScalarWhereInput | NDY_DailySummaryItemScalarWhereInput[]
+    OR?: NDY_DailySummaryItemScalarWhereInput[]
+    NOT?: NDY_DailySummaryItemScalarWhereInput | NDY_DailySummaryItemScalarWhereInput[]
+    id?: StringFilter<"NDY_DailySummaryItem"> | string
+    summaryId?: StringFilter<"NDY_DailySummaryItem"> | string
+    placeName?: StringFilter<"NDY_DailySummaryItem"> | string
+    deliveryDays?: IntFilter<"NDY_DailySummaryItem"> | number
+    totalAmount?: IntFilter<"NDY_DailySummaryItem"> | number
+    deliveryDates?: StringNullableListFilter<"NDY_DailySummaryItem">
+  }
+
+  export type NDY_DailySummaryCreateWithoutNDY_DailySummaryItemInput = {
+    id: string
+    startDate: string
+    endDate: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+  }
+
+  export type NDY_DailySummaryUncheckedCreateWithoutNDY_DailySummaryItemInput = {
+    id: string
+    startDate: string
+    endDate: string
+    createdAt?: Date | string
+    updatedAt: Date | string
+  }
+
+  export type NDY_DailySummaryCreateOrConnectWithoutNDY_DailySummaryItemInput = {
+    where: NDY_DailySummaryWhereUniqueInput
+    create: XOR<NDY_DailySummaryCreateWithoutNDY_DailySummaryItemInput, NDY_DailySummaryUncheckedCreateWithoutNDY_DailySummaryItemInput>
+  }
+
+  export type NDY_DailySummaryUpsertWithoutNDY_DailySummaryItemInput = {
+    update: XOR<NDY_DailySummaryUpdateWithoutNDY_DailySummaryItemInput, NDY_DailySummaryUncheckedUpdateWithoutNDY_DailySummaryItemInput>
+    create: XOR<NDY_DailySummaryCreateWithoutNDY_DailySummaryItemInput, NDY_DailySummaryUncheckedCreateWithoutNDY_DailySummaryItemInput>
+    where?: NDY_DailySummaryWhereInput
+  }
+
+  export type NDY_DailySummaryUpdateToOneWithWhereWithoutNDY_DailySummaryItemInput = {
+    where?: NDY_DailySummaryWhereInput
+    data: XOR<NDY_DailySummaryUpdateWithoutNDY_DailySummaryItemInput, NDY_DailySummaryUncheckedUpdateWithoutNDY_DailySummaryItemInput>
+  }
+
+  export type NDY_DailySummaryUpdateWithoutNDY_DailySummaryItemInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_DailySummaryUncheckedUpdateWithoutNDY_DailySummaryItemInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: StringFieldUpdateOperationsInput | string
+    endDate?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type AffiliationCreateWithoutDriverInput = {
     name: string
     bizNo?: string | null
@@ -10184,8 +25810,9 @@ export namespace Prisma {
     email?: string | null
     memo?: string | null
     createdAt?: Date | string
-    YongchaContract?: YongchaContractCreateNestedManyWithoutAffiliationInput
+    oldId?: string | null
     User?: UserCreateNestedManyWithoutAffiliationInput
+    YongchaContract?: YongchaContractCreateNestedManyWithoutAffiliationInput
   }
 
   export type AffiliationUncheckedCreateWithoutDriverInput = {
@@ -10199,8 +25826,9 @@ export namespace Prisma {
     email?: string | null
     memo?: string | null
     createdAt?: Date | string
-    YongchaContract?: YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput
+    oldId?: string | null
     User?: UserUncheckedCreateNestedManyWithoutAffiliationInput
+    YongchaContract?: YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput
   }
 
   export type AffiliationCreateOrConnectWithoutDriverInput = {
@@ -10229,8 +25857,9 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    YongchaContract?: YongchaContractUpdateManyWithoutAffiliationNestedInput
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     User?: UserUpdateManyWithoutAffiliationNestedInput
+    YongchaContract?: YongchaContractUpdateManyWithoutAffiliationNestedInput
   }
 
   export type AffiliationUncheckedUpdateWithoutDriverInput = {
@@ -10244,8 +25873,9 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    YongchaContract?: YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     User?: UserUncheckedUpdateManyWithoutAffiliationNestedInput
+    YongchaContract?: YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput
   }
 
   export type YongchaContractCreateWithoutSettlementHistoryInput = {
@@ -10256,6 +25886,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
+    oldId?: string | null
     Affiliation: AffiliationCreateNestedOneWithoutYongchaContractInput
     YongchaRateDetail?: YongchaRateDetailCreateNestedManyWithoutYongchaContractInput
   }
@@ -10270,6 +25901,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
+    oldId?: string | null
     YongchaRateDetail?: YongchaRateDetailUncheckedCreateNestedManyWithoutYongchaContractInput
   }
 
@@ -10297,6 +25929,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     Affiliation?: AffiliationUpdateOneRequiredWithoutYongchaContractNestedInput
     YongchaRateDetail?: YongchaRateDetailUpdateManyWithoutYongchaContractNestedInput
   }
@@ -10311,6 +25944,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     YongchaRateDetail?: YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractNestedInput
   }
 
@@ -10324,6 +25958,7 @@ export namespace Prisma {
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type DriverUncheckedCreateWithoutAffiliationInput = {
@@ -10337,6 +25972,7 @@ export namespace Prisma {
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type DriverCreateOrConnectWithoutAffiliationInput = {
@@ -10349,6 +25985,37 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type UserCreateWithoutAffiliationInput = {
+    loginId: string
+    password: string
+    name: string
+    role?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    oldId?: string | null
+  }
+
+  export type UserUncheckedCreateWithoutAffiliationInput = {
+    id?: number
+    loginId: string
+    password: string
+    name: string
+    role?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    oldId?: string | null
+  }
+
+  export type UserCreateOrConnectWithoutAffiliationInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput>
+  }
+
+  export type UserCreateManyAffiliationInputEnvelope = {
+    data: UserCreateManyAffiliationInput | UserCreateManyAffiliationInput[]
+    skipDuplicates?: boolean
+  }
+
   export type YongchaContractCreateWithoutAffiliationInput = {
     year: number
     startDate: Date | string
@@ -10357,6 +26024,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
+    oldId?: string | null
     SettlementHistory?: SettlementHistoryCreateNestedManyWithoutYongchaContractInput
     YongchaRateDetail?: YongchaRateDetailCreateNestedManyWithoutYongchaContractInput
   }
@@ -10370,6 +26038,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
+    oldId?: string | null
     SettlementHistory?: SettlementHistoryUncheckedCreateNestedManyWithoutYongchaContractInput
     YongchaRateDetail?: YongchaRateDetailUncheckedCreateNestedManyWithoutYongchaContractInput
   }
@@ -10381,35 +26050,6 @@ export namespace Prisma {
 
   export type YongchaContractCreateManyAffiliationInputEnvelope = {
     data: YongchaContractCreateManyAffiliationInput | YongchaContractCreateManyAffiliationInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type UserCreateWithoutAffiliationInput = {
-    loginId: string
-    password: string
-    name: string
-    role?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type UserUncheckedCreateWithoutAffiliationInput = {
-    id?: number
-    loginId: string
-    password: string
-    name: string
-    role?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type UserCreateOrConnectWithoutAffiliationInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput>
-  }
-
-  export type UserCreateManyAffiliationInputEnvelope = {
-    data: UserCreateManyAffiliationInput | UserCreateManyAffiliationInput[]
     skipDuplicates?: boolean
   }
 
@@ -10444,6 +26084,38 @@ export namespace Prisma {
     memo?: StringNullableFilter<"Driver"> | string | null
     createdAt?: DateTimeFilter<"Driver"> | Date | string
     updatedAt?: DateTimeFilter<"Driver"> | Date | string
+    oldId?: StringNullableFilter<"Driver"> | string | null
+  }
+
+  export type UserUpsertWithWhereUniqueWithoutAffiliationInput = {
+    where: UserWhereUniqueInput
+    update: XOR<UserUpdateWithoutAffiliationInput, UserUncheckedUpdateWithoutAffiliationInput>
+    create: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput>
+  }
+
+  export type UserUpdateWithWhereUniqueWithoutAffiliationInput = {
+    where: UserWhereUniqueInput
+    data: XOR<UserUpdateWithoutAffiliationInput, UserUncheckedUpdateWithoutAffiliationInput>
+  }
+
+  export type UserUpdateManyWithWhereWithoutAffiliationInput = {
+    where: UserScalarWhereInput
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutAffiliationInput>
+  }
+
+  export type UserScalarWhereInput = {
+    AND?: UserScalarWhereInput | UserScalarWhereInput[]
+    OR?: UserScalarWhereInput[]
+    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
+    id?: IntFilter<"User"> | number
+    loginId?: StringFilter<"User"> | string
+    password?: StringFilter<"User"> | string
+    name?: StringFilter<"User"> | string
+    role?: StringFilter<"User"> | string
+    affiliationId?: IntNullableFilter<"User"> | number | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    oldId?: StringNullableFilter<"User"> | string | null
   }
 
   export type YongchaContractUpsertWithWhereUniqueWithoutAffiliationInput = {
@@ -10475,36 +26147,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"YongchaContract"> | Date | string
     updatedAt?: DateTimeFilter<"YongchaContract"> | Date | string
     memo?: StringNullableFilter<"YongchaContract"> | string | null
-  }
-
-  export type UserUpsertWithWhereUniqueWithoutAffiliationInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutAffiliationInput, UserUncheckedUpdateWithoutAffiliationInput>
-    create: XOR<UserCreateWithoutAffiliationInput, UserUncheckedCreateWithoutAffiliationInput>
-  }
-
-  export type UserUpdateWithWhereUniqueWithoutAffiliationInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutAffiliationInput, UserUncheckedUpdateWithoutAffiliationInput>
-  }
-
-  export type UserUpdateManyWithWhereWithoutAffiliationInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutAffiliationInput>
-  }
-
-  export type UserScalarWhereInput = {
-    AND?: UserScalarWhereInput | UserScalarWhereInput[]
-    OR?: UserScalarWhereInput[]
-    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
-    id?: IntFilter<"User"> | number
-    loginId?: StringFilter<"User"> | string
-    password?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
-    role?: StringFilter<"User"> | string
-    affiliationId?: IntNullableFilter<"User"> | number | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
+    oldId?: StringNullableFilter<"YongchaContract"> | string | null
   }
 
   export type AffiliationCreateWithoutUserInput = {
@@ -10517,6 +26160,7 @@ export namespace Prisma {
     email?: string | null
     memo?: string | null
     createdAt?: Date | string
+    oldId?: string | null
     Driver?: DriverCreateNestedManyWithoutAffiliationInput
     YongchaContract?: YongchaContractCreateNestedManyWithoutAffiliationInput
   }
@@ -10532,6 +26176,7 @@ export namespace Prisma {
     email?: string | null
     memo?: string | null
     createdAt?: Date | string
+    oldId?: string | null
     Driver?: DriverUncheckedCreateNestedManyWithoutAffiliationInput
     YongchaContract?: YongchaContractUncheckedCreateNestedManyWithoutAffiliationInput
   }
@@ -10562,6 +26207,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     Driver?: DriverUpdateManyWithoutAffiliationNestedInput
     YongchaContract?: YongchaContractUpdateManyWithoutAffiliationNestedInput
   }
@@ -10577,6 +26223,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     Driver?: DriverUncheckedUpdateManyWithoutAffiliationNestedInput
     YongchaContract?: YongchaContractUncheckedUpdateManyWithoutAffiliationNestedInput
   }
@@ -10598,6 +26245,7 @@ export namespace Prisma {
     ton?: number | null
     appliedTonnage?: string | null
     createdAt?: Date | string
+    oldId?: string | null
   }
 
   export type SettlementHistoryUncheckedCreateWithoutYongchaContractInput = {
@@ -10618,6 +26266,7 @@ export namespace Prisma {
     ton?: number | null
     appliedTonnage?: string | null
     createdAt?: Date | string
+    oldId?: string | null
   }
 
   export type SettlementHistoryCreateOrConnectWithoutYongchaContractInput = {
@@ -10640,6 +26289,7 @@ export namespace Prisma {
     email?: string | null
     memo?: string | null
     createdAt?: Date | string
+    oldId?: string | null
     Driver?: DriverCreateNestedManyWithoutAffiliationInput
     User?: UserCreateNestedManyWithoutAffiliationInput
   }
@@ -10655,6 +26305,7 @@ export namespace Prisma {
     email?: string | null
     memo?: string | null
     createdAt?: Date | string
+    oldId?: string | null
     Driver?: DriverUncheckedCreateNestedManyWithoutAffiliationInput
     User?: UserUncheckedCreateNestedManyWithoutAffiliationInput
   }
@@ -10665,22 +26316,22 @@ export namespace Prisma {
   }
 
   export type YongchaRateDetailCreateWithoutYongchaContractInput = {
-    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type YongchaRateDetailUncheckedCreateWithoutYongchaContractInput = {
     id?: number
-    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type YongchaRateDetailCreateOrConnectWithoutYongchaContractInput = {
@@ -10731,6 +26382,7 @@ export namespace Prisma {
     contractId?: IntNullableFilter<"SettlementHistory"> | number | null
     appliedTonnage?: StringNullableFilter<"SettlementHistory"> | string | null
     createdAt?: DateTimeFilter<"SettlementHistory"> | Date | string
+    oldId?: StringNullableFilter<"SettlementHistory"> | string | null
   }
 
   export type AffiliationUpsertWithoutYongchaContractInput = {
@@ -10754,6 +26406,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     Driver?: DriverUpdateManyWithoutAffiliationNestedInput
     User?: UserUpdateManyWithoutAffiliationNestedInput
   }
@@ -10769,6 +26422,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     Driver?: DriverUncheckedUpdateManyWithoutAffiliationNestedInput
     User?: UserUncheckedUpdateManyWithoutAffiliationNestedInput
   }
@@ -10795,12 +26449,12 @@ export namespace Prisma {
     NOT?: YongchaRateDetailScalarWhereInput | YongchaRateDetailScalarWhereInput[]
     id?: IntFilter<"YongchaRateDetail"> | number
     contractId?: IntFilter<"YongchaRateDetail"> | number
-    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
     region?: StringFilter<"YongchaRateDetail"> | string
     price?: IntFilter<"YongchaRateDetail"> | number
     memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
     createdAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
     updatedAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
+    oldId?: StringNullableFilter<"YongchaRateDetail"> | string | null
   }
 
   export type YongchaContractCreateWithoutYongchaRateDetailInput = {
@@ -10811,6 +26465,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
+    oldId?: string | null
     SettlementHistory?: SettlementHistoryCreateNestedManyWithoutYongchaContractInput
     Affiliation: AffiliationCreateNestedOneWithoutYongchaContractInput
   }
@@ -10825,6 +26480,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
+    oldId?: string | null
     SettlementHistory?: SettlementHistoryUncheckedCreateNestedManyWithoutYongchaContractInput
   }
 
@@ -10852,6 +26508,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     SettlementHistory?: SettlementHistoryUpdateManyWithoutYongchaContractNestedInput
     Affiliation?: AffiliationUpdateOneRequiredWithoutYongchaContractNestedInput
   }
@@ -10866,7 +26523,76 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     SettlementHistory?: SettlementHistoryUncheckedUpdateManyWithoutYongchaContractNestedInput
+  }
+
+  export type NDY_BillingRateCreateManyNDY_BillingItemInput = {
+    id: string
+    validFrom: string
+    validTo?: string | null
+    amount?: number
+    note?: string
+    createdAt?: Date | string
+  }
+
+  export type NDY_BillingRateUpdateWithoutNDY_BillingItemInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    validFrom?: StringFieldUpdateOperationsInput | string
+    validTo?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_BillingRateUncheckedUpdateWithoutNDY_BillingItemInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    validFrom?: StringFieldUpdateOperationsInput | string
+    validTo?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_BillingRateUncheckedUpdateManyWithoutNDY_BillingItemInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    validFrom?: StringFieldUpdateOperationsInput | string
+    validTo?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    note?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDY_DailySummaryItemCreateManyNDY_DailySummaryInput = {
+    id: string
+    placeName: string
+    deliveryDays?: number
+    totalAmount?: number
+    deliveryDates?: NDY_DailySummaryItemCreatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_DailySummaryItemUpdateWithoutNDY_DailySummaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    placeName?: StringFieldUpdateOperationsInput | string
+    deliveryDays?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    deliveryDates?: NDY_DailySummaryItemUpdatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_DailySummaryItemUncheckedUpdateWithoutNDY_DailySummaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    placeName?: StringFieldUpdateOperationsInput | string
+    deliveryDays?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    deliveryDates?: NDY_DailySummaryItemUpdatedeliveryDatesInput | string[]
+  }
+
+  export type NDY_DailySummaryItemUncheckedUpdateManyWithoutNDY_DailySummaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    placeName?: StringFieldUpdateOperationsInput | string
+    deliveryDays?: IntFieldUpdateOperationsInput | number
+    totalAmount?: IntFieldUpdateOperationsInput | number
+    deliveryDates?: NDY_DailySummaryItemUpdatedeliveryDatesInput | string[]
   }
 
   export type DriverCreateManyAffiliationInput = {
@@ -10880,6 +26606,18 @@ export namespace Prisma {
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
+  }
+
+  export type UserCreateManyAffiliationInput = {
+    id?: number
+    loginId: string
+    password: string
+    name: string
+    role?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type YongchaContractCreateManyAffiliationInput = {
@@ -10891,16 +26629,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     memo?: string | null
-  }
-
-  export type UserCreateManyAffiliationInput = {
-    id?: number
-    loginId: string
-    password: string
-    name: string
-    role?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type DriverUpdateWithoutAffiliationInput = {
@@ -10913,6 +26642,7 @@ export namespace Prisma {
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DriverUncheckedUpdateWithoutAffiliationInput = {
@@ -10926,6 +26656,7 @@ export namespace Prisma {
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DriverUncheckedUpdateManyWithoutAffiliationInput = {
@@ -10939,6 +26670,39 @@ export namespace Prisma {
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type UserUpdateWithoutAffiliationInput = {
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type UserUncheckedUpdateWithoutAffiliationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type UserUncheckedUpdateManyWithoutAffiliationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    loginId?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaContractUpdateWithoutAffiliationInput = {
@@ -10949,6 +26713,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     SettlementHistory?: SettlementHistoryUpdateManyWithoutYongchaContractNestedInput
     YongchaRateDetail?: YongchaRateDetailUpdateManyWithoutYongchaContractNestedInput
   }
@@ -10962,6 +26727,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     SettlementHistory?: SettlementHistoryUncheckedUpdateManyWithoutYongchaContractNestedInput
     YongchaRateDetail?: YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractNestedInput
   }
@@ -10975,35 +26741,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     memo?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type UserUpdateWithoutAffiliationInput = {
-    loginId?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type UserUncheckedUpdateWithoutAffiliationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    loginId?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type UserUncheckedUpdateManyWithoutAffiliationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    loginId?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SettlementHistoryCreateManyYongchaContractInput = {
@@ -11024,16 +26762,17 @@ export namespace Prisma {
     ton?: number | null
     appliedTonnage?: string | null
     createdAt?: Date | string
+    oldId?: string | null
   }
 
   export type YongchaRateDetailCreateManyYongchaContractInput = {
     id?: number
-    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    oldId?: string | null
   }
 
   export type SettlementHistoryUpdateWithoutYongchaContractInput = {
@@ -11053,6 +26792,7 @@ export namespace Prisma {
     ton?: NullableIntFieldUpdateOperationsInput | number | null
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SettlementHistoryUncheckedUpdateWithoutYongchaContractInput = {
@@ -11073,6 +26813,7 @@ export namespace Prisma {
     ton?: NullableIntFieldUpdateOperationsInput | number | null
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SettlementHistoryUncheckedUpdateManyWithoutYongchaContractInput = {
@@ -11093,35 +26834,36 @@ export namespace Prisma {
     ton?: NullableIntFieldUpdateOperationsInput | number | null
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailUpdateWithoutYongchaContractInput = {
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailUncheckedUpdateWithoutYongchaContractInput = {
     id?: IntFieldUpdateOperationsInput | number
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractInput = {
     id?: IntFieldUpdateOperationsInput | number
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 
@@ -11130,6 +26872,14 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
+     * @deprecated Use NDY_BillingItemCountOutputTypeDefaultArgs instead
+     */
+    export type NDY_BillingItemCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_BillingItemCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_DailySummaryCountOutputTypeDefaultArgs instead
+     */
+    export type NDY_DailySummaryCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_DailySummaryCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use AffiliationCountOutputTypeDefaultArgs instead
      */
     export type AffiliationCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AffiliationCountOutputTypeDefaultArgs<ExtArgs>
@@ -11137,6 +26887,54 @@ export namespace Prisma {
      * @deprecated Use YongchaContractCountOutputTypeDefaultArgs instead
      */
     export type YongchaContractCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = YongchaContractCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_BillingItemDefaultArgs instead
+     */
+    export type NDY_BillingItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_BillingItemDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_BillingRateDefaultArgs instead
+     */
+    export type NDY_BillingRateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_BillingRateDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_ConfigDefaultArgs instead
+     */
+    export type NDY_ConfigArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_ConfigDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_DailySummaryDefaultArgs instead
+     */
+    export type NDY_DailySummaryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_DailySummaryDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_DailySummaryItemDefaultArgs instead
+     */
+    export type NDY_DailySummaryItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_DailySummaryItemDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_EmergencyRateDefaultArgs instead
+     */
+    export type NDY_EmergencyRateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_EmergencyRateDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_EmergencySettlementDefaultArgs instead
+     */
+    export type NDY_EmergencySettlementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_EmergencySettlementDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_FixedSettlementDefaultArgs instead
+     */
+    export type NDY_FixedSettlementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_FixedSettlementDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_GSSettlementDefaultArgs instead
+     */
+    export type NDY_GSSettlementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_GSSettlementDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_GSSummaryDefaultArgs instead
+     */
+    export type NDY_GSSummaryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_GSSummaryDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_InquirySettlementDefaultArgs instead
+     */
+    export type NDY_InquirySettlementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_InquirySettlementDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use NDY_MonthlyClosingDefaultArgs instead
+     */
+    export type NDY_MonthlyClosingArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = NDY_MonthlyClosingDefaultArgs<ExtArgs>
     /**
      * @deprecated Use DriverDefaultArgs instead
      */

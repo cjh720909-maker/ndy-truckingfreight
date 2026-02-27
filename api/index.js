@@ -14,10 +14,19 @@ const storage = require('./storage');
 const prisma = storage.mysql; // 기존 MySQL 클라이언트
 const neon = storage.neon;     // 새로 추가된 Neon 클라이언트
 
+// [Fix] BigInt JSON 직렬화 지원 (Prisma + Neon 사용 시 필수)
+BigInt.prototype.toJSON = function() { return this.toString(); };
+
 // 정적 파일 제공 (혹시 필요할 경우를 대비)
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
+// [Fix] Express JSON 직렬화 시 BigInt 처리 지원
+app.set('json replacer', (key, value) => 
+    typeof value === 'bigint' ? value.toString() : value
+);
+
 
 app.use('/api/auth', auth.router); // Register auth router
 
@@ -42,14 +51,15 @@ function fixEncoding(str) {
 // ------------------------------------------------------------------
 app.get('/api/summary', auth.verifyToken, async (req, res) => {
     try {
-        const { startDate, endDate, drivers, custName } = req.query;
+        const { startDate, endDate, drivers, affiliations, custName } = req.query;
         const user = req.user; // Token에서 파싱된 사용자 정보
 
         if (!startDate || !endDate) {
             return res.status(400).json({ error: "시작일과 종료일을 입력해주세요." });
         }
 
-        console.log(`[API] 배차 요약 조회 요청: ${startDate} ~ ${endDate}, User: ${user.name}(${user.role})`);
+        const isNdyStaff = user.role === 'ADMIN' || user.role === 'MANAGER';
+        console.log(`[API] 배차 요약 조회 요청: ${startDate} ~ ${endDate}, User: ${user.name}(${user.role}), NDY Staff: ${isNdyStaff}`);
 
         // 고객사 필터링 조건
         let customerCondition = "";
@@ -80,16 +90,22 @@ app.get('/api/summary', auth.verifyToken, async (req, res) => {
 
         const result = await prisma.$queryRawUnsafe(query);
 
-        // [보안] 등록된 기사 목록 로드 (권한별 필터링 적용)
-        let registeredDrivers = await storage.getDrivers();
+        // [보안] 등록된 기사 및 업체 목록 로드 (권한별 필터링 적용)
+        let [registeredDrivers, allAffiliations] = await Promise.all([
+            storage.getDrivers(),
+            storage.getAffiliations()
+        ]);
 
-        // TRANSPORT 권한이면 자사 소속 기사만 남김
+        const masterDrivers = [...registeredDrivers]; // [추가] 검증을 위한 전체 기사 목록 보존
+
+        // TRANSPORT 권한이면 자사 소속 정보만 활용
         if (user.role === 'TRANSPORT') {
             if (!user.affiliationId) {
-                // 소속 정보가 없는 TRANSPORT 계정은 아무것도 조회 불가
                 registeredDrivers = [];
+                allAffiliations = allAffiliations.filter(a => a.id === -1);
             } else {
                 registeredDrivers = registeredDrivers.filter(d => d.affiliationId === user.affiliationId);
+                allAffiliations = allAffiliations.filter(a => a.id === user.affiliationId);
             }
         }
 
@@ -116,9 +132,9 @@ app.get('/api/summary', auth.verifyToken, async (req, res) => {
 
             return {
                 date: date,
-                driverName: realName,
-                driverDiv: driverDiv,
-                carNo: carNo,
+                driverName: realName.trim(), // [수정] 미세한 공백 제거
+                driverDiv: driverDiv.trim(),
+                carNo: carNo.trim(),
                 destList: destList,
                 addrDetail: addrList,
                 maxWeight: rawKg * 1000,
@@ -129,8 +145,11 @@ app.get('/api/summary', auth.verifyToken, async (req, res) => {
             };
         });
 
-        // [필터링] 기사명 검색 조건 추출
+        // [필터링] 기사명 또는 소속사명 검색 조건 추출
         const searchDrivers = req.query.drivers ? req.query.drivers.split(',').map(d => d.trim()).filter(d => d) : [];
+        const searchAffiliations = req.query.affiliations ? req.query.affiliations.split(',').map(a => a.trim()).filter(a => a) : [];
+
+        console.log(`[API] 필터: Drivers=[${searchDrivers}], Affiliations=[${searchAffiliations}]`);
 
         // [핵심] 날짜 + 기사명 기준 통합
         const consolidatedMap = new Map();
@@ -138,12 +157,26 @@ app.get('/api/summary', auth.verifyToken, async (req, res) => {
         serializedResult.forEach(row => {
             const cleanDriverName = (row.driverName || '').replace(/\s/g, '').trim();
 
+            // 0. 기사 마스터 정보 매칭 (없더라도 데이터 유지)
             const registeredDriver = registeredDrivers.find(d => (d.name || '').replace(/\s/g, '').trim() === cleanDriverName);
-            if (!registeredDriver) return;
 
-            // 기사명 검색 필터링
-            if (searchDrivers.length > 0) {
-                const isMatch = searchDrivers.some(sn => cleanDriverName.includes(sn.replace(/\s/g, '')));
+            // 1. 업체 마스터 기반 소속 추론 (최팀장님 요청: 이름에 업체명이 들어있으면 해당 소속으로 간주)
+            const guessedAffiliation = allAffiliations.find(a => cleanDriverName.toLowerCase().includes((a.name || '').replace(/\s/g, '').trim().toLowerCase()));
+            
+            // [중요 필터링] 등록된 기사이거나, 이름이 등록된 업체명을 포함하고 있는 경우만 노출 (자사 기사 등 노이즈 제거)
+            // NDY 직원이 조회를 하더라도 정산 시스템의 본질인 '용차 전용' 조회를 유지하기 위해 필터를 복구합니다.
+            if (!registeredDriver && !guessedAffiliation) return;
+
+            // 2. 최종 소속 정보 결정
+            const finalAffiliation = registeredDriver ? (registeredDriver.affiliation || '') : (guessedAffiliation ? guessedAffiliation.name : row.driverDiv);
+            const cleanAffiliation = (finalAffiliation || '').replace(/\s/g, '').trim();
+
+            // 3. 통합 검색 필터링 (소속사명 또는 기사명에 검색어가 걸리면 모두 표시)
+            if (searchAffiliations.length > 0) {
+                const isMatch = searchAffiliations.some(an => 
+                    cleanAffiliation.toLowerCase().includes(an.replace(/\s/g, '').toLowerCase()) ||
+                    cleanDriverName.toLowerCase().includes(an.replace(/\s/g, '').toLowerCase())
+                );
                 if (!isMatch) return;
             }
 
@@ -152,8 +185,8 @@ app.get('/api/summary', auth.verifyToken, async (req, res) => {
                 consolidatedMap.set(key, {
                     date: row.date,
                     driverName: row.driverName,
-                    // [개선] 기사 마스터의 소속사 우선 사용 (단가표 매칭용)
-                    driverDiv: registeredDriver.affiliation || (row.driverDiv && row.driverDiv !== '-' ? row.driverDiv.replace(/[\r\n]/g, ' ').trim() : ''),
+                    // [개선] 기사 마스터 또는 추론된 소속 우선 사용
+                    driverDiv: finalAffiliation || '-',
                     tonnage: row.tonnage,
                     destDetail: '',
                     addrDetail: '',
@@ -223,9 +256,25 @@ app.get('/api/summary', auth.verifyToken, async (req, res) => {
             totalWeight: Number(finalResult.reduce((acc, cur) => acc + cur.totalWeight, 0).toFixed(2))
         };
 
+        // [추가] 타사 기사 검색 시 경고 메시지 생성
+        let warning = null;
+        if (user.role === 'TRANSPORT' && searchAffiliations.length > 0) {
+            for (const term of searchAffiliations) {
+                const cleanTerm = term.replace(/\s/g, '').toLowerCase();
+                const existsInSystem = masterDrivers.some(d => (d.name || '').replace(/\s/g, '').toLowerCase() === cleanTerm);
+                const isMyDriver = registeredDrivers.some(d => (d.name || '').replace(/\s/g, '').toLowerCase() === cleanTerm);
+                
+                if (existsInSystem && !isMyDriver) {
+                    warning = `'${term}'님은 소속된 기사가 아닙니다.`;
+                    break;
+                }
+            }
+        }
+
         res.json({
             data: finalResult,
-            summary: summary
+            summary: summary,
+            warning: warning
         });
 
     } catch (e) {
@@ -291,8 +340,8 @@ app.get('/api/yongcha-costs', async (req, res) => {
 // ------------------------------------------------------------------
 app.post('/api/yongcha-costs', async (req, res) => {
     try {
-        const success = storage.saveHistory(req.body);
-        res.json({ success: true, message: success ? "저장되었습니다." : "저장 실패" });
+        const success = await storage.saveHistory(req.body);
+        res.json({ success: !!success, message: success ? "저장되었습니다." : "저장 실패" });
     } catch (e) {
         console.error("Yongcha POST Error:", e);
         res.status(500).json({ error: e.message });
@@ -307,8 +356,8 @@ app.delete('/api/yongcha-costs', async (req, res) => {
         const { idx } = req.query;
         if (!idx) return res.status(400).json({ error: "ID가 없습니다." });
 
-        const success = storage.deleteHistory(idx);
-        res.json({ success, message: success ? "삭제되었습니다." : "삭제 실패" });
+        const success = await storage.deleteHistory(idx);
+        res.json({ success: !!success, message: success ? "삭제되었습니다." : "삭제 실패" });
     } catch (e) {
         console.error("Yongcha DELETE Error:", e);
         res.status(500).json({ error: e.message });
@@ -359,16 +408,16 @@ app.delete('/api/fees', async (req, res) => {
     res.json({ success, message: success ? "삭제되었습니다." : "삭제 실패" });
 });
 
-app.post('/api/fees/bulk', (req, res) => {
+app.post('/api/fees/bulk', async (req, res) => {
     try {
         const { fees } = req.body;
         console.log(`[bulk] 요청 수신: ${fees ? fees.length : 0}건`);
         if (!fees || !Array.isArray(fees)) {
             return res.status(400).json({ success: false, message: "올바른 데이터 형식이 아닙니다." });
         }
-        const success = storage.saveFeesBulk(fees);
+        const success = await storage.saveFeesBulk(fees);
         console.log(`[bulk] 저장 성공 여부: ${success}`);
-        res.json({ success, message: success ? `${fees.length}건의 단가가 처리되었습니다.` : "일괄 저장 실패" });
+        res.json({ success: !!success, message: success ? `${fees.length}건의 단가가 처리되었습니다.` : "일괄 저장 실패" });
     } catch (e) {
         console.error("[bulk] 에러 발생:", e);
         res.status(500).json({ success: false, message: "서버 처리 중 오류가 발생했습니다: " + e.message });
@@ -383,11 +432,12 @@ app.get('/api/ping', (req, res) => res.json({ status: 'ok', time: new Date() }))
 // API: 정산 결과 저장 및 히스토리 조회
 // ------------------------------------------------------------------
 app.get('/api/settlement-history', auth.verifyToken, async (req, res) => {
-    const { startDate, endDate, name, driverName } = req.query;
-    const searchTarget = (driverName || name || '').trim();
+    const { startDate, endDate, name, driverName, affiliation } = req.query;
+    const searchTarget = (driverName || name || affiliation || '').trim();
     const user = req.user;
 
-    // TRANSPORT 권한이면 affiliationId 전달
+    // TRANSPORT 권한이면 affiliationId 전달, NDY 직원이면 null (전체 조회)
+    const isAdminOrManager = user.role === 'ADMIN' || user.role === 'MANAGER';
     const affiliationId = (user.role === 'TRANSPORT') ? user.affiliationId : null;
     let list = await storage.getHistory(affiliationId);
 
@@ -400,7 +450,9 @@ app.get('/api/settlement-history', auth.verifyToken, async (req, res) => {
             if (searchTarget) {
                 const s = searchTarget.replace(/\s/g, '').toLowerCase();
                 const dName = (row.driverName || row.name || '').replace(/\s/g, '').toLowerCase();
-                if (!dName.includes(s)) return false;
+                const affName = (row.affiliation || '').replace(/\s/g, '').toLowerCase();
+                // 기사명 또는 소속사명에 포함되면 노출
+                if (!dName.includes(s) && !affName.includes(s)) return false;
             }
             return true;
         });
@@ -475,26 +527,36 @@ app.delete('/api/drivers', auth.verifyToken, async (req, res) => {
 // ------------------------------------------------------------------
 app.get('/api/affiliations', auth.verifyToken, async (req, res) => {
     const user = req.user;
-    // TRANSPORT는 자신의 소속만 조회 가능
-    const affiliationId = (user.role === 'TRANSPORT') ? user.affiliationId : null;
-    res.json({ data: await storage.getAffiliations(affiliationId) });
+    try {
+        const affiliationId = (user.role === 'TRANSPORT') ? user.affiliationId : null;
+        const data = await storage.getAffiliations(affiliationId);
+        res.json({ data });
+    } catch (e) {
+        console.error("API Affiliation GET Error:", e);
+        res.status(500).json({ success: false, message: "업체 목록 조회 중 오류 발생: " + e.message });
+    }
 });
 
 app.post('/api/affiliations', auth.verifyToken, async (req, res) => {
     if (req.user.role !== 'ADMIN') return res.status(403).json({ success: false, message: "관리자만 가능합니다." });
     
-    const result = await storage.saveAffiliation(req.body);
-    
-    // 에러 객체가 반환된 경우 처리
-    if (result && result.error) {
-        return res.status(400).json({ 
-            success: false, 
-            code: result.code,
-            message: result.message 
-        });
+    try {
+        const result = await storage.saveAffiliation(req.body);
+        
+        // 에러 객체가 반환된 경우 처리 (Prisma 수준 에러 등)
+        if (result && result.error) {
+            return res.status(400).json({ 
+                success: false, 
+                code: result.code,
+                message: result.message 
+            });
+        }
+        
+        res.json({ success: !!result, message: result ? "저장되었습니다." : "저장 실패" });
+    } catch (e) {
+        console.error("API Affiliation POST Error:", e);
+        res.status(500).json({ success: false, message: e.message || "서버 저장 중 오류 발생" });
     }
-    
-    res.json({ success: !!result, message: result ? "저장되었습니다." : "저장 실패" });
 });
 
 app.delete('/api/affiliations', auth.verifyToken, async (req, res) => {
@@ -575,8 +637,63 @@ app.use((err, req, res, next) => {
     });
 });
 
+// ------------------------------------------------------------------
+// API: 사용자(User) 관리 (ADMIN 전용)
+// ------------------------------------------------------------------
+app.get('/api/users', auth.verifyToken, async (req, res) => {
+    if (req.user.role !== 'ADMIN') return res.status(403).json({ error: '권한이 없습니다.' });
+    try {
+        const users = await neon.user.findMany({
+            include: { Affiliation: true },
+            orderBy: { createdAt: 'desc' }
+        });
+        res.json({ success: true, data: users });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+app.post('/api/users', auth.verifyToken, async (req, res) => {
+    if (req.user.role !== 'ADMIN') return res.status(403).json({ error: '권한이 없습니다.' });
+    const { id, loginId, password, name, role, affiliationId } = req.body;
+    try {
+        const data = {
+            loginId,
+            name,
+            role,
+            affiliationId: affiliationId ? parseInt(affiliationId) : null
+        };
+
+        if (password) {
+            const bcrypt = require('bcrypt');
+            data.password = await bcrypt.hash(password, 10);
+        }
+
+        let user;
+        if (id) {
+            user = await neon.user.update({ where: { id: parseInt(id) }, data });
+        } else {
+            user = await neon.user.create({ data });
+        }
+        res.json({ success: true, data: user });
+    } catch (e) {
+        if (e.code === 'P2002') return res.status(400).json({ error: '이미 사용 중인 아이디입니다.' });
+        res.status(500).json({ error: e.message });
+    }
+});
+
+app.delete('/api/users/:id', auth.verifyToken, async (req, res) => {
+    if (req.user.role !== 'ADMIN') return res.status(403).json({ error: '권한이 없습니다.' });
+    try {
+        await neon.user.delete({ where: { id: parseInt(req.params.id) } });
+        res.json({ success: true });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 app.listen(port, () => {
-    console.log(`[Server] http://localhost:${port} 에서 서버 V1.3.6 실행 중...`);
+    console.log(`[NDY Dispatch] Server running at http://localhost:${port}`);
 });
 
 module.exports = app;

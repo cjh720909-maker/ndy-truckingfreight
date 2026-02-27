@@ -1385,6 +1385,7 @@ export namespace Prisma {
 
   export type DriverMinAggregateOutputType = {
     id: number | null
+    oldId: string | null
     name: string | null
     affiliationId: number | null
     carNo: string | null
@@ -1399,6 +1400,7 @@ export namespace Prisma {
 
   export type DriverMaxAggregateOutputType = {
     id: number | null
+    oldId: string | null
     name: string | null
     affiliationId: number | null
     carNo: string | null
@@ -1413,6 +1415,7 @@ export namespace Prisma {
 
   export type DriverCountAggregateOutputType = {
     id: number
+    oldId: number
     name: number
     affiliationId: number
     carNo: number
@@ -1439,6 +1442,7 @@ export namespace Prisma {
 
   export type DriverMinAggregateInputType = {
     id?: true
+    oldId?: true
     name?: true
     affiliationId?: true
     carNo?: true
@@ -1453,6 +1457,7 @@ export namespace Prisma {
 
   export type DriverMaxAggregateInputType = {
     id?: true
+    oldId?: true
     name?: true
     affiliationId?: true
     carNo?: true
@@ -1467,6 +1472,7 @@ export namespace Prisma {
 
   export type DriverCountAggregateInputType = {
     id?: true
+    oldId?: true
     name?: true
     affiliationId?: true
     carNo?: true
@@ -1568,6 +1574,7 @@ export namespace Prisma {
 
   export type DriverGroupByOutputType = {
     id: number
+    oldId: string | null
     name: string
     affiliationId: number | null
     carNo: string | null
@@ -1601,6 +1608,7 @@ export namespace Prisma {
 
   export type DriverSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     name?: boolean
     affiliationId?: boolean
     carNo?: boolean
@@ -1616,6 +1624,7 @@ export namespace Prisma {
 
   export type DriverSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     name?: boolean
     affiliationId?: boolean
     carNo?: boolean
@@ -1631,6 +1640,7 @@ export namespace Prisma {
 
   export type DriverSelectScalar = {
     id?: boolean
+    oldId?: boolean
     name?: boolean
     affiliationId?: boolean
     carNo?: boolean
@@ -1657,6 +1667,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      oldId: string | null
       name: string
       affiliationId: number | null
       carNo: string | null
@@ -2062,6 +2073,7 @@ export namespace Prisma {
    */ 
   interface DriverFieldRefs {
     readonly id: FieldRef<"Driver", 'Int'>
+    readonly oldId: FieldRef<"Driver", 'String'>
     readonly name: FieldRef<"Driver", 'String'>
     readonly affiliationId: FieldRef<"Driver", 'Int'>
     readonly carNo: FieldRef<"Driver", 'String'>
@@ -2451,6 +2463,7 @@ export namespace Prisma {
 
   export type SettlementHistoryMinAggregateOutputType = {
     id: number | null
+    oldId: string | null
     date: Date | null
     driverName: string | null
     affiliation: string | null
@@ -2473,6 +2486,7 @@ export namespace Prisma {
 
   export type SettlementHistoryMaxAggregateOutputType = {
     id: number | null
+    oldId: string | null
     date: Date | null
     driverName: string | null
     affiliation: string | null
@@ -2495,6 +2509,7 @@ export namespace Prisma {
 
   export type SettlementHistoryCountAggregateOutputType = {
     id: number
+    oldId: number
     date: number
     driverName: number
     affiliation: number
@@ -2539,6 +2554,7 @@ export namespace Prisma {
 
   export type SettlementHistoryMinAggregateInputType = {
     id?: true
+    oldId?: true
     date?: true
     driverName?: true
     affiliation?: true
@@ -2561,6 +2577,7 @@ export namespace Prisma {
 
   export type SettlementHistoryMaxAggregateInputType = {
     id?: true
+    oldId?: true
     date?: true
     driverName?: true
     affiliation?: true
@@ -2583,6 +2600,7 @@ export namespace Prisma {
 
   export type SettlementHistoryCountAggregateInputType = {
     id?: true
+    oldId?: true
     date?: true
     driverName?: true
     affiliation?: true
@@ -2692,6 +2710,7 @@ export namespace Prisma {
 
   export type SettlementHistoryGroupByOutputType = {
     id: number
+    oldId: string | null
     date: Date
     driverName: string
     affiliation: string | null
@@ -2733,6 +2752,7 @@ export namespace Prisma {
 
   export type SettlementHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     date?: boolean
     driverName?: boolean
     affiliation?: boolean
@@ -2756,6 +2776,7 @@ export namespace Prisma {
 
   export type SettlementHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     date?: boolean
     driverName?: boolean
     affiliation?: boolean
@@ -2779,6 +2800,7 @@ export namespace Prisma {
 
   export type SettlementHistorySelectScalar = {
     id?: boolean
+    oldId?: boolean
     date?: boolean
     driverName?: boolean
     affiliation?: boolean
@@ -2813,6 +2835,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      oldId: string | null
       date: Date
       driverName: string
       affiliation: string | null
@@ -3226,6 +3249,7 @@ export namespace Prisma {
    */ 
   interface SettlementHistoryFieldRefs {
     readonly id: FieldRef<"SettlementHistory", 'Int'>
+    readonly oldId: FieldRef<"SettlementHistory", 'String'>
     readonly date: FieldRef<"SettlementHistory", 'DateTime'>
     readonly driverName: FieldRef<"SettlementHistory", 'String'>
     readonly affiliation: FieldRef<"SettlementHistory", 'String'>
@@ -3611,6 +3635,7 @@ export namespace Prisma {
 
   export type AffiliationMinAggregateOutputType = {
     id: number | null
+    oldId: string | null
     name: string | null
     bizNo: string | null
     ceo: string | null
@@ -3624,6 +3649,7 @@ export namespace Prisma {
 
   export type AffiliationMaxAggregateOutputType = {
     id: number | null
+    oldId: string | null
     name: string | null
     bizNo: string | null
     ceo: string | null
@@ -3637,6 +3663,7 @@ export namespace Prisma {
 
   export type AffiliationCountAggregateOutputType = {
     id: number
+    oldId: number
     name: number
     bizNo: number
     ceo: number
@@ -3660,6 +3687,7 @@ export namespace Prisma {
 
   export type AffiliationMinAggregateInputType = {
     id?: true
+    oldId?: true
     name?: true
     bizNo?: true
     ceo?: true
@@ -3673,6 +3701,7 @@ export namespace Prisma {
 
   export type AffiliationMaxAggregateInputType = {
     id?: true
+    oldId?: true
     name?: true
     bizNo?: true
     ceo?: true
@@ -3686,6 +3715,7 @@ export namespace Prisma {
 
   export type AffiliationCountAggregateInputType = {
     id?: true
+    oldId?: true
     name?: true
     bizNo?: true
     ceo?: true
@@ -3786,6 +3816,7 @@ export namespace Prisma {
 
   export type AffiliationGroupByOutputType = {
     id: number
+    oldId: string | null
     name: string
     bizNo: string | null
     ceo: string | null
@@ -3818,6 +3849,7 @@ export namespace Prisma {
 
   export type AffiliationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     name?: boolean
     bizNo?: boolean
     ceo?: boolean
@@ -3835,6 +3867,7 @@ export namespace Prisma {
 
   export type AffiliationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     name?: boolean
     bizNo?: boolean
     ceo?: boolean
@@ -3848,6 +3881,7 @@ export namespace Prisma {
 
   export type AffiliationSelectScalar = {
     id?: boolean
+    oldId?: boolean
     name?: boolean
     bizNo?: boolean
     ceo?: boolean
@@ -3876,6 +3910,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      oldId: string | null
       name: string
       bizNo: string | null
       ceo: string | null
@@ -4282,6 +4317,7 @@ export namespace Prisma {
    */ 
   interface AffiliationFieldRefs {
     readonly id: FieldRef<"Affiliation", 'Int'>
+    readonly oldId: FieldRef<"Affiliation", 'String'>
     readonly name: FieldRef<"Affiliation", 'String'>
     readonly bizNo: FieldRef<"Affiliation", 'String'>
     readonly ceo: FieldRef<"Affiliation", 'String'>
@@ -4701,6 +4737,7 @@ export namespace Prisma {
 
   export type UserMinAggregateOutputType = {
     id: number | null
+    oldId: string | null
     loginId: string | null
     password: string | null
     name: string | null
@@ -4712,6 +4749,7 @@ export namespace Prisma {
 
   export type UserMaxAggregateOutputType = {
     id: number | null
+    oldId: string | null
     loginId: string | null
     password: string | null
     name: string | null
@@ -4723,6 +4761,7 @@ export namespace Prisma {
 
   export type UserCountAggregateOutputType = {
     id: number
+    oldId: number
     loginId: number
     password: number
     name: number
@@ -4746,6 +4785,7 @@ export namespace Prisma {
 
   export type UserMinAggregateInputType = {
     id?: true
+    oldId?: true
     loginId?: true
     password?: true
     name?: true
@@ -4757,6 +4797,7 @@ export namespace Prisma {
 
   export type UserMaxAggregateInputType = {
     id?: true
+    oldId?: true
     loginId?: true
     password?: true
     name?: true
@@ -4768,6 +4809,7 @@ export namespace Prisma {
 
   export type UserCountAggregateInputType = {
     id?: true
+    oldId?: true
     loginId?: true
     password?: true
     name?: true
@@ -4866,6 +4908,7 @@ export namespace Prisma {
 
   export type UserGroupByOutputType = {
     id: number
+    oldId: string | null
     loginId: string
     password: string
     name: string
@@ -4896,6 +4939,7 @@ export namespace Prisma {
 
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     loginId?: boolean
     password?: boolean
     name?: boolean
@@ -4908,6 +4952,7 @@ export namespace Prisma {
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     loginId?: boolean
     password?: boolean
     name?: boolean
@@ -4920,6 +4965,7 @@ export namespace Prisma {
 
   export type UserSelectScalar = {
     id?: boolean
+    oldId?: boolean
     loginId?: boolean
     password?: boolean
     name?: boolean
@@ -4943,6 +4989,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      oldId: string | null
       loginId: string
       password: string
       name: string
@@ -5345,6 +5392,7 @@ export namespace Prisma {
    */ 
   interface UserFieldRefs {
     readonly id: FieldRef<"User", 'Int'>
+    readonly oldId: FieldRef<"User", 'String'>
     readonly loginId: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
@@ -5723,6 +5771,7 @@ export namespace Prisma {
 
   export type YongchaContractMinAggregateOutputType = {
     id: number | null
+    oldId: string | null
     year: number | null
     affiliationId: number | null
     startDate: Date | null
@@ -5735,6 +5784,7 @@ export namespace Prisma {
 
   export type YongchaContractMaxAggregateOutputType = {
     id: number | null
+    oldId: string | null
     year: number | null
     affiliationId: number | null
     startDate: Date | null
@@ -5747,6 +5797,7 @@ export namespace Prisma {
 
   export type YongchaContractCountAggregateOutputType = {
     id: number
+    oldId: number
     year: number
     affiliationId: number
     startDate: number
@@ -5773,6 +5824,7 @@ export namespace Prisma {
 
   export type YongchaContractMinAggregateInputType = {
     id?: true
+    oldId?: true
     year?: true
     affiliationId?: true
     startDate?: true
@@ -5785,6 +5837,7 @@ export namespace Prisma {
 
   export type YongchaContractMaxAggregateInputType = {
     id?: true
+    oldId?: true
     year?: true
     affiliationId?: true
     startDate?: true
@@ -5797,6 +5850,7 @@ export namespace Prisma {
 
   export type YongchaContractCountAggregateInputType = {
     id?: true
+    oldId?: true
     year?: true
     affiliationId?: true
     startDate?: true
@@ -5896,6 +5950,7 @@ export namespace Prisma {
 
   export type YongchaContractGroupByOutputType = {
     id: number
+    oldId: string | null
     year: number
     affiliationId: number
     startDate: Date
@@ -5927,6 +5982,7 @@ export namespace Prisma {
 
   export type YongchaContractSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     year?: boolean
     affiliationId?: boolean
     startDate?: boolean
@@ -5943,6 +5999,7 @@ export namespace Prisma {
 
   export type YongchaContractSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     year?: boolean
     affiliationId?: boolean
     startDate?: boolean
@@ -5956,6 +6013,7 @@ export namespace Prisma {
 
   export type YongchaContractSelectScalar = {
     id?: boolean
+    oldId?: boolean
     year?: boolean
     affiliationId?: boolean
     startDate?: boolean
@@ -5985,6 +6043,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      oldId: string | null
       year: number
       affiliationId: number
       startDate: Date
@@ -6390,6 +6449,7 @@ export namespace Prisma {
    */ 
   interface YongchaContractFieldRefs {
     readonly id: FieldRef<"YongchaContract", 'Int'>
+    readonly oldId: FieldRef<"YongchaContract", 'String'>
     readonly year: FieldRef<"YongchaContract", 'Int'>
     readonly affiliationId: FieldRef<"YongchaContract", 'Int'>
     readonly startDate: FieldRef<"YongchaContract", 'DateTime'>
@@ -6794,35 +6854,35 @@ export namespace Prisma {
 
   export type YongchaRateDetailMinAggregateOutputType = {
     id: number | null
+    oldId: string | null
     contractId: number | null
     region: string | null
     price: number | null
     memo: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    tonnage: string | null
   }
 
   export type YongchaRateDetailMaxAggregateOutputType = {
     id: number | null
+    oldId: string | null
     contractId: number | null
     region: string | null
     price: number | null
     memo: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    tonnage: string | null
   }
 
   export type YongchaRateDetailCountAggregateOutputType = {
     id: number
+    oldId: number
     contractId: number
     region: number
     price: number
     memo: number
     createdAt: number
     updatedAt: number
-    tonnage: number
     _all: number
   }
 
@@ -6841,35 +6901,35 @@ export namespace Prisma {
 
   export type YongchaRateDetailMinAggregateInputType = {
     id?: true
+    oldId?: true
     contractId?: true
     region?: true
     price?: true
     memo?: true
     createdAt?: true
     updatedAt?: true
-    tonnage?: true
   }
 
   export type YongchaRateDetailMaxAggregateInputType = {
     id?: true
+    oldId?: true
     contractId?: true
     region?: true
     price?: true
     memo?: true
     createdAt?: true
     updatedAt?: true
-    tonnage?: true
   }
 
   export type YongchaRateDetailCountAggregateInputType = {
     id?: true
+    oldId?: true
     contractId?: true
     region?: true
     price?: true
     memo?: true
     createdAt?: true
     updatedAt?: true
-    tonnage?: true
     _all?: true
   }
 
@@ -6961,13 +7021,13 @@ export namespace Prisma {
 
   export type YongchaRateDetailGroupByOutputType = {
     id: number
+    oldId: string | null
     contractId: number
     region: string
     price: number
     memo: string | null
     createdAt: Date
     updatedAt: Date
-    tonnage: string | null
     _count: YongchaRateDetailCountAggregateOutputType | null
     _avg: YongchaRateDetailAvgAggregateOutputType | null
     _sum: YongchaRateDetailSumAggregateOutputType | null
@@ -6991,37 +7051,37 @@ export namespace Prisma {
 
   export type YongchaRateDetailSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     contractId?: boolean
     region?: boolean
     price?: boolean
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    tonnage?: boolean
     YongchaContract?: boolean | YongchaContractDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["yongchaRateDetail"]>
 
   export type YongchaRateDetailSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    oldId?: boolean
     contractId?: boolean
     region?: boolean
     price?: boolean
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    tonnage?: boolean
     YongchaContract?: boolean | YongchaContractDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["yongchaRateDetail"]>
 
   export type YongchaRateDetailSelectScalar = {
     id?: boolean
+    oldId?: boolean
     contractId?: boolean
     region?: boolean
     price?: boolean
     memo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    tonnage?: boolean
   }
 
   export type YongchaRateDetailInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7038,13 +7098,13 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      oldId: string | null
       contractId: number
       region: string
       price: number
       memo: string | null
       createdAt: Date
       updatedAt: Date
-      tonnage: string | null
     }, ExtArgs["result"]["yongchaRateDetail"]>
     composites: {}
   }
@@ -7440,13 +7500,13 @@ export namespace Prisma {
    */ 
   interface YongchaRateDetailFieldRefs {
     readonly id: FieldRef<"YongchaRateDetail", 'Int'>
+    readonly oldId: FieldRef<"YongchaRateDetail", 'String'>
     readonly contractId: FieldRef<"YongchaRateDetail", 'Int'>
     readonly region: FieldRef<"YongchaRateDetail", 'String'>
     readonly price: FieldRef<"YongchaRateDetail", 'Int'>
     readonly memo: FieldRef<"YongchaRateDetail", 'String'>
     readonly createdAt: FieldRef<"YongchaRateDetail", 'DateTime'>
     readonly updatedAt: FieldRef<"YongchaRateDetail", 'DateTime'>
-    readonly tonnage: FieldRef<"YongchaRateDetail", 'String'>
   }
     
 
@@ -7790,6 +7850,7 @@ export namespace Prisma {
 
   export const DriverScalarFieldEnum: {
     id: 'id',
+    oldId: 'oldId',
     name: 'name',
     affiliationId: 'affiliationId',
     carNo: 'carNo',
@@ -7807,6 +7868,7 @@ export namespace Prisma {
 
   export const SettlementHistoryScalarFieldEnum: {
     id: 'id',
+    oldId: 'oldId',
     date: 'date',
     driverName: 'driverName',
     affiliation: 'affiliation',
@@ -7832,6 +7894,7 @@ export namespace Prisma {
 
   export const AffiliationScalarFieldEnum: {
     id: 'id',
+    oldId: 'oldId',
     name: 'name',
     bizNo: 'bizNo',
     ceo: 'ceo',
@@ -7848,6 +7911,7 @@ export namespace Prisma {
 
   export const UserScalarFieldEnum: {
     id: 'id',
+    oldId: 'oldId',
     loginId: 'loginId',
     password: 'password',
     name: 'name',
@@ -7862,6 +7926,7 @@ export namespace Prisma {
 
   export const YongchaContractScalarFieldEnum: {
     id: 'id',
+    oldId: 'oldId',
     year: 'year',
     affiliationId: 'affiliationId',
     startDate: 'startDate',
@@ -7877,13 +7942,13 @@ export namespace Prisma {
 
   export const YongchaRateDetailScalarFieldEnum: {
     id: 'id',
+    oldId: 'oldId',
     contractId: 'contractId',
     region: 'region',
     price: 'price',
     memo: 'memo',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    tonnage: 'tonnage'
+    updatedAt: 'updatedAt'
   };
 
   export type YongchaRateDetailScalarFieldEnum = (typeof YongchaRateDetailScalarFieldEnum)[keyof typeof YongchaRateDetailScalarFieldEnum]
@@ -7953,6 +8018,7 @@ export namespace Prisma {
     OR?: DriverWhereInput[]
     NOT?: DriverWhereInput | DriverWhereInput[]
     id?: IntFilter<"Driver"> | number
+    oldId?: StringNullableFilter<"Driver"> | string | null
     name?: StringFilter<"Driver"> | string
     affiliationId?: IntNullableFilter<"Driver"> | number | null
     carNo?: StringNullableFilter<"Driver"> | string | null
@@ -7968,6 +8034,7 @@ export namespace Prisma {
 
   export type DriverOrderByWithRelationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     name?: SortOrder
     affiliationId?: SortOrderInput | SortOrder
     carNo?: SortOrderInput | SortOrder
@@ -7986,6 +8053,7 @@ export namespace Prisma {
     AND?: DriverWhereInput | DriverWhereInput[]
     OR?: DriverWhereInput[]
     NOT?: DriverWhereInput | DriverWhereInput[]
+    oldId?: StringNullableFilter<"Driver"> | string | null
     name?: StringFilter<"Driver"> | string
     affiliationId?: IntNullableFilter<"Driver"> | number | null
     carNo?: StringNullableFilter<"Driver"> | string | null
@@ -8001,6 +8069,7 @@ export namespace Prisma {
 
   export type DriverOrderByWithAggregationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     name?: SortOrder
     affiliationId?: SortOrderInput | SortOrder
     carNo?: SortOrderInput | SortOrder
@@ -8023,6 +8092,7 @@ export namespace Prisma {
     OR?: DriverScalarWhereWithAggregatesInput[]
     NOT?: DriverScalarWhereWithAggregatesInput | DriverScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Driver"> | number
+    oldId?: StringNullableWithAggregatesFilter<"Driver"> | string | null
     name?: StringWithAggregatesFilter<"Driver"> | string
     affiliationId?: IntNullableWithAggregatesFilter<"Driver"> | number | null
     carNo?: StringNullableWithAggregatesFilter<"Driver"> | string | null
@@ -8040,6 +8110,7 @@ export namespace Prisma {
     OR?: SettlementHistoryWhereInput[]
     NOT?: SettlementHistoryWhereInput | SettlementHistoryWhereInput[]
     id?: IntFilter<"SettlementHistory"> | number
+    oldId?: StringNullableFilter<"SettlementHistory"> | string | null
     date?: DateTimeFilter<"SettlementHistory"> | Date | string
     driverName?: StringFilter<"SettlementHistory"> | string
     affiliation?: StringNullableFilter<"SettlementHistory"> | string | null
@@ -8063,6 +8134,7 @@ export namespace Prisma {
 
   export type SettlementHistoryOrderByWithRelationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     date?: SortOrder
     driverName?: SortOrder
     affiliation?: SortOrderInput | SortOrder
@@ -8089,6 +8161,7 @@ export namespace Prisma {
     AND?: SettlementHistoryWhereInput | SettlementHistoryWhereInput[]
     OR?: SettlementHistoryWhereInput[]
     NOT?: SettlementHistoryWhereInput | SettlementHistoryWhereInput[]
+    oldId?: StringNullableFilter<"SettlementHistory"> | string | null
     date?: DateTimeFilter<"SettlementHistory"> | Date | string
     driverName?: StringFilter<"SettlementHistory"> | string
     affiliation?: StringNullableFilter<"SettlementHistory"> | string | null
@@ -8112,6 +8185,7 @@ export namespace Prisma {
 
   export type SettlementHistoryOrderByWithAggregationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     date?: SortOrder
     driverName?: SortOrder
     affiliation?: SortOrderInput | SortOrder
@@ -8142,6 +8216,7 @@ export namespace Prisma {
     OR?: SettlementHistoryScalarWhereWithAggregatesInput[]
     NOT?: SettlementHistoryScalarWhereWithAggregatesInput | SettlementHistoryScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"SettlementHistory"> | number
+    oldId?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
     date?: DateTimeWithAggregatesFilter<"SettlementHistory"> | Date | string
     driverName?: StringWithAggregatesFilter<"SettlementHistory"> | string
     affiliation?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
@@ -8167,6 +8242,7 @@ export namespace Prisma {
     OR?: AffiliationWhereInput[]
     NOT?: AffiliationWhereInput | AffiliationWhereInput[]
     id?: IntFilter<"Affiliation"> | number
+    oldId?: StringNullableFilter<"Affiliation"> | string | null
     name?: StringFilter<"Affiliation"> | string
     bizNo?: StringNullableFilter<"Affiliation"> | string | null
     ceo?: StringNullableFilter<"Affiliation"> | string | null
@@ -8183,6 +8259,7 @@ export namespace Prisma {
 
   export type AffiliationOrderByWithRelationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     name?: SortOrder
     bizNo?: SortOrderInput | SortOrder
     ceo?: SortOrderInput | SortOrder
@@ -8203,6 +8280,7 @@ export namespace Prisma {
     AND?: AffiliationWhereInput | AffiliationWhereInput[]
     OR?: AffiliationWhereInput[]
     NOT?: AffiliationWhereInput | AffiliationWhereInput[]
+    oldId?: StringNullableFilter<"Affiliation"> | string | null
     bizNo?: StringNullableFilter<"Affiliation"> | string | null
     ceo?: StringNullableFilter<"Affiliation"> | string | null
     address?: StringNullableFilter<"Affiliation"> | string | null
@@ -8218,6 +8296,7 @@ export namespace Prisma {
 
   export type AffiliationOrderByWithAggregationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     name?: SortOrder
     bizNo?: SortOrderInput | SortOrder
     ceo?: SortOrderInput | SortOrder
@@ -8239,6 +8318,7 @@ export namespace Prisma {
     OR?: AffiliationScalarWhereWithAggregatesInput[]
     NOT?: AffiliationScalarWhereWithAggregatesInput | AffiliationScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Affiliation"> | number
+    oldId?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
     name?: StringWithAggregatesFilter<"Affiliation"> | string
     bizNo?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
     ceo?: StringNullableWithAggregatesFilter<"Affiliation"> | string | null
@@ -8255,6 +8335,7 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     id?: IntFilter<"User"> | number
+    oldId?: StringNullableFilter<"User"> | string | null
     loginId?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
@@ -8267,6 +8348,7 @@ export namespace Prisma {
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     loginId?: SortOrder
     password?: SortOrder
     name?: SortOrder
@@ -8283,6 +8365,7 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
+    oldId?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
@@ -8294,6 +8377,7 @@ export namespace Prisma {
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     loginId?: SortOrder
     password?: SortOrder
     name?: SortOrder
@@ -8313,6 +8397,7 @@ export namespace Prisma {
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"User"> | number
+    oldId?: StringNullableWithAggregatesFilter<"User"> | string | null
     loginId?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
@@ -8327,6 +8412,7 @@ export namespace Prisma {
     OR?: YongchaContractWhereInput[]
     NOT?: YongchaContractWhereInput | YongchaContractWhereInput[]
     id?: IntFilter<"YongchaContract"> | number
+    oldId?: StringNullableFilter<"YongchaContract"> | string | null
     year?: IntFilter<"YongchaContract"> | number
     affiliationId?: IntFilter<"YongchaContract"> | number
     startDate?: DateTimeFilter<"YongchaContract"> | Date | string
@@ -8342,6 +8428,7 @@ export namespace Prisma {
 
   export type YongchaContractOrderByWithRelationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     year?: SortOrder
     affiliationId?: SortOrder
     startDate?: SortOrder
@@ -8360,6 +8447,7 @@ export namespace Prisma {
     AND?: YongchaContractWhereInput | YongchaContractWhereInput[]
     OR?: YongchaContractWhereInput[]
     NOT?: YongchaContractWhereInput | YongchaContractWhereInput[]
+    oldId?: StringNullableFilter<"YongchaContract"> | string | null
     year?: IntFilter<"YongchaContract"> | number
     affiliationId?: IntFilter<"YongchaContract"> | number
     startDate?: DateTimeFilter<"YongchaContract"> | Date | string
@@ -8375,6 +8463,7 @@ export namespace Prisma {
 
   export type YongchaContractOrderByWithAggregationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     year?: SortOrder
     affiliationId?: SortOrder
     startDate?: SortOrder
@@ -8395,6 +8484,7 @@ export namespace Prisma {
     OR?: YongchaContractScalarWhereWithAggregatesInput[]
     NOT?: YongchaContractScalarWhereWithAggregatesInput | YongchaContractScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"YongchaContract"> | number
+    oldId?: StringNullableWithAggregatesFilter<"YongchaContract"> | string | null
     year?: IntWithAggregatesFilter<"YongchaContract"> | number
     affiliationId?: IntWithAggregatesFilter<"YongchaContract"> | number
     startDate?: DateTimeWithAggregatesFilter<"YongchaContract"> | Date | string
@@ -8410,25 +8500,25 @@ export namespace Prisma {
     OR?: YongchaRateDetailWhereInput[]
     NOT?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
     id?: IntFilter<"YongchaRateDetail"> | number
+    oldId?: StringNullableFilter<"YongchaRateDetail"> | string | null
     contractId?: IntFilter<"YongchaRateDetail"> | number
     region?: StringFilter<"YongchaRateDetail"> | string
     price?: IntFilter<"YongchaRateDetail"> | number
     memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
     createdAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
     updatedAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
-    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
     YongchaContract?: XOR<YongchaContractRelationFilter, YongchaContractWhereInput>
   }
 
   export type YongchaRateDetailOrderByWithRelationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     contractId?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    tonnage?: SortOrderInput | SortOrder
     YongchaContract?: YongchaContractOrderByWithRelationInput
   }
 
@@ -8437,25 +8527,25 @@ export namespace Prisma {
     AND?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
     OR?: YongchaRateDetailWhereInput[]
     NOT?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
+    oldId?: StringNullableFilter<"YongchaRateDetail"> | string | null
     contractId?: IntFilter<"YongchaRateDetail"> | number
     region?: StringFilter<"YongchaRateDetail"> | string
     price?: IntFilter<"YongchaRateDetail"> | number
     memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
     createdAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
     updatedAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
-    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
     YongchaContract?: XOR<YongchaContractRelationFilter, YongchaContractWhereInput>
   }, "id">
 
   export type YongchaRateDetailOrderByWithAggregationInput = {
     id?: SortOrder
+    oldId?: SortOrderInput | SortOrder
     contractId?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    tonnage?: SortOrderInput | SortOrder
     _count?: YongchaRateDetailCountOrderByAggregateInput
     _avg?: YongchaRateDetailAvgOrderByAggregateInput
     _max?: YongchaRateDetailMaxOrderByAggregateInput
@@ -8468,16 +8558,17 @@ export namespace Prisma {
     OR?: YongchaRateDetailScalarWhereWithAggregatesInput[]
     NOT?: YongchaRateDetailScalarWhereWithAggregatesInput | YongchaRateDetailScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
+    oldId?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
     contractId?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
     region?: StringWithAggregatesFilter<"YongchaRateDetail"> | string
     price?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
     memo?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"YongchaRateDetail"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"YongchaRateDetail"> | Date | string
-    tonnage?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
   }
 
   export type DriverCreateInput = {
+    oldId?: string | null
     name: string
     carNo?: string | null
     tonnage?: string | null
@@ -8492,6 +8583,7 @@ export namespace Prisma {
 
   export type DriverUncheckedCreateInput = {
     id?: number
+    oldId?: string | null
     name: string
     affiliationId?: number | null
     carNo?: string | null
@@ -8505,6 +8597,7 @@ export namespace Prisma {
   }
 
   export type DriverUpdateInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     carNo?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8519,6 +8612,7 @@ export namespace Prisma {
 
   export type DriverUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     affiliationId?: NullableIntFieldUpdateOperationsInput | number | null
     carNo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8533,6 +8627,7 @@ export namespace Prisma {
 
   export type DriverCreateManyInput = {
     id?: number
+    oldId?: string | null
     name: string
     affiliationId?: number | null
     carNo?: string | null
@@ -8546,6 +8641,7 @@ export namespace Prisma {
   }
 
   export type DriverUpdateManyMutationInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     carNo?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8559,6 +8655,7 @@ export namespace Prisma {
 
   export type DriverUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     affiliationId?: NullableIntFieldUpdateOperationsInput | number | null
     carNo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8572,6 +8669,7 @@ export namespace Prisma {
   }
 
   export type SettlementHistoryCreateInput = {
+    oldId?: string | null
     date: Date | string
     driverName: string
     affiliation?: string | null
@@ -8594,6 +8692,7 @@ export namespace Prisma {
 
   export type SettlementHistoryUncheckedCreateInput = {
     id?: number
+    oldId?: string | null
     date: Date | string
     driverName: string
     affiliation?: string | null
@@ -8615,6 +8714,7 @@ export namespace Prisma {
   }
 
   export type SettlementHistoryUpdateInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8637,6 +8737,7 @@ export namespace Prisma {
 
   export type SettlementHistoryUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8659,6 +8760,7 @@ export namespace Prisma {
 
   export type SettlementHistoryCreateManyInput = {
     id?: number
+    oldId?: string | null
     date: Date | string
     driverName: string
     affiliation?: string | null
@@ -8680,6 +8782,7 @@ export namespace Prisma {
   }
 
   export type SettlementHistoryUpdateManyMutationInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8701,6 +8804,7 @@ export namespace Prisma {
 
   export type SettlementHistoryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8722,6 +8826,7 @@ export namespace Prisma {
   }
 
   export type AffiliationCreateInput = {
+    oldId?: string | null
     name: string
     bizNo?: string | null
     ceo?: string | null
@@ -8738,6 +8843,7 @@ export namespace Prisma {
 
   export type AffiliationUncheckedCreateInput = {
     id?: number
+    oldId?: string | null
     name: string
     bizNo?: string | null
     ceo?: string | null
@@ -8753,6 +8859,7 @@ export namespace Prisma {
   }
 
   export type AffiliationUpdateInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8769,6 +8876,7 @@ export namespace Prisma {
 
   export type AffiliationUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8785,6 +8893,7 @@ export namespace Prisma {
 
   export type AffiliationCreateManyInput = {
     id?: number
+    oldId?: string | null
     name: string
     bizNo?: string | null
     ceo?: string | null
@@ -8797,6 +8906,7 @@ export namespace Prisma {
   }
 
   export type AffiliationUpdateManyMutationInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8810,6 +8920,7 @@ export namespace Prisma {
 
   export type AffiliationUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8822,6 +8933,7 @@ export namespace Prisma {
   }
 
   export type UserCreateInput = {
+    oldId?: string | null
     loginId: string
     password: string
     name: string
@@ -8833,6 +8945,7 @@ export namespace Prisma {
 
   export type UserUncheckedCreateInput = {
     id?: number
+    oldId?: string | null
     loginId: string
     password: string
     name: string
@@ -8843,6 +8956,7 @@ export namespace Prisma {
   }
 
   export type UserUpdateInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     loginId?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -8854,6 +8968,7 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     loginId?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -8865,6 +8980,7 @@ export namespace Prisma {
 
   export type UserCreateManyInput = {
     id?: number
+    oldId?: string | null
     loginId: string
     password: string
     name: string
@@ -8875,6 +8991,7 @@ export namespace Prisma {
   }
 
   export type UserUpdateManyMutationInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     loginId?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -8885,6 +9002,7 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     loginId?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -8895,6 +9013,7 @@ export namespace Prisma {
   }
 
   export type YongchaContractCreateInput = {
+    oldId?: string | null
     year: number
     startDate: Date | string
     endDate: Date | string
@@ -8909,6 +9028,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedCreateInput = {
     id?: number
+    oldId?: string | null
     year: number
     affiliationId: number
     startDate: Date | string
@@ -8922,6 +9042,7 @@ export namespace Prisma {
   }
 
   export type YongchaContractUpdateInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8936,6 +9057,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     affiliationId?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8950,6 +9072,7 @@ export namespace Prisma {
 
   export type YongchaContractCreateManyInput = {
     id?: number
+    oldId?: string | null
     year: number
     affiliationId: number
     startDate: Date | string
@@ -8961,6 +9084,7 @@ export namespace Prisma {
   }
 
   export type YongchaContractUpdateManyMutationInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8972,6 +9096,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     affiliationId?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8983,76 +9108,76 @@ export namespace Prisma {
   }
 
   export type YongchaRateDetailCreateInput = {
+    oldId?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    tonnage?: string | null
     YongchaContract: YongchaContractCreateNestedOneWithoutYongchaRateDetailInput
   }
 
   export type YongchaRateDetailUncheckedCreateInput = {
     id?: number
+    oldId?: string | null
     contractId: number
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    tonnage?: string | null
   }
 
   export type YongchaRateDetailUpdateInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     YongchaContract?: YongchaContractUpdateOneRequiredWithoutYongchaRateDetailNestedInput
   }
 
   export type YongchaRateDetailUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     contractId?: IntFieldUpdateOperationsInput | number
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailCreateManyInput = {
     id?: number
+    oldId?: string | null
     contractId: number
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    tonnage?: string | null
   }
 
   export type YongchaRateDetailUpdateManyMutationInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     contractId?: IntFieldUpdateOperationsInput | number
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -9064,6 +9189,20 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -9089,20 +9228,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -9139,6 +9264,7 @@ export namespace Prisma {
 
   export type DriverCountOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     name?: SortOrder
     affiliationId?: SortOrder
     carNo?: SortOrder
@@ -9158,6 +9284,7 @@ export namespace Prisma {
 
   export type DriverMaxOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     name?: SortOrder
     affiliationId?: SortOrder
     carNo?: SortOrder
@@ -9172,6 +9299,7 @@ export namespace Prisma {
 
   export type DriverMinOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     name?: SortOrder
     affiliationId?: SortOrder
     carNo?: SortOrder
@@ -9205,6 +9333,23 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -9236,23 +9381,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9295,6 +9423,7 @@ export namespace Prisma {
 
   export type SettlementHistoryCountOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     date?: SortOrder
     driverName?: SortOrder
     affiliation?: SortOrder
@@ -9327,6 +9456,7 @@ export namespace Prisma {
 
   export type SettlementHistoryMaxOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     date?: SortOrder
     driverName?: SortOrder
     affiliation?: SortOrder
@@ -9349,6 +9479,7 @@ export namespace Prisma {
 
   export type SettlementHistoryMinOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     date?: SortOrder
     driverName?: SortOrder
     affiliation?: SortOrder
@@ -9419,6 +9550,7 @@ export namespace Prisma {
 
   export type AffiliationCountOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     name?: SortOrder
     bizNo?: SortOrder
     ceo?: SortOrder
@@ -9436,6 +9568,7 @@ export namespace Prisma {
 
   export type AffiliationMaxOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     name?: SortOrder
     bizNo?: SortOrder
     ceo?: SortOrder
@@ -9449,6 +9582,7 @@ export namespace Prisma {
 
   export type AffiliationMinOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     name?: SortOrder
     bizNo?: SortOrder
     ceo?: SortOrder
@@ -9466,6 +9600,7 @@ export namespace Prisma {
 
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     loginId?: SortOrder
     password?: SortOrder
     name?: SortOrder
@@ -9482,6 +9617,7 @@ export namespace Prisma {
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     loginId?: SortOrder
     password?: SortOrder
     name?: SortOrder
@@ -9493,6 +9629,7 @@ export namespace Prisma {
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     loginId?: SortOrder
     password?: SortOrder
     name?: SortOrder
@@ -9534,6 +9671,7 @@ export namespace Prisma {
 
   export type YongchaContractCountOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     year?: SortOrder
     affiliationId?: SortOrder
     startDate?: SortOrder
@@ -9552,6 +9690,7 @@ export namespace Prisma {
 
   export type YongchaContractMaxOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     year?: SortOrder
     affiliationId?: SortOrder
     startDate?: SortOrder
@@ -9564,6 +9703,7 @@ export namespace Prisma {
 
   export type YongchaContractMinOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     year?: SortOrder
     affiliationId?: SortOrder
     startDate?: SortOrder
@@ -9587,13 +9727,13 @@ export namespace Prisma {
 
   export type YongchaRateDetailCountOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     contractId?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    tonnage?: SortOrder
   }
 
   export type YongchaRateDetailAvgOrderByAggregateInput = {
@@ -9604,24 +9744,24 @@ export namespace Prisma {
 
   export type YongchaRateDetailMaxOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     contractId?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    tonnage?: SortOrder
   }
 
   export type YongchaRateDetailMinOrderByAggregateInput = {
     id?: SortOrder
+    oldId?: SortOrder
     contractId?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    tonnage?: SortOrder
   }
 
   export type YongchaRateDetailSumOrderByAggregateInput = {
@@ -9636,12 +9776,12 @@ export namespace Prisma {
     connect?: AffiliationWhereUniqueInput
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
-  }
-
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -9963,6 +10103,20 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -9986,20 +10140,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -10051,6 +10191,23 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -10095,23 +10252,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -10154,6 +10294,7 @@ export namespace Prisma {
   }
 
   export type AffiliationCreateWithoutDriverInput = {
+    oldId?: string | null
     name: string
     bizNo?: string | null
     ceo?: string | null
@@ -10169,6 +10310,7 @@ export namespace Prisma {
 
   export type AffiliationUncheckedCreateWithoutDriverInput = {
     id?: number
+    oldId?: string | null
     name: string
     bizNo?: string | null
     ceo?: string | null
@@ -10199,6 +10341,7 @@ export namespace Prisma {
   }
 
   export type AffiliationUpdateWithoutDriverInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10214,6 +10357,7 @@ export namespace Prisma {
 
   export type AffiliationUncheckedUpdateWithoutDriverInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10228,6 +10372,7 @@ export namespace Prisma {
   }
 
   export type YongchaContractCreateWithoutSettlementHistoryInput = {
+    oldId?: string | null
     year: number
     startDate: Date | string
     endDate: Date | string
@@ -10241,6 +10386,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedCreateWithoutSettlementHistoryInput = {
     id?: number
+    oldId?: string | null
     year: number
     affiliationId: number
     startDate: Date | string
@@ -10269,6 +10415,7 @@ export namespace Prisma {
   }
 
   export type YongchaContractUpdateWithoutSettlementHistoryInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10282,6 +10429,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedUpdateWithoutSettlementHistoryInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     affiliationId?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10294,6 +10442,7 @@ export namespace Prisma {
   }
 
   export type DriverCreateWithoutAffiliationInput = {
+    oldId?: string | null
     name: string
     carNo?: string | null
     tonnage?: string | null
@@ -10307,6 +10456,7 @@ export namespace Prisma {
 
   export type DriverUncheckedCreateWithoutAffiliationInput = {
     id?: number
+    oldId?: string | null
     name: string
     carNo?: string | null
     tonnage?: string | null
@@ -10328,6 +10478,7 @@ export namespace Prisma {
   }
 
   export type YongchaContractCreateWithoutAffiliationInput = {
+    oldId?: string | null
     year: number
     startDate: Date | string
     endDate: Date | string
@@ -10341,6 +10492,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedCreateWithoutAffiliationInput = {
     id?: number
+    oldId?: string | null
     year: number
     startDate: Date | string
     endDate: Date | string
@@ -10362,6 +10514,7 @@ export namespace Prisma {
   }
 
   export type UserCreateWithoutAffiliationInput = {
+    oldId?: string | null
     loginId: string
     password: string
     name: string
@@ -10372,6 +10525,7 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutAffiliationInput = {
     id?: number
+    oldId?: string | null
     loginId: string
     password: string
     name: string
@@ -10410,6 +10564,7 @@ export namespace Prisma {
     OR?: DriverScalarWhereInput[]
     NOT?: DriverScalarWhereInput | DriverScalarWhereInput[]
     id?: IntFilter<"Driver"> | number
+    oldId?: StringNullableFilter<"Driver"> | string | null
     name?: StringFilter<"Driver"> | string
     affiliationId?: IntNullableFilter<"Driver"> | number | null
     carNo?: StringNullableFilter<"Driver"> | string | null
@@ -10443,6 +10598,7 @@ export namespace Prisma {
     OR?: YongchaContractScalarWhereInput[]
     NOT?: YongchaContractScalarWhereInput | YongchaContractScalarWhereInput[]
     id?: IntFilter<"YongchaContract"> | number
+    oldId?: StringNullableFilter<"YongchaContract"> | string | null
     year?: IntFilter<"YongchaContract"> | number
     affiliationId?: IntFilter<"YongchaContract"> | number
     startDate?: DateTimeFilter<"YongchaContract"> | Date | string
@@ -10474,6 +10630,7 @@ export namespace Prisma {
     OR?: UserScalarWhereInput[]
     NOT?: UserScalarWhereInput | UserScalarWhereInput[]
     id?: IntFilter<"User"> | number
+    oldId?: StringNullableFilter<"User"> | string | null
     loginId?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
@@ -10484,6 +10641,7 @@ export namespace Prisma {
   }
 
   export type AffiliationCreateWithoutUserInput = {
+    oldId?: string | null
     name: string
     bizNo?: string | null
     ceo?: string | null
@@ -10499,6 +10657,7 @@ export namespace Prisma {
 
   export type AffiliationUncheckedCreateWithoutUserInput = {
     id?: number
+    oldId?: string | null
     name: string
     bizNo?: string | null
     ceo?: string | null
@@ -10529,6 +10688,7 @@ export namespace Prisma {
   }
 
   export type AffiliationUpdateWithoutUserInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10544,6 +10704,7 @@ export namespace Prisma {
 
   export type AffiliationUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10558,6 +10719,7 @@ export namespace Prisma {
   }
 
   export type SettlementHistoryCreateWithoutYongchaContractInput = {
+    oldId?: string | null
     date: Date | string
     driverName: string
     affiliation?: string | null
@@ -10579,6 +10741,7 @@ export namespace Prisma {
 
   export type SettlementHistoryUncheckedCreateWithoutYongchaContractInput = {
     id?: number
+    oldId?: string | null
     date: Date | string
     driverName: string
     affiliation?: string | null
@@ -10608,6 +10771,7 @@ export namespace Prisma {
   }
 
   export type AffiliationCreateWithoutYongchaContractInput = {
+    oldId?: string | null
     name: string
     bizNo?: string | null
     ceo?: string | null
@@ -10623,6 +10787,7 @@ export namespace Prisma {
 
   export type AffiliationUncheckedCreateWithoutYongchaContractInput = {
     id?: number
+    oldId?: string | null
     name: string
     bizNo?: string | null
     ceo?: string | null
@@ -10642,22 +10807,22 @@ export namespace Prisma {
   }
 
   export type YongchaRateDetailCreateWithoutYongchaContractInput = {
+    oldId?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    tonnage?: string | null
   }
 
   export type YongchaRateDetailUncheckedCreateWithoutYongchaContractInput = {
     id?: number
+    oldId?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    tonnage?: string | null
   }
 
   export type YongchaRateDetailCreateOrConnectWithoutYongchaContractInput = {
@@ -10690,6 +10855,7 @@ export namespace Prisma {
     OR?: SettlementHistoryScalarWhereInput[]
     NOT?: SettlementHistoryScalarWhereInput | SettlementHistoryScalarWhereInput[]
     id?: IntFilter<"SettlementHistory"> | number
+    oldId?: StringNullableFilter<"SettlementHistory"> | string | null
     date?: DateTimeFilter<"SettlementHistory"> | Date | string
     driverName?: StringFilter<"SettlementHistory"> | string
     affiliation?: StringNullableFilter<"SettlementHistory"> | string | null
@@ -10722,6 +10888,7 @@ export namespace Prisma {
   }
 
   export type AffiliationUpdateWithoutYongchaContractInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10737,6 +10904,7 @@ export namespace Prisma {
 
   export type AffiliationUncheckedUpdateWithoutYongchaContractInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     bizNo?: NullableStringFieldUpdateOperationsInput | string | null
     ceo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10771,16 +10939,17 @@ export namespace Prisma {
     OR?: YongchaRateDetailScalarWhereInput[]
     NOT?: YongchaRateDetailScalarWhereInput | YongchaRateDetailScalarWhereInput[]
     id?: IntFilter<"YongchaRateDetail"> | number
+    oldId?: StringNullableFilter<"YongchaRateDetail"> | string | null
     contractId?: IntFilter<"YongchaRateDetail"> | number
     region?: StringFilter<"YongchaRateDetail"> | string
     price?: IntFilter<"YongchaRateDetail"> | number
     memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
     createdAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
     updatedAt?: DateTimeFilter<"YongchaRateDetail"> | Date | string
-    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
   }
 
   export type YongchaContractCreateWithoutYongchaRateDetailInput = {
+    oldId?: string | null
     year: number
     startDate: Date | string
     endDate: Date | string
@@ -10794,6 +10963,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedCreateWithoutYongchaRateDetailInput = {
     id?: number
+    oldId?: string | null
     year: number
     affiliationId: number
     startDate: Date | string
@@ -10822,6 +10992,7 @@ export namespace Prisma {
   }
 
   export type YongchaContractUpdateWithoutYongchaRateDetailInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10835,6 +11006,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedUpdateWithoutYongchaRateDetailInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     affiliationId?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10848,6 +11020,7 @@ export namespace Prisma {
 
   export type DriverCreateManyAffiliationInput = {
     id?: number
+    oldId?: string | null
     name: string
     carNo?: string | null
     tonnage?: string | null
@@ -10861,6 +11034,7 @@ export namespace Prisma {
 
   export type YongchaContractCreateManyAffiliationInput = {
     id?: number
+    oldId?: string | null
     year: number
     startDate: Date | string
     endDate: Date | string
@@ -10872,6 +11046,7 @@ export namespace Prisma {
 
   export type UserCreateManyAffiliationInput = {
     id?: number
+    oldId?: string | null
     loginId: string
     password: string
     name: string
@@ -10881,6 +11056,7 @@ export namespace Prisma {
   }
 
   export type DriverUpdateWithoutAffiliationInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     carNo?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10894,6 +11070,7 @@ export namespace Prisma {
 
   export type DriverUncheckedUpdateWithoutAffiliationInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     carNo?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10907,6 +11084,7 @@ export namespace Prisma {
 
   export type DriverUncheckedUpdateManyWithoutAffiliationInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     carNo?: NullableStringFieldUpdateOperationsInput | string | null
     tonnage?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10919,6 +11097,7 @@ export namespace Prisma {
   }
 
   export type YongchaContractUpdateWithoutAffiliationInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10932,6 +11111,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedUpdateWithoutAffiliationInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10945,6 +11125,7 @@ export namespace Prisma {
 
   export type YongchaContractUncheckedUpdateManyWithoutAffiliationInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     year?: IntFieldUpdateOperationsInput | number
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10955,6 +11136,7 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutAffiliationInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     loginId?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -10965,6 +11147,7 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateWithoutAffiliationInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     loginId?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -10975,6 +11158,7 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateManyWithoutAffiliationInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     loginId?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -10985,6 +11169,7 @@ export namespace Prisma {
 
   export type SettlementHistoryCreateManyYongchaContractInput = {
     id?: number
+    oldId?: string | null
     date: Date | string
     driverName: string
     affiliation?: string | null
@@ -11006,15 +11191,16 @@ export namespace Prisma {
 
   export type YongchaRateDetailCreateManyYongchaContractInput = {
     id?: number
+    oldId?: string | null
     region: string
     price: number
     memo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    tonnage?: string | null
   }
 
   export type SettlementHistoryUpdateWithoutYongchaContractInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11036,6 +11222,7 @@ export namespace Prisma {
 
   export type SettlementHistoryUncheckedUpdateWithoutYongchaContractInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11057,6 +11244,7 @@ export namespace Prisma {
 
   export type SettlementHistoryUncheckedUpdateManyWithoutYongchaContractInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     driverName?: StringFieldUpdateOperationsInput | string
     affiliation?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11077,32 +11265,32 @@ export namespace Prisma {
   }
 
   export type YongchaRateDetailUpdateWithoutYongchaContractInput = {
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailUncheckedUpdateWithoutYongchaContractInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractInput = {
     id?: IntFieldUpdateOperationsInput | number
+    oldId?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

@@ -85,13 +85,19 @@ async function saveAffiliationMaster() {
         contact: document.getElementById('aff-contact').value.trim(),
         address: document.getElementById('aff-address').value.trim(),
         manager: document.getElementById('aff-manager').value.trim(),
-        memo: document.getElementById('aff-memo').value.trim()
+        memo: document.getElementById('aff-memo').value.trim(),
+        loginId: document.getElementById('aff-loginId').value.trim(),
+        password: document.getElementById('aff-password').value
     };
 
     try {
         const btn = document.getElementById('btn-aff-save');
-        btn.disabled = true;
-        btn.innerHTML = `<i class="fas fa-spinner animate-spin"></i> 저장 중...`;
+        const btnText = document.getElementById('btn-aff-text');
+        
+        if (btn) btn.disabled = true;
+        // [Fix] innerHTML을 직접 바꾸면 내부 요소(btn-aff-text)가 날아가므로 개별 처리
+        if (btnText) btnText.innerText = "저장 중...";
+        else if (btn) btn.innerText = "저장 중...";
 
         const res = await fetch('/api/affiliations', {
             method: 'POST',
@@ -105,18 +111,27 @@ async function saveAffiliationMaster() {
             resetAffiliationForm();
             fetchAffiliations();
 
-            // 용차 단가 입력 폼의 업체 목록도 갱신하도록 유도 (함수가 있다면)
-            if (typeof fetchAffiliationList === 'function') fetchAffiliationList();
+            // 타 화면의 업체 목록(드롭다운 등) 갱신 시도
+            try {
+                if (typeof fetchAffiliationListForDrivers === 'function') fetchAffiliationListForDrivers();
+                if (typeof fetchAffiliationListForContracts === 'function') fetchAffiliationListForContracts();
+                if (typeof fetchAffiliationList === 'function') fetchAffiliationList();
+                if (typeof fetchAffiliationListForFees === 'function') fetchAffiliationListForFees();
+            } catch (err) {
+                console.warn('Silent refresh error:', err);
+            }
         } else {
-            alert("저장 실패: " + result.message);
+            alert("저장 실패: " + (result.message || "알 수 없는 오류"));
         }
     } catch (e) {
-        console.error('Save Affiliation Error:', e);
-        alert("서버 통신 중 오류가 발생했습니다.");
+        console.error('Save Affiliation Error Details:', e);
+        alert("서버 통신 중 오류가 발생했습니다.\n상세 사유: " + (e.message || "알 수 없는 브라우저/네트워크 에러"));
     } finally {
         const btn = document.getElementById('btn-aff-save');
-        btn.disabled = false;
-        btn.innerHTML = `<i class="fas fa-save"></i> <span id="btn-aff-text">${editAffIdx ? '정보 업데이트' : '운송 업체 저장'}</span>`;
+        const btnText = document.getElementById('btn-aff-text');
+        if (btn) btn.disabled = false;
+        if (btnText) btnText.innerText = editAffIdx ? '정보 업데이트' : '운송 업체 저장';
+        else if (btn) btn.innerText = editAffIdx ? '정보 업데이트' : '운송 업체 저장';
     }
 }
 
@@ -127,21 +142,25 @@ function editAffiliation(idx) {
     const aff = affiliationList.find(a => a.idx === idx);
     if (!aff) return;
 
-    editAffIdx = idx;
-    document.getElementById('aff-idx').value = idx;
-    document.getElementById('aff-name').value = aff.name;
+    editAffIdx = aff.idx;
+    document.getElementById('aff-idx').value = aff.idx;
+    document.getElementById('aff-name').value = aff.name || '';
     document.getElementById('aff-bizNo').value = aff.bizNo || '';
     document.getElementById('aff-ceo').value = aff.ceo || '';
+    document.getElementById('aff-manager').value = aff.manager || '';
     document.getElementById('aff-contact').value = aff.contact || '';
     document.getElementById('aff-address').value = aff.address || '';
-    document.getElementById('aff-manager').value = aff.manager || '';
     document.getElementById('aff-memo').value = aff.memo || '';
+    
+    // 계정 정보 (User 테이블 연동)
+    document.getElementById('aff-loginId').value = aff.loginId || '';
+    document.getElementById('aff-password').value = ''; // 비밀번호는 항상 비움
 
-    // UI 변경
-    document.getElementById('aff-form-title').innerText = "운송 업체 수정";
-    document.getElementById('btn-aff-text').innerText = "정보 업데이트";
-    document.getElementById('btn-aff-save').classList.replace('bg-indigo-600', 'bg-amber-600');
+    document.getElementById('aff-form-title').innerText = "업체 정보 수정";
     document.getElementById('aff-edit-mode-badge').classList.remove('hidden');
+    document.getElementById('btn-aff-text').innerText = "정보 수정 완료";
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 /**
@@ -171,17 +190,22 @@ async function deleteAffiliation(idx) {
  */
 function resetAffiliationForm() {
     editAffIdx = null;
-    document.getElementById('aff-idx').value = '';
-    document.getElementById('aff-name').value = '';
-    document.getElementById('aff-bizNo').value = '';
-    document.getElementById('aff-ceo').value = '';
-    document.getElementById('aff-contact').value = '';
-    document.getElementById('aff-address').value = '';
-    document.getElementById('aff-manager').value = '';
-    document.getElementById('aff-memo').value = '';
+    const fields = ['aff-idx', 'aff-name', 'aff-bizNo', 'aff-ceo', 'aff-contact', 'aff-address', 'aff-manager', 'aff-memo', 'aff-loginId', 'aff-password'];
+    fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+    });
 
-    document.getElementById('aff-form-title').innerText = "운송 업체 마스터";
-    document.getElementById('btn-aff-text').innerText = "운송 업체 저장";
-    document.getElementById('btn-aff-save').classList.replace('bg-amber-600', 'bg-indigo-600');
-    document.getElementById('aff-edit-mode-badge').classList.add('hidden');
+    const titleEl = document.getElementById('aff-form-title');
+    const textEl = document.getElementById('btn-aff-text');
+    const btnEl = document.getElementById('btn-aff-save');
+    const badgeEl = document.getElementById('aff-edit-mode-badge');
+
+    if (titleEl) titleEl.innerText = "운송 업체 마스터";
+    if (textEl) textEl.innerText = "운송 업체 저장";
+    if (btnEl) {
+        btnEl.classList.replace('bg-amber-600', 'bg-indigo-600');
+        btnEl.classList.replace('hover:bg-amber-600', 'hover:bg-indigo-700');
+    }
+    if (badgeEl) badgeEl.classList.add('hidden');
 }

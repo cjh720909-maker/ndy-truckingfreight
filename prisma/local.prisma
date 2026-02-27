@@ -118,10 +118,9 @@ model YongchaRateDetail {
   memo            String?
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
-  tonnage         String?
   YongchaContract YongchaContract @relation(fields: [contractId], references: [id])
 
-  @@index([contractId, region, tonnage])
+  @@index([contractId, region])
   @@map("NTF_YongchaRateDetail")
 }
 

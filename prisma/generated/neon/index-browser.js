@@ -122,6 +122,133 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.NDY_BillingItemScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  billingRecipient: 'billingRecipient',
+  type: 'type',
+  mergeCriteria: 'mergeCriteria',
+  note: 'note',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.NDY_BillingRateScalarFieldEnum = {
+  id: 'id',
+  itemId: 'itemId',
+  validFrom: 'validFrom',
+  validTo: 'validTo',
+  amount: 'amount',
+  note: 'note',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.NDY_ConfigScalarFieldEnum = {
+  key: 'key',
+  data: 'data',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.NDY_DailySummaryScalarFieldEnum = {
+  id: 'id',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.NDY_DailySummaryItemScalarFieldEnum = {
+  id: 'id',
+  summaryId: 'summaryId',
+  placeName: 'placeName',
+  deliveryDays: 'deliveryDays',
+  totalAmount: 'totalAmount',
+  deliveryDates: 'deliveryDates'
+};
+
+exports.Prisma.NDY_EmergencyRateScalarFieldEnum = {
+  name: 'name',
+  rate: 'rate',
+  chung: 'chung',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.NDY_EmergencySettlementScalarFieldEnum = {
+  id: 'id',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  name: 'name',
+  chung: 'chung',
+  count: 'count',
+  rate: 'rate',
+  total: 'total',
+  dates: 'dates',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.NDY_FixedSettlementScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  billingRecipient: 'billingRecipient',
+  amount: 'amount',
+  count: 'count',
+  rate: 'rate',
+  note: 'note',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.NDY_GSSettlementScalarFieldEnum = {
+  id: 'id',
+  date: 'date',
+  code: 'code',
+  name: 'name',
+  qty: 'qty',
+  weight: 'weight',
+  amount: 'amount',
+  remarks: 'remarks',
+  modDate: 'modDate'
+};
+
+exports.Prisma.NDY_GSSummaryScalarFieldEnum = {
+  id: 'id',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  weekday: 'weekday',
+  saturday: 'saturday',
+  sunday: 'sunday',
+  extraTrucks: 'extraTrucks',
+  totalAmount: 'totalAmount',
+  dates: 'dates',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.NDY_InquirySettlementScalarFieldEnum = {
+  id: 'id',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  date: 'date',
+  name: 'name',
+  so: 'so',
+  nap: 'nap',
+  ton: 'ton',
+  kum: 'kum',
+  yo: 'yo',
+  chung: 'chung',
+  un: 'un',
+  memo: 'memo',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.NDY_MonthlyClosingScalarFieldEnum = {
+  id: 'id',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  data: 'data',
+  closedAt: 'closedAt'
+};
+
 exports.Prisma.DriverScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -133,7 +260,8 @@ exports.Prisma.DriverScalarFieldEnum = {
   address: 'address',
   memo: 'memo',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  oldId: 'oldId'
 };
 
 exports.Prisma.SettlementHistoryScalarFieldEnum = {
@@ -154,7 +282,8 @@ exports.Prisma.SettlementHistoryScalarFieldEnum = {
   ton: 'ton',
   contractId: 'contractId',
   appliedTonnage: 'appliedTonnage',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  oldId: 'oldId'
 };
 
 exports.Prisma.AffiliationScalarFieldEnum = {
@@ -167,7 +296,8 @@ exports.Prisma.AffiliationScalarFieldEnum = {
   contact: 'contact',
   email: 'email',
   memo: 'memo',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  oldId: 'oldId'
 };
 
 exports.Prisma.UserScalarFieldEnum = {
@@ -178,7 +308,8 @@ exports.Prisma.UserScalarFieldEnum = {
   role: 'role',
   affiliationId: 'affiliationId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  oldId: 'oldId'
 };
 
 exports.Prisma.YongchaContractScalarFieldEnum = {
@@ -190,23 +321,28 @@ exports.Prisma.YongchaContractScalarFieldEnum = {
   status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  memo: 'memo'
+  memo: 'memo',
+  oldId: 'oldId'
 };
 
 exports.Prisma.YongchaRateDetailScalarFieldEnum = {
   id: 'id',
   contractId: 'contractId',
-  tonnage: 'tonnage',
   region: 'region',
   price: 'price',
   memo: 'memo',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  oldId: 'oldId'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -219,8 +355,26 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
 
 exports.Prisma.ModelName = {
+  NDY_BillingItem: 'NDY_BillingItem',
+  NDY_BillingRate: 'NDY_BillingRate',
+  NDY_Config: 'NDY_Config',
+  NDY_DailySummary: 'NDY_DailySummary',
+  NDY_DailySummaryItem: 'NDY_DailySummaryItem',
+  NDY_EmergencyRate: 'NDY_EmergencyRate',
+  NDY_EmergencySettlement: 'NDY_EmergencySettlement',
+  NDY_FixedSettlement: 'NDY_FixedSettlement',
+  NDY_GSSettlement: 'NDY_GSSettlement',
+  NDY_GSSummary: 'NDY_GSSummary',
+  NDY_InquirySettlement: 'NDY_InquirySettlement',
+  NDY_MonthlyClosing: 'NDY_MonthlyClosing',
   Driver: 'Driver',
   SettlementHistory: 'SettlementHistory',
   Affiliation: 'Affiliation',

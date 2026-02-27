@@ -46,9 +46,40 @@ function setDateRange(minusStart, minusEnd, btnId) {
     }
 }
 
-function setToday() { setDateRange(0, 0, 'btn-today'); }
-function setYesterday() { setDateRange(1, 1, 'btn-yesterday'); }
-function setLast7Days() { setDateRange(7, 0, 'btn-7days'); }
+function setLastMonth() { setDateRange(30, 0, 'btn-last-month'); } // 기존 레거시 대응용 (필요시)
+
+/**
+ * 당월(이번 달 1일 ~ 오늘) 자동 세팅 - history.js에서 이관
+ */
+function setCurrentMonth() {
+    const today = new Date();
+    const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+
+    const startInput = document.getElementById('startDate');
+    const endInput = document.getElementById('endDate');
+    
+    if (startInput) startInput.value = toDateStr(firstDay);
+    if (endInput) endInput.value = toDateStr(today);
+
+    if (typeof fetchData === 'function') fetchData();
+}
+
+/**
+ * 전월(지난 달 1일 ~ 말일) 자동 세팅 - history.js에서 이관
+ */
+function setLastMonth() {
+    const today = new Date();
+    const firstDayLastMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+    const lastDayLastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+
+    const startInput = document.getElementById('startDate');
+    const endInput = document.getElementById('endDate');
+
+    if (startInput) startInput.value = toDateStr(firstDayLastMonth);
+    if (endInput) endInput.value = toDateStr(lastDayLastMonth);
+
+    if (typeof fetchData === 'function') fetchData();
+}
 
 // Initialization for common elements
 document.addEventListener('DOMContentLoaded', () => {

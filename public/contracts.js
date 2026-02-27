@@ -156,11 +156,15 @@ function editContractHeader(item) {
     document.getElementById('contract-status').value = item.status;
     document.getElementById('contract-memo').value = item.memo || '';
 
-    document.getElementById('contract-edit-badge').classList.remove('hidden');
-    document.getElementById('btn-contract-header-text').innerText = '계약 정보 수정하기';
+    const badgeEl = document.getElementById('contract-edit-badge');
+    const btnTextEl = document.getElementById('btn-contract-header-text');
+    const affSelectEl = document.getElementById('contract-affiliation-select');
+
+    if (badgeEl) badgeEl.classList.remove('hidden');
+    if (btnTextEl) btnTextEl.innerText = '계약 정보 수정하기';
 
     // 업체 선택은 수정 불가 (계약의 본질이므로)
-    document.getElementById('contract-affiliation-select').disabled = true;
+    if (affSelectEl) affSelectEl.disabled = true;
 }
 
 function resetContractHeaderForm(isForce = false) {
@@ -179,8 +183,11 @@ function resetContractHeaderForm(isForce = false) {
     document.getElementById('contract-startDate').value = `${defaultYear}-01-01`;
     document.getElementById('contract-endDate').value = '2099-12-31';
 
-    document.getElementById('contract-edit-badge').classList.add('hidden');
-    document.getElementById('btn-contract-header-text').innerText = '계약 저장하기';
+    const badgeEl = document.getElementById('contract-edit-badge');
+    const btnTextEl = document.getElementById('btn-contract-header-text');
+
+    if (badgeEl) badgeEl.classList.add('hidden');
+    if (btnTextEl) btnTextEl.innerText = '계약 저장하기';
 }
 
 async function deleteContractHeader(id) {

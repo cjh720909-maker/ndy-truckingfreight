@@ -18,9 +18,13 @@ async function fetchDispatchData() {
     tbody.innerHTML = '<tr><td colspan="12" class="p-12 text-center"><div class="animate-spin inline-block w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full mb-2"></div><div class="text-indigo-600 font-bold">배차 데이터 분석 중...</div></td></tr>';
 
     try {
-        const url = `/api/summary?startDate=${sDate}&endDate=${eDate}&drivers=${encodeURIComponent(driverVal)}&custName=${encodeURIComponent(custName)}`;
+        const url = `/api/summary?startDate=${sDate}&endDate=${eDate}&affiliations=${encodeURIComponent(driverVal)}&custName=${encodeURIComponent(custName)}`;
         const res = await fetch(url);
         const json = await res.json();
+
+        if (json.warning) {
+            alert(json.warning);
+        }
 
         if (json.error) {
             alert('배차 데이터 에러: ' + json.error);
@@ -148,7 +152,20 @@ function renderDispatchData(json, tbody, cards) {
     tbody.innerHTML = data.map((row, i) => {
         const autoPrice = calculateExpectedPrice(row.destDetail, row.tonnage);
         const isSettled = row.isSettled;
-        const statusText = isSettled ? '<span class="px-1.5 py-0.5 bg-green-100 text-green-700 rounded-full font-bold text-[9px]">정산완료</span>' : '<span class="px-1.5 py-0.5 bg-slate-100 text-slate-500 rounded-full font-bold text-[9px]">미정산</span>';
+        
+        let statusText = '<span class="px-1.5 py-0.5 bg-slate-100 text-slate-500 rounded-full font-bold text-[9px]">미정산</span>';
+        if (isSettled) {
+            // batch_settle.js의 STATUS_LABELS 규격 활용 (또는 유사하게 구현)
+            const statusMap = {
+                'REQUESTED': { text: '1차전송🚩', color: 'bg-blue-100 text-blue-700' },
+                'CHECKED': { text: '운수사확인✅', color: 'bg-amber-100 text-amber-700' },
+                'FINALIZED': { text: '최종확정🏁', color: 'bg-emerald-100 text-emerald-700' },
+                'COMPLETED': { text: '최종확정🏁', color: 'bg-emerald-100 text-emerald-700' },
+                'SETTLED': { text: '정산완료', color: 'bg-green-100 text-green-700' }
+            };
+            const s = statusMap[row.settledStatus] || statusMap['SETTLED'];
+            statusText = `<span class="px-1.5 py-0.5 ${s.color} rounded-full font-bold text-[9px]">${s.text}</span>`;
+        }
 
         // 정산된 금액이 있으면 그것을 우선 표시, 없으면 자동 산출 금액 표시
         const displayPrice = isSettled ? row.settledAmount : autoPrice.price;

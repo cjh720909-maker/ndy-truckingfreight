@@ -1,19 +1,9 @@
 const { PrismaClient: MySQLClient } = require('@prisma/client');
 const mysql = new MySQLClient();
 
-// [로컬 테스트용] Neon 대신 로컬 SQLite 사용 여부 결정
-const isLocal = process.env.USE_LOCAL_DB === 'true';
-let neon;
-
-if (isLocal) {
-    const { PrismaClient: LocalClient } = require('../prisma/generated/local');
-    neon = new LocalClient();
-    console.log("[Storage] 로컬 SQLite DB를 사용합니다. (Neon 데이터 영향 없음)");
-} else {
-    const { PrismaClient: NeonClient } = require('../prisma/generated/neon');
-    neon = new NeonClient();
-    console.log("[Storage] 실제 Neon PostgreSQL DB를 사용 중입니다.");
-}
+const { PrismaClient: NeonClient } = require('../prisma/generated/neon');
+const neon = new NeonClient();
+console.log("[Storage] 실제 Neon PostgreSQL DB를 사용 중입니다.");
 
 // --- Fee Master Functions ---
 
@@ -33,7 +23,6 @@ async function getFees() {
             memo: f.memo || '',
             year: f.YongchaContract?.year,
             affiliation: f.YongchaContract?.Affiliation?.name || '미소속',
-            tonnage: f.tonnage || '-',
             status: f.YongchaContract?.status
         }));
     } catch (e) {
@@ -122,7 +111,6 @@ async function saveContract(payload) {
                         await tx.yongchaRateDetail.create({
                             data: {
                                 contractId: contract.id,
-                                tonnage: d.tonnage || null,
                                 region: d.region,
                                 price: parseInt(d.price || 0),
                                 memo: d.memo || ''
@@ -176,6 +164,71 @@ async function getContracts(affiliationId = null) {
     }
 }
 
+// [NEW] 단가 일괄 저장 (Matrix Excel 업로드 대응)
+async function saveFeesBulk(fees) {
+    if (!fees || fees.length === 0) return true;
+
+    try {
+        return await neon.$transaction(async (tx) => {
+            let count = 0;
+            for (const f of fees) {
+                // 연도와 업체명으로 계약(Contract) 찾기 또는 생성
+                let contract = await tx.yongchaContract.findFirst({
+                    where: {
+                        year: parseInt(f.year),
+                        Affiliation: { name: f.affiliation }
+                    }
+                });
+
+                if (!contract) {
+                    // 업체 ID 조회
+                    const aff = await tx.affiliation.findUnique({ where: { name: f.affiliation } });
+                    if (!aff) {
+                        console.warn(`[Bulk] Affiliation not found: ${f.affiliation}, skipping.`);
+                        continue;
+                    }
+                    contract = await tx.yongchaContract.create({
+                        data: {
+                            year: parseInt(f.year),
+                            affiliationId: aff.id,
+                            startDate: new Date(`${f.year}-01-01`),
+                            endDate: new Date('2099-12-31'),
+                            status: 'ACTIVE'
+                        }
+                    });
+                }
+
+                // 해당 계약에 상세 단가 추가/업데이트
+                // 지역명이 같으면 업데이트, 없으면 생성
+                const existing = await tx.yongchaRateDetail.findFirst({
+                    where: { contractId: contract.id, region: f.region }
+                });
+
+                if (existing) {
+                    await tx.yongchaRateDetail.update({
+                        where: { id: existing.id },
+                        data: { price: parseInt(f.price || 0), memo: f.memo || '' }
+                    });
+                } else {
+                    await tx.yongchaRateDetail.create({
+                        data: {
+                            contractId: contract.id,
+                            region: f.region,
+                            price: parseInt(f.price || 0),
+                            memo: f.memo || ''
+                        }
+                    });
+                }
+                count++;
+            }
+            return count;
+        });
+    } catch (e) {
+        console.error("Neon saveFeesBulk error:", e);
+        return false;
+    }
+}
+
 // [NEW] 계약 삭제
 async function deleteContract(id) {
     try {
@@ -226,11 +279,12 @@ async function getHistory(affiliationId = null) {
 
         return history.map(h => {
             const d = h.date;
-            const dateStr = d ? `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}` : '';
+            // [개선] 타임존 영향 없이 YYYY-MM-DD 문자열 추출
+            const dateStr = d ? d.toISOString().split('T')[0] : '';
             return {
                 ...h,
                 idx: h.id,
-                driverName: h.driverName,
+                driverName: (h.driverName || '').trim(), // 조회 시에도 trim 적용
                 date: dateStr,
                 // 계약 정보가 있으면 그것을 우선시
                 affiliation: h.YongchaContract?.Affiliation?.name || h.affiliation
@@ -244,25 +298,30 @@ async function getHistory(affiliationId = null) {
 
 async function saveHistory(record) {
     try {
-        const dateObj = record.date ? new Date(record.date) : new Date();
-        dateObj.setHours(0, 0, 0, 0); // 날짜 정규화 (시간 제거)
+        let dateObj;
+        if (record.date) {
+            const dateStr = typeof record.date === 'string' ? record.date.split('T')[0] : record.date;
+            // [개선] T00:00:00Z를 붙여 UTC 자정으로 강제함으로써 타임존 오차 차단
+            dateObj = new Date(dateStr + "T00:00:00Z");
+        } else {
+            dateObj = new Date();
+            dateObj.setUTCHours(0, 0, 0, 0);
+        }
 
         const data = {
             date: dateObj,
-            driverName: record.driverName || record.name,
-            affiliation: record.affiliation || record.driverDiv || '-',
-            tonnage: record.tonnage || record.appliedTonnage,
-            destCount: parseInt(record.destCount || 0),
-            totalWeight: parseInt(record.totalWeight || 0),
-            fee: parseInt(record.fee || 0),
-            memo: record.memo || '',
-            appliedTonnage: record.appliedTonnage || null,
-            status: record.status || 'NEW',
-            isPbox: record.isPbox === true || record.isPbox === 'true',
-            isReturn: record.isReturn === true || record.isReturn === 'true',
-            gwon: parseInt(record.gwon || 0),
-            nap: record.nap || null,
-            so: record.so || null
+            driverName: (record.driverName || '').trim(),
+            affiliation: record.affiliation || null,
+            tonnage: record.tonnage || null,
+            destCount: parseInt(record.destCount) || 0,
+            totalWeight: parseInt(record.totalWeight) || 0,
+            fee: parseInt(record.fee) || 0,
+            memo: record.memo || null,
+            status: record.status || 'REQUESTED',
+            isPbox: !!record.isPbox,
+            isReturn: !!record.isReturn,
+            contractId: record.contractId ? parseInt(record.contractId) : null,
+            appliedTonnage: record.appliedTonnage || null
         };
 
         if (record.idx) {
@@ -271,15 +330,16 @@ async function saveHistory(record) {
                 data
             });
         } else {
-            // [중복 방지] 날짜와 기사명이 같은 기록이 이미 있으면 업데이트 시도
+            // 날짜와 기사명으로 한 번 더 검증 (중복 생성 방지)
             const existing = await neon.settlementHistory.findFirst({
                 where: {
                     date: data.date,
-                    driverName: data.driverName
+                    driverName: { equals: data.driverName.trim(), mode: 'insensitive' }
                 }
             });
 
             if (existing) {
+                console.log(`[Storage] 기존 기록 발견 (ID: ${existing.id}), 업데이트로 전환합니다.`);
                 return await neon.settlementHistory.update({
                     where: { id: existing.id },
                     data
@@ -289,7 +349,14 @@ async function saveHistory(record) {
             return await neon.settlementHistory.create({ data });
         }
     } catch (e) {
-        console.error("Neon saveHistory error:", e);
+        console.error("Neon saveHistory error:", e.message);
+        console.error("Failed Payload Type:", typeof record);
+        console.error("Failed Data Sample:", JSON.stringify({
+            idx: record.idx,
+            date: record.date,
+            driverName: record.driverName,
+            status: record.status
+        }, null, 2));
         return false;
     }
 }
@@ -304,8 +371,6 @@ async function deleteHistory(idx) {
     }
 }
 
-// --- Driver Master Functions ---
-
 async function getDrivers(affiliationId = null) {
     try {
         const where = {};
@@ -315,13 +380,13 @@ async function getDrivers(affiliationId = null) {
 
         const drivers = await neon.driver.findMany({
             where,
-            include: { Affiliation: true }, // 관계된 소속 정보 포함
+            include: { Affiliation: true },
             orderBy: { name: 'asc' }
         });
         return drivers.map(d => ({
             ...d,
             idx: d.id,
-            affiliation: d.Affiliation ? d.Affiliation.name : '' // affiliation 필드 대신 관계 정보 사용
+            affiliation: d.Affiliation ? d.Affiliation.name : ''
         }));
     } catch (e) {
         console.error("Neon getDrivers error:", e);
@@ -365,8 +430,6 @@ async function deleteDriver(idx) {
     }
 }
 
-// --- Affiliation Master Functions ---
-
 async function getAffiliations(affiliationId = null) {
     try {
         const where = {};
@@ -376,11 +439,13 @@ async function getAffiliations(affiliationId = null) {
 
         const list = await neon.affiliation.findMany({
             where,
+            include: { User: { select: { loginId: true } } },
             orderBy: { name: 'asc' }
         });
         return list.map(a => ({
             ...a,
-            idx: a.id
+            idx: a.id,
+            loginId: a.User && a.User.length > 0 ? a.User[0].loginId : ''
         }));
     } catch (e) {
         console.error("Neon getAffiliations error:", e);
@@ -401,23 +466,48 @@ async function saveAffiliation(aff) {
             memo: aff.memo
         };
 
-        if (aff.idx) {
-            return await neon.affiliation.update({
-                where: { id: parseInt(aff.idx) },
-                data: data
-            });
-        } else {
-            return await neon.affiliation.create({
-                data: data
-            });
-        }
+        return await neon.$transaction(async (tx) => {
+            let affiliation;
+            if (aff.idx) {
+                affiliation = await tx.affiliation.update({
+                    where: { id: parseInt(aff.idx) },
+                    data: data
+                });
+            } else {
+                affiliation = await tx.affiliation.create({ data });
+            }
+
+            if (aff.loginId && aff.password) {
+                const existingUser = await tx.user.findUnique({
+                    where: { loginId: aff.loginId }
+                });
+
+                if (existingUser) {
+                    await tx.user.update({
+                        where: { id: existingUser.id },
+                        data: {
+                            password: aff.password,
+                            name: aff.name,
+                            affiliationId: affiliation.id
+                        }
+                    });
+                } else {
+                    await tx.user.create({
+                        data: {
+                            loginId: aff.loginId,
+                            password: aff.password,
+                            name: aff.name,
+                            role: 'TRANSPORT',
+                            affiliationId: affiliation.id
+                        }
+                    });
+                }
+            }
+            return affiliation;
+        });
     } catch (e) {
         console.error("Neon saveAffiliation error:", e);
-        // 에러 정보를 객체로 반환하여 API 계층에서 처리할 수 있게 함
-        if (e.code === 'P2002') {
-            return { error: true, code: 'DUPLICATE', message: "이미 동일한 이름의 운송업체가 등록되어 있습니다." };
-        }
-        return { error: true, code: 'UNKNOWN', message: e.message || "데이터베이스 저장 중 오류가 발생했습니다." };
+        return false;
     }
 }
 
@@ -493,6 +583,7 @@ module.exports = {
     getUser,
     createUser,
     updateUser,
+    saveFeesBulk,
     mysql,
     neon
 };

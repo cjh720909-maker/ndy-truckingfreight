@@ -121,6 +121,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.DriverScalarFieldEnum = {
   id: 'id',
+  oldId: 'oldId',
   name: 'name',
   affiliationId: 'affiliationId',
   carNo: 'carNo',
@@ -135,6 +136,7 @@ exports.Prisma.DriverScalarFieldEnum = {
 
 exports.Prisma.SettlementHistoryScalarFieldEnum = {
   id: 'id',
+  oldId: 'oldId',
   date: 'date',
   driverName: 'driverName',
   affiliation: 'affiliation',
@@ -157,6 +159,7 @@ exports.Prisma.SettlementHistoryScalarFieldEnum = {
 
 exports.Prisma.AffiliationScalarFieldEnum = {
   id: 'id',
+  oldId: 'oldId',
   name: 'name',
   bizNo: 'bizNo',
   ceo: 'ceo',
@@ -170,6 +173,7 @@ exports.Prisma.AffiliationScalarFieldEnum = {
 
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
+  oldId: 'oldId',
   loginId: 'loginId',
   password: 'password',
   name: 'name',
@@ -181,6 +185,7 @@ exports.Prisma.UserScalarFieldEnum = {
 
 exports.Prisma.YongchaContractScalarFieldEnum = {
   id: 'id',
+  oldId: 'oldId',
   year: 'year',
   affiliationId: 'affiliationId',
   startDate: 'startDate',
@@ -193,13 +198,13 @@ exports.Prisma.YongchaContractScalarFieldEnum = {
 
 exports.Prisma.YongchaRateDetailScalarFieldEnum = {
   id: 'id',
+  oldId: 'oldId',
   contractId: 'contractId',
   region: 'region',
   price: 'price',
   memo: 'memo',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  tonnage: 'tonnage'
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {

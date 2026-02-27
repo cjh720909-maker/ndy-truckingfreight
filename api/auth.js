@@ -53,9 +53,17 @@ router.post('/login', async (req, res) => {
             role: user.role,
             affiliationId: user.affiliationId,
             affiliationName: user.Affiliation?.name
-        }, JWT_SECRET, { expiresIn: '12h' });
+        }, JWT_SECRET, { expiresIn: '24h' });
 
-        res.json({ token, user: { name: user.name, role: user.role } });
+        res.json({ 
+            token, 
+            user: { 
+                name: user.name, 
+                role: user.role,
+                affiliationId: user.affiliationId,
+                affiliationName: user.Affiliation?.name
+            } 
+        });
     } catch (e) {
         console.error(e);
         res.status(500).json({ error: 'Server error' });

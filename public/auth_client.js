@@ -1,87 +1,156 @@
-// Auth Client Logic
+/**
+ * public/auth_client.js
+ * 프론트엔드 인증 및 세션 관리 모듈
+ */
+
 const Auth = {
-    getToken: () => localStorage.getItem('authToken'),
-    getUser: () => ({
-        role: localStorage.getItem('userRole'),
-        name: localStorage.getItem('userName')
-    }),
-    isAuthenticated: () => true, // Always true for no-login mode
-    logout: () => {
-        localStorage.removeItem('authToken');
-        localStorage.removeItem('userRole');
-        localStorage.removeItem('userName');
-        location.reload(); // Just refresh instead of login page
-    },
-    checkAuth: () => {
-        // Automatically set admin session if missing
-        if (!localStorage.getItem('authToken')) {
-            localStorage.setItem('authToken', 'auto-login-token');
-            localStorage.setItem('userRole', 'ADMIN');
-            localStorage.setItem('userName', '최팀장');
+    TOKEN_KEY: 'ndy_token',
+    USER_KEY: 'ndy_user',
+
+    /**
+     * 초기화: 세션 확인 및 메뉴 필터링
+     */
+    async init() {
+        const token = localStorage.getItem(this.TOKEN_KEY);
+        const user = this.getUser();
+
+        // 1. 로그인 여부 확인 (메인 페이지에서만)
+        const isLoginPage = window.location.pathname.endsWith('login.html');
+        if (!token && !isLoginPage) {
+            console.warn("[Auth] 토큰이 없습니다. 로그인 페이지로 이동합니다.");
+            window.location.href = '/login.html';
+            return;
+        }
+
+        if (user) {
+            this.applyRoleUI(user.role);
         }
     },
-    // 권한에 따른 메뉴 제어
-    applyRoleBasedUI: () => {
-        const user = Auth.getUser();
-        if (!user.role) return;
+
+    /**
+     * 로그인 시도
+     */
+    async login(loginId, password) {
+        try {
+            const res = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ loginId, password })
+            });
+
+            const data = await res.json();
+            if (res.ok) {
+                localStorage.setItem(this.TOKEN_KEY, data.token);
+                localStorage.setItem(this.USER_KEY, JSON.stringify(data.user));
+                return { success: true };
+            } else {
+                return { success: false, error: data.error || '로그인 실패' };
+            }
+        } catch (e) {
+            return { success: false, error: '서버 통신 오류' };
+        }
+    },
+
+    /**
+     * 로그아웃
+     */
+    logout() {
+        localStorage.removeItem(this.TOKEN_KEY);
+        localStorage.removeItem(this.USER_KEY);
+        window.location.href = '/login.html';
+    },
+
+    /**
+     * 현재 사용자 정보 가져오기
+     */
+    getUser() {
+        const userStr = localStorage.getItem(this.USER_KEY);
+        return userStr ? JSON.parse(userStr) : { name: '시스템 관리자', role: 'ADMIN' }; // 인증 없을 시 기본값
+    },
+
+    /**
+     * 권한에 따른 UI 요소 제어
+     */
+    applyRoleUI(role) {
+        console.log(`[Auth] 권한 적용: ${role}`);
+        
+        // 권한별 숨김 처리할 메뉴 IDs
+        const permissions = {
+            'TRANSPORT': ['menu-drivers', 'menu-affiliations', 'menu-contracts', 'menu-user-mgmt'], // 운수사가 못 보는 메뉴
+            'MANAGER': ['menu-affiliations', 'menu-user-mgmt'], // 담당자가 못 보는 메뉴 (예시)
+            'ADMIN': [] // 관리자는 다 봄
+        };
+
+        const hiddenMenus = permissions[role] || [];
+        hiddenMenus.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+        });
 
         // 사용자 이름 표시
-        const userNameEl = document.getElementById('auth-user-name');
-        if (userNameEl) userNameEl.innerText = `${user.name} 님`;
+        const userEl = document.getElementById('current-user-name');
+        if (userEl) userEl.innerText = this.getUser().name;
 
-        // TRANSPORT(운송사) 권한일 때 숨길 메뉴들
-        if (user.role === 'TRANSPORT') {
-            const hiddenMenus = [
-                'menu-affiliations',     // 운송업체등록
-                'menu-contracts',        // 용차단가계약
-                'menu-fee-entry',        // 용차단가입력
-                'menu-batch-settle',     // 자동 정산
-                // 'menu-drivers'        // 기사 등록은 자사 기사만 등록 가능하므로 유지 (내부 로직에서 처리)
-            ];
-
-            hiddenMenus.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.classList.add('hidden');
-            });
+        // [추가] 권한별 검색 필터(driverInput) 제어
+        const driverInput = document.getElementById('driverInput');
+        if (driverInput) {
+            const user = this.getUser();
+            if (user.role === 'TRANSPORT') {
+                // 운송사: 자신의 소속명으로 초기값 세팅 (하지만 기사명 검색을 위해 입력은 허용)
+                driverInput.value = user.affiliationName || '';
+                driverInput.title = "소속명 또는 기사명으로 검색하세요.";
+                driverInput.classList.add('bg-slate-50');
+            } else {
+                // NDY 직원: 전체 조회를 위해 기본값 비움 (자유로운 검색 가능)
+                // 브라우저 자동 완성을 이기기 위해 즉시 실행 및 지연 실행 병행
+                const clearInput = () => {
+                    driverInput.value = '';
+                    driverInput.readOnly = false;
+                    driverInput.title = "소속명 또는 기사명으로 검색하세요 (공백 시 전체 조회)";
+                    driverInput.classList.remove('bg-slate-50', 'text-slate-500');
+                };
+                clearInput();
+                setTimeout(clearInput, 100); // 0.1초 뒤 한 번 더 강제 초기화
+                setTimeout(clearInput, 500); // 0.5초 뒤 한 번 더 강제 초기화 (확실하게)
+            }
         }
+
+        // [추가] 단가 관리 관련 버튼들 (운수사는 조회만 가능)
+        if (role === 'TRANSPORT') {
+            const forbiddenBtnIds = [
+                'btn-fee-save', 'btn-fee-archive', 'fee-detail-excel-upload', 
+                'btn-contract-header-save', 'btn-contract-header-text'
+            ];
+            forbiddenBtnIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+            
+            // 행 추가 버튼 등 클래스로 제어되는 요소들 숨김 (필요 시)
+            document.querySelectorAll('.btn-admin-only').forEach(el => el.style.display = 'none');
+        }
+    },
+
+    /**
+     * 모든 fetch 요청에 토큰 자동 주입 (인터셉터)
+     */
+    setupFetchInterceptor() {
+        const originalFetch = window.fetch;
+        window.fetch = async (...args) => {
+            let [resource, config] = args;
+            if (!config) config = {};
+            if (!config.headers) config.headers = {};
+
+            const token = localStorage.getItem(this.TOKEN_KEY);
+            if (token) {
+                config.headers['Authorization'] = `Bearer ${token}`;
+            }
+
+            return originalFetch(resource, config);
+        };
     }
 };
 
-// 페이지 로드 시 인증 체크
-if (window.location.pathname === '/login.html' || window.location.pathname === '/login') {
-    Auth.checkAuth();
-    window.location.href = '/';
-} else {
-    Auth.checkAuth();
-    document.addEventListener('DOMContentLoaded', Auth.applyRoleBasedUI);
-}
-
-    // [Global Fetch Interceptor] 모든 API 요청에 토큰 자동 주입
-    const originalFetch = window.fetch;
-    window.fetch = async function (url, options = {}) {
-        // API 요청인 경우에만 토큰 추가 (또는 모든 요청)
-        const token = Auth.getToken();
-        if (token) {
-            options.headers = options.headers || {};
-            // Headers 객체인 경우와 일반 객체인 경우 구분 처리
-            if (options.headers instanceof Headers) {
-                options.headers.set('Authorization', `Bearer ${token}`);
-            } else {
-                options.headers['Authorization'] = `Bearer ${token}`;
-            }
-        }
-
-        const response = await originalFetch(url, options);
-
-        // 401 Unauthorized or 403 Forbidden 시 로그아웃 처리
-        if (response.status === 401 || response.status === 403) {
-            // 로그인 페이지가 아닐 때만 리다이렉트
-            if (window.location.pathname !== '/login.html') {
-                console.warn('Unauthorized access. Redirecting to login.');
-                Auth.logout();
-            }
-        }
-
-        return response;
-    };
-}
+// 즉시 실행
+Auth.setupFetchInterceptor();
+window.Auth = Auth;
