@@ -81,16 +81,47 @@ function setLastMonth() {
     if (typeof fetchData === 'function') fetchData();
 }
 
+/**
+ * 월 선택 시 해당 월의 1일~말일 자동 세팅
+ */
+function onMonthChange(val) {
+    if (!val) return;
+    const [year, month] = val.split('-').map(Number);
+    const firstDay = new Date(year, month - 1, 1);
+    const lastDay = new Date(year, month, 0);
+
+    const startInput = document.getElementById('startDate');
+    const endInput = document.getElementById('endDate');
+    
+    if (startInput) startInput.value = toDateStr(firstDay);
+    if (endInput) endInput.value = toDateStr(lastDay);
+
+    if (typeof fetchData === 'function') fetchData();
+}
+
 // Initialization for common elements
 document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
     const todayStr = toDateStr(today);
     const startInput = document.getElementById('startDate');
     const endInput = document.getElementById('endDate');
+    const monthInput = document.getElementById('monthPicker');
     const dateDisplay = document.getElementById('currentDate');
 
-    if (startInput) startInput.value = todayStr;
-    if (endInput) endInput.value = todayStr;
+    // 초기값: 당월 세팅
+    const currentMonthStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+    if (monthInput) {
+        monthInput.value = currentMonthStr;
+        // 초기 로딩 시 해당 월의 1일~오늘까지가 아닌, 1일~말일까지로 세팅 (최팀장님 요청 기반)
+        const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+        const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        if (startInput) startInput.value = toDateStr(firstDay);
+        if (endInput) endInput.value = toDateStr(lastDay);
+    } else {
+        if (startInput) startInput.value = todayStr;
+        if (endInput) endInput.value = todayStr;
+    }
+
     if (dateDisplay) {
         dateDisplay.innerText = today.toLocaleDateString('ko-KR', {
             weekday: 'long',
@@ -99,7 +130,4 @@ document.addEventListener('DOMContentLoaded', () => {
             day: 'numeric'
         });
     }
-
-    // 초기 로딩 시 '오늘' 버튼 강조
-    setToday();
 });
