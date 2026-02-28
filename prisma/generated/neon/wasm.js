@@ -328,6 +328,7 @@ exports.Prisma.YongchaContractScalarFieldEnum = {
 exports.Prisma.YongchaRateDetailScalarFieldEnum = {
   id: 'id',
   contractId: 'contractId',
+  tonnage: 'tonnage',
   region: 'region',
   price: 'price',
   memo: 'memo',

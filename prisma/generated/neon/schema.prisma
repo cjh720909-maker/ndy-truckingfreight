@@ -254,6 +254,7 @@ model YongchaContract {
 model YongchaRateDetail {
   id              Int             @id @default(autoincrement())
   contractId      Int
+  tonnage         String?
   region          String
   price           Int
   memo            String?
@@ -262,6 +263,6 @@ model YongchaRateDetail {
   oldId           String?
   YongchaContract YongchaContract @relation(fields: [contractId], references: [id], onDelete: Cascade)
 
-  @@index([contractId, region])
+  @@index([contractId, region, tonnage])
   @@map("NTF_YongchaRateDetail")
 }

@@ -19401,6 +19401,7 @@ export namespace Prisma {
   export type YongchaRateDetailMinAggregateOutputType = {
     id: number | null
     contractId: number | null
+    tonnage: string | null
     region: string | null
     price: number | null
     memo: string | null
@@ -19412,6 +19413,7 @@ export namespace Prisma {
   export type YongchaRateDetailMaxAggregateOutputType = {
     id: number | null
     contractId: number | null
+    tonnage: string | null
     region: string | null
     price: number | null
     memo: string | null
@@ -19423,6 +19425,7 @@ export namespace Prisma {
   export type YongchaRateDetailCountAggregateOutputType = {
     id: number
     contractId: number
+    tonnage: number
     region: number
     price: number
     memo: number
@@ -19448,6 +19451,7 @@ export namespace Prisma {
   export type YongchaRateDetailMinAggregateInputType = {
     id?: true
     contractId?: true
+    tonnage?: true
     region?: true
     price?: true
     memo?: true
@@ -19459,6 +19463,7 @@ export namespace Prisma {
   export type YongchaRateDetailMaxAggregateInputType = {
     id?: true
     contractId?: true
+    tonnage?: true
     region?: true
     price?: true
     memo?: true
@@ -19470,6 +19475,7 @@ export namespace Prisma {
   export type YongchaRateDetailCountAggregateInputType = {
     id?: true
     contractId?: true
+    tonnage?: true
     region?: true
     price?: true
     memo?: true
@@ -19568,6 +19574,7 @@ export namespace Prisma {
   export type YongchaRateDetailGroupByOutputType = {
     id: number
     contractId: number
+    tonnage: string | null
     region: string
     price: number
     memo: string | null
@@ -19598,6 +19605,7 @@ export namespace Prisma {
   export type YongchaRateDetailSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     contractId?: boolean
+    tonnage?: boolean
     region?: boolean
     price?: boolean
     memo?: boolean
@@ -19610,6 +19618,7 @@ export namespace Prisma {
   export type YongchaRateDetailSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     contractId?: boolean
+    tonnage?: boolean
     region?: boolean
     price?: boolean
     memo?: boolean
@@ -19622,6 +19631,7 @@ export namespace Prisma {
   export type YongchaRateDetailSelectScalar = {
     id?: boolean
     contractId?: boolean
+    tonnage?: boolean
     region?: boolean
     price?: boolean
     memo?: boolean
@@ -19645,6 +19655,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       contractId: number
+      tonnage: string | null
       region: string
       price: number
       memo: string | null
@@ -20047,6 +20058,7 @@ export namespace Prisma {
   interface YongchaRateDetailFieldRefs {
     readonly id: FieldRef<"YongchaRateDetail", 'Int'>
     readonly contractId: FieldRef<"YongchaRateDetail", 'Int'>
+    readonly tonnage: FieldRef<"YongchaRateDetail", 'String'>
     readonly region: FieldRef<"YongchaRateDetail", 'String'>
     readonly price: FieldRef<"YongchaRateDetail", 'Int'>
     readonly memo: FieldRef<"YongchaRateDetail", 'String'>
@@ -20656,6 +20668,7 @@ export namespace Prisma {
   export const YongchaRateDetailScalarFieldEnum: {
     id: 'id',
     contractId: 'contractId',
+    tonnage: 'tonnage',
     region: 'region',
     price: 'price',
     memo: 'memo',
@@ -22095,6 +22108,7 @@ export namespace Prisma {
     NOT?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
     id?: IntFilter<"YongchaRateDetail"> | number
     contractId?: IntFilter<"YongchaRateDetail"> | number
+    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
     region?: StringFilter<"YongchaRateDetail"> | string
     price?: IntFilter<"YongchaRateDetail"> | number
     memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
@@ -22107,6 +22121,7 @@ export namespace Prisma {
   export type YongchaRateDetailOrderByWithRelationInput = {
     id?: SortOrder
     contractId?: SortOrder
+    tonnage?: SortOrderInput | SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrderInput | SortOrder
@@ -22122,6 +22137,7 @@ export namespace Prisma {
     OR?: YongchaRateDetailWhereInput[]
     NOT?: YongchaRateDetailWhereInput | YongchaRateDetailWhereInput[]
     contractId?: IntFilter<"YongchaRateDetail"> | number
+    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
     region?: StringFilter<"YongchaRateDetail"> | string
     price?: IntFilter<"YongchaRateDetail"> | number
     memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
@@ -22134,6 +22150,7 @@ export namespace Prisma {
   export type YongchaRateDetailOrderByWithAggregationInput = {
     id?: SortOrder
     contractId?: SortOrder
+    tonnage?: SortOrderInput | SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrderInput | SortOrder
@@ -22153,6 +22170,7 @@ export namespace Prisma {
     NOT?: YongchaRateDetailScalarWhereWithAggregatesInput | YongchaRateDetailScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
     contractId?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
+    tonnage?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
     region?: StringWithAggregatesFilter<"YongchaRateDetail"> | string
     price?: IntWithAggregatesFilter<"YongchaRateDetail"> | number
     memo?: StringNullableWithAggregatesFilter<"YongchaRateDetail"> | string | null
@@ -23590,6 +23608,7 @@ export namespace Prisma {
   }
 
   export type YongchaRateDetailCreateInput = {
+    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
@@ -23602,6 +23621,7 @@ export namespace Prisma {
   export type YongchaRateDetailUncheckedCreateInput = {
     id?: number
     contractId: number
+    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
@@ -23611,6 +23631,7 @@ export namespace Prisma {
   }
 
   export type YongchaRateDetailUpdateInput = {
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23623,6 +23644,7 @@ export namespace Prisma {
   export type YongchaRateDetailUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     contractId?: IntFieldUpdateOperationsInput | number
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23634,6 +23656,7 @@ export namespace Prisma {
   export type YongchaRateDetailCreateManyInput = {
     id?: number
     contractId: number
+    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
@@ -23643,6 +23666,7 @@ export namespace Prisma {
   }
 
   export type YongchaRateDetailUpdateManyMutationInput = {
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23654,6 +23678,7 @@ export namespace Prisma {
   export type YongchaRateDetailUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     contractId?: IntFieldUpdateOperationsInput | number
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24816,6 +24841,7 @@ export namespace Prisma {
   export type YongchaRateDetailCountOrderByAggregateInput = {
     id?: SortOrder
     contractId?: SortOrder
+    tonnage?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrder
@@ -24833,6 +24859,7 @@ export namespace Prisma {
   export type YongchaRateDetailMaxOrderByAggregateInput = {
     id?: SortOrder
     contractId?: SortOrder
+    tonnage?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrder
@@ -24844,6 +24871,7 @@ export namespace Prisma {
   export type YongchaRateDetailMinOrderByAggregateInput = {
     id?: SortOrder
     contractId?: SortOrder
+    tonnage?: SortOrder
     region?: SortOrder
     price?: SortOrder
     memo?: SortOrder
@@ -26316,6 +26344,7 @@ export namespace Prisma {
   }
 
   export type YongchaRateDetailCreateWithoutYongchaContractInput = {
+    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
@@ -26326,6 +26355,7 @@ export namespace Prisma {
 
   export type YongchaRateDetailUncheckedCreateWithoutYongchaContractInput = {
     id?: number
+    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
@@ -26449,6 +26479,7 @@ export namespace Prisma {
     NOT?: YongchaRateDetailScalarWhereInput | YongchaRateDetailScalarWhereInput[]
     id?: IntFilter<"YongchaRateDetail"> | number
     contractId?: IntFilter<"YongchaRateDetail"> | number
+    tonnage?: StringNullableFilter<"YongchaRateDetail"> | string | null
     region?: StringFilter<"YongchaRateDetail"> | string
     price?: IntFilter<"YongchaRateDetail"> | number
     memo?: StringNullableFilter<"YongchaRateDetail"> | string | null
@@ -26767,6 +26798,7 @@ export namespace Prisma {
 
   export type YongchaRateDetailCreateManyYongchaContractInput = {
     id?: number
+    tonnage?: string | null
     region: string
     price: number
     memo?: string | null
@@ -26838,6 +26870,7 @@ export namespace Prisma {
   }
 
   export type YongchaRateDetailUpdateWithoutYongchaContractInput = {
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26848,6 +26881,7 @@ export namespace Prisma {
 
   export type YongchaRateDetailUncheckedUpdateWithoutYongchaContractInput = {
     id?: IntFieldUpdateOperationsInput | number
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26858,6 +26892,7 @@ export namespace Prisma {
 
   export type YongchaRateDetailUncheckedUpdateManyWithoutYongchaContractInput = {
     id?: IntFieldUpdateOperationsInput | number
+    tonnage?: NullableStringFieldUpdateOperationsInput | string | null
     region?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
