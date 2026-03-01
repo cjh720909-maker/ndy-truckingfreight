@@ -497,7 +497,9 @@ async function saveAffiliation(aff) {
             }
 
             if (aff.loginId && aff.password) {
+                console.log(`[Storage] Hashing password for user: ${aff.loginId}`);
                 const hashedPassword = await bcrypt.hash(aff.password, 10);
+                console.log(`[Storage] Hash created: ${hashedPassword.substring(0, 10)}...`);
 
                 const existingUser = await tx.user.findUnique({
                     where: { loginId: aff.loginId }
