@@ -570,7 +570,7 @@ app.delete('/api/affiliations', auth.verifyToken, async (req, res) => {
 // API: 헬스체크 및 버전 확인
 // ------------------------------------------------------------------
 app.get('/api/ping', (req, res) => {
-    res.json({ status: 'ok', version: '1.3.2', time: new Date() });
+    res.json({ status: 'ok', version: '1.3.3', time: new Date() });
 });
 
 // ------------------------------------------------------------------
