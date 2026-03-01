@@ -14,9 +14,26 @@ async function fetchUsers() {
     const countEl = document.getElementById('user-count');
 
     try {
-        const res = await fetch('/api/users');
-        const { data } = await res.json();
-        userList = data || [];
+        // 소속 업체 목록도 함께 로드하여 드롭다운 채우기
+        const [userRes, affRes] = await Promise.all([
+            fetch('/api/users'),
+            fetch('/api/affiliations')
+        ]);
+        
+        const { data: userData } = await userRes.json();
+        const { data: affData } = await affRes.json();
+        
+        userList = userData || [];
+        const affiliations = affData || [];
+
+        // 소속 드롭다운 채우기
+        const affSelect = document.getElementById('user-affiliationId');
+        if (affSelect) {
+            const currentVal = affSelect.value;
+            affSelect.innerHTML = '<option value="">NDY 본사 (공통)</option>' + 
+                affiliations.map(a => `<option value="${a.idx}">${a.name}</option>`).join('');
+            affSelect.value = currentVal;
+        }
 
         if (countEl) countEl.innerText = userList.length;
         renderUserList();
@@ -42,7 +59,7 @@ function renderUserList() {
         <tr class="hover:bg-slate-50 transition-colors">
             <td class="px-4 py-3 text-center text-slate-400 font-medium border-r">${i + 1}</td>
             <td class="px-4 py-3 font-bold text-slate-800">${user.name}</td>
-            <td class="px-4 py-3 text-center text-indigo-600 font-mono">${user.loginId}</td>
+            <td class="px-4 py-3 text-center text-indigo-600 font-mono">${user.loginId || '-'}</td>
             <td class="px-4 py-3 text-center">
                 <span class="px-2 py-0.5 rounded-full text-[9px] font-bold ${user.role === 'ADMIN' ? 'bg-red-100 text-red-600' : user.role === 'MANAGER' ? 'bg-blue-100 text-blue-600' : 'bg-slate-100 text-slate-600'}">
                     ${user.role}
@@ -69,6 +86,7 @@ async function saveUserMaster() {
     const loginId = document.getElementById('user-loginId').value.trim();
     const role = document.getElementById('user-role').value;
     const password = document.getElementById('user-password').value.trim();
+    const affiliationId = document.getElementById('user-affiliationId').value;
 
     if (!name || !loginId) {
         alert("이름과 아이디를 입력해 주세요! 🧐");
@@ -80,7 +98,8 @@ async function saveUserMaster() {
         name,
         loginId,
         role,
-        password
+        password,
+        affiliationId: affiliationId || null
     };
 
     try {
@@ -96,7 +115,7 @@ async function saveUserMaster() {
             resetUserForm();
             fetchUsers();
         } else {
-            alert('오류 발생: ' + result.error);
+            alert('오류 발생: ' + (result.error || result.message));
         }
     } catch (e) {
         alert('서버 통신 중 오류가 발생했습니다.');
@@ -112,10 +131,15 @@ function editUser(id) {
 
     editUserId = user.id;
     document.getElementById('user-id').value = user.id;
-    document.getElementById('user-name').value = user.name;
-    document.getElementById('user-loginId').value = user.loginId;
-    document.getElementById('user-role').value = user.role;
+    document.getElementById('user-name').value = user.name || '';
+    document.getElementById('user-loginId').value = user.loginId || '';
+    document.getElementById('user-role').value = user.role || 'MANAGER';
     document.getElementById('user-password').value = ''; // 비밀번호는 수정 시에만 입력
+    
+    const affSelect = document.getElementById('user-affiliationId');
+    if (affSelect) {
+        affSelect.value = user.affiliationId || '';
+    }
 
     document.getElementById('btn-user-text').innerText = "사용자 정보 수정";
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -149,5 +173,8 @@ function resetUserForm() {
     document.getElementById('user-loginId').value = '';
     document.getElementById('user-role').value = 'MANAGER';
     document.getElementById('user-password').value = '';
+    const affSelect = document.getElementById('user-affiliationId');
+    if (affSelect) affSelect.value = '';
+    
     document.getElementById('btn-user-text').innerText = "계정 저장/수정";
 }

@@ -496,6 +496,9 @@ async function saveAffiliation(aff) {
             }
 
             if (aff.loginId && aff.password) {
+                const bcrypt = require('bcrypt');
+                const hashedPassword = await bcrypt.hash(aff.password, 10);
+
                 const existingUser = await tx.user.findUnique({
                     where: { loginId: aff.loginId }
                 });
@@ -504,7 +507,7 @@ async function saveAffiliation(aff) {
                     await tx.user.update({
                         where: { id: existingUser.id },
                         data: {
-                            password: aff.password,
+                            password: hashedPassword,
                             name: aff.name,
                             affiliationId: affiliation.id
                         }
@@ -513,7 +516,7 @@ async function saveAffiliation(aff) {
                     await tx.user.create({
                         data: {
                             loginId: aff.loginId,
-                            password: aff.password,
+                            password: hashedPassword,
                             name: aff.name,
                             role: 'TRANSPORT',
                             affiliationId: affiliation.id
