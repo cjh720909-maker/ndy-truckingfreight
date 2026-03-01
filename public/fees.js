@@ -18,6 +18,7 @@ let entryDataList = []; // 현재 조회된 단가 리스트
 let addedDetails = []; // 현재 선택된 계약의 상세 단가 리스트 (DB 구조와 동일하게 region, tonnage, price, memo 유지)
 let bulkUploadData = []; // 조회를 위한 캐시 (필요 시)
 let feeViewMode = 'list'; // 'list' or 'matrix'
+let activeHistoryContracts = []; // 현재 선택된 업체의 최근 3개년 계약들
 
 async function fetchFeeMaster() {
     const container = document.getElementById('fees-matrix-body');
@@ -174,25 +175,77 @@ function downloadFeeTemplate() {
 }
 
 /**
- * [신설] 상세 단가 입력용 톤수 매트릭스 양식 다운로드
+ * [신설] 상세 단가 입력용 간소화 양식 다운로드 (최팀장님 요청: 지역명, 1T)
+ */
+/**
+ * [신설] 상세 단가 입력용 간소화 양식 다운로드 (최팀장님 요청: 지역명, 1T)
+ * [개선] 현재 선택된 데이터(또는 비교 모드 데이터)를 포함하여 다운로드
  */
 function downloadDetailTemplate() {
-    const affName = document.getElementById('info-aff-name').innerText || '업체';
-    const year = document.getElementById('fee-year').value || '2026';
+    const year = document.getElementById('fee-year').value || new Date().getFullYear().toString();
+    let finalAoa = [];
+    let fileName = "";
 
-    const matrixHeader = [["지역명(필수)", "1T", "2.5T", "3.5T", "5T", "기타"]];
-    const sampleRows = [
-        ["서울 전체", 5.5, 7.5, 9.5, 12, 0],
-        ["경기 수원", 6, 8, 10, 13, 0],
-        ["용인/오산", 6.5, 8.5, 10.5, 14, 0]
-    ];
+    if (comparisonMode && selectedContractIds.length > 0) {
+        // 1. 다수 업체 비교 모드 다운로드
+        const contracts = globalContracts.filter(c => selectedContractIds.includes(c.id));
+        
+        // 모든 지역명 추출
+        const regionsSet = new Set();
+        contracts.forEach(c => {
+            if (c.YongchaRateDetail) {
+                c.YongchaRateDetail.forEach(d => regionsSet.add(d.region));
+            }
+        });
+        const sortedRegions = Array.from(regionsSet).sort();
 
-    const finalAoa = matrixHeader.concat(sampleRows);
+        // 헤더 생성 (지역명, 업체1, 업체2...)
+        const header = ["지역명(필수)"];
+        contracts.forEach(c => header.push(c.Affiliation?.name || `계약#${c.id}`));
+        finalAoa.push(header);
+
+        // 데이터 채우기
+        sortedRegions.forEach(region => {
+            const row = [region];
+            contracts.forEach(c => {
+                const detail = c.YongchaRateDetail?.find(d => d.region === region);
+                row.push(detail ? (detail.price / 10000) : ""); // 95000 -> 9.5
+            });
+            finalAoa.push(row);
+        });
+
+        fileName = `용차단가비교_양식_${year}년_${contracts.length}개업체.xlsx`;
+    } else {
+        // 2. 단일 업체 상세 양식 다운로드
+        const affName = document.getElementById('info-aff-name').innerText || '업체';
+        
+        // 헤더: [지역명, 단가]
+        const matrixHeader = ["지역명(필수)", "단가(만원)"];
+        finalAoa.push(matrixHeader);
+
+        if (addedDetails && addedDetails.length > 0) {
+            // 실제 데이터 기반 (95000 -> 9.5)
+            addedDetails.forEach(d => {
+                finalAoa.push([d.region, d.price / 10000]);
+            });
+        } else {
+            // 샘플 데이터 (데이터가 없을 때만)
+            finalAoa.push(["서울 강남", 15]);
+            finalAoa.push(["경기 수원", 18]);
+            finalAoa.push(["부산, 양산", 9.5]);
+        }
+
+        fileName = `단가입력양식_${affName}_${year}년.xlsx`;
+    }
+
     const ws = XLSX.utils.aoa_to_sheet(finalAoa);
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "단가입력_톤수매트릭스");
+    XLSX.utils.book_append_sheet(wb, ws, "단가입력");
 
-    const fileName = `단가입력양식_${affName}_${year}년.xlsx`;
+    // 컬럼 너비 설정
+    ws['!cols'] = [{ wch: 25 }]; // 지역명 열 너비 확보
+    for (let i = 1; i < finalAoa[0].length; i++) ws['!cols'].push({ wch: 15 });
+
     XLSX.writeFile(wb, fileName);
 }
 
@@ -905,7 +958,6 @@ function onContractCardClicked(contractId) {
     document.getElementById('fee-status').value = contract.status || '';
 
     // 3. 기존 데이터 로드
-    // 3. 기존 데이터 로드
     const feeCount = contract.YongchaRateDetail ? contract.YongchaRateDetail.length : 0;
 
     // [UI Simplified] 상태 뱃지 제거됨
@@ -918,6 +970,19 @@ function onContractCardClicked(contractId) {
     } else {
         addedDetails = [];
     }
+
+    // [NEW] 동일 업체의 최근 3개년 데이터 수집 (매트릭스 뷰용)
+    if (contract.affiliationId) {
+        const affContracts = globalContracts.filter(c => c.affiliationId === contract.affiliationId);
+        // 연도 내림차순 정렬 후 최근 3개년 선택
+        affContracts.sort((a, b) => (b.year || 0) - (a.year || 0));
+        activeHistoryContracts = affContracts.slice(0, 3);
+        // 연도 오름차순으로 재정렬 (2024, 2025, 2026 순)
+        activeHistoryContracts.sort((a, b) => (a.year || 0) - (b.year || 0));
+    } else {
+        activeHistoryContracts = [contract];
+    }
+
     renderAddedDetails();
 }
 
@@ -947,8 +1012,7 @@ function addFeeDetailRow() {
         "형식: 지역명, 단가 (한 줄에 하나씩 여러 건 입력 가능)\n\n" +
         "예시:\n" +
         "서울 강남, 150000\n" +
-        "경기 수원, 180000\n" +
-        "인천 서구, 175000"
+        "경기 수원, 180000"
     );
     
     if (!inputs) return;
@@ -1005,9 +1069,8 @@ function renderAddedDetails() {
 function renderAddedDetailsList(thead, tbody) {
     thead.innerHTML = `
         <tr class="text-[10px] font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
-            <th class="px-2 py-1.5 text-left w-[150px]">지역명</th>
-            <th class="px-2 py-1.5 text-right w-[100px]">단가 (원)</th>
-            <th class="px-2 py-1.5 text-left">비고</th>
+            <th class="px-2 py-1.5 text-left w-[200px]">지역명</th>
+            <th class="px-2 py-1.5 text-right w-[120px]">단가 (원)</th>
             <th class="px-2 py-1.5 text-center w-[80px]">관리</th>
         </tr>
     `;
@@ -1016,7 +1079,6 @@ function renderAddedDetailsList(thead, tbody) {
         <tr class="hover:bg-slate-50 border-b last:border-b-0 h-8">
             <td class="px-2 py-1 font-bold text-[10px] text-slate-700 truncate">${item.region}</td>
             <td class="px-2 py-1 text-right font-black text-indigo-600 font-mono text-[10px]">${formatNumber(item.price)}</td>
-            <td class="px-2 py-1 text-slate-500 text-[9px] truncate" title="${item.memo}">${item.memo || '-'}</td>
             <td class="px-2 py-1 text-center">
                 <div class="flex items-center justify-center gap-3">
                     ${Auth.getUser().role !== 'TRANSPORT' ? `
@@ -1041,9 +1103,9 @@ function editDetailRow(idx) {
     const item = addedDetails[idx];
     if (!item) return;
 
-    const currentVal = `${item.region}, ${item.price}, ${item.memo || ''}`;
+    const currentVal = `${item.region}, ${item.price}`;
     const newVal = prompt(
-        "단가 정보를 수정하세요.\n형식: 지역명, 단가, 비고",
+        "단가 정보를 수정하세요.\n형식: 지역명, 단가",
         currentVal
     );
 
@@ -1054,10 +1116,9 @@ function editDetailRow(idx) {
         const region = parts[0];
         const priceStr = parts[1].replace(/[^0-9.-]+/g, "");
         const price = parseFloat(priceStr);
-        const memo = parts[2] || '';
 
         if (region && !isNaN(price)) {
-            addedDetails[idx] = { region, price, memo };
+            addedDetails[idx] = { ...item, region, price };
             renderAddedDetails();
         } else {
             alert("입력 형식이 올바르지 않습니다.");
@@ -1068,56 +1129,47 @@ function editDetailRow(idx) {
 }
 
 /**
- * [핵심] 엑셀 스타일 매트릭스 모드 렌더링
+ * [개선] 업체별 3개년 단가 매트릭스 렌더링 (행: 지역, 열: 연도)
  */
 function renderAddedDetailsMatrix(thead, tbody) {
-    // 1. 데이터에서 존재하는 모든 유니크한 톤수 추출 및 정렬
-    const uniqueTonnages = [...new Set(addedDetails.map(d => (d.tonnage || '단가').toUpperCase()))];
-    // Windy: changed '기타' to '단가' per user request.
+    if (activeHistoryContracts.length === 0) return;
 
-    // 단가 정렬 ('단가'는 맨 뒤로)
-    // Windy: corrected comment and logic fallback.
-    uniqueTonnages.sort((a, b) => {
-        if (a === '단가') return 1;
-        if (b === '단가') return -1;
-        const aNum = parseFloat(a.replace(/[^0-9.]/g, '')) || 999;
-        const bNum = parseFloat(b.replace(/[^0-9.]/g, '')) || 999;
-        return aNum - bNum;
+    // 1. 모든 계약에서 유니크한 지역명 추출
+    const regionsSet = new Set();
+    activeHistoryContracts.forEach(c => {
+        if (c.YongchaRateDetail) {
+            c.YongchaRateDetail.forEach(d => regionsSet.add(d.region));
+        }
     });
+    const sortedRegions = Array.from(regionsSet).sort();
 
-    const targetTonnages = uniqueTonnages.length > 0 ? uniqueTonnages : ['1T', '2.5T', '3.5T', '5T'];
-
-    // 2. 헤더 생성
+    // 2. 헤더 생성 (지역명 + 연도들)
+    const years = activeHistoryContracts.map(c => c.year || '미정');
     thead.innerHTML = `
         <tr class="text-[10px] font-bold text-slate-500 border-b border-slate-200 bg-slate-100">
-            <th class="px-2 py-1 sticky left-0 bg-slate-100 z-20 shadow-[1px_0_0_rgba(0,0,0,0.1)]">지역명</th>
-            ${targetTonnages.map(t => `<th class="px-2 py-1 text-center border-l border-slate-200">${t}</th>`).join('')}
-            ${Auth.getUser().role !== 'TRANSPORT' ? `<th class="px-2 py-1 text-center border-l border-slate-200 w-[40px]">관리</th>` : ''}
+            <th class="px-2 py-1.5 sticky left-0 bg-slate-100 z-20 shadow-[1px_0_0_rgba(0,0,0,0.1)] w-[150px]">지역명</th>
+            ${years.map(y => `<th class="px-2 py-1.5 text-right border-l border-slate-200">${y}년 단가</th>`).join('')}
         </tr>
     `;
 
-    // 3. 지역별 그룹화
-    const regions = [...new Set(addedDetails.map(d => d.region))].sort();
+    // 3. 바디 생성
+    if (sortedRegions.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="${years.length + 1}" class="p-12 text-center text-slate-300 italic">조회된 단가 정보가 없습니다.</td></tr>`;
+        return;
+    }
 
-    tbody.innerHTML = regions.map(region => {
-        const rowData = addedDetails.filter(d => d.region === region);
-
+    tbody.innerHTML = sortedRegions.map(region => {
         return `
-            <tr class="hover:bg-indigo-50 border-b last:border-b-0 text-[11px]">
+            <tr class="hover:bg-indigo-50 border-b last:border-b-0 text-[11px] h-8">
                 <td class="px-2 py-1 font-bold text-slate-700 sticky left-0 bg-white z-10 shadow-[1px_0_0_rgba(0,0,0,0.05)]">${region}</td>
-                ${targetTonnages.map(t => {
-            const match = rowData.find(d => (d.tonnage || '단가').toUpperCase() === t.toUpperCase());
-            return `
-                        <td class="px-2 py-1 text-right border-l border-slate-100 font-mono ${match ? 'text-blue-600 font-bold' : 'text-slate-200'}">
-                            ${match ? formatNumber(match.price) : '-'}
+                ${activeHistoryContracts.map(c => {
+                    const detail = c.YongchaRateDetail?.find(d => d.region === region);
+                    return `
+                        <td class="px-2 py-1 text-right border-l border-slate-100 font-mono ${detail ? 'text-indigo-600 font-bold' : 'text-slate-200'}">
+                            ${detail ? formatNumber(detail.price) : '-'}
                         </td>
                     `;
-        }).join('')}
-                ${Auth.getUser().role !== 'TRANSPORT' ? `
-                <td class="px-2 py-1 text-center border-l border-slate-100 text-red-200 hover:text-red-500 cursor-pointer" onclick="removeRegionDetails('${region}')">
-                    <i class="fas fa-trash-alt"></i>
-                </td>
-                ` : ''}
+                }).join('')}
             </tr>
         `;
     }).join('');
@@ -1162,6 +1214,10 @@ function removeDetailRow(index) {
     renderAddedDetails();
 }
 
+/**
+ * [핵심] 상세 단가 엑셀 업로드 핸들러
+ * 단일 업체(지역/단가/비고) 또는 매트릭스(지역/업체1/업체2...) 형태 모두 지원
+ */
 function handleDetailExcelUpload(event) {
     if (Auth.getUser().role === 'TRANSPORT') {
         alert("운수사는 엑셀 업로드 권한이 없습니다.");
@@ -1172,91 +1228,111 @@ function handleDetailExcelUpload(event) {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = function (e) {
+    reader.onload = async function (e) {
         try {
-            const data = new Uint8Array(e.target.result);
-            const workbook = XLSX.read(data, { type: 'array' });
+            const dataBuffer = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(dataBuffer, { type: 'array' });
             const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
             const rows = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
 
-            if (rows.length < 1) {
+            if (rows.length < 2) {
                 alert("엑셀 파일에 데이터가 없습니다. 🧐");
                 return;
             }
 
-            const newDetails = [];
+            const headerRow = rows[0].map(h => String(h || '').trim());
+            const isMatrix = headerRow.length > 2 && !headerRow[1].includes('단가') && !headerRow[1].includes('T');
+            
+            if (isMatrix) {
+                // --- CASE 1: 다수 업체 매트릭스 업로드 (벌크 처리) ---
+                if (!confirm("여러 업체의 단가가 포함된 매트릭스 형식입니다.\n시스템에 벌크로 직접 저장하시겠습니까?")) return;
+                
+                const year = document.getElementById('fee-year').value || new Date().getFullYear();
+                const bulkData = [];
+                const affColumns = []; // { name: '이룸', colIdx: 1 }
 
-            // 1. 헤더에서 톤수 추출 (B열부터 끝까지)
-            const headerRow = rows[0];
-            const tonnageColumns = []; // { tonnage: '1T', colIdx: 1 }
-            for (let j = 1; j < headerRow.length; j++) {
-                const val = String(headerRow[j] || '').trim().toUpperCase();
-                if (val && (val.includes('T') || val === '기타')) {
-                    tonnageColumns.push({ tonnage: val, colIdx: j });
+                for (let j = 1; j < headerRow.length; j++) {
+                    const affName = headerRow[j];
+                    if (affName && affName !== '비고') affColumns.push({ name: affName, colIdx: j });
                 }
-            }
 
-            if (tonnageColumns.length === 0) {
-                // 기존 방식 (B열이 단가, C열이 비고인 경우) 호환
                 for (let i = 1; i < rows.length; i++) {
                     const row = rows[i];
-                    if (!row || row.length === 0) continue;
-                    const region = String(row[0] || '').trim();
-                    const price = parseFloat(row[1]);
-                    const memo = String(row[2] || '').trim();
-                    if (region && !isNaN(price)) {
-                        newDetails.push({ region, tonnage: '1T', price, memo: memo === 'undefined' ? '' : memo });
-                    }
-                }
-            } else {
-                // 매트릭스 방식 (행: 지역, 열: 톤수별 단가)
-                for (let i = 1; i < rows.length; i++) {
-                    const row = rows[i];
-                    if (!row || row.length === 0) continue;
                     const regionFull = String(row[0] || '').trim();
-                    if (!regionFull) continue;
+                    if (!regionFull || regionFull === 'undefined') continue;
 
-                    // [최팀장님 요청] 콤마(,)로 구분된 다중 지역 처리 로직 추가
-                    const regions = regionFull.split(',').map(r => r.trim()).filter(r => r !== '');
-
+                    const regions = regionFull.split(',').map(r => r.trim()).filter(r => r);
                     regions.forEach(region => {
-                        tonnageColumns.forEach(tc => {
-                            const price = parseFloat(row[tc.colIdx]);
-                            if (!isNaN(price) && price > 0) {
-                                newDetails.push({
-                                    region,
-                                    tonnage: tc.tonnage,
-                                    price: price < 1000 ? price * 10000 : price, // 9.5 -> 95000 보정
-                                    memo: ''
-                                });
+                        affColumns.forEach(aff => {
+                            const val = row[aff.colIdx];
+                            if (val !== undefined && val !== null && val !== '') {
+                                const price = parseFloat(val);
+                                if (!isNaN(price)) {
+                                    bulkData.push({
+                                        affiliation: aff.name,
+                                        year: parseInt(year),
+                                        region: region,
+                                        price: Math.round(price * 10000), // 9.5 -> 95000
+                                        memo: '엑셀일괄업로드'
+                                    });
+                                }
                             }
                         });
                     });
                 }
+
+                if (bulkData.length > 0) {
+                    const res = await fetch('/api/fees/bulk', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ fees: bulkData })
+                    });
+                    const result = await res.json();
+                    if (result.success) {
+                        alert(`성공적으로 처리되었습니다. (${bulkData.length}건)`);
+                        fetchContractListForFeeEntry(); // 목록 갱신
+                        if (comparisonMode) {
+                            // 현재 비교 모드라면 화면 갱신을 위해 selectAll 다시 호출할 수도 있음
+                            selectAllContractsForComparison();
+                        }
+                    } else {
+                        alert("저장 실패: " + result.message);
+                    }
+                }
+            } else {
+                // --- CASE 2: 단일 업체 업로드 (현재 화면의 addedDetails에 로드) ---
+                const newDetails = [];
+                const priceColIdx = headerRow.findIndex(h => h.includes('단가') || h.includes('T')) || 1;
+                const memoColIdx = headerRow.findIndex(h => h.includes('비고')) || 2;
+
+                for (let i = 1; i < rows.length; i++) {
+                    const row = rows[i];
+                    const regionFull = String(row[0] || '').trim();
+                    if (!regionFull || regionFull === 'undefined') continue;
+
+                    const regions = regionFull.split(',').map(r => r.trim()).filter(r => r);
+                    regions.forEach(region => {
+                        const priceVal = parseFloat(row[priceColIdx]);
+                        if (!isNaN(priceVal)) {
+                            newDetails.push({
+                                region,
+                                price: priceVal < 1000 ? Math.round(priceVal * 10000) : priceVal,
+                                memo: row[memoColIdx] || ''
+                            });
+                        }
+                    });
+                }
+
+                if (newDetails.length > 0) {
+                    if (addedDetails.length > 0 && !confirm(`현재 ${addedDetails.length}건의 데이터가 있습니다. 덮어쓰시겠습니까? (취소 시 병합)`)) {
+                        addedDetails = addedDetails.concat(newDetails);
+                    } else {
+                        addedDetails = newDetails;
+                    }
+                    renderAddedDetails();
+                    alert(`${newDetails.length}건의 단가가 화면에 로드되었습니다. '저장' 버튼을 눌러 확정해 주세요.`);
+                }
             }
-
-            if (newDetails.length === 0) {
-                alert("유효한 단가 정보를 찾을 수 없습니다. (지역명과 숫자로 된 단가를 확인해 주세요) 🧐");
-                return;
-            }
-
-            if (addedDetails.length > 0) {
-                // [최팀장님 요청] 취소 시 기존 데이터 유지 (업로드 중단)
-                const mode = confirm(`현재 ${addedDetails.length}건의 리스트가 있습니다.\n'확인'을 누르면 기존 리스트에 추가(Merge)하고,\n'취소'를 누르면 업로드를 중단합니다. (기존 데이터 유지)`);
-                if (!mode) return;
-            }
-
-
-            addedDetails = addedDetails.concat(newDetails);
-            renderAddedDetails();
-
-            // [자동 저장] 엑셀 업로드 즉시 저장 시도
-            // 사용자 확인 없이 바로 저장하려면 saveRateDetails 내부의 confirm을 제거하거나 별도 파라미터 필요
-            // 여기서는 사용자 흐름상 확인창이 뜨는 saveRateDetails를 호출
-            setTimeout(() => {
-                saveRateDetails();
-            }, 100);
-
         } catch (err) {
             console.error("Detail Excel Read Error:", err);
             alert("엑셀 파일을 읽는 중 오류가 발생했습니다.");

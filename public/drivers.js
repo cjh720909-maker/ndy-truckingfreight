@@ -60,11 +60,11 @@ function renderDrivers(data) {
     tbody.innerHTML = data.map((row, i) => `
         <tr class="hover:bg-slate-50 border-b border-slate-50 last:border-0 transition-colors">
             <td class="py-0.5 text-center text-slate-400 w-[40px] shrink-0">${i + 1}</td>
-            <td class="py-0.5 w-[100px] shrink-0 font-bold text-slate-800 text-center">${row.name || '-'}</td>
+            <td class="py-0.5 w-[100px] shrink-0 font-bold text-slate-800 text-center">${row.name || '-'}${row.tonnage ? ` <span class="text-[9px] font-normal text-slate-400">(${row.tonnage})</span>` : ''}</td>
             <td class="py-0.5 w-[100px] shrink-0 text-indigo-600 font-medium text-center">${row.affiliation || '-'}</td>
             <td class="py-0.5 w-[100px] shrink-0 text-slate-500 text-center">${(row.regDate || '').split('T')[0]}</td>
             <td class="py-0.5 w-[180px] shrink-0 text-slate-600 truncate px-2" title="${row.address || ''}">${row.address || '-'}</td>
-            <td class="py-0.5 flex-grow px-4 truncate text-slate-500 italic">${row.memo || ''}</td>
+            <td class="py-0.5 flex-grow px-4 truncate text-slate-500 italic">${row.address || ''}</td>
             <td class="py-0.5 w-[80px] shrink-0 flex items-center justify-center gap-2">
                 <button onclick='editDriver(${JSON.stringify(row)})' class="bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white px-1.5 py-0.5 rounded font-bold text-[9px] transition-colors">수정</button>
                 <button onclick="deleteDriver(${row.idx})" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-1.5 py-0.5 rounded font-bold text-[9px] transition-colors">삭제</button>
@@ -92,7 +92,6 @@ async function saveDriverMaster() {
     const tonnage = document.getElementById('driver-tonnage').value;
     const regDate = document.getElementById('driver-regDate').value;
     const address = document.getElementById('driver-address').value.trim();
-    const memo = document.getElementById('driver-memo').value.trim();
 
     if (!name || !affiliation) {
         alert('기사명과 소속은 필수 입력 항목입니다. 📝');
@@ -105,8 +104,7 @@ async function saveDriverMaster() {
         affiliationId: affiliation, // 프론트의 affiliation 값은 이제 ID
         tonnage,
         regDate: regDate || null,
-        address,
-        memo
+        address
     };
 
     const btn = document.getElementById('btn-driver-save');
@@ -162,7 +160,6 @@ function editDriver(row) {
     document.getElementById('driver-tonnage').value = row.tonnage;
     document.getElementById('driver-regDate').value = row.regDate ? row.regDate.split('T')[0] : '';
     document.getElementById('driver-address').value = row.address || '';
-    document.getElementById('driver-memo').value = row.memo || '';
 
 
     // UI 모드 전환
@@ -200,7 +197,6 @@ function resetDriverForm() {
     document.getElementById('driver-tonnage').value = '3.5T';
     document.getElementById('driver-regDate').value = new Date().toISOString().split('T')[0];
     document.getElementById('driver-address').value = '';
-    document.getElementById('driver-memo').value = '';
 
 
     // UI 모드 복원

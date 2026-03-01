@@ -48,9 +48,8 @@ function renderAffiliationList() {
                     <span class="text-[9px] text-slate-400">${aff.contact || '-'}</span>
                 </div>
             </td>
-            <td class="px-4 py-3 text-[10px] truncate" title="${aff.address} | ${aff.memo || ''}">
+            <td class="px-4 py-3 text-[10px] truncate" title="${aff.address}">
                 <div class="truncate">${aff.address || '-'}</div>
-                <div class="text-[9px] text-slate-400 italic">${aff.memo || ''}</div>
             </td>
             <td class="px-4 py-3 text-center border-l">
                 <div class="flex items-center justify-center gap-2">
@@ -85,7 +84,6 @@ async function saveAffiliationMaster() {
         contact: document.getElementById('aff-contact').value.trim(),
         address: document.getElementById('aff-address').value.trim(),
         manager: document.getElementById('aff-manager').value.trim(),
-        memo: document.getElementById('aff-memo').value.trim(),
         loginId: document.getElementById('aff-loginId').value.trim(),
         password: document.getElementById('aff-password').value
     };
@@ -150,7 +148,6 @@ function editAffiliation(idx) {
     document.getElementById('aff-manager').value = aff.manager || '';
     document.getElementById('aff-contact').value = aff.contact || '';
     document.getElementById('aff-address').value = aff.address || '';
-    document.getElementById('aff-memo').value = aff.memo || '';
     
     // 계정 정보 (User 테이블 연동)
     document.getElementById('aff-loginId').value = aff.loginId || '';
@@ -190,7 +187,7 @@ async function deleteAffiliation(idx) {
  */
 function resetAffiliationForm() {
     editAffIdx = null;
-    const fields = ['aff-idx', 'aff-name', 'aff-bizNo', 'aff-ceo', 'aff-contact', 'aff-address', 'aff-manager', 'aff-memo', 'aff-loginId', 'aff-password'];
+    const fields = ['aff-idx', 'aff-name', 'aff-bizNo', 'aff-ceo', 'aff-contact', 'aff-address', 'aff-manager', 'aff-loginId', 'aff-password'];
     fields.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = '';

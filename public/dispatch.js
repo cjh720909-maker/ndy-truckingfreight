@@ -181,7 +181,7 @@ function renderDispatchData(json, tbody, cards) {
             <td class="py-0.5 text-right w-[80px] shrink-0 text-indigo-700 font-bold text-[11px]">${formatNumber(row.totalWeight)}</td>
             <td class="py-0.5 w-[200px] shrink-0 px-4 text-[10px] text-slate-500 truncate" title="${row.destDetail || ''}">${row.destDetail || '-'}</td>
             <td class="py-0.5 w-[100px] shrink-0 px-2 text-right text-[11px] font-bold ${isSettled ? 'text-green-600' : 'text-indigo-600'}">${formatNumber(displayPrice)}</td>
-            <td class="py-0.5 flex-grow px-2 text-[10px] text-slate-400 truncate">${row.memo || ''}</td>
+            <td class="py-0.5 flex-grow px-2 text-[10px] text-slate-400 truncate"></td>
         </tr>
         `;
     }).join('');

@@ -75,7 +75,6 @@ function renderContracts(data) {
                 <td class="px-4 py-2 text-center text-slate-400">${idx + 1}</td>
                 <td class="px-4 py-2">
                     <div class="font-bold text-slate-800">${item.Affiliation?.name || '알수없음'}</div>
-                    <div class="text-[9px] text-slate-400">${item.memo || ''}</div>
                 </td>
                 <td class="px-4 py-2 text-center font-bold text-slate-700">${item.year}년</td>
                 <td class="px-4 py-2 text-center text-slate-500">
@@ -110,7 +109,6 @@ async function saveContractHeader() {
     const startDate = document.getElementById('contract-startDate').value;
     const endDate = document.getElementById('contract-endDate').value;
     const status = document.getElementById('contract-status').value;
-    const memo = document.getElementById('contract-memo').value;
     const id = document.getElementById('contract-id').value;
 
     if (!affiliationId) return alert("운송 업체를 선택해 주세요.");
@@ -123,7 +121,6 @@ async function saveContractHeader() {
         startDate,
         endDate: endDate || '2099-12-31',
         status,
-        memo,
         details: [] // 헤더만 저장할 때는 빈 배열
     };
 
@@ -154,7 +151,6 @@ function editContractHeader(item) {
     document.getElementById('contract-startDate').value = item.startDate ? item.startDate.split('T')[0] : '';
     document.getElementById('contract-endDate').value = item.endDate ? item.endDate.split('T')[0] : '';
     document.getElementById('contract-status').value = item.status;
-    document.getElementById('contract-memo').value = item.memo || '';
 
     const badgeEl = document.getElementById('contract-edit-badge');
     const btnTextEl = document.getElementById('btn-contract-header-text');
@@ -177,7 +173,6 @@ function resetContractHeaderForm(isForce = false) {
     const defaultYear = '2026';
     document.getElementById('contract-year').value = defaultYear;
     document.getElementById('contract-status').value = 'ACTIVE';
-    document.getElementById('contract-memo').value = '';
 
     // [개선] 최팀장님 요청: 시작일은 선택 연도의 1월 1일로, 종료일은 무기한으로 자동 설정
     document.getElementById('contract-startDate').value = `${defaultYear}-01-01`;

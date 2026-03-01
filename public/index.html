@@ -254,7 +254,7 @@
                         <div class="w-[80px] flex-shrink-0 text-right">중량</div>
                         <div class="w-[200px] flex-shrink-0 px-4">납품처상세</div>
                         <div class="w-[100px] flex-shrink-0 text-right px-2">정산금액</div>
-                        <div class="flex-grow px-2">비고</div>
+                        <div class="flex-grow px-2">상세 분석</div>
                     </div>
                     <!-- Picking Header (Moved to thead in view-picking) -->
                     <div id="picking-header" class="hidden"></div>
@@ -326,7 +326,7 @@
                         <div class="w-[80px] text-center flex-shrink-0">추가</div>
                         <div class="w-[60px] text-center flex-shrink-0">차량</div>
                         <div class="w-[80px] text-right flex-shrink-0 px-2">합계</div>
-                        <div class="flex-grow px-2">비고 (산출근거)</div>
+                        <div class="flex-grow px-2">상태 분석</div>
                         <div class="w-[150px] text-center flex-shrink-0">진행 상태</div>
                     </div>
 
@@ -402,13 +402,7 @@
                                             class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-[13px] outline-none">
                                     </div>
                                 </div>
-                                <div>
-                                    <label class="block text-[10px] font-bold text-slate-500 mb-1 ml-1">비고 / 계약
-                                        특이사항</label>
-                                    <textarea id="contract-memo"
-                                        class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-[13px] h-20 focus:ring-2 focus:ring-indigo-500 outline-none resize-none"
-                                        placeholder="계약 관련 참고 사항을 적어주세요."></textarea>
-                                </div>
+                                <!-- 비고 섹션 삭제됨 (최팀장님 요청) -->
                                 <div class="pt-2 flex gap-2">
                                     <button onclick="saveContractHeader()" id="btn-contract-header-save"
                                         class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-lg text-[13px] flex items-center justify-center gap-2 transition-all shadow-md">
@@ -586,8 +580,7 @@
                                                 class="text-[11px] font-bold text-slate-500 border-b border-slate-200 bg-slate-50">
                                                 <th class="px-2 py-1.5">지역명</th>
                                                 <th class="px-2 py-1.5 text-right">단가 (원)</th>
-                                                <th class="px-2 py-1.5">비고</th>
-                                                <th class="px-2 py-1.5 text-center w-[50px]">관리</th>
+                                                <th class="px-2 py-1.5 text-center w-[80px]">관리</th>
                                             </tr>
                                         </thead>
                                         <tbody id="fee-detail-list-body" class="divide-y divide-slate-100">
@@ -629,8 +622,7 @@
                                 class="w-24 md:w-28 px-1.5 py-1 border rounded text-[10px]">
                             <input type="text" id="driver-address"
                                 class="w-24 md:w-32 px-1.5 py-1 border rounded text-[10px]" placeholder="지역(거주지)">
-                            <input type="text" id="driver-memo"
-                                class="flex-grow min-w-[80px] px-1.5 py-1 border rounded text-[10px]" placeholder="비고">
+                            <!-- 비고 입력란 삭제됨 -->
                             <div class="flex gap-1 flex-shrink-0 ml-auto">
                                 <button onclick="resetDriverForm()"
                                     class="px-2 py-1 bg-slate-200 text-slate-600 rounded font-bold text-[9px] hover:bg-slate-300">초기화</button>
@@ -647,7 +639,7 @@
                         <div class="w-[100px] flex-shrink-0">소속</div>
                         <div class="w-[100px] flex-shrink-0 text-center">등록일</div>
                         <div class="w-[180px] flex-shrink-0">지역</div>
-                        <div class="flex-grow px-4">비고</div>
+                        <div class="flex-grow px-4">주소 상세</div>
                         <div class="w-[80px] flex-shrink-0 text-center">관리</div>
                     </div>
                     <div class="bg-white border border-t-0 rounded-b-lg shadow-sm flex-1 overflow-y-auto min-h-[400px]">
@@ -718,12 +710,7 @@
                                         class="w-full px-2 py-1.5 border border-slate-200 rounded text-[10px]"
                                         placeholder="주소지 입력">
                                 </div>
-                                <div>
-                                    <label class="block text-[9px] font-bold text-slate-400 mb-1 ml-0.5">비고(메모)</label>
-                                    <textarea id="aff-memo"
-                                        class="w-full px-2 py-1.5 border border-slate-200 rounded text-[10px] h-10 resize-none"
-                                        placeholder="특이사항"></textarea>
-                                </div>
+                                <!-- 비고(메모) 삭제됨 -->
 
                                 <!-- 접속 계정 설정 분리 -->
                                 <div class="bg-indigo-50/50 p-2.5 rounded-lg border border-indigo-100/50 space-y-2.5">
@@ -771,7 +758,7 @@
                                             <th class="px-4 py-2 w-32">업체명</th>
                                             <th class="px-4 py-2 w-28">사업자번호</th>
                                             <th class="px-4 py-2 w-32">담당자(연락처)</th>
-                                            <th class="px-4 py-2">주소 / 비고</th>
+                                            <th class="px-4 py-2">주소</th>
                                             <th class="px-4 py-2 text-center w-20">관리</th>
                                         </tr>
                                     </thead>

@@ -165,43 +165,59 @@ async function getContracts(affiliationId = null) {
 }
 
 // [NEW] 단가 일괄 저장 (Matrix Excel 업로드 대응)
+// [개선] 캐싱을 통한 성능 최적화 및 안정적인 계약 매칭
 async function saveFeesBulk(fees) {
     if (!fees || fees.length === 0) return true;
 
     try {
+        const contractCache = new Map(); // "year|affName" -> contractId
+        const affCache = new Map();      // "affName" -> affId
+
         return await neon.$transaction(async (tx) => {
             let count = 0;
             for (const f of fees) {
-                // 연도와 업체명으로 계약(Contract) 찾기 또는 생성
-                let contract = await tx.yongchaContract.findFirst({
-                    where: {
-                        year: parseInt(f.year),
-                        Affiliation: { name: f.affiliation }
-                    }
-                });
+                const cacheKey = `${f.year}|${f.affiliation}`;
+                let contractId = contractCache.get(cacheKey);
 
-                if (!contract) {
-                    // 업체 ID 조회
-                    const aff = await tx.affiliation.findUnique({ where: { name: f.affiliation } });
-                    if (!aff) {
-                        console.warn(`[Bulk] Affiliation not found: ${f.affiliation}, skipping.`);
-                        continue;
-                    }
-                    contract = await tx.yongchaContract.create({
-                        data: {
+                if (!contractId) {
+                    // 1. 기존 계약 찾기
+                    let contract = await tx.yongchaContract.findFirst({
+                        where: {
                             year: parseInt(f.year),
-                            affiliationId: aff.id,
-                            startDate: new Date(`${f.year}-01-01`),
-                            endDate: new Date('2099-12-31'),
-                            status: 'ACTIVE'
+                            Affiliation: { name: f.affiliation }
                         }
                     });
+
+                    // 2. 없으면 신규 생성
+                    if (!contract) {
+                        let affId = affCache.get(f.affiliation);
+                        if (!affId) {
+                            const aff = await tx.affiliation.findUnique({ where: { name: f.affiliation } });
+                            if (!aff) {
+                                console.warn(`[Bulk] Affiliation not found: ${f.affiliation}, skipping.`);
+                                continue;
+                            }
+                            affId = aff.id;
+                            affCache.set(f.affiliation, affId);
+                        }
+
+                        contract = await tx.yongchaContract.create({
+                            data: {
+                                year: parseInt(f.year),
+                                affiliationId: affId,
+                                startDate: new Date(`${f.year}-01-01`),
+                                endDate: new Date('2099-12-31'),
+                                status: 'ACTIVE'
+                            }
+                        });
+                    }
+                    contractId = contract.id;
+                    contractCache.set(cacheKey, contractId);
                 }
 
-                // 해당 계약에 상세 단가 추가/업데이트
-                // 지역명이 같으면 업데이트, 없으면 생성
+                // 3. 해당 계약에 상세 단가 추가/업데이트 (Upsert 방식 시뮬레이션)
                 const existing = await tx.yongchaRateDetail.findFirst({
-                    where: { contractId: contract.id, region: f.region }
+                    where: { contractId: contractId, region: f.region }
                 });
 
                 if (existing) {
@@ -212,7 +228,7 @@ async function saveFeesBulk(fees) {
                 } else {
                     await tx.yongchaRateDetail.create({
                         data: {
-                            contractId: contract.id,
+                            contractId: contractId,
                             region: f.region,
                             price: parseInt(f.price || 0),
                             memo: f.memo || ''
@@ -222,6 +238,8 @@ async function saveFeesBulk(fees) {
                 count++;
             }
             return count;
+        }, {
+            timeout: 30000 // 대량 데이터 처리를 위한 타임아웃 확대
         });
     } catch (e) {
         console.error("Neon saveFeesBulk error:", e);
