@@ -176,7 +176,7 @@ function calculateSmartPrice(row, isPbox = false, isReturn = false, gwon = 0, se
         return parseInt(fee?.price || 0);
     }
 
-    const regionExtraStepSize = getExtraFee('권역추가') || 10000;
+    const regionExtraStepSize = getExtraFee('권역추가');
     const stopExtraStepSize = getExtraFee('납품처추가') || 10000;
     const pboxFeeValue = getExtraFee('피박스') || 0;
     const returnFeeValue = getExtraFee('회송') || 0;
@@ -195,8 +195,10 @@ function calculateSmartPrice(row, isPbox = false, isReturn = false, gwon = 0, se
         if (regionsInAddr.length > 1) {
             const zoneAddCount = regionsInAddr.length - 1;
             const zoneAddTotal = zoneAddCount * regionExtraStepSize;
-            extraAmount += zoneAddTotal;
-            reasonParts.push(`+권역추가${zoneAddCount}곳(${formatNumber(zoneAddTotal)})`);
+            if (zoneAddTotal > 0) {
+                extraAmount += zoneAddTotal;
+                reasonParts.push(`+권역추가${zoneAddCount}곳(${formatNumber(zoneAddTotal)})`);
+            }
         }
 
         // (2) 납품처 추가: 콜수 - 1
