@@ -106,22 +106,24 @@ async function saveContract(payload) {
                     where: { contractId: contract.id }
                 });
 
-                // 루프를 돌며 개별 생성 (신뢰도 향상)
+                // [개선] 일괄 생성(createMany)을 통해 성능 및 타임아웃 문제 해결
                 if (details.length > 0) {
-                    for (const d of details) {
-                        await tx.yongchaRateDetail.create({
-                            data: {
-                                contractId: contract.id,
-                                region: d.region,
-                                price: parseInt(d.price || 0),
-                                memo: d.memo || ''
-                            }
-                        });
-                        savedCount++;
-                    }
+                    const dataToCreate = details.map(d => ({
+                        contractId: contract.id,
+                        region: d.region,
+                        price: parseInt(d.price || 0),
+                        memo: d.memo || ''
+                    }));
+                    
+                    const result = await tx.yongchaRateDetail.createMany({
+                        data: dataToCreate
+                    });
+                    savedCount = result.count;
                 }
             }
             return { ...contract, _savedCount: savedCount };
+        }, {
+            timeout: 20000
         });
     } catch (e) {
         console.error("Neon saveContract error:", e);
