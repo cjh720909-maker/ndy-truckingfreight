@@ -124,9 +124,7 @@ app.get('/api/summary', auth.verifyToken, async (req, res) => {
 
             const rawKg = parseFloat(row.CA_KG || 0);
             let normalizedTonnage = "1T";
-            if (rawKg >= 11) normalizedTonnage = "11T";
-            else if (rawKg >= 5) normalizedTonnage = "5T";
-            else if (rawKg >= 3.5) normalizedTonnage = "3.5T";
+            if (rawKg >= 3.5) normalizedTonnage = "3.5T";
             else if (rawKg >= 2.5) normalizedTonnage = "2.5T";
             else normalizedTonnage = "1T";
 

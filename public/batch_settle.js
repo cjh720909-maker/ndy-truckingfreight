@@ -351,6 +351,8 @@ function renderBatchSettleTable() {
                         <option value="1T" ${row.selectedTonnage === '1T' ? 'selected' : ''}>1T</option>
                         <option value="2.5T" ${row.selectedTonnage === '2.5T' ? 'selected' : ''}>2.5T</option>
                         <option value="3.5T" ${row.selectedTonnage === '3.5T' ? 'selected' : ''}>3.5T</option>
+                        <option value="5T" ${row.selectedTonnage === '5T' ? 'selected' : ''}>5T</option>
+                        <option value="11T" ${row.selectedTonnage === '11T' ? 'selected' : ''}>11T</option>
                         <option value="기타" ${row.selectedTonnage === '기타' ? 'selected' : ''}>기타</option>
                     </select>
                 </td>
