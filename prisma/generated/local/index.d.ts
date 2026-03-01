@@ -2449,6 +2449,7 @@ export namespace Prisma {
     ton: number | null
     contractId: number | null
     gwon: number | null
+    originalFee: number | null
   }
 
   export type SettlementHistorySumAggregateOutputType = {
@@ -2459,6 +2460,7 @@ export namespace Prisma {
     ton: number | null
     contractId: number | null
     gwon: number | null
+    originalFee: number | null
   }
 
   export type SettlementHistoryMinAggregateOutputType = {
@@ -2482,6 +2484,7 @@ export namespace Prisma {
     createdAt: Date | null
     appliedTonnage: string | null
     gwon: number | null
+    originalFee: number | null
   }
 
   export type SettlementHistoryMaxAggregateOutputType = {
@@ -2505,6 +2508,7 @@ export namespace Prisma {
     createdAt: Date | null
     appliedTonnage: string | null
     gwon: number | null
+    originalFee: number | null
   }
 
   export type SettlementHistoryCountAggregateOutputType = {
@@ -2528,6 +2532,7 @@ export namespace Prisma {
     createdAt: number
     appliedTonnage: number
     gwon: number
+    originalFee: number
     _all: number
   }
 
@@ -2540,6 +2545,7 @@ export namespace Prisma {
     ton?: true
     contractId?: true
     gwon?: true
+    originalFee?: true
   }
 
   export type SettlementHistorySumAggregateInputType = {
@@ -2550,6 +2556,7 @@ export namespace Prisma {
     ton?: true
     contractId?: true
     gwon?: true
+    originalFee?: true
   }
 
   export type SettlementHistoryMinAggregateInputType = {
@@ -2573,6 +2580,7 @@ export namespace Prisma {
     createdAt?: true
     appliedTonnage?: true
     gwon?: true
+    originalFee?: true
   }
 
   export type SettlementHistoryMaxAggregateInputType = {
@@ -2596,6 +2604,7 @@ export namespace Prisma {
     createdAt?: true
     appliedTonnage?: true
     gwon?: true
+    originalFee?: true
   }
 
   export type SettlementHistoryCountAggregateInputType = {
@@ -2619,6 +2628,7 @@ export namespace Prisma {
     createdAt?: true
     appliedTonnage?: true
     gwon?: true
+    originalFee?: true
     _all?: true
   }
 
@@ -2729,6 +2739,7 @@ export namespace Prisma {
     createdAt: Date
     appliedTonnage: string | null
     gwon: number | null
+    originalFee: number
     _count: SettlementHistoryCountAggregateOutputType | null
     _avg: SettlementHistoryAvgAggregateOutputType | null
     _sum: SettlementHistorySumAggregateOutputType | null
@@ -2771,6 +2782,7 @@ export namespace Prisma {
     createdAt?: boolean
     appliedTonnage?: boolean
     gwon?: boolean
+    originalFee?: boolean
     YongchaContract?: boolean | SettlementHistory$YongchaContractArgs<ExtArgs>
   }, ExtArgs["result"]["settlementHistory"]>
 
@@ -2795,6 +2807,7 @@ export namespace Prisma {
     createdAt?: boolean
     appliedTonnage?: boolean
     gwon?: boolean
+    originalFee?: boolean
     YongchaContract?: boolean | SettlementHistory$YongchaContractArgs<ExtArgs>
   }, ExtArgs["result"]["settlementHistory"]>
 
@@ -2819,6 +2832,7 @@ export namespace Prisma {
     createdAt?: boolean
     appliedTonnage?: boolean
     gwon?: boolean
+    originalFee?: boolean
   }
 
   export type SettlementHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2854,6 +2868,7 @@ export namespace Prisma {
       createdAt: Date
       appliedTonnage: string | null
       gwon: number | null
+      originalFee: number
     }, ExtArgs["result"]["settlementHistory"]>
     composites: {}
   }
@@ -3268,6 +3283,7 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"SettlementHistory", 'DateTime'>
     readonly appliedTonnage: FieldRef<"SettlementHistory", 'String'>
     readonly gwon: FieldRef<"SettlementHistory", 'Int'>
+    readonly originalFee: FieldRef<"SettlementHistory", 'Int'>
   }
     
 
@@ -7886,7 +7902,8 @@ export namespace Prisma {
     contractId: 'contractId',
     createdAt: 'createdAt',
     appliedTonnage: 'appliedTonnage',
-    gwon: 'gwon'
+    gwon: 'gwon',
+    originalFee: 'originalFee'
   };
 
   export type SettlementHistoryScalarFieldEnum = (typeof SettlementHistoryScalarFieldEnum)[keyof typeof SettlementHistoryScalarFieldEnum]
@@ -8129,6 +8146,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"SettlementHistory"> | Date | string
     appliedTonnage?: StringNullableFilter<"SettlementHistory"> | string | null
     gwon?: IntNullableFilter<"SettlementHistory"> | number | null
+    originalFee?: IntFilter<"SettlementHistory"> | number
     YongchaContract?: XOR<YongchaContractNullableRelationFilter, YongchaContractWhereInput> | null
   }
 
@@ -8153,6 +8171,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     appliedTonnage?: SortOrderInput | SortOrder
     gwon?: SortOrderInput | SortOrder
+    originalFee?: SortOrder
     YongchaContract?: YongchaContractOrderByWithRelationInput
   }
 
@@ -8180,6 +8199,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"SettlementHistory"> | Date | string
     appliedTonnage?: StringNullableFilter<"SettlementHistory"> | string | null
     gwon?: IntNullableFilter<"SettlementHistory"> | number | null
+    originalFee?: IntFilter<"SettlementHistory"> | number
     YongchaContract?: XOR<YongchaContractNullableRelationFilter, YongchaContractWhereInput> | null
   }, "id">
 
@@ -8204,6 +8224,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     appliedTonnage?: SortOrderInput | SortOrder
     gwon?: SortOrderInput | SortOrder
+    originalFee?: SortOrder
     _count?: SettlementHistoryCountOrderByAggregateInput
     _avg?: SettlementHistoryAvgOrderByAggregateInput
     _max?: SettlementHistoryMaxOrderByAggregateInput
@@ -8235,6 +8256,7 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"SettlementHistory"> | Date | string
     appliedTonnage?: StringNullableWithAggregatesFilter<"SettlementHistory"> | string | null
     gwon?: IntNullableWithAggregatesFilter<"SettlementHistory"> | number | null
+    originalFee?: IntWithAggregatesFilter<"SettlementHistory"> | number
   }
 
   export type AffiliationWhereInput = {
@@ -8687,6 +8709,7 @@ export namespace Prisma {
     createdAt?: Date | string
     appliedTonnage?: string | null
     gwon?: number | null
+    originalFee?: number
     YongchaContract?: YongchaContractCreateNestedOneWithoutSettlementHistoryInput
   }
 
@@ -8711,6 +8734,7 @@ export namespace Prisma {
     createdAt?: Date | string
     appliedTonnage?: string | null
     gwon?: number | null
+    originalFee?: number
   }
 
   export type SettlementHistoryUpdateInput = {
@@ -8732,6 +8756,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     gwon?: NullableIntFieldUpdateOperationsInput | number | null
+    originalFee?: IntFieldUpdateOperationsInput | number
     YongchaContract?: YongchaContractUpdateOneWithoutSettlementHistoryNestedInput
   }
 
@@ -8756,6 +8781,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     gwon?: NullableIntFieldUpdateOperationsInput | number | null
+    originalFee?: IntFieldUpdateOperationsInput | number
   }
 
   export type SettlementHistoryCreateManyInput = {
@@ -8779,6 +8805,7 @@ export namespace Prisma {
     createdAt?: Date | string
     appliedTonnage?: string | null
     gwon?: number | null
+    originalFee?: number
   }
 
   export type SettlementHistoryUpdateManyMutationInput = {
@@ -8800,6 +8827,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     gwon?: NullableIntFieldUpdateOperationsInput | number | null
+    originalFee?: IntFieldUpdateOperationsInput | number
   }
 
   export type SettlementHistoryUncheckedUpdateManyInput = {
@@ -8823,6 +8851,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     gwon?: NullableIntFieldUpdateOperationsInput | number | null
+    originalFee?: IntFieldUpdateOperationsInput | number
   }
 
   export type AffiliationCreateInput = {
@@ -9442,6 +9471,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     appliedTonnage?: SortOrder
     gwon?: SortOrder
+    originalFee?: SortOrder
   }
 
   export type SettlementHistoryAvgOrderByAggregateInput = {
@@ -9452,6 +9482,7 @@ export namespace Prisma {
     ton?: SortOrder
     contractId?: SortOrder
     gwon?: SortOrder
+    originalFee?: SortOrder
   }
 
   export type SettlementHistoryMaxOrderByAggregateInput = {
@@ -9475,6 +9506,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     appliedTonnage?: SortOrder
     gwon?: SortOrder
+    originalFee?: SortOrder
   }
 
   export type SettlementHistoryMinOrderByAggregateInput = {
@@ -9498,6 +9530,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     appliedTonnage?: SortOrder
     gwon?: SortOrder
+    originalFee?: SortOrder
   }
 
   export type SettlementHistorySumOrderByAggregateInput = {
@@ -9508,6 +9541,7 @@ export namespace Prisma {
     ton?: SortOrder
     contractId?: SortOrder
     gwon?: SortOrder
+    originalFee?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -10737,6 +10771,7 @@ export namespace Prisma {
     createdAt?: Date | string
     appliedTonnage?: string | null
     gwon?: number | null
+    originalFee?: number
   }
 
   export type SettlementHistoryUncheckedCreateWithoutYongchaContractInput = {
@@ -10759,6 +10794,7 @@ export namespace Prisma {
     createdAt?: Date | string
     appliedTonnage?: string | null
     gwon?: number | null
+    originalFee?: number
   }
 
   export type SettlementHistoryCreateOrConnectWithoutYongchaContractInput = {
@@ -10874,6 +10910,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"SettlementHistory"> | Date | string
     appliedTonnage?: StringNullableFilter<"SettlementHistory"> | string | null
     gwon?: IntNullableFilter<"SettlementHistory"> | number | null
+    originalFee?: IntFilter<"SettlementHistory"> | number
   }
 
   export type AffiliationUpsertWithoutYongchaContractInput = {
@@ -11187,6 +11224,7 @@ export namespace Prisma {
     createdAt?: Date | string
     appliedTonnage?: string | null
     gwon?: number | null
+    originalFee?: number
   }
 
   export type YongchaRateDetailCreateManyYongchaContractInput = {
@@ -11218,6 +11256,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     gwon?: NullableIntFieldUpdateOperationsInput | number | null
+    originalFee?: IntFieldUpdateOperationsInput | number
   }
 
   export type SettlementHistoryUncheckedUpdateWithoutYongchaContractInput = {
@@ -11240,6 +11279,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     gwon?: NullableIntFieldUpdateOperationsInput | number | null
+    originalFee?: IntFieldUpdateOperationsInput | number
   }
 
   export type SettlementHistoryUncheckedUpdateManyWithoutYongchaContractInput = {
@@ -11262,6 +11302,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appliedTonnage?: NullableStringFieldUpdateOperationsInput | string | null
     gwon?: NullableIntFieldUpdateOperationsInput | number | null
+    originalFee?: IntFieldUpdateOperationsInput | number
   }
 
   export type YongchaRateDetailUpdateWithoutYongchaContractInput = {

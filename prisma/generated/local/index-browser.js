@@ -154,7 +154,8 @@ exports.Prisma.SettlementHistoryScalarFieldEnum = {
   contractId: 'contractId',
   createdAt: 'createdAt',
   appliedTonnage: 'appliedTonnage',
-  gwon: 'gwon'
+  gwon: 'gwon',
+  originalFee: 'originalFee'
 };
 
 exports.Prisma.AffiliationScalarFieldEnum = {

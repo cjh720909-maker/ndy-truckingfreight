@@ -48,6 +48,7 @@ model SettlementHistory {
   createdAt       DateTime         @default(now())
   appliedTonnage  String?
   gwon            Int?             @default(0)
+  originalFee     Int              @default(0)
   YongchaContract YongchaContract? @relation(fields: [contractId], references: [id])
 
   @@index([date, driverName], map: "IDX_SETTLEMENT_DATE_NAME")

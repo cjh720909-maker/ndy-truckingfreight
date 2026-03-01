@@ -180,12 +180,15 @@ app.get('/api/summary', auth.verifyToken, async (req, res) => {
 
             const key = `${row.date}_${cleanDriverName}`;
             if (!consolidatedMap.has(key)) {
+                // 4. 톤수 결정: 기사 마스터에 등록된 톤수가 있으면 우선 사용, 없으면 배차 실적의 추론값 사용
+                const finalTonnage = (registeredDriver && registeredDriver.tonnage) ? registeredDriver.tonnage : row.tonnage;
+
                 consolidatedMap.set(key, {
                     date: row.date,
                     driverName: row.driverName,
                     // [개선] 기사 마스터 또는 추론된 소속 우선 사용
                     driverDiv: finalAffiliation || '-',
-                    tonnage: row.tonnage,
+                    tonnage: finalTonnage,
                     destDetail: '',
                     addrDetail: '',
                     destCount: 0,

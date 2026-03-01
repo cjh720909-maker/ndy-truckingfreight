@@ -49,43 +49,45 @@ function setDateRange(minusStart, minusEnd, btnId) {
 function setLastMonth() { setDateRange(30, 0, 'btn-last-month'); } // 기존 레거시 대응용 (필요시)
 
 /**
- * 당월(이번 달 1일 ~ 오늘) 자동 세팅 - history.js에서 이관
+ * 월별 조회 드롭다운 초기화 (현재 달 포함 과거 12개월)
  */
-function setCurrentMonth() {
-    const today = new Date();
-    const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+function initMonthPicker() {
+    const picker = document.getElementById('monthPicker');
+    if (!picker) return;
 
-    const startInput = document.getElementById('startDate');
-    const endInput = document.getElementById('endDate');
+    const today = new Date();
+    picker.innerHTML = '';
+
+    for (let i = 0; i < 12; i++) {
+        const d = new Date(today.getFullYear(), today.getMonth() - i, 1);
+        const year = d.getFullYear();
+        const month = d.getMonth() + 1;
+        const val = `${year}-${String(month).padStart(2, '0')}`;
+        const text = `${year}년 ${month}월`;
+        
+        const opt = new Option(text, val);
+        picker.add(opt);
+    }
+
+    // 초기값 설정 (현재 월)
+    const currentVal = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+    picker.value = currentVal;
     
-    if (startInput) startInput.value = toDateStr(firstDay);
-    if (endInput) endInput.value = toDateStr(today);
-
-    if (typeof fetchData === 'function') fetchData();
+    // 초기 날짜 범위 설정 (조회는 하지 않음, DOMContentLoaded에서 주관)
+    updateDateRangeByMonth(currentVal, false);
 }
 
 /**
- * 전월(지난 달 1일 ~ 말일) 자동 세팅 - history.js에서 이관
+ * 월 선택 시 처리
  */
-function setLastMonth() {
-    const today = new Date();
-    const firstDayLastMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
-    const lastDayLastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-
-    const startInput = document.getElementById('startDate');
-    const endInput = document.getElementById('endDate');
-
-    if (startInput) startInput.value = toDateStr(firstDayLastMonth);
-    if (endInput) endInput.value = toDateStr(lastDayLastMonth);
-
-    if (typeof fetchData === 'function') fetchData();
+function onMonthPickerChange(val) {
+    updateDateRangeByMonth(val, true);
 }
 
 /**
- * 월 선택 시 해당 월의 1일~말일 자동 세팅
+ * 선택된 월(YYYY-MM)에 따라 시작일/종료일 설정
  */
-function onMonthChange(val) {
-    if (!val) return;
+function updateDateRangeByMonth(val, autoFetch = true) {
     const [year, month] = val.split('-').map(Number);
     const firstDay = new Date(year, month - 1, 1);
     const lastDay = new Date(year, month, 0);
@@ -96,32 +98,17 @@ function onMonthChange(val) {
     if (startInput) startInput.value = toDateStr(firstDay);
     if (endInput) endInput.value = toDateStr(lastDay);
 
-    if (typeof fetchData === 'function') fetchData();
+    if (autoFetch && typeof fetchData === 'function') fetchData();
 }
 
 // Initialization for common elements
 document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
-    const todayStr = toDateStr(today);
-    const startInput = document.getElementById('startDate');
-    const endInput = document.getElementById('endDate');
-    const monthInput = document.getElementById('monthPicker');
+    
+    // 월별 조회 초기화
+    initMonthPicker();
+
     const dateDisplay = document.getElementById('currentDate');
-
-    // 초기값: 당월 세팅
-    const currentMonthStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
-    if (monthInput) {
-        monthInput.value = currentMonthStr;
-        // 초기 로딩 시 해당 월의 1일~오늘까지가 아닌, 1일~말일까지로 세팅 (최팀장님 요청 기반)
-        const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
-        const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-        if (startInput) startInput.value = toDateStr(firstDay);
-        if (endInput) endInput.value = toDateStr(lastDay);
-    } else {
-        if (startInput) startInput.value = todayStr;
-        if (endInput) endInput.value = todayStr;
-    }
-
     if (dateDisplay) {
         dateDisplay.innerText = today.toLocaleDateString('ko-KR', {
             weekday: 'long',

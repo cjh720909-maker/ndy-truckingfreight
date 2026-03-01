@@ -346,6 +346,17 @@ async function saveHistory(record) {
         };
 
         if (record.idx) {
+            // [추가] 기존 기록 업데이트 시, originalFee가 없는 경우(최초 전송 등)에만 설정
+            const existing = await neon.settlementHistory.findUnique({
+                where: { id: parseInt(record.idx) }
+            });
+            
+            if (existing && (!existing.originalFee || existing.originalFee === 0)) {
+                if (data.status === 'REQUESTED' || data.status === 'CHECKED' || data.status === 'FINALIZED') {
+                    data.originalFee = data.fee;
+                }
+            }
+
             return await neon.settlementHistory.update({
                 where: { id: parseInt(record.idx) },
                 data
@@ -358,13 +369,26 @@ async function saveHistory(record) {
                     driverName: { equals: data.driverName.trim(), mode: 'insensitive' }
                 }
             });
-
+ 
             if (existing) {
                 console.log(`[Storage] 기존 기록 발견 (ID: ${existing.id}), 업데이트로 전환합니다.`);
+                
+                // 업데이트 시에도 originalFee 로직 적용
+                if (!existing.originalFee || existing.originalFee === 0) {
+                   if (data.status === 'REQUESTED' || data.status === 'CHECKED' || data.status === 'FINALIZED') {
+                       data.originalFee = data.fee;
+                   }
+                }
+
                 return await neon.settlementHistory.update({
                     where: { id: existing.id },
                     data
                 });
+            }
+
+            // 신규 생성 시: 전송 상태라면 originalFee 설정
+            if (data.status === 'REQUESTED' || data.status === 'CHECKED' || data.status === 'FINALIZED') {
+                data.originalFee = data.fee;
             }
 
             return await neon.settlementHistory.create({ data });

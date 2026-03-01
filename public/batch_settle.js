@@ -81,6 +81,7 @@ async function loadBatchSettleData() {
                     ...daily,
                     idx: history.id || history.idx,
                     status: status,
+                    originalFee: history.originalFee || 0,
                     isPbox: history.isPbox || false,
                     isReturn: history.isReturn || false,
                     gwon: history.gwon || 0,
@@ -90,7 +91,7 @@ async function loadBatchSettleData() {
                     selectedTonnage: history.appliedTonnage || daily.tonnage
                 };
             }
-            return { ...daily, status: 'NEW', isInHistory: false, gwon: 0, selectedTonnage: daily.tonnage || '1T' };
+            return { ...daily, status: 'NEW', originalFee: 0, isInHistory: false, gwon: 0, selectedTonnage: daily.tonnage || '1T' };
         });
 
         if (batchData.length === 0) {
@@ -137,8 +138,22 @@ function calculateSmartPrice(row, isPbox = false, isReturn = false, gwon = 0, se
     // 실제 방문한 '물리적 권역' 목록 추출 (예: ['부산', '양산'])
     const regionsInAddr = [...new Set(addrs.map(addr => parseRegionFromAddress(addr)).filter(r => r))];
 
-    // 1. 기본 단가 찾기
+    // 1. 기본 단가 찾기 및 유효 권역 분석
     let basePrice = 0;
+    const cleanRowDiv = (row.driverDiv || '').replace(/\s/g, '');
+    
+    // 해당 운송사의 전용 단가가 존재하는 권역들만 '유효 권역'으로 카운트
+    const validRegions = regionsInAddr.filter(reg => {
+        const matchingFees = localFeeMaster.filter(f => {
+            if (f.status !== 'ACTIVE') return false;
+            const fRegs = f.region.split(',').map(s => s.trim());
+            const isRegionMatch = fRegs.some(fr => fr === reg || fr.includes(reg) || reg.includes(fr));
+            const isAffMatch = (f.affiliation || '').replace(/\s/g, '') === cleanRowDiv;
+            return isRegionMatch && isAffMatch;
+        });
+        return matchingFees.length > 0;
+    });
+
     regionsInAddr.forEach(reg => {
         // (A) 먼저 지역이 맞는 모든 단가를 필터링
         const allMatchingFees = localFeeMaster.filter(f => {
@@ -149,7 +164,6 @@ function calculateSmartPrice(row, isPbox = false, isReturn = false, gwon = 0, se
         });
 
         if (allMatchingFees.length > 0) {
-            const cleanRowDiv = (row.driverDiv || '').replace(/\s/g, '');
             // (B) 그 중 소속사까지 일치하는 단가가 있는지 확인
             const specificFees = allMatchingFees.filter(f => (f.affiliation || '').replace(/\s/g, '') === cleanRowDiv);
             
@@ -163,17 +177,22 @@ function calculateSmartPrice(row, isPbox = false, isReturn = false, gwon = 0, se
 
     // 2. 추가 요금 산출
     function getExtraFee(name) {
-        const cleanRowDiv = (row.driverDiv || '').replace(/\s/g, '');
+        const isMatch = (f) => f.status === 'ACTIVE' && f.region === name;
         
-        // [수정] 추가 요금도 톤수 'ALL' 허용 및 공백 무시 비교 적용
-        function isMatch(f) {
-            return f.status === 'ACTIVE' && f.region === name;
-        }
-
-        const fee = localFeeMaster.find(f => isMatch(f) && (f.affiliation || '').replace(/\s/g, '') === cleanRowDiv) ||
-            localFeeMaster.find(f => isMatch(f));
-            
-        return parseInt(fee?.price || 0);
+        // 1. 해당 운송사의 전용 단가가 하나라도 존재하는지 체크 (managed 업체 여부 확인)
+        const hasAnySpecificFee = localFeeMaster.some(f => (f.affiliation || '').replace(/\s/g, '') === cleanRowDiv);
+        
+        // 2. 해당 운송사 전용의 특정 추가 요금(명칭 일치)이 있는지 확인
+        const specificFee = localFeeMaster.find(f => isMatch(f) && (f.affiliation || '').replace(/\s/g, '') === cleanRowDiv);
+        if (specificFee) return parseInt(specificFee.price || 0);
+        
+        // 3. [핵심 수정] 해당 운송사 전용 단가표가 있는 업체라면, 전용 항목이 없을 때 전역 설정을 따르지 않음
+        // (단가표가 등록된 업체는 모든 항목이 해당 단가표 내에 정의되어야 함을 전제로 함)
+        if (hasAnySpecificFee) return 0;
+        
+        // 4. 단가표 자체가 없는 완전 외부 업체(unmanaged)만 전역 설정을 참고
+        const globalFee = localFeeMaster.find(f => isMatch(f));
+        return parseInt(globalFee?.price || 0);
     }
 
     const regionExtraStepSize = getExtraFee('권역추가');
@@ -190,10 +209,10 @@ function calculateSmartPrice(row, isPbox = false, isReturn = false, gwon = 0, se
     if (basePrice > 0) {
         reasonParts.push(`${formatNumber(basePrice)}원`);
 
-        // (1) 권역 추가: 방문한 '물리적 권역'이 2개 이상일 때 (최팀장님 핵심 요청)
-        // 예: 부산+양산 방문 시 1개 추가
-        if (regionsInAddr.length > 1) {
-            const zoneAddCount = regionsInAddr.length - 1;
+        // (1) 권역 추가: 해당 운송사 전용 단가가 설정된 '유효 권역'이 2개 이상일 때만 적용
+        // 단가표가 없는 운송사는 validRegions.length가 0 또는 1이 되어 추가금이 발생하지 않음
+        if (validRegions.length > 1) {
+            const zoneAddCount = validRegions.length - 1;
             const zoneAddTotal = zoneAddCount * regionExtraStepSize;
             if (zoneAddTotal > 0) {
                 extraAmount += zoneAddTotal;
@@ -358,16 +377,27 @@ function renderBatchSettleTable() {
                         <option value="기타" ${row.selectedTonnage === '기타' ? 'selected' : ''}>기타</option>
                     </select>
                 </td>
-                <td id="batch-price-display-${i}" class="px-1 text-right font-bold text-blue-600 bg-blue-50/20">
-                    ${formatNumber(calc.finalPrice)}
+                <td id="batch-price-display-${i}" class="px-1 text-right font-bold transition-colors ${row.originalFee > 0 && row.originalFee !== calc.finalPrice ? 'bg-yellow-100 text-red-600' : 'bg-blue-50/20 text-blue-600'}">
+                    <div class="flex flex-col items-end">
+                        ${row.originalFee > 0 && row.originalFee !== calc.finalPrice ? `<span class="text-[8px] text-slate-400 line-through font-normal">${formatNumber(row.originalFee)}</span>` : ''}
+                        <span>${formatNumber(calc.finalPrice)}</span>
+                    </div>
                 </td>
-                <td class="px-1">
+                <td class="px-2 relative group ${isLocked ? '' : 'cursor-help'}">
                     <input type="text" id="batch-reason-${i}" value="${calc.reason}" ${isLocked ? 'disabled' : ''}
-                        class="w-full px-1 py-0.5 border border-transparent rounded text-[9px] text-slate-500 bg-transparent focus:bg-white focus:border-indigo-300 transition-colors"
+                        class="w-full px-1 py-0.5 border border-transparent rounded text-[9px] text-slate-500 bg-transparent focus:bg-white focus:border-indigo-300 transition-colors truncate"
                         onchange="batchData[${i}].calc.reason = this.value">
+                    <!-- 상세 분석 툴팁 UI -->
+                    <div class="hidden group-hover:block absolute right-0 top-full mt-1 bg-slate-900 text-white text-[10px] p-3 rounded-lg shadow-2xl z-[110] whitespace-normal min-w-[250px] border border-slate-700 backdrop-blur-sm bg-opacity-95 pointer-events-none">
+                        <div class="flex items-center gap-1.5 mb-2 pb-1.5 border-b border-slate-700/50">
+                            <i class="fas fa-info-circle text-indigo-400 text-[11px]"></i>
+                            <span class="font-bold text-slate-200">정산 상세 분석 내역</span>
+                        </div>
+                        <div class="text-slate-300 leading-relaxed">${calc.reason || '분석 정보 없음'}</div>
+                    </div>
                 </td>
-                <td class="px-1 text-center">
-                    <div class="flex justify-center gap-1">
+                <td class="px-1 text-right">
+                    <div class="flex justify-end gap-1 text-[9px]">
                         ${renderStatusButtons(row, i)}
                     </div>
                 </td>
@@ -402,8 +432,7 @@ function renderStatusButtons(row, i) {
         if (row.status === 'NEW') return `${statusHtml}<button onclick="updateRowStatus(${i}, 'REQUESTED')" class="bg-indigo-600 text-white px-2 py-1 rounded text-[9px] font-bold shadow-sm hover:scale-105 transition-transform">전송🚩</button>`;
         if (row.status === 'CHECKED') return `${statusHtml}<button onclick="updateRowStatus(${i}, 'FINALIZED')" class="bg-emerald-600 text-white px-2 py-1 rounded text-[9px] font-bold shadow-sm hover:scale-105 transition-transform">확정🏁</button>`;
         if (row.status === 'REQUESTED') {
-            const btnHtml = isSystemAdmin ? `<button onclick="updateRowStatus(${i}, 'CHECKED')" class="bg-amber-500 text-white px-2 py-1 rounded text-[9px] font-bold shadow-sm hover:scale-105 transition-transform ml-1">검토완료(대행)✅</button>` : '';
-            return `${statusHtml}<span class="text-blue-500 text-[9px] font-bold animate-pulse italic">[운수사 확인중]</span>${btnHtml}`;
+            return `${statusHtml}<span class="text-blue-500 text-[9px] font-bold animate-pulse italic">[운수사 확인중]</span>`;
         }
     } else if (userRole === 'TRANSPORT') {
         if (row.status === 'REQUESTED') return `${statusHtml}<button onclick="updateRowStatus(${i}, 'CHECKED')" class="bg-amber-500 text-white px-2 py-1 rounded text-[9px] font-bold shadow-sm hover:scale-105 transition-transform">검토완료✅</button>`;

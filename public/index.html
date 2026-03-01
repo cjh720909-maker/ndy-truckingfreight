@@ -107,9 +107,9 @@
         <div
             class="h-16 flex items-center justify-between px-6 font-bold text-xl tracking-wider text-white bg-indigo-950">
             <span class="flex items-center gap-2">
-                🚚 NDY
+                🚚 NDY 용차 정산
                 <span id="auth-user-name"
-                    class="text-[10px] bg-indigo-700 px-1.5 py-0.5 rounded-full font-normal opacity-80">Guest</span>
+                    class="hidden">Guest</span>
             </span>
             <div class="flex items-center gap-1">
                 <button onclick="Auth.logout()" class="text-indigo-300 hover:text-white transition-colors text-xs"
@@ -205,32 +205,33 @@
         <div class="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-sm flex-shrink-0">
             <div class="max-w-7xl mx-auto divide-y divide-slate-100">
                 <div id="filter-area"
-                    class="px-4 py-0.5 bg-white flex items-center justify-between gap-3 text-[11px] border-b border-slate-200">
-                    <div class="flex items-center gap-3 flex-grow overflow-x-auto no-scrollbar">
-                        <!-- Sidebar Toggle (Moved here) -->
-                        <!-- Sidebar Toggle Moved to Main Content Relative Container below -->
-                        <div id="date-filter-box" class="flex items-center gap-1 flex-shrink-0">
-                            <span class="font-bold text-slate-400">월별조회</span>
-                            <input type="month" id="monthPicker" onchange="onMonthChange(this.value)" 
-                                class="px-1.5 py-0.5 border rounded bg-indigo-50 font-bold text-indigo-700 outline-none focus:ring-1 focus:ring-indigo-500">
-                            <div class="h-4 w-px bg-slate-200 mx-1"></div>
-                            <span class="font-bold text-slate-400">기간</span>
-                            <input type="date" id="startDate" class="px-1.5 py-0.5 border rounded bg-white">
-                            <span class="text-slate-300">-</span>
-                            <input type="date" id="endDate" class="px-1.5 py-0.5 border rounded bg-white">
+                    class="px-4 py-1.5 bg-white flex items-center justify-between gap-3 text-[11px] border-b border-slate-200">
+                    <div class="flex items-center gap-2 flex-grow overflow-x-auto no-scrollbar py-0.5">
+                        <div id="date-btn-group" class="flex items-center gap-2 flex-shrink-0 mr-2">
+                            <span class="font-bold text-slate-400 whitespace-nowrap">월별조회</span>
+                            <select id="monthPicker" onchange="onMonthPickerChange(this.value)" 
+                                class="px-2 py-1 border rounded bg-indigo-50 text-indigo-700 font-bold text-[10px] outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
+                                <!-- JS에서 동적 생성 -->
+                            </select>
                         </div>
-                        <div id="driver-filter-group" class="flex items-center gap-1 flex-shrink-0">
-                            <span class="font-bold text-slate-400">소속 및 기사</span>
+                        <div class="h-4 w-px bg-slate-200 mx-1 flex-shrink-0"></div>
+                        <div id="date-filter-box" class="flex items-center gap-2 flex-shrink-0">
+                            <span class="font-bold text-slate-400 whitespace-nowrap ml-1">기간</span>
+                            <input type="date" id="startDate" class="px-1.5 py-1 border rounded bg-white text-[10px] outline-none focus:ring-1 focus:ring-indigo-500 w-[110px]">
+                            <span class="text-slate-300">-</span>
+                            <input type="date" id="endDate" class="px-1.5 py-1 border rounded bg-white text-[10px] outline-none focus:ring-1 focus:ring-indigo-500 w-[110px]">
+                        </div>
+                        <div class="h-4 w-px bg-slate-200 mx-1 flex-shrink-0"></div>
+                        <div id="driver-filter-group" class="flex items-center gap-2 flex-shrink-0">
+                            <span class="font-bold text-slate-400 whitespace-nowrap">소속 및 기사</span>
                             <input type="text" id="driverInput" placeholder="소속 또는 기사명" autocomplete="off"
-                                class="w-32 px-1.5 py-0.5 border rounded bg-white outline-none focus:ring-1 focus:ring-indigo-500">
+                                class="w-32 px-1.5 py-1 border rounded bg-white text-[10px] outline-none focus:ring-1 focus:ring-indigo-500">
                         </div>
                         <button id="btn-fetch-data" onclick="fetchData()"
-                            class="px-4 py-1.5 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 shadow-sm transition-all ml-2">조회</button>
+                            class="px-4 py-1 bg-indigo-600 text-white rounded-lg font-bold text-[11px] hover:bg-indigo-700 shadow-sm transition-all flex-shrink-0">조회</button>
                     </div>
-
-                    <!-- Batch Operations (Removed from here, moved to batch-settle view) -->
-                    <div id="batch-actions-placeholder"></div>
                 </div>
+                <div id="batch-actions-placeholder"></div>
 
                 <!-- Summary Chips Area (Hidden in settlement-history to save space) -->
                 <div id="summary-container" class="px-4 py-0.5 bg-white border-b border-slate-100">
@@ -313,21 +314,41 @@
                     </div>
 
                     <!-- Header (Fixed) -->
-                    <div
-                        class="bg-indigo-900 text-white flex px-2 py-1 rounded-t-md font-bold text-[10px] uppercase shadow-md flex-shrink-0 items-center">
-                        <div class="w-[35px] text-center flex-shrink-0">No.</div>
-                        <div class="w-[70px] text-center flex-shrink-0">일자</div>
-                        <div class="w-[60px] text-center flex-shrink-0">기사명</div>
-                        <div class="w-[70px] text-center flex-shrink-0">소속</div>
-                        <div class="w-[180px] text-left px-2 flex-shrink-0">주소 (요약)</div>
-                        <div class="w-[30px] text-center flex-shrink-0">콜</div>
-                        <div class="w-[30px] text-center flex-shrink-0">P</div>
-                        <div class="w-[30px] text-center flex-shrink-0">회</div>
-                        <div class="w-[80px] text-center flex-shrink-0">추가</div>
-                        <div class="w-[60px] text-center flex-shrink-0">차량</div>
-                        <div class="w-[80px] text-right flex-shrink-0 px-2">합계</div>
-                        <div class="flex-grow px-2">상태 분석</div>
-                        <div class="w-[150px] text-center flex-shrink-0">진행 상태</div>
+                    <div class="bg-indigo-900 text-white rounded-t-md shadow-md flex-shrink-0 overflow-hidden">
+                        <table class="w-full text-left text-[10px] table-fixed uppercase font-bold">
+                            <colgroup>
+                                <col style="width: 35px;">
+                                <col style="width: 70px;">
+                                <col style="width: 60px;">
+                                <col style="width: 70px;">
+                                <col style="width: 180px;">
+                                <col style="width: 30px;">
+                                <col style="width: 30px;">
+                                <col style="width: 30px;">
+                                <col style="width: 80px;">
+                                <col style="width: 60px;">
+                                <col style="width: 80px;">
+                                <col>
+                                <col style="width: 100px;">
+                            </colgroup>
+                            <thead>
+                                <tr class="h-8">
+                                    <th class="text-center px-1">No.</th>
+                                    <th class="text-center px-1">일자</th>
+                                    <th class="text-center px-1">기사명</th>
+                                    <th class="text-center px-1">소속</th>
+                                    <th class="text-left px-2">주소 (요약)</th>
+                                    <th class="text-center px-1">콜</th>
+                                    <th class="text-center px-1">P</th>
+                                    <th class="text-center px-1">회</th>
+                                    <th class="text-center px-1">추가</th>
+                                    <th class="text-center px-1">차량</th>
+                                    <th class="text-right px-2">합계</th>
+                                    <th class="text-center px-2">상태 분석</th>
+                                    <th class="text-center px-1">진행 상태</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
 
                     <!-- Body (Scrollable) -->
@@ -347,7 +368,7 @@
                                 <col style="width: 60px;">
                                 <col style="width: 80px;">
                                 <col>
-                                <col style="width: 150px;">
+                                <col style="width: 100px;">
                             </colgroup>
                             <tbody id="batch-settle-tableBody" class="divide-y divide-slate-100 text-slate-600"></tbody>
                         </table>
