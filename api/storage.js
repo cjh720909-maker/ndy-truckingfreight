@@ -3,6 +3,7 @@ const mysql = new MySQLClient();
 
 const { PrismaClient: NeonClient } = require('../prisma/generated/neon');
 const neon = new NeonClient();
+const bcrypt = require('bcrypt');
 console.log("[Storage] 실제 Neon PostgreSQL DB를 사용 중입니다.");
 
 // --- Fee Master Functions ---
@@ -496,7 +497,6 @@ async function saveAffiliation(aff) {
             }
 
             if (aff.loginId && aff.password) {
-                const bcrypt = require('bcrypt');
                 const hashedPassword = await bcrypt.hash(aff.password, 10);
 
                 const existingUser = await tx.user.findUnique({
